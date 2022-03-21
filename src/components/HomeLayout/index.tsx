@@ -14,7 +14,7 @@ export default function HomeLayout({ children }: { children: React.ReactNode }) 
   const isVerySmallScreen = useMediaQuery("(max-width: 379px)");
 
   const enterHandler = () => {
-    window.open(window.location.origin + "/#/dashboard");
+    // window.open(window.location.origin + "/#/dashboard");
   };
 
   return (
@@ -42,7 +42,7 @@ export default function HomeLayout({ children }: { children: React.ReactNode }) 
           </div>
           <div className="header-right">
             <Link underline="none">
-              <Button variant="contained" className="header-btn" disabled onClick={enterHandler}>
+              <Button variant="contained" className="header-btn" onClick={enterHandler}>
                 Enter App
               </Button>
             </Link>
