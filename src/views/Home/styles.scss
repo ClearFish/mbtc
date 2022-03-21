@@ -1,0 +1,328 @@
+.block1 {
+    width: 100%;
+    height: 100vh;
+    overflow: inherit;
+    background-image: linear-gradient(130deg,rgb(30, 8, 61),rgb(9, 10, 13) 35%);
+    position: relative;
+    .meta-img {
+        display: block;
+        width: 600px;
+        object-fit: contain;
+        margin-bottom: 4rem;
+    }
+    .tng-text {
+        display: block;
+        width: 542px;
+        font-family: 'Manrope';
+        font-weight: 800;
+        font-size: 42.5808px;
+        line-height: 46px;
+        letter-spacing: -0.04em;
+        background: linear-gradient(89.97deg, #AE67FA 1.84%, #F49867 102.67%);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+        margin-bottom: 4rem;
+    }
+
+    .bitcoin-img {
+        width: 560px;
+        object-fit: contain;
+    }
+    .mbtc-txt {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        background: linear-gradient(180deg, #4ED1C2 0%, #6A2595 124.69%);
+        font-family: 'Manrope';
+        font-style: normal;
+        font-weight: 800;
+        font-size: 42.5808px;
+        line-height: 46px;
+        letter-spacing: -0.04em;
+        color: #FFFFFF;
+        text-align: center;
+        height: 80px;
+        line-height: 80px;
+    }
+    .block-right {
+        min-height: 427px;
+    }
+
+    &.economy {
+        background: #040407;
+    }
+}
+.block2 {
+    width: 100%;
+    height: 100vh;
+    background: #040407;
+    font-family: 'Manrope';
+    position: relative;
+    overflow: hidden;
+    .diamond-img {
+        width: 1000px;
+        object-fit: cover;
+        max-height: 100vh;
+        position: relative;
+        z-index: 100;
+    }
+    .block-right {
+        width: 55%;
+        z-index: 100;
+    }
+    .wimb-text {
+        width: 534px;
+        height: 156px;
+        font-weight: 800;
+        font-size: 85.2883px;
+        line-height: 78px;
+        letter-spacing: -0.04em;
+        color: #FFFFFF;
+        position: relative;
+        margin-bottom: 4rem;
+        &:after {
+            content: "";
+            display: block;
+            position: absolute;
+            width: 100%;
+            bottom: -1rem;
+            height: 5px;
+            background: linear-gradient(90deg, #AF68FC 0%, #F3976C 100%);
+            border-radius: 2px;
+        }
+    }
+    .bitcoin-list {
+        font-style: normal;
+        font-weight: 500;
+        font-size: 16.5px;
+        line-height: 28px;
+        letter-spacing: -0.04em;
+        color: #FFFFFF;
+        margin-bottom: 4rem;
+    }
+    .download-btn {
+        font-style: normal;
+        font-weight: 800;
+        font-size: 22.1848px;
+        line-height: 20px;
+        letter-spacing: -0.04em;
+        color: #FFFFFF;
+        border-radius: 10px;
+        background: linear-gradient(91.96deg, #66018C 19.85%, #6301DC 87.84%);
+        transition: all .2s ease-in-out;
+        &:hover {
+            background: linear-gradient(91.96deg, #5a017b 19.85%, #5b01cb 87.84%);
+        }
+    }
+}
+.block3 {
+    background: #040407;
+    font-family: 'Manrope';
+    overflow: hidden;
+    padding-bottom: 5rem;
+    .block-card {
+        height: 400px;
+        border-radius: 15px;
+        .card-title {
+            font-size: 2rem;
+            font-family: PingFang SC;
+            font-weight: bold;
+            color: #FFFFFF;
+            line-height: 45px;
+            padding: 1rem 1.6rem;
+        }
+    }
+    .block-title {
+        font-size: 3rem;
+        font-family: PingFang SC;
+        font-weight: 800;
+        color: #FFFFFF;
+        line-height: 220px;
+    }
+    .block-partner {
+        width: 100%;
+        align-items: center;
+    }
+    .block-todo {
+        padding: 2rem;
+        .todo-title {
+            font-size: 1.4rem;
+            font-family: PingFang SC;
+            font-weight: 800;
+            color: #FFFFFF;
+            line-height: 38px;
+        }
+        ul {
+            padding: 0;
+            margin: 0;
+        }
+        li {
+            font-size: 1rem;
+            font-family: PingFang SC;
+            font-weight: bold;
+            color: #EDEDED;
+            line-height: 39px;
+            text-decoration: none;
+            list-style: none;
+            position: relative;
+            padding-left: 1.5rem;
+            &:before {
+                content: "";
+                display: block;
+                width: 1rem;
+                height: 1rem;
+                background: url("../../assets/images/todo.png") center no-repeat;
+                background-size: 100%;
+                position: absolute;
+                left: 0;
+                top: 0;
+                bottom: 0;
+                margin: auto;
+            }
+            &.done {
+                &:before {
+                    content: "";
+                    display: block;
+                    width: 1rem;
+                    height: 1rem;
+                    background: url("../../assets/images/done.png") center no-repeat;
+                    background-size: 100%;
+                    position: absolute;
+                    left: 0;
+                    top: 0;
+                    bottom: 0;
+                    margin: auto;
+                }
+            }
+        }
+    }
+    .roadmap {
+        .MuiGrid-item:nth-child(1) .block-todo,
+        .MuiGrid-item:nth-child(2) .block-todo,
+        .MuiGrid-item:nth-child(3) .block-todo {
+            padding-top: 0;
+        }
+        .MuiGrid-item:nth-child(4) {
+           border-top: 1px solid #FFFFFF;
+           position: relative;
+           &:after {
+               content: "";
+               display: block;
+               position: absolute;
+               width: 100%;
+               height: 1px;
+               background: #FFFFFF;
+               top: -1px;
+               left: -100%;
+           }
+        }
+
+        .MuiGrid-item:nth-child(5) {
+           border-top: 1px solid #FFFFFF;
+           border-bottom: 1px solid #FFFFFF;
+        }
+        .MuiGrid-item:nth-child(6) {
+            border-radius: 0 15px 15px 0;
+            border-right: 1px solid #FFFFFF;
+            border-top: 1px solid #FFFFFF;
+            border-bottom: 1px solid #FFFFFF;
+        }
+        .MuiGrid-item:nth-child(7) {
+            border-radius: 15px 0 0 15px;
+            border-left: 1px solid #FFFFFF;
+            border-top: 1px solid #FFFFFF;
+            border-bottom: 1px solid #FFFFFF;
+            margin: -1px;
+        }
+        .MuiGrid-item:nth-child(8) {
+            border-bottom: 1px solid #FFFFFF;
+            margin: -1px;
+            position: relative;
+           &:after {
+               content: "";
+               display: block;
+               position: absolute;
+               width: 100%;
+               height: 1px;
+               background: #FFFFFF;
+               bottom: -1px;
+               right: -100%;
+           }
+        }
+    }
+}
+.block4 {
+    background: #040407;
+    font-family: 'Manrope';
+    font-style: normal;
+    .card-text {
+        font-weight: 800;
+        font-size: 2rem;
+        line-height: 2.25rem;
+        letter-spacing: -0.055em;
+        color: #FFFFFF;
+        margin-bottom: 1rem;
+    }
+    .card-info {
+        font-weight: 500;
+        font-size: 1rem;
+        line-height: 1.5rem;
+        color: #FFFFFF;
+        text-shadow: 0px 3px 3px rgba(0, 0, 0, 0.25);
+    }
+    .card-img {
+        width: 95%;
+        object-fit: cover;
+    }
+}
+.block5 {
+    background: #040407;
+    font-family: 'Manrope';
+    font-style: normal;
+    .foundation-bg {
+        background: url("../../assets/images/golden-bitcoin.png") no-repeat;
+        background-position: calc(100% - 3rem) 13rem;
+        background-size: 400px;
+    }
+    .gradient-text {
+        font-weight: 800;
+        font-size: 2.5rem;
+        line-height: 46px;
+        letter-spacing: -0.04em;
+        background: linear-gradient(89.97deg, #AE67FA 1.84%, #F49867 102.67%);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+        padding-top: 3rem;
+        padding-bottom: 2rem;
+    }
+    .normal-text {
+        padding-left: 2rem;
+        font-weight: 500;
+        font-size: 1rem;
+        line-height: 41px;
+        color: #FFFFFF;
+    }
+    .board-list {
+        display: flex;
+        justify-content: space-between;
+        margin-top: 1rem;
+        .board-card {
+            width: 13.5%;
+            overflow: hidden;
+            border-radius: 5px;
+            background: #040407;
+            .MuiCardContent-root {
+                padding: 0;
+                color: #FFFFFF;
+                .MuiTypography-h6 {
+                    padding-top: 0.2rem;
+                    font-size: 1rem;
+                    line-height: 2rem;
+                }
+            }
+        }
+    }
+}

@@ -1,0 +1,71 @@
+.fixed-header {
+    position: fixed;
+    left: 0;
+    top: 0;
+    right: 0;
+    background-color: rgba(255, 255, 255, .05);
+    backdrop-filter: blur(6px);
+    padding: 20px 0;
+    z-index: 999;
+}
+.header-left {
+    display: flex;
+    align-items: center;
+    .header-logo {
+        width: 60px;
+        object-fit: contain;
+        margin-right: 4rem;
+    }
+    a {
+        color: #FFFFFF;
+        transition: color .2s ease-in-out;
+        margin-right: 3rem;
+        &:hover {
+            color: #ccd2d4;
+        }
+    }
+}
+.header-right {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    .header-btn {
+        background-color: #ffc768;
+        border-radius: 27px;
+        color: #000;
+        font-weight: bold;
+        transition: color .2s ease-in-out,background-color .2s ease-in-out;
+        &:hover {
+            background-color: #eeb657;
+        }
+    }
+}
+.social-link {
+    img {
+        width: 50px;
+        object-fit: cover;
+        margin-right: 2rem;
+    }
+    a:last-child img{
+        margin-right: 0;
+    }
+}
+.bottom {
+    background: #040407 url("../../assets/images/eclipse.png") no-repeat;
+    background-size: 160% auto;
+    background-position: top;
+    .bottom-title {
+        font-family: 'Manrope';
+        font-style: normal;
+        font-weight: 800;
+        font-size: 62px;
+        line-height: 75px;
+        text-align: center;
+        letter-spacing: -0.04em;
+        background: linear-gradient(89.97deg, #AE67FA 1.84%, #F49867 102.67%);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+        padding-top: 3rem;
+    }
+}
