@@ -83,8 +83,10 @@ const NavContent: React.FC<NavContentProps> = ({ handleDrawerToggle }) => {
               {networkId === NetworkId.MAINNET || networkId === NetworkId.TESTNET_RINKEBY ? (
                 <>
                   <NavItem to="/dashboard" icon={"dashboard"} label={t`Dashboard`} />
-                  <NavItem to="/bonds" icon="bond" label={t`Bond`} />
-                  <div className="dapp-menu-data discounts">
+                  <NavItem to="/miner" icon={"dashboard"} label={t`Miner`} />
+                  <NavItem to="/pool" icon={"dashboard"} label={t`Pool`} />
+                  {/* <NavItem to="/bonds" icon="bond" label={t`Bond`} /> */}
+                  {/* <div className="dapp-menu-data discounts">
                     <div className="bond-discounts">
                       {sortedBonds.length > 0 && (
                         <Accordion className="discounts-accordion" square defaultExpanded={true}>
@@ -153,13 +155,17 @@ const NavContent: React.FC<NavContentProps> = ({ handleDrawerToggle }) => {
                         </Accordion>
                       )}
                     </div>
-                  </div>
+                  </div> */}
                   <NavItem to="/stake" icon="stake" label={t`Stake`} />
 
-                  {/* NOTE (appleseed-olyzaps): OlyZaps disabled until v2 contracts */}
-                  <NavItem to="/zap" icon="zap" label={t`Zap`} />
+                  <NavItem to="/nftmarket" icon="stake" label={t`NFT Market`} />
 
-                  {Environment.isGiveEnabled() && <NavItem to="/give" icon="give" label={t`Give`} chip={t`New`} />}
+                  <NavItem to="/blindbox" icon="stake" label={t`Blind Box`} />
+
+                  {/* NOTE (appleseed-olyzaps): OlyZaps disabled until v2 contracts */}
+                  {/* <NavItem to="/zap" icon="zap" label={t`Zap`} /> */}
+
+                  {/* {Environment.isGiveEnabled() && <NavItem to="/give" icon="give" label={t`Give`} chip={t`New`} />}
                   <NavItem to="/wrap" icon="wrap" label={t`Wrap`} />
                   <NavItem
                     href={"https://synapseprotocol.com/?inputCurrency=gOHM&outputCurrency=gOHM&outputChain=43114"}
@@ -168,12 +174,12 @@ const NavContent: React.FC<NavContentProps> = ({ handleDrawerToggle }) => {
                   />
                   <Box className="menu-divider">
                     <Divider />
-                  </Box>
-                  <NavItem href="https://pro.olympusdao.finance/" icon="olympus" label={t`Olympus Pro`} />
+                  </Box> */}
+                  {/* <NavItem href="https://pro.olympusdao.finance/" icon="olympus" label={t`Olympus Pro`} /> */}
                   {/* <NavItem to="/33-together" icon="33-together" label={t`3,3 Together`} /> */}
-                  <Box className="menu-divider">
+                  {/* <Box className="menu-divider">
                     <Divider />
-                  </Box>
+                  </Box> */}
                 </>
               ) : (
                 <>
@@ -186,14 +192,14 @@ const NavContent: React.FC<NavContentProps> = ({ handleDrawerToggle }) => {
                 </>
               )}
               {}
-              {Object.keys(externalUrls).map((link: any, i: number) => (
+              {/* {Object.keys(externalUrls).map((link: any, i: number) => (
                 <NavItem
                   key={i}
                   href={`${externalUrls[link].url}`}
                   icon={externalUrls[link].icon as any}
                   label={externalUrls[link].title as any}
                 />
-              ))}
+              ))} */}
             </div>
           </div>
         </div>
