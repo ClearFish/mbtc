@@ -1,6 +1,6 @@
 .block1 {
     width: 100%;
-    height: 100vh;
+    min-height: 100vh;
     overflow: inherit;
     background-image: linear-gradient(130deg,rgb(30, 8, 61),rgb(9, 10, 13) 35%);
     position: relative;
@@ -56,7 +56,7 @@
 }
 .block2 {
     width: 100%;
-    height: 100vh;
+    min-height: 100vh;
     background: #040407;
     font-family: 'Manrope';
     position: relative;
