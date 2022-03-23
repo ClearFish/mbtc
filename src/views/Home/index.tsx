@@ -1,9 +1,9 @@
 import "./styles.scss";
 import MetaBitcon from "../../assets/images/meta-bitcoin.png";
-import Twitter from "../../assets/images/twitter.png";
-import Telegram from "../../assets/images/telegram.png";
-import Github from "../../assets/images/github.png";
-import AndSoOn from "../../assets/images/andsoon.png";
+import Twitter from "../../assets/icons/twitter.svg";
+import Telegram from "../../assets/icons/telegram.svg";
+import Github from "../../assets/icons/github.svg";
+import AndSoOn from "../../assets/icons/medium.svg";
 import HugeBitcoin from "../../assets/images/huge-bitcoin.png";
 import HugeDiamond from "../../assets/images/huge-diamond.png";
 import CardMBTC from "../../assets/images/card-mbtc.png";
@@ -46,7 +46,7 @@ export function Home() {
           <div className="block-left">
             <img src={MetaBitcon} alt="" className="meta-img" />
             <Typography variant="body1" align="left" className="tng-text">
-              The Next Generation Crypto Providing a Cross-chain Standard in the Metaverse
+              The Next Generation Crypto Providing a Cross-chain Trust Standard in the Metaverse
             </Typography>
             <div className="social-link">
               <Link href="#/home" underline="none">

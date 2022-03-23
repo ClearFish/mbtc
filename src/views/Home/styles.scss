@@ -281,6 +281,7 @@
     background: #040407;
     font-family: 'Manrope';
     font-style: normal;
+    min-height: calc(100vh - 300px);
     .foundation-bg {
         background: url("../../assets/images/golden-bitcoin.png") no-repeat;
         background-position: calc(100% - 3rem) 13rem;

@@ -2,10 +2,10 @@
 import "./style.scss";
 
 import Logo from "../../assets/images/mbtc-logo.png";
-import Twitter from "../../assets/images/twitter.png";
-import Telegram from "../../assets/images/telegram.png";
-import Github from "../../assets/images/github.png";
-import AndSoOn from "../../assets/images/andsoon.png";
+import Twitter from "../../assets/icons/twitter.svg";
+import Telegram from "../../assets/icons/telegram.svg";
+import Github from "../../assets/icons/github.svg";
+import AndSoOn from "../../assets/icons/medium.svg";
 
 import { Container, useMediaQuery, Link, Typography, Button } from "@material-ui/core";
 
