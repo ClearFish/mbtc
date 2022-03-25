@@ -45,7 +45,7 @@ export default function HomeLayout({ children }: { children: React.ReactNode }) 
             </Link>
           </div>
           <div className="header-right">
-            <Link href={window.location.origin + "/#/dashboard"} target="_blank" underline="none">
+            <Link href={window.location.origin + ""} underline="none">
               <Button variant="contained" className="header-btn">
                 Enter App
               </Button>
