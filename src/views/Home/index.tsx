@@ -129,26 +129,29 @@ export function Home() {
         >
           <Grid container spacing={8}>
             <Grid item xs={6}>
-              <div
+              <Link
                 className="block-card"
+                href="#/economy#mbtc"
+                underline="none"
                 style={{
                   background: `url(${CardMBTC})`,
                   backgroundSize: "100%",
                 }}
               >
                 <Typography className="card-title">MBTC</Typography>
-              </div>
+              </Link>
             </Grid>
             <Grid item xs={6}>
-              <div
+              <Link
                 className="block-card"
+                href="#/economy#mfuel"
                 style={{
                   background: `url(${CardMFUEL})`,
                   backgroundSize: "100%",
                 }}
               >
                 <Typography className="card-title">MFuel</Typography>
-              </div>
+              </Link>
             </Grid>
           </Grid>
           <Typography variant="h4" align="center" className="block-title">
@@ -156,26 +159,28 @@ export function Home() {
           </Typography>
           <Grid container spacing={8}>
             <Grid item xs={6}>
-              <div
+              <Link
                 className="block-card"
+                href="#/economy#miner"
                 style={{
                   background: `url(${CardMINER})`,
                   backgroundSize: "100%",
                 }}
               >
                 <Typography className="card-title">NFT Miner</Typography>
-              </div>
+              </Link>
             </Grid>
             <Grid item xs={6}>
-              <div
+              <Link
                 className="block-card"
+                href="#/economy#pool"
                 style={{
                   background: `url(${CardPOOL})`,
                   backgroundSize: "100%",
                 }}
               >
                 <Typography className="card-title">MFT Pool</Typography>
-              </div>
+              </Link>
             </Grid>
           </Grid>
           <Typography variant="h4" align="center" className="block-title">

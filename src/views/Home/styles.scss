@@ -14,7 +14,7 @@
     .tng-text {
         display: block;
         width: 542px;
-        font-family: 'Manrope';
+        font-family: 'PingFang SC';
         font-weight: 800;
         font-size: 42.5808px;
         line-height: 46px;
@@ -36,7 +36,7 @@
         left: 0;
         right: 0;
         background: linear-gradient(180deg, #4ED1C2 0%, #6A2595 124.69%);
-        font-family: 'Manrope';
+        font-family: 'PingFang SC';
         font-style: normal;
         font-weight: 800;
         font-size: 42.5808px;
@@ -67,7 +67,7 @@
     width: 100%;
     min-height: 100vh;
     background: #040407;
-    font-family: 'Manrope';
+    font-family: 'PingFang SC';
     position: relative;
     overflow: hidden;
     .diamond-img {
@@ -147,12 +147,15 @@
 }
 .block3 {
     background: #040407;
-    font-family: 'Manrope';
+    font-family: 'PingFang SC';
     overflow: hidden;
     padding-bottom: 5rem;
     .block-card {
+        display: block;
         height: 400px;
         border-radius: 15px;
+        transition: .2s ease-in-out;
+        cursor: pointer;
         .card-title {
             font-size: 2rem;
             font-family: PingFang SC;
@@ -160,6 +163,9 @@
             color: #FFFFFF;
             line-height: 45px;
             padding: 1rem 1.6rem;
+        }
+        &:hover {
+            transform: scale(1.05);
         }
     }
     .block-title {
@@ -640,7 +646,7 @@
 }
 .block4 {
     background: #040407;
-    font-family: 'Manrope';
+    font-family: 'PingFang SC';
     font-style: normal;
     .card-text {
         font-weight: 800;
@@ -664,7 +670,7 @@
 }
 .block5 {
     background: #040407;
-    font-family: 'Manrope';
+    font-family: 'PingFang SC';
     font-style: normal;
     min-height: calc(100vh - 300px);
     .foundation-bg {
@@ -683,6 +689,7 @@
         background-clip: text;
         padding-top: 3rem;
         padding-bottom: 2rem;
+        font-family: PingFang SC;
     }
     .normal-text {
         padding-left: 2rem;
@@ -690,6 +697,7 @@
         font-size: 1rem;
         line-height: 41px;
         color: #FFFFFF;
+        font-family: PingFang SC;
     }
     .board-list {
         display: flex;
@@ -707,6 +715,10 @@
                     padding-top: 0.2rem;
                     font-size: 1rem;
                     line-height: 2rem;
+                    font-family: "PingFang SC";
+                }
+                .MuiTypography-body2 {
+                    font-family: "PingFang SC";
                 }
             }
         }
