@@ -4,7 +4,6 @@ import Twitter from "../../assets/icons/twitter.svg";
 import Telegram from "../../assets/icons/telegram.svg";
 import Github from "../../assets/icons/github.svg";
 import AndSoOn from "../../assets/icons/medium.svg";
-import HugeBitcoin from "../../assets/images/huge-bitcoin.png";
 import HugeDiamond from "../../assets/images/huge-diamond.png";
 import CardMBTC from "../../assets/images/card-mbtc.png";
 import CardMFUEL from "../../assets/images/card-mfuel.png";
@@ -19,6 +18,10 @@ import PartnerCoinGecko from "../../assets/images/partner-coingecko.png";
 import PartnerLbank from "../../assets/images/partner-lbank.png";
 import PartnerBinance from "../../assets/images/partner-binance.png";
 import PartnerCoinMarketCap from "../../assets/images/partner-coinmarketcap.png";
+import PartnerAlawad from "../../assets/images/partner-alawad.png";
+import Partner1inch from "../../assets/images/partner-1inch.png";
+import PartnerCertik from "../../assets/images/partner-certik.png";
+import PartnerShark from "../../assets/images/partner-shark.png";
 
 import { Container, useMediaQuery, Link, Typography, Button, Grid } from "@material-ui/core";
 
@@ -30,6 +33,21 @@ export function Home() {
     window.open(window.location.origin + "/whitepaper.pdf");
   };
 
+  const partners = [
+    PartnerBitcoin,
+    PartnerBitmain,
+    PartnerPolygon,
+    PartnerUniswap,
+    PartnerCoinGecko,
+    PartnerLbank,
+    PartnerBinance,
+    PartnerCoinMarketCap,
+    PartnerAlawad,
+    Partner1inch,
+    PartnerCertik,
+    PartnerShark,
+  ];
+
   return (
     <div>
       <div className="block1">
@@ -38,11 +56,10 @@ export function Home() {
             paddingLeft: isSmallScreen || isVerySmallScreen ? "0" : "3rem",
             paddingRight: isSmallScreen || isVerySmallScreen ? "0" : "3rem",
             paddingTop: isSmallScreen || isVerySmallScreen ? "8rem" : "13rem",
-            display: "flex",
-            justifyContent: "space-between",
-            alignItems: "center",
+            position: "relative",
           }}
         >
+          <video src={window.location.origin + "/coin.mp4"} muted autoPlay loop className="coin-vedio"></video>
           <div className="block-left">
             <img src={MetaBitcon} alt="" className="meta-img" />
             <Typography variant="body1" align="left" className="tng-text">
@@ -62,9 +79,6 @@ export function Home() {
                 <img src={AndSoOn} alt="" />
               </Link>
             </div>
-          </div>
-          <div className="block-right">
-            <img src={HugeBitcoin} alt="" className="bitcoin-img" />
           </div>
         </Container>
         <Typography className="mbtc-txt">MBTC Genesis Block Launch Countdown: One month</Typography>
@@ -167,31 +181,14 @@ export function Home() {
           <Typography variant="h4" align="center" className="block-title">
             Partners
           </Typography>
-          <Grid container={true} alignItems="center" spacing={8}>
-            <Grid item xs={3}>
-              <img className="block-partner" src={PartnerBitcoin}></img>
-            </Grid>
-            <Grid item xs={3}>
-              <img className="block-partner" src={PartnerBitmain}></img>
-            </Grid>
-            <Grid item xs={3}>
-              <img className="block-partner" src={PartnerPolygon}></img>
-            </Grid>
-            <Grid item xs={3}>
-              <img className="block-partner" src={PartnerUniswap}></img>
-            </Grid>
-            <Grid item xs={3}>
-              <img className="block-partner" src={PartnerCoinGecko}></img>
-            </Grid>
-            <Grid item xs={3}>
-              <img className="block-partner" src={PartnerLbank}></img>
-            </Grid>
-            <Grid item xs={3}>
-              <img className="block-partner" src={PartnerBinance}></img>
-            </Grid>
-            <Grid item xs={3}>
-              <img className="block-partner" src={PartnerCoinMarketCap}></img>
-            </Grid>
+          <Grid container={true} alignItems="center" spacing={3}>
+            {partners.map((item, index) => (
+              <Grid item xs={3} key={index}>
+                <div className="block-partner">
+                  <img className="partner-logo" src={item}></img>
+                </div>
+              </Grid>
+            ))}
           </Grid>
           <Typography variant="h4" align="center" className="block-title">
             Roadmap

@@ -1,7 +1,9 @@
 // eslint-disable-next-line simple-import-sort/imports
 import "./style.scss";
+import { useLocation } from "react-router-dom";
 
-import Logo from "../../assets/images/mbtc-logo.png";
+import Logo from "../../assets/images/logo-4.png";
+import LogoCoin from "../../assets/images/logo-3.png";
 import Twitter from "../../assets/icons/twitter.svg";
 import Telegram from "../../assets/icons/telegram.svg";
 import Github from "../../assets/icons/github.svg";
@@ -12,6 +14,8 @@ import { Container, useMediaQuery, Link, Typography, Button } from "@material-ui
 export default function HomeLayout({ children }: { children: React.ReactNode }) {
   const isSmallScreen = useMediaQuery("(max-width: 650px)");
   const isVerySmallScreen = useMediaQuery("(max-width: 379px)");
+  const location = useLocation();
+  const isFoundation = location.pathname === "/foundation";
 
   return (
     <div>
@@ -25,7 +29,11 @@ export default function HomeLayout({ children }: { children: React.ReactNode }) 
           }}
         >
           <div className="header-left">
-            <img src={Logo} alt="MBTC" className="header-logo" />
+            <img
+              src={isFoundation ? LogoCoin : Logo}
+              alt="MBTC"
+              className={isFoundation ? "header-logo-coin" : "header-logo"}
+            />
             <Link href="#/home" underline="none">
               <Typography variant="h6">MBTC</Typography>
             </Link>
