@@ -60,7 +60,8 @@
     
 
     &.economy {
-        background: #040407;
+        min-height: 44rem !important;
+        background: #000000;
     }
 }
 .block2 {
@@ -645,7 +646,7 @@
     }
 }
 .block4 {
-    background: #040407;
+    background: #000000;
     font-family: 'PingFang SC';
     font-style: normal;
     .card-text {
@@ -698,16 +699,27 @@
         line-height: 41px;
         color: #FFFFFF;
         font-family: PingFang SC;
+        max-width: 60%;
     }
     .board-list {
         display: flex;
-        justify-content: space-between;
+        justify-content: space-around;
         margin-top: 1rem;
         .board-card {
             width: 13.5%;
             overflow: hidden;
             border-radius: 5px;
             background: #040407;
+            img {
+                width: 100%;
+                min-height: 200px;
+                border-radius: 10px;
+                &.occupy-img {
+                    background: #040407;
+                    outline: none;
+                    border: none;
+                }
+            }
             .MuiCardContent-root {
                 padding: 0;
                 color: #FFFFFF;

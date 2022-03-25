@@ -145,6 +145,7 @@ export function Home() {
               <Link
                 className="block-card"
                 href="#/economy#mfuel"
+                underline="none"
                 style={{
                   background: `url(${CardMFUEL})`,
                   backgroundSize: "100%",
@@ -162,6 +163,7 @@ export function Home() {
               <Link
                 className="block-card"
                 href="#/economy#miner"
+                underline="none"
                 style={{
                   background: `url(${CardMINER})`,
                   backgroundSize: "100%",
@@ -174,6 +176,7 @@ export function Home() {
               <Link
                 className="block-card"
                 href="#/economy#pool"
+                underline="none"
                 style={{
                   background: `url(${CardPOOL})`,
                   backgroundSize: "100%",
