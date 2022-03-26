@@ -67,7 +67,7 @@ const NavContent: React.FC<NavContentProps> = ({ handleDrawerToggle }) => {
       <Box className="dapp-sidebar-inner" display="flex" justifyContent="space-between" flexDirection="column">
         <div className="dapp-menu-top">
           <Box className="branding-header">
-            <Link href={window.location.origin + "/#/home"} target="_blank" style={{ marginBottom: "1rem" }}>
+            <Link href={"/#/home"} target="_blank" style={{ marginBottom: "1rem" }}>
               <SvgIcon
                 color="primary"
                 component={MTBCIcon}

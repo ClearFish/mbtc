@@ -68,6 +68,7 @@ export default function HomeLayout({ children }: { children: React.ReactNode }) 
             paddingBottom: isSmallScreen || isVerySmallScreen ? "2rem" : "4rem",
             display: "flex",
             justifyContent: "space-between",
+            alignItems: "center",
           }}
         >
           <div className="header-left">
@@ -83,16 +84,16 @@ export default function HomeLayout({ children }: { children: React.ReactNode }) 
             </Link>
           </div>
           <div className="social-link">
-            <Link href="#/home" underline="none">
+            <Link href="https://twitter.com/MetaMBTC" target={"_blank"} underline="none">
               <img src={Twitter} alt="" />
             </Link>
-            <Link href="#/home" underline="none">
+            <Link href="https://t.me/MetaMBTC" target={"_blank"} underline="none">
               <img src={Telegram} alt="" />
             </Link>
-            <Link href="#/home" underline="none">
+            <Link href="https://github.com/meta-btc" target={"_blank"} underline="none">
               <img src={Github} alt="" />
             </Link>
-            <Link href="#/home" underline="none">
+            <Link href="https://medium.com/@MetaBitcoin" target={"_blank"} underline="none">
               <img src={AndSoOn} alt="" />
             </Link>
           </div>

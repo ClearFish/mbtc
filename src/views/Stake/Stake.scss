@@ -5,6 +5,24 @@
   justify-content: center;
   align-items: center;
   overflow: hidden;
+  padding-top: 15%;
+
+  .primary-btn {
+    width: 24rem;
+    overflow: hidden;
+    height:  3.3rem;
+    background: #2E1059;
+    border: 1px solid #6F3ABA;
+    border-radius: 10px;
+    font-family: PingFang SC;
+    font-weight: 800;
+    color: #FFFFFF;
+    line-height: 2rem;
+    font-size: 1.5rem;
+    padding: 1rem 0;
+    margin-bottom: 1.8rem;
+    max-height: 3.3rem;
+  }
 
   .rebase-timer {
     margin: 0 !important;

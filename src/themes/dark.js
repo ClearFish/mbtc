@@ -21,7 +21,8 @@ const darkTheme = {
   //   radial-gradient(circle at 10% 0%, rgba(187, 211, 204, 0.33), rgba(187,211,204,0) 35%),
   //   radial-gradient(circle at 11% 100%, rgba(131, 165, 203, 0.3), rgba(131, 165, 203, 0) 30%)
   //   `,
-  background: "linear-gradient(270.82deg, rgba(0, 0, 0, 0) -0.02%,  #090F19 35.81%)",
+  // background: "linear-gradient(270.82deg, rgba(0, 0, 0, 0) -0.02%,  #090F19 35.81%)",
+  background: "linear-gradient(130deg,rgb(30, 8, 61),rgb(9, 10, 13) 35%)",
   paperBg: "rgba(54, 56, 64, 0.6)",
   modalBg: "#24242699",
   popoverBg: "rgba(54, 56, 64, 0.99)",

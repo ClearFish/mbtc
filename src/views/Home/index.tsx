@@ -66,16 +66,16 @@ export function Home() {
               The Next Generation Crypto Providing a Cross-chain Trust Standard in the Metaverse
             </Typography>
             <div className="social-link">
-              <Link href="#/home" underline="none">
+              <Link href="https://twitter.com/MetaMBTC" target={"_blank"} underline="none">
                 <img src={Twitter} alt="" />
               </Link>
-              <Link href="#/home" underline="none">
+              <Link href="https://t.me/MetaMBTC" target={"_blank"} underline="none">
                 <img src={Telegram} alt="" />
               </Link>
-              <Link href="#/home" underline="none">
+              <Link href="https://github.com/meta-btc" target={"_blank"} underline="none">
                 <img src={Github} alt="" />
               </Link>
-              <Link href="#/home" underline="none">
+              <Link href="https://medium.com/@MetaBitcoin" target={"_blank"} underline="none">
                 <img src={AndSoOn} alt="" />
               </Link>
             </div>
