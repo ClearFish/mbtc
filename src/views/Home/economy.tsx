@@ -87,7 +87,7 @@ export function Economy() {
                 Meta Fuel is the energy resource for mining in the metaverse
               </Typography>
             </Grid>
-            <Grid item xs={5} id="miner">
+            <Grid item xs={5}>
               <Typography variant="body1" align="right" className="card-text">
                 NFT Miner
               </Typography>
@@ -97,7 +97,7 @@ export function Economy() {
                 using proof-of-NFT
               </Typography>
             </Grid>
-            <Grid item xs={7}>
+            <Grid item xs={7} id="miner">
               <img src={CardMINER} className="card-img"></img>
             </Grid>
             <Grid item xs={7} id="pool">
