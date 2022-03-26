@@ -12,23 +12,23 @@ export function Foundation() {
   const personList = [
     {
       name: "Doctor Lord",
-      info: "Co-founder of MBTC Foundation, Head of Concept",
+      info: "Head of Philosophy",
       src: Person1,
     },
     {
-      name: "Adrian Aurelius",
-      info: "President of Marketing",
-      src: Person5,
+      name: "Jojo Jiang",
+      info: "Chairwoman of Public Relations",
+      src: "",
     },
     {
       name: "Sam Lee",
-      info: "Co-founder of MBTC Foundation, Head of Media",
+      info: "Head of Public Media",
       src: "",
     },
     {
-      name: "Jojo Jiang",
-      info: "Chairwoman of Public Relationship",
-      src: "",
+      name: "Adrian Aurelius",
+      info: "Head of Marketing",
+      src: Person5,
     },
   ];
 
@@ -60,8 +60,9 @@ export function Foundation() {
             Vision
           </Typography>
           <Typography variant="body1" align="left" className="normal-text">
-            By providing the next generation decentralized financial system, our vision is to build the Meta Bitcoin
-            standard in the metaverse.
+            By providing the next generation decentralized financial system,
+            <br />
+            our vision is to build the Meta Bitcoin standard in the metaverse.
           </Typography>
           <Typography variant="h4" align="left" className="gradient-text">
             BOARD
