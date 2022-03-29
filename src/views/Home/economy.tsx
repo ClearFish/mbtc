@@ -34,17 +34,23 @@ export function Economy() {
   }, [location]);
 
   return (
-    <>
+    <div className={isSmallScreen ? "isMobile" : ""}>
       <div className="block1 economy">
         <Container
           style={{
-            paddingLeft: isSmallScreen || isVerySmallScreen ? "0" : "3rem",
-            paddingRight: isSmallScreen || isVerySmallScreen ? "0" : "3rem",
-            paddingTop: isSmallScreen || isVerySmallScreen ? "8rem" : "13rem",
+            paddingLeft: isSmallScreen || isVerySmallScreen ? "1rem" : "3rem",
+            paddingRight: isSmallScreen || isVerySmallScreen ? "1rem" : "3rem",
+            paddingTop: isSmallScreen || isVerySmallScreen ? "6rem" : "13rem",
             position: "relative",
           }}
         >
-          <video src={window.location.origin + "/economy.mp4"} muted autoPlay loop className="coin-vedio"></video>
+          <video
+            src={window.location.origin + (isSmallScreen ? "/economy-mobile.mp4" : "/economy.mp4")}
+            muted
+            autoPlay
+            loop
+            className="coin-vedio"
+          ></video>
           <div className="block-left">
             <img src={MetaBitcon} alt="" className="meta-img" />
             <Typography variant="body1" align="left" className="tng-text">
@@ -56,64 +62,115 @@ export function Economy() {
       <div className="block4">
         <Container
           style={{
-            paddingLeft: isSmallScreen || isVerySmallScreen ? "0" : "3rem",
-            paddingRight: isSmallScreen || isVerySmallScreen ? "0" : "3rem",
+            paddingLeft: isSmallScreen || isVerySmallScreen ? "1rem" : "3rem",
+            paddingRight: isSmallScreen || isVerySmallScreen ? "1rem" : "3rem",
             paddingTop: "1rem",
             paddingBottom: "8rem",
           }}
           id="mbtc"
         >
-          <Grid container alignItems="center" spacing={6}>
-            <Grid item xs={5}>
-              <Typography variant="body1" align="right" className="card-text">
-                MBTC
-              </Typography>
-              <Typography variant="body2" align="right" className="card-info">
-                Meta Bitcoin provides a decentralized way to store,
-                <br /> account, and exchange values in the metaverse
-              </Typography>
+          {isSmallScreen ? (
+            <Grid>
+              <Grid item xs={12}>
+                <img src={CardMBTC} className="card-img"></img>
+              </Grid>
+              <Grid xs={12}>
+                <Typography variant="body1" align="left" className="card-text">
+                  MBTC
+                </Typography>
+                <Typography variant="body2" align="left" className="card-info">
+                  Meta Bitcoin provides a decentralized way to store, account, and exchange values in the metaverse
+                </Typography>
+              </Grid>
+              <Grid xs={12} id="mfuel">
+                <img src={CardMFUEL} className="card-img"></img>
+              </Grid>
+              <Grid xs={12}>
+                <Typography variant="body1" align="left" className="card-text">
+                  MFuel
+                </Typography>
+                <Typography variant="body2" align="left" className="card-info">
+                  Meta Fuel is the energy resource for mining in the metaverse
+                </Typography>
+              </Grid>
+              <Grid xs={12} id="miner">
+                <img src={CardMINER} className="card-img"></img>
+              </Grid>
+              <Grid xs={12}>
+                <Typography variant="body1" align="left" className="card-text">
+                  NFT Miner
+                </Typography>
+                <Typography variant="body2" align="left" className="card-info">
+                  NFT Miner mines MBTC by providing hash power
+                  <br />
+                  using proof-of-NFT
+                </Typography>
+              </Grid>
+              <Grid xs={12} id="pool">
+                <img src={CardPOOL} className="card-img"></img>
+              </Grid>
+              <Grid xs={12}>
+                <Typography variant="body1" align="left" className="card-text">
+                  NFT Pool
+                </Typography>
+                <Typography variant="body2" align="left" className="card-info">
+                  NFT Pool empowers miners by receiving and burning MFuels
+                </Typography>
+              </Grid>
             </Grid>
-            <Grid item xs={7}>
-              <img src={CardMBTC} className="card-img"></img>
+          ) : (
+            <Grid container alignItems="center" spacing={6}>
+              <Grid item xs={5}>
+                <Typography variant="body1" align="right" className="card-text">
+                  MBTC
+                </Typography>
+                <Typography variant="body2" align="right" className="card-info">
+                  Meta Bitcoin provides a decentralized way to store,
+                  <br /> account, and exchange values in the metaverse
+                </Typography>
+              </Grid>
+              <Grid item xs={7}>
+                <img src={CardMBTC} className="card-img"></img>
+              </Grid>
+              <Grid item xs={7} id="mfuel">
+                <img src={CardMFUEL} className="card-img"></img>
+              </Grid>
+              <Grid item xs={5}>
+                <Typography variant="body1" align="left" className="card-text">
+                  MFuel
+                </Typography>
+                <Typography variant="body2" align="left" className="card-info">
+                  Meta Fuel is the energy resource for mining in the metaverse
+                </Typography>
+              </Grid>
+              <Grid item xs={5}>
+                <Typography variant="body1" align="right" className="card-text">
+                  NFT Miner
+                </Typography>
+                <Typography variant="body2" align="right" className="card-info">
+                  NFT Miner mines MBTC by providing hash power
+                  <br />
+                  using proof-of-NFT
+                </Typography>
+              </Grid>
+              <Grid item xs={7} id="miner">
+                <img src={CardMINER} className="card-img"></img>
+              </Grid>
+              <Grid item xs={7} id="pool">
+                <img src={CardPOOL} className="card-img"></img>
+              </Grid>
+              <Grid item xs={5}>
+                <Typography variant="body1" align="left" className="card-text">
+                  NFT Pool
+                </Typography>
+                <Typography variant="body2" align="left" className="card-info">
+                  NFT Pool empowers miners by receiving and burning MFuels
+                </Typography>
+              </Grid>
             </Grid>
-            <Grid item xs={7} id="mfuel">
-              <img src={CardMFUEL} className="card-img"></img>
-            </Grid>
-            <Grid item xs={5}>
-              <Typography variant="body1" align="left" className="card-text">
-                MFuel
-              </Typography>
-              <Typography variant="body2" align="left" className="card-info">
-                Meta Fuel is the energy resource for mining in the metaverse
-              </Typography>
-            </Grid>
-            <Grid item xs={5}>
-              <Typography variant="body1" align="right" className="card-text">
-                NFT Miner
-              </Typography>
-              <Typography variant="body2" align="right" className="card-info">
-                NFT Miner mines MBTC by providing hash power
-                <br />
-                using proof-of-NFT
-              </Typography>
-            </Grid>
-            <Grid item xs={7} id="miner">
-              <img src={CardMINER} className="card-img"></img>
-            </Grid>
-            <Grid item xs={7} id="pool">
-              <img src={CardPOOL} className="card-img"></img>
-            </Grid>
-            <Grid item xs={5}>
-              <Typography variant="body1" align="left" className="card-text">
-                NFT Pool
-              </Typography>
-              <Typography variant="body2" align="left" className="card-info">
-                NFT Pool empowers miners by receiving and burning MFuels
-              </Typography>
-            </Grid>
-          </Grid>
+          )}
         </Container>
       </div>
-    </>
+    </div>
   );
 }

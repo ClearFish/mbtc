@@ -3,7 +3,11 @@ import "./styles.scss";
 import Person1 from "../../assets/images/person1.png";
 import Person5 from "../../assets/images/person5.png";
 
-import { Container, useMediaQuery, Typography, Card, CardMedia, CardContent } from "@material-ui/core";
+import MetaBitcoin from "../../assets/images/meta-bitcoin.png";
+import FoundationTxt from "../../assets/images/foundation.png";
+import GoldenBitcoin from "../../assets/images/golden-bitcoin.png";
+
+import { Container, useMediaQuery, Typography, Card, CardMedia, CardContent, Grid } from "@material-ui/core";
 
 export function Foundation() {
   const isSmallScreen = useMediaQuery("(max-width: 650px)");
@@ -33,17 +37,20 @@ export function Foundation() {
   ];
 
   return (
-    <>
+    <div className={isSmallScreen ? "isMobile" : ""}>
       <div className="block5">
         <Container
           style={{
-            paddingLeft: isSmallScreen || isVerySmallScreen ? "0" : "3rem",
-            paddingRight: isSmallScreen || isVerySmallScreen ? "0" : "3rem",
+            paddingLeft: isSmallScreen || isVerySmallScreen ? "1rem" : "3rem",
+            paddingRight: isSmallScreen || isVerySmallScreen ? "1rem" : "3rem",
             paddingTop: isSmallScreen || isVerySmallScreen ? "6rem" : "10rem",
             paddingBottom: "8rem",
           }}
-          className="foundation-bg"
+          className={isSmallScreen ? "" : "foundation-bg"}
         >
+          <img src={MetaBitcoin} className="meta-img"></img>
+          <img src={FoundationTxt} className="foundation-img"></img>
+          <img src={GoldenBitcoin} className="golden-img"></img>
           <Typography variant="h4" align="left" className="gradient-text">
             ABOUT THE FOUNDATION
           </Typography>
@@ -67,21 +74,23 @@ export function Foundation() {
           <Typography variant="h4" align="left" className="gradient-text">
             BOARD
           </Typography>
-          <div className="board-list">
+          <Grid container spacing={isSmallScreen ? 2 : 8} className="board-list">
             {personList.map((item, index) => (
-              <Card className="board-card" key={index}>
-                <CardMedia component="img" image={item.src} className={item.src ? "" : "occupy-img"} />
-                <CardContent>
-                  <Typography variant="h6" component="div">
-                    {item.name}
-                  </Typography>
-                  <Typography variant="body2">{item.info}</Typography>
-                </CardContent>
-              </Card>
+              <Grid item xs={isSmallScreen ? 6 : 3} className="list-item">
+                <Card className="board-card" key={index}>
+                  <CardMedia component="img" image={item.src} className={item.src ? "" : "occupy-img"} />
+                  <CardContent>
+                    <Typography variant="h6" component="div">
+                      {item.name}
+                    </Typography>
+                    <Typography variant="body2">{item.info}</Typography>
+                  </CardContent>
+                </Card>
+              </Grid>
             ))}
-          </div>
+          </Grid>
         </Container>
       </div>
-    </>
+    </div>
   );
 }
