@@ -52,8 +52,9 @@
     .coin-vedio {
         width: 100%;
         position: absolute;
-        right: 0;
-        top: 15%;
+        left: -16px;
+        right: -16px;
+        top: 0px;
         max-width: 1080px;
     }
     &.economy {
