@@ -1,5 +1,6 @@
 import "./styles.scss";
 import MetaBitcon from "../../assets/images/meta-bitcoin.png";
+import MetaBitconMobile from "../../assets/images/meta-bitcoin-mobile.png";
 import Twitter from "../../assets/icons/twitter.svg";
 import Telegram from "../../assets/icons/telegram.svg";
 import Github from "../../assets/icons/github.svg";
@@ -25,6 +26,14 @@ import PartnerShark from "../../assets/images/partner-shark.png";
 
 import { Container, useMediaQuery, Link, Typography, Button, Grid } from "@material-ui/core";
 
+const transforRoad = (arr: any) => {
+  const tempArr = [...arr];
+  const tempItem = tempArr[3];
+  tempArr[3] = tempArr[5];
+  tempArr[5] = tempItem;
+  return tempArr;
+};
+
 export function Home() {
   const isSmallScreen = useMediaQuery("(max-width: 650px)");
   const isVerySmallScreen = useMediaQuery("(max-width: 379px)");
@@ -48,20 +57,188 @@ export function Home() {
     PartnerShark,
   ];
 
+  const roadMap = [
+    {
+      name: "Q2 2022",
+      list: [
+        {
+          item: "Launch of Meta Bitcoin",
+          done: true,
+        },
+        {
+          item: "MBTC Foundation",
+          done: true,
+        },
+        ,
+        {
+          item: "MBTC roadshow debut",
+          done: false,
+        },
+      ],
+      grid: 4,
+    },
+    {
+      name: "Q3 2022",
+      list: [
+        {
+          item: "MBTC miner M-1 series release",
+          done: false,
+        },
+        {
+          item: "Web3 DApp & NFT market launch",
+          done: false,
+        },
+        {
+          item: "MBTC genesis block; first MBTC mined",
+          done: false,
+        },
+        {
+          item: "Listing on DEX",
+          done: false,
+        },
+        {
+          item: "External audits",
+          done: false,
+        },
+      ],
+      grid: 4,
+    },
+    {
+      name: "Q4 2022",
+      list: [
+        {
+          item: "MBTC pool P-1 series release",
+          done: false,
+        },
+        {
+          item: "Mining UX improvement",
+          done: false,
+        },
+        {
+          item: "Airdrops platform & app",
+          done: false,
+        },
+        {
+          item: "Listing on major exchanges",
+          done: false,
+        },
+      ],
+      grid: 4,
+    },
+    {
+      name: "Q1 2023",
+      list: [
+        {
+          item: "Development of payment use cases",
+          done: false,
+        },
+        {
+          item: "Intense marketing & community push",
+          done: false,
+        },
+        {
+          item: "MBTC DeFi launch",
+          done: false,
+        },
+      ],
+      grid: 4,
+    },
+    {
+      name: "Q2 2023",
+      list: [
+        {
+          item: "Staking & Mining related products",
+          done: false,
+        },
+        {
+          item: "Development of FPGA miner",
+          done: false,
+        },
+        {
+          item: "Development of ASIC miner",
+          done: false,
+        },
+      ],
+      grid: 4,
+    },
+    {
+      name: "Q3 2023",
+      list: [
+        {
+          item: "wMBTC token launch",
+          done: false,
+        },
+        {
+          item: "MBTC cross chain bridge ",
+          done: false,
+        },
+        {
+          item: "Integration with DeFi applications",
+          done: false,
+        },
+      ],
+      grid: 4,
+    },
+    {
+      name: "Q4 2023",
+      list: [
+        {
+          item: "MBTC mining in 3D metaverse",
+          done: false,
+        },
+        {
+          item: "MBTC metaverse ecosystem launch",
+          done: false,
+        },
+        {
+          item: "Support MBTC DeFi/GameFi/SocialFi applications",
+          done: false,
+        },
+      ],
+      grid: 6,
+    },
+    {
+      name: "H1 2024",
+      list: [
+        {
+          item: "1T market cap",
+          done: false,
+        },
+        {
+          item: "MBTC investment fund and trust",
+          done: false,
+        },
+        {
+          item: "Expand MBTC metaverse to art, finance, entertainment, and tech",
+          done: false,
+        },
+      ],
+      grid: 6,
+    },
+  ];
+
+  const transforedRoadMap = transforRoad(roadMap);
+
   return (
-    <div>
+    <div className={isSmallScreen ? "isMobile" : ""}>
       <div className="block1">
         <Container
           style={{
-            paddingLeft: isSmallScreen || isVerySmallScreen ? "0" : "3rem",
-            paddingRight: isSmallScreen || isVerySmallScreen ? "0" : "3rem",
-            paddingTop: isSmallScreen || isVerySmallScreen ? "8rem" : "13rem",
+            paddingLeft: isSmallScreen || isVerySmallScreen ? "1rem" : "3rem",
+            paddingRight: isSmallScreen || isVerySmallScreen ? "1rem" : "3rem",
+            paddingTop: isSmallScreen || isVerySmallScreen ? "6rem" : "13rem",
             position: "relative",
           }}
         >
-          <video src={window.location.origin + "/coin.mp4"} muted autoPlay loop className="coin-vedio"></video>
+          <video
+            src={window.location.origin + (isSmallScreen ? "/coin-mobile.mp4" : "/coin.mp4")}
+            muted
+            autoPlay
+            loop
+            className="coin-vedio"
+          ></video>
           <div className="block-left">
-            <img src={MetaBitcon} alt="" className="meta-img" />
+            <img src={isSmallScreen ? MetaBitconMobile : MetaBitcon} alt="" className="meta-img" />
             <Typography variant="body1" align="left" className="tng-text">
               The Next Generation Crypto Providing a Cross-chain Trust Standard in the Metaverse
             </Typography>
@@ -86,8 +263,8 @@ export function Home() {
       <div className="block2">
         <Container
           style={{
-            paddingLeft: isSmallScreen || isVerySmallScreen ? "0" : "3rem",
-            paddingRight: isSmallScreen || isVerySmallScreen ? "0" : "3rem",
+            paddingLeft: isSmallScreen || isVerySmallScreen ? "1rem" : "3rem",
+            paddingRight: isSmallScreen || isVerySmallScreen ? "1rem" : "3rem",
             paddingTop: isSmallScreen || isVerySmallScreen ? "6rem" : "9rem",
             display: "flex",
             justifyContent: "flex-end",
@@ -122,13 +299,13 @@ export function Home() {
       <div className="block3">
         <Container
           style={{
-            paddingLeft: isSmallScreen || isVerySmallScreen ? "0" : "3rem",
-            paddingRight: isSmallScreen || isVerySmallScreen ? "0" : "3rem",
+            paddingLeft: isSmallScreen || isVerySmallScreen ? "1rem" : "3rem",
+            paddingRight: isSmallScreen || isVerySmallScreen ? "1rem" : "3rem",
             paddingTop: isSmallScreen || isVerySmallScreen ? "2rem" : "4rem",
           }}
         >
-          <Grid container spacing={8}>
-            <Grid item xs={6}>
+          <Grid container spacing={isSmallScreen ? 3 : 8}>
+            <Grid item xs={12} sm={12} md={6}>
               <Link
                 className="block-card"
                 href="#/economy#mbtc"
@@ -141,7 +318,7 @@ export function Home() {
                 <Typography className="card-title">MBTC</Typography>
               </Link>
             </Grid>
-            <Grid item xs={6}>
+            <Grid item xs={12} sm={12} md={6}>
               <Link
                 className="block-card"
                 href="#/economy#mfuel"
@@ -154,12 +331,10 @@ export function Home() {
                 <Typography className="card-title">MFuel</Typography>
               </Link>
             </Grid>
-          </Grid>
-          <Typography variant="h4" align="center" className="block-title">
-            Explore for more.
-          </Typography>
-          <Grid container spacing={8}>
-            <Grid item xs={6}>
+            <Typography variant="h4" align="center" className="block-title explore">
+              Explore for more.
+            </Typography>
+            <Grid item xs={12} sm={12} md={6}>
               <Link
                 className="block-card"
                 href="#/economy#miner"
@@ -172,7 +347,7 @@ export function Home() {
                 <Typography className="card-title">NFT Miner</Typography>
               </Link>
             </Grid>
-            <Grid item xs={6}>
+            <Grid item xs={12} sm={12} md={6}>
               <Link
                 className="block-card"
                 href="#/economy#pool"
@@ -189,9 +364,9 @@ export function Home() {
           <Typography variant="h4" align="center" className="block-title">
             Partners
           </Typography>
-          <Grid container={true} alignItems="center" spacing={3}>
+          <Grid container={true} alignItems="center" spacing={isSmallScreen ? 2 : 3}>
             {partners.map((item, index) => (
-              <Grid item xs={3} key={index}>
+              <Grid item xs={4} sm={4} md={3} key={index}>
                 <div className="block-partner">
                   <img className="partner-logo" src={item}></img>
                 </div>
@@ -201,106 +376,23 @@ export function Home() {
           <Typography variant="h4" align="center" className="block-title">
             Roadmap
           </Typography>
-          <Grid container className="roadmap">
-            <Grid item xs={4}>
-              <div className="block-todo">
-                <Typography variant="h4" className="todo-title">
-                  Q2 2022
-                </Typography>
-                <ul>
-                  <li className="done">Launch of Meta Bitcoin</li>
-                  <li className="done">MBTC Foundation</li>
-                  <li>MBTC roadshow debut</li>
-                </ul>
-              </div>
-            </Grid>
-            <Grid item xs={4}>
-              <div className="block-todo">
-                <Typography variant="h4" className="todo-title">
-                  Q3 2022
-                </Typography>
-                <ul>
-                  <li>MBTC miner M-1 series release</li>
-                  <li>Web3 DApp & NFT market launch </li>
-                  <li>MBTC genesis block; first MBTC mined</li>
-                  <li>Listing on DEX</li>
-                  <li>External audits</li>
-                </ul>
-              </div>
-            </Grid>
-            <Grid item xs={4}>
-              <div className="block-todo">
-                <Typography variant="h4" className="todo-title">
-                  Q4 2022
-                </Typography>
-                <ul>
-                  <li>MBTC pool P-1 series release</li>
-                  <li>Mining UX improvement</li>
-                  <li>Airdrops platform & app</li>
-                  <li>Listing on major exchanges</li>
-                </ul>
-              </div>
-            </Grid>
-            <Grid item xs={4}>
-              <div className="block-todo">
-                <Typography variant="h4" className="todo-title">
-                  Q3 2023
-                </Typography>
-                <ul>
-                  <li>wMBTC token launch</li>
-                  <li>MBTC cross chain bridge </li>
-                  <li>Integration with DeFi applications</li>
-                </ul>
-              </div>
-            </Grid>
-            <Grid item xs={4}>
-              <div className="block-todo">
-                <Typography variant="h4" className="todo-title">
-                  Q2 2023
-                </Typography>
-                <ul>
-                  <li>Staking & Mining related products</li>
-                  <li>Development of FPGA miner</li>
-                  <li>Development of ASIC miner</li>
-                </ul>
-              </div>
-            </Grid>
-            <Grid item xs={4}>
-              <div className="block-todo">
-                <Typography variant="h4" className="todo-title">
-                  Q1 2023
-                </Typography>
-                <ul>
-                  <li>Development of payment use cases</li>
-                  <li>Intense marketing & community push </li>
-                  <li>MBTC DeFi launch</li>
-                </ul>
-              </div>
-            </Grid>
-            <Grid item xs={6}>
-              <div className="block-todo">
-                <Typography variant="h4" className="todo-title">
-                  Q4 2023
-                </Typography>
-                <ul>
-                  <li>MBTC mining in 3D metaverse</li>
-                  <li>MBTC metaverse ecosystem launch </li>
-                  <li>Support MBTC DeFi/GameFi/SocialFi applications</li>
-                </ul>
-              </div>
-            </Grid>
-            <Grid item xs={6}>
-              <div className="block-todo">
-                <Typography variant="h4" className="todo-title">
-                  H1 2024
-                </Typography>
-                <ul>
-                  <li>1T market cap</li>
-                  <li>MBTC investment fund and trust</li>
-                  <li>Expand MBTC metaverse to art, finance, entertainment, and tech</li>
-                </ul>
-              </div>
-            </Grid>
+          <Grid container className={isSmallScreen ? "transfored" : "roadmap"}>
+            {(isSmallScreen ? roadMap : transforedRoadMap).map(item => {
+              return (
+                <Grid item xs={isSmallScreen ? 12 : item.grid}>
+                  <div className="block-todo">
+                    <Typography variant="h4" className="todo-title">
+                      {item.name}
+                    </Typography>
+                    <ul>
+                      {item.list.map((childItem: any) => (
+                        <li className={childItem.done ? "done" : ""}>{childItem.item}</li>
+                      ))}
+                    </ul>
+                  </div>
+                </Grid>
+              );
+            })}
           </Grid>
         </Container>
       </div>

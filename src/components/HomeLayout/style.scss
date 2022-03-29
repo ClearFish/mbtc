@@ -1,43 +1,18 @@
+.home {
+    background: #040407;
+}
 .fixed-header {
-    position: fixed;
-    left: 0;
-    top: 0;
-    right: 0;
-    background-color: rgba(255, 255, 255, .05);
+    background-color: rgba(255, 255, 255, .05) !important;
     backdrop-filter: blur(6px);
     z-index: 999999;
-}
-.header-left {
-    display: flex;
-    align-items: center;
-    height: 80px;
-    overflow: hidden;
-    .header-logo {
-        width: 100px;
-        max-height: 100px;
-        margin-right: 40px;
-        object-fit: contain;
-    }
-    .header-logo-coin {
-        width: 60px;
-        max-height: 60px;
-        margin-right: 60px;
-        margin-left: 20px;
-        object-fit: contain;
-    }
-    a {
+    a>.MuiTypography-h6 {
         color: #FFFFFF;
         transition: color .2s ease-in-out;
-        margin-right: 3rem;
+        margin-left: 3rem;
         &:hover {
             color: #ccd2d4;
         }
     }
-}
-.header-right {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
     .header-btn {
         background-color: #ffc768;
         border-radius: 27px;
@@ -48,7 +23,26 @@
             background-color: #eeb657;
         }
     }
+    .menu-icon {
+        font-size: 2rem;
+    }
 }
+.header-logo {
+    width: 80px;
+    height: 80px;
+    object-fit: contain;
+    box-sizing: border-box;
+}
+#menu-appbar {
+    a>.MuiTypography-body1 {
+        color: #000;
+        &:hover {
+            color: #000;
+        }
+    }
+
+}
+
 .social-link {
     img {
         width: 2.2rem;
@@ -67,8 +61,7 @@
         font-family: 'Manrope';
         font-style: normal;
         font-weight: 800;
-        font-size: 62px;
-        line-height: 75px;
+        font-size: 4rem;
         text-align: center;
         letter-spacing: -0.04em;
         background: linear-gradient(89.97deg, #AE67FA 1.84%, #F49867 102.67%);
@@ -76,5 +69,31 @@
         -webkit-text-fill-color: transparent;
         background-clip: text;
         padding-top: 3rem;
+    }
+    .header-left {
+        flex-grow: 1;
+        display: flex;
+        align-items: center;
+    }
+    a>.MuiTypography-h6 {
+        color: #FFFFFF;
+        transition: color .2s ease-in-out;
+        margin-left: 3rem;
+        &:hover {
+            color: #ccd2d4;
+        }
+    }
+    &.isMobile {
+        .header-left {
+            display: block;
+            margin-bottom: 1.5rem;
+        }
+        a>.MuiTypography-h6 {
+            margin-left: 0;
+            margin-bottom: 1rem;
+        }
+        .bottom-title {
+            font-size: 2rem;
+        }
     }
 }

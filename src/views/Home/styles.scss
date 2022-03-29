@@ -8,16 +8,17 @@
     .meta-img {
         display: block;
         width: 600px;
+        max-width: 80%;
         object-fit: contain;
-        margin-bottom: 4rem;
+        margin-bottom: 4rem !important;
     }
     .tng-text {
         display: block;
-        width: 542px;
+        width: 600px;
+        max-width: 100%;
         font-family: 'PingFang SC';
         font-weight: 800;
-        font-size: 42.5808px;
-        line-height: 46px;
+        font-size: 2.6rem;
         letter-spacing: -0.04em;
         background: linear-gradient(89.97deg, #AE67FA 1.84%, #F49867 102.67%);
         -webkit-background-clip: text;
@@ -25,7 +26,6 @@
         background-clip: text;
         margin-bottom: 4rem;
     }
-
     .bitcoin-img {
         width: 560px;
         object-fit: contain;
@@ -39,8 +39,7 @@
         font-family: 'PingFang SC';
         font-style: normal;
         font-weight: 800;
-        font-size: 42.5808px;
-        line-height: 46px;
+        font-size: 2.3rem;
         letter-spacing: -0.04em;
         color: #FFFFFF;
         text-align: center;
@@ -57,8 +56,6 @@
         top: 15%;
         max-width: 1080px;
     }
-    
-
     &.economy {
         min-height: 44rem !important;
         background: #000000;
@@ -132,6 +129,7 @@
         }
     }
     .download-btn {
+        width: 12rem;
         font-style: normal;
         font-weight: 800;
         font-size: 22.1848px;
@@ -175,6 +173,9 @@
         font-weight: 800;
         color: #FFFFFF;
         line-height: 220px;
+        &.explore {
+            width: 100%;
+        }
     }
     .block-partner {
         background: #1E1E1E;
@@ -226,8 +227,7 @@
                 background-size: 100%;
                 position: absolute;
                 left: 0;
-                top: 0;
-                bottom: 0;
+                top: 0.7rem;
                 margin: auto;
             }
             &.done {
@@ -240,8 +240,7 @@
                     background-size: 100%;
                     position: absolute;
                     left: 0;
-                    top: 0;
-                    bottom: 0;
+                    top: 0.7rem;
                     margin: auto;
                 }
             }
@@ -263,7 +262,7 @@
                 border: 2px solid #D39B33;
                 border-radius: 50%;
                 position: absolute;
-                background: #040407;
+                background: #D39B33;
                 left: -10px;
                 top: 4px;
                 z-index: 99;
@@ -702,18 +701,19 @@
         max-width: 60%;
     }
     .board-list {
-        display: flex;
-        justify-content: space-around;
-        margin-top: 1rem;
+        margin-top: 0rem;
         .board-card {
-            width: 13.5%;
             overflow: hidden;
             border-radius: 5px;
             background: #040407;
+            display: flex;
+            flex-direction: column;
+            height: 100%;
             img {
                 width: 100%;
                 min-height: 200px;
                 border-radius: 10px;
+                flex-grow: 1;
                 &.occupy-img {
                     background: #040407;
                     outline: none;
@@ -731,6 +731,245 @@
                 }
                 .MuiTypography-body2 {
                     font-family: "PingFang SC";
+                }
+            }
+        }
+    }
+    .meta-img,
+    .foundation-img,
+    .golden-img {
+        display: none;
+    }
+}
+.isMobile {
+    .block1 {
+        .meta-img {
+            margin: auto;
+            margin-top: 2rem;
+            margin-bottom: 2rem !important;
+        }
+        .tng-text {
+            text-align: center;
+            font-size: 1.7rem;
+        }
+        .social-link {
+            display: none;
+        }
+        .coin-vedio {
+            position: inherit;
+        }
+        .mbtc-txt {
+            display: flex;
+            align-items: center;
+            text-align: center;
+            font-size: 1.5rem;
+            line-height: 1.6rem;
+        }
+    }
+    .block2 {
+        position: relative;
+        .block-left {
+            position: absolute;
+            left: 0;
+            right: 0;
+            top: 100px;
+            overflow: hidden;
+        }
+        .diamond-img {
+            width: 150%;
+            position: relative;
+            margin-left: -50%;
+        }
+        .block-right {
+            margin-top: 100%;
+            width: 100%;
+            overflow: hidden;
+        }
+        .wimb-text {
+            height: auto;
+            width: 100%;
+            font-size: 3.7rem;
+            line-height: 4rem;
+            text-align: right !important;
+            &:after {
+                bottom: -1.2rem;
+            }
+        }
+        .download-btn {
+            margin-left: calc(50% - 6rem);
+            margin-bottom: 2rem;
+        }
+    }
+    .block3 {
+        .explore {
+            display: none;
+        }
+        .block-card {
+            height: 300px;
+            border-radius: 5px;
+        }
+        .block-partner {
+            border-radius: 8px;
+            height: 60px;
+        }
+        .transfored {
+            position: relative;
+            &:before {
+                content: "";
+                display: block;
+                position: absolute;
+                width: 40px;
+                height: 82%;
+                left: 0;
+                top: 2rem;
+                bottom: 0;
+                background-image: linear-gradient(to bottom, #D39B33 0%, #A033D3 20%);
+                border-radius: 20px 0 0 0;
+            }
+            &::after {
+                content: "";
+                display: block;
+                position: absolute;
+                width: 40px;
+                height: calc(82% - 2px);
+                left: 2px;
+                top:  calc(2rem + 2px);
+                border-radius: 20px 0 0 0;
+                outline: #040407 dashed 3px;
+                background: #040407;
+            }
+            .block-todo {
+                padding-top: 1rem;
+                padding-bottom: 1rem;
+                padding-left: 5rem; 
+            }
+            .MuiGrid-item {
+                z-index: 10;
+                position: relative;
+                &::before {
+                    content: "";
+                    display: block;
+                    width: 3rem;
+                    height: 2px;
+                    box-sizing: border-box;
+                    position: absolute;
+                    left: 0rem;
+                    top: 2.1rem;
+                    background-image: linear-gradient(to right, #A033D3 0, #A033D3 30%, transparent 50%);
+                    background-size: 8px 2px;
+                    background-repeat: repeat-x;
+                }
+                &::after {
+                    content: "";
+                    display: block;
+                    width: 20px;
+                    height: 20px;
+                    box-sizing: border-box;
+                    border: 2px solid #D39B33;
+                    border-radius: 50%;
+                    position: absolute;
+                    background: #040407;
+                    left: 3rem;
+                    top: 1.6rem;
+                }
+            }
+            .MuiGrid-item:first-child {
+                &::before {
+                    display: none;
+                }
+                &::after {
+                    content: "";
+                    display: block;
+                    width: 20px;
+                    height: 20px;
+                    box-sizing: border-box;
+                    border: 2px solid #D39B33;
+                    border-radius: 50%;
+                    position: absolute;
+                    background: #D39B33;
+                    left: 3rem;
+                    top: 1.6rem;
+                }
+            }
+            .MuiGrid-item:last-child {
+                &::before {
+                    display: none;
+                }
+                &>.block-todo {
+                    position: relative;
+                    &::before {
+                        content: "";
+                        display: block;
+                        position: absolute;
+                        width: 40px;
+                        height: 240px;
+                        left: 0;
+                        top: -200px;
+                        background: #A033D3;
+                        border-radius: 0 0 0 20px;
+                        z-index: 1;
+                    }
+                    &::after {
+                        content: "";
+                        display: block;
+                        position: absolute;
+                        width: 40px;
+                        height: 240px;
+                        left: 2px;
+                        top: -202px;
+                        border-radius: 0 0 0 20px;
+                        outline: #040407 dashed 3px;
+                        background: #040407;
+                        z-index: 2;
+                    }
+
+                }
+            }
+        }
+    }
+    .block4 {
+        .card-img {
+            width: 100%;
+        }
+        .card-text {
+            margin-top: 0.5rem;
+            margin-bottom: 0.5rem;
+        }
+        .card-info {
+            margin-bottom: 1.5rem;
+        }
+    }
+    .block5 {
+        text-align: center;
+        .meta-img {
+            width: 100%;
+            object-fit: cover;
+            margin-top: 3rem;
+            display: inline-block;
+        }
+        .foundation-img {
+            margin-top: 1rem;
+            width: 70%;
+            object-fit: cover;
+            display: inline-block;
+        }
+        .golden-img {
+            margin-top: 2rem;
+            width: 100%;
+            display: inline-block;
+        }
+        .gradient-text {
+            font-size: 1.8rem;
+            padding-bottom: 0rem;
+        }
+        .normal-text {
+            padding-left: 0;
+            max-width: 100%;
+        }
+        .board-card {
+            .MuiCardContent-root {
+                .MuiTypography-body2 {
+                    height: 3rem;
                 }
             }
         }
