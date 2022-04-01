@@ -104,7 +104,7 @@ export default function HomeLayout({ children }: { children: React.ReactNode }) 
               </Menu>
             </Box>
             <Box sx={{ display: { xs: "flex", md: "flex" } }}>
-              <Link href={window.location.origin + ""} underline="none">
+              <Link href="#/dashboard" underline="none">
                 <Button variant="contained" className="header-btn">
                   Enter App
                 </Button>

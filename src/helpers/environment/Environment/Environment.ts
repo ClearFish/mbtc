@@ -83,6 +83,16 @@ export class Environment {
           key: `REACT_APP_FANTOM_TESTNET_NODE_URL`,
           fallback: "https://rpc.testnet.fantom.network/",
         });
+      case NetworkId.BSC:
+        return this._get({
+          key: `REACT_APP_BSC_NODE_URL`,
+          fallback: "https://bsc-dataseed1.binance.org",
+        });
+      case NetworkId.BSC_TESTNET:
+        return this._get({
+          key: `REACT_APP_BSC_TESTNET_NODE_URL`,
+          fallback: "https://testnet.bscscan.com",
+        });
     }
   };
 
