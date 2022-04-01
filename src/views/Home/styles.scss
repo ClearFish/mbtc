@@ -124,7 +124,28 @@
                 top: -10px;
                 background: url("../../assets/images/star.png") center no-repeat;
                 background-size: cover;
-
+            }
+        }
+    }
+    .opt-block {
+        align-items: center;
+    }
+    .opt-list {
+        display: flex;
+        align-items: center;
+        .opt-audit {
+            display: block;
+            width: 120px;
+            object-fit: contain;
+            margin-left: 1rem;
+            transition: .2s ease-in-out;
+            display: flex;
+            align-items: center;
+            &:hover {
+                transform: scale(1.1);
+            }
+            img {
+                width: 100%;
             }
         }
     }
@@ -702,6 +723,9 @@
     }
     .board-list {
         margin-top: 0rem;
+        .notMobile {
+            max-width: 13%;
+        }
         .board-card {
             overflow: hidden;
             border-radius: 5px;
@@ -723,6 +747,7 @@
             .MuiCardContent-root {
                 padding: 0;
                 color: #FFFFFF;
+                min-height: 6rem;
                 .MuiTypography-h6 {
                     padding-top: 0.2rem;
                     font-size: 1rem;
@@ -733,6 +758,10 @@
                     font-family: "PingFang SC";
                 }
             }
+        }
+        .lg-card {
+            max-width: 13%;
+            flex-basis: 13%;
         }
     }
     .meta-img,
@@ -797,7 +826,17 @@
         }
         .download-btn {
             margin-left: calc(50% - 6rem);
+            display: block;
             margin-bottom: 2rem;
+        }
+        .opt-list {
+            justify-content: space-around;
+        }
+        .opt-audit {
+            width: 45%;
+            margin: 2px 4px 10px 0;
+            height:  5rem;
+            margin-left: 0;
         }
     }
     .block3 {

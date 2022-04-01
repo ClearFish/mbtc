@@ -13,7 +13,6 @@ import CardPOOL from "../../assets/images/card-pool.png";
 
 import PartnerBitcoin from "../../assets/images/partner-bitcoin.png";
 import PartnerBitmain from "../../assets/images/partner-bitmain.png";
-import PartnerPolygon from "../../assets/images/partner-polygon.png";
 import PartnerUniswap from "../../assets/images/partner-uniswap.png";
 import PartnerCoinGecko from "../../assets/images/partner-coingecko.png";
 import PartnerLbank from "../../assets/images/partner-lbank.png";
@@ -23,8 +22,9 @@ import PartnerAlawad from "../../assets/images/partner-alawad.png";
 import Partner1inch from "../../assets/images/partner-1inch.png";
 import PartnerCertik from "../../assets/images/partner-certik.png";
 import PartnerShark from "../../assets/images/partner-shark.png";
+import PartnerPancake from "../../assets/images/partner-pancake.png";
 
-import { Container, useMediaQuery, Link, Typography, Button, Grid } from "@material-ui/core";
+import { Container, useMediaQuery, Link, Typography, Button, Grid, Box } from "@material-ui/core";
 
 const transforRoad = (arr: any) => {
   const tempArr = [...arr];
@@ -45,7 +45,7 @@ export function Home() {
   const partners = [
     PartnerBitcoin,
     PartnerBitmain,
-    PartnerPolygon,
+    PartnerPancake,
     PartnerUniswap,
     PartnerCoinGecko,
     PartnerLbank,
@@ -72,7 +72,7 @@ export function Home() {
         ,
         {
           item: "MBTC roadshow debut",
-          done: false,
+          done: true,
         },
       ],
       grid: 4,
@@ -290,9 +290,23 @@ export function Home() {
                 halved every four years.
               </li>
             </ul>
-            <Button className="download-btn" onClick={paperHandler}>
-              <Typography>Meta White Paper</Typography>
-            </Button>
+            <Box sx={{ display: { xs: "block", md: "flex" } }} className="opt-block">
+              <Button className="download-btn" onClick={paperHandler}>
+                <Typography>Meta White Paper</Typography>
+              </Button>
+              <div className="opt-list">
+                <Link href="" target="_blank" className="opt-audit">
+                  <img src={PartnerCertik} />
+                </Link>
+                <Link
+                  href="https://www.sharkteam.org/report/audit/20220331002C.pdf"
+                  target="_blank"
+                  className="opt-audit"
+                >
+                  <img src={PartnerShark} />
+                </Link>
+              </div>
+            </Box>
           </div>
         </Container>
       </div>
