@@ -79,7 +79,7 @@ export default function HomeLayout({ children }: { children: React.ReactNode }) 
                 </Link>
               ))}
             </Box>
-            <Box sx={{ flexGrow: 1, justifyContent: "flex-end", display: "flex" }}>
+            <Box sx={{ flexGrow: 1, justifyContent: "flex-end", display: { xs: "flex", md: "none" } }}>
               {anchorElNav ? (
                 <Box onClick={handleCloseNavMenu}>
                   <img src={MenuClose} alt="MBTC" className="menu-icon-close" />
