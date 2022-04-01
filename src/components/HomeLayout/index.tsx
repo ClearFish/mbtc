@@ -17,8 +17,9 @@ import {
   Typography,
   Toolbar,
   Box,
-  Menu,
-  MenuItem,
+  // Menu,
+  // MenuItem,
+  Collapse,
   Button,
 } from "@material-ui/core";
 import React, { useState } from "react";
@@ -32,14 +33,14 @@ export default function HomeLayout({ children }: { children: React.ReactNode }) 
 
   const [zoomed, setZoomed] = useState(false);
 
-  const [anchorElNav, setAnchorElNav] = useState(null);
+  const [anchorElNav, setAnchorElNav] = useState(false);
 
-  const handleOpenNavMenu = (event: any) => {
-    setAnchorElNav(event.currentTarget);
+  const handleOpenNavMenu = () => {
+    setAnchorElNav(prev => !prev);
   };
 
   const handleCloseNavMenu = () => {
-    setAnchorElNav(null);
+    setAnchorElNav(false);
   };
 
   const links = [
@@ -79,6 +80,7 @@ export default function HomeLayout({ children }: { children: React.ReactNode }) 
             </Box>
             <Box sx={{ flexGrow: 1, justifyContent: "center", display: { xs: "flex", md: "none" } }}>
               <MenuIcon aria-haspopup="true" onClick={handleOpenNavMenu} className="menu-icon"></MenuIcon>
+              {/* <MenuIcon aria-haspopup="true" onClick={handleOpenNavMenu} className="menu-icon"></MenuIcon>
               <Menu
                 id="menu-appbar"
                 anchorEl={anchorElNav}
@@ -101,7 +103,7 @@ export default function HomeLayout({ children }: { children: React.ReactNode }) 
                     </Link>
                   </MenuItem>
                 ))}
-              </Menu>
+              </Menu> */}
             </Box>
             <Box sx={{ display: { xs: "flex", md: "flex" } }}>
               <Link href={window.location.origin + ""} underline="none">
@@ -111,6 +113,7 @@ export default function HomeLayout({ children }: { children: React.ReactNode }) 
               </Link>
             </Box>
           </Toolbar>
+          <Collapse in={Boolean(anchorElNav)}>12331</Collapse>
         </Container>
       </AppBar>
       {children}
