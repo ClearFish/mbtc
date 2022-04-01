@@ -42,15 +42,27 @@ export interface OlympusProMarketCreatorInterface extends utils.Interface {
       string,
       [BigNumberish, BigNumberish, BigNumberish, BigNumberish],
       [BigNumberish, BigNumberish],
-      BigNumberish,
-    ],
+      BigNumberish
+    ]
   ): string;
-  encodeFunctionData(functionFragment: "depository", values?: undefined): string;
-  encodeFunctionData(functionFragment: "getMarkets", values?: undefined): string;
+  encodeFunctionData(
+    functionFragment: "depository",
+    values?: undefined
+  ): string;
+  encodeFunctionData(
+    functionFragment: "getMarkets",
+    values?: undefined
+  ): string;
   encodeFunctionData(functionFragment: "halt", values: [BigNumberish]): string;
   encodeFunctionData(functionFragment: "ohm", values?: undefined): string;
-  encodeFunctionData(functionFragment: "returnReserve", values: [string, BigNumberish]): string;
-  encodeFunctionData(functionFragment: "setAuthority", values: [string]): string;
+  encodeFunctionData(
+    functionFragment: "returnReserve",
+    values: [string, BigNumberish]
+  ): string;
+  encodeFunctionData(
+    functionFragment: "setAuthority",
+    values: [string]
+  ): string;
   encodeFunctionData(functionFragment: "setTreasury", values: [string]): string;
   encodeFunctionData(functionFragment: "treasury", values?: undefined): string;
 
@@ -62,9 +74,18 @@ export interface OlympusProMarketCreatorInterface extends utils.Interface {
   decodeFunctionResult(functionFragment: "getMarkets", data: BytesLike): Result;
   decodeFunctionResult(functionFragment: "halt", data: BytesLike): Result;
   decodeFunctionResult(functionFragment: "ohm", data: BytesLike): Result;
-  decodeFunctionResult(functionFragment: "returnReserve", data: BytesLike): Result;
-  decodeFunctionResult(functionFragment: "setAuthority", data: BytesLike): Result;
-  decodeFunctionResult(functionFragment: "setTreasury", data: BytesLike): Result;
+  decodeFunctionResult(
+    functionFragment: "returnReserve",
+    data: BytesLike
+  ): Result;
+  decodeFunctionResult(
+    functionFragment: "setAuthority",
+    data: BytesLike
+  ): Result;
+  decodeFunctionResult(
+    functionFragment: "setTreasury",
+    data: BytesLike
+  ): Result;
   decodeFunctionResult(functionFragment: "treasury", data: BytesLike): Result;
 
   events: {
@@ -76,7 +97,8 @@ export interface OlympusProMarketCreatorInterface extends utils.Interface {
 
 export type AuthorityUpdatedEvent = TypedEvent<[string], { authority: string }>;
 
-export type AuthorityUpdatedEventFilter = TypedEventFilter<AuthorityUpdatedEvent>;
+export type AuthorityUpdatedEventFilter =
+  TypedEventFilter<AuthorityUpdatedEvent>;
 
 export interface OlympusProMarketCreator extends BaseContract {
   connect(signerOrProvider: Signer | Provider | string): this;
@@ -88,12 +110,16 @@ export interface OlympusProMarketCreator extends BaseContract {
   queryFilter<TEvent extends TypedEvent>(
     event: TypedEventFilter<TEvent>,
     fromBlockOrBlockhash?: string | number | undefined,
-    toBlock?: string | number | undefined,
+    toBlock?: string | number | undefined
   ): Promise<Array<TEvent>>;
 
-  listeners<TEvent extends TypedEvent>(eventFilter?: TypedEventFilter<TEvent>): Array<TypedListener<TEvent>>;
+  listeners<TEvent extends TypedEvent>(
+    eventFilter?: TypedEventFilter<TEvent>
+  ): Array<TypedListener<TEvent>>;
   listeners(eventName?: string): Array<Listener>;
-  removeAllListeners<TEvent extends TypedEvent>(eventFilter: TypedEventFilter<TEvent>): this;
+  removeAllListeners<TEvent extends TypedEvent>(
+    eventFilter: TypedEventFilter<TEvent>
+  ): this;
   removeAllListeners(eventName?: string): this;
   off: OnEvent<this>;
   on: OnEvent<this>;
@@ -103,40 +129,48 @@ export interface OlympusProMarketCreator extends BaseContract {
   functions: {
     authority(overrides?: CallOverrides): Promise<[string]>;
 
-    burn(overrides?: Overrides & { from?: string | Promise<string> }): Promise<ContractTransaction>;
+    burn(
+      overrides?: Overrides & { from?: string | Promise<string> }
+    ): Promise<ContractTransaction>;
 
-    close(_id: BigNumberish, overrides?: Overrides & { from?: string | Promise<string> }): Promise<ContractTransaction>;
+    close(
+      _id: BigNumberish,
+      overrides?: Overrides & { from?: string | Promise<string> }
+    ): Promise<ContractTransaction>;
 
     create(
       _token: string,
       _market: [BigNumberish, BigNumberish, BigNumberish, BigNumberish],
       _intervals: [BigNumberish, BigNumberish],
       _conclusion: BigNumberish,
-      overrides?: Overrides & { from?: string | Promise<string> },
+      overrides?: Overrides & { from?: string | Promise<string> }
     ): Promise<ContractTransaction>;
 
     depository(overrides?: CallOverrides): Promise<[string]>;
 
     getMarkets(overrides?: CallOverrides): Promise<[BigNumber[], string[]]>;
 
-    halt(_id: BigNumberish, overrides?: Overrides & { from?: string | Promise<string> }): Promise<ContractTransaction>;
+    halt(
+      _id: BigNumberish,
+      overrides?: Overrides & { from?: string | Promise<string> }
+    ): Promise<ContractTransaction>;
 
     ohm(overrides?: CallOverrides): Promise<[string]>;
 
     returnReserve(
       _token: string,
       amount: BigNumberish,
-      overrides?: Overrides & { from?: string | Promise<string> },
+      overrides?: Overrides & { from?: string | Promise<string> }
     ): Promise<ContractTransaction>;
 
     setAuthority(
       _newAuthority: string,
-      overrides?: Overrides & { from?: string | Promise<string> },
+      overrides?: Overrides & { from?: string | Promise<string> }
     ): Promise<ContractTransaction>;
 
     setTreasury(
       _treasury: string,
-      overrides?: Overrides & { from?: string | Promise<string> },
+      overrides?: Overrides & { from?: string | Promise<string> }
     ): Promise<ContractTransaction>;
 
     treasury(overrides?: CallOverrides): Promise<[string]>;
@@ -144,40 +178,48 @@ export interface OlympusProMarketCreator extends BaseContract {
 
   authority(overrides?: CallOverrides): Promise<string>;
 
-  burn(overrides?: Overrides & { from?: string | Promise<string> }): Promise<ContractTransaction>;
+  burn(
+    overrides?: Overrides & { from?: string | Promise<string> }
+  ): Promise<ContractTransaction>;
 
-  close(_id: BigNumberish, overrides?: Overrides & { from?: string | Promise<string> }): Promise<ContractTransaction>;
+  close(
+    _id: BigNumberish,
+    overrides?: Overrides & { from?: string | Promise<string> }
+  ): Promise<ContractTransaction>;
 
   create(
     _token: string,
     _market: [BigNumberish, BigNumberish, BigNumberish, BigNumberish],
     _intervals: [BigNumberish, BigNumberish],
     _conclusion: BigNumberish,
-    overrides?: Overrides & { from?: string | Promise<string> },
+    overrides?: Overrides & { from?: string | Promise<string> }
   ): Promise<ContractTransaction>;
 
   depository(overrides?: CallOverrides): Promise<string>;
 
   getMarkets(overrides?: CallOverrides): Promise<[BigNumber[], string[]]>;
 
-  halt(_id: BigNumberish, overrides?: Overrides & { from?: string | Promise<string> }): Promise<ContractTransaction>;
+  halt(
+    _id: BigNumberish,
+    overrides?: Overrides & { from?: string | Promise<string> }
+  ): Promise<ContractTransaction>;
 
   ohm(overrides?: CallOverrides): Promise<string>;
 
   returnReserve(
     _token: string,
     amount: BigNumberish,
-    overrides?: Overrides & { from?: string | Promise<string> },
+    overrides?: Overrides & { from?: string | Promise<string> }
   ): Promise<ContractTransaction>;
 
   setAuthority(
     _newAuthority: string,
-    overrides?: Overrides & { from?: string | Promise<string> },
+    overrides?: Overrides & { from?: string | Promise<string> }
   ): Promise<ContractTransaction>;
 
   setTreasury(
     _treasury: string,
-    overrides?: Overrides & { from?: string | Promise<string> },
+    overrides?: Overrides & { from?: string | Promise<string> }
   ): Promise<ContractTransaction>;
 
   treasury(overrides?: CallOverrides): Promise<string>;
@@ -194,7 +236,7 @@ export interface OlympusProMarketCreator extends BaseContract {
       _market: [BigNumberish, BigNumberish, BigNumberish, BigNumberish],
       _intervals: [BigNumberish, BigNumberish],
       _conclusion: BigNumberish,
-      overrides?: CallOverrides,
+      overrides?: CallOverrides
     ): Promise<void>;
 
     depository(overrides?: CallOverrides): Promise<string>;
@@ -205,9 +247,16 @@ export interface OlympusProMarketCreator extends BaseContract {
 
     ohm(overrides?: CallOverrides): Promise<string>;
 
-    returnReserve(_token: string, amount: BigNumberish, overrides?: CallOverrides): Promise<void>;
+    returnReserve(
+      _token: string,
+      amount: BigNumberish,
+      overrides?: CallOverrides
+    ): Promise<void>;
 
-    setAuthority(_newAuthority: string, overrides?: CallOverrides): Promise<void>;
+    setAuthority(
+      _newAuthority: string,
+      overrides?: CallOverrides
+    ): Promise<void>;
 
     setTreasury(_treasury: string, overrides?: CallOverrides): Promise<void>;
 
@@ -215,45 +264,58 @@ export interface OlympusProMarketCreator extends BaseContract {
   };
 
   filters: {
-    "AuthorityUpdated(address)"(authority?: string | null): AuthorityUpdatedEventFilter;
+    "AuthorityUpdated(address)"(
+      authority?: string | null
+    ): AuthorityUpdatedEventFilter;
     AuthorityUpdated(authority?: string | null): AuthorityUpdatedEventFilter;
   };
 
   estimateGas: {
     authority(overrides?: CallOverrides): Promise<BigNumber>;
 
-    burn(overrides?: Overrides & { from?: string | Promise<string> }): Promise<BigNumber>;
+    burn(
+      overrides?: Overrides & { from?: string | Promise<string> }
+    ): Promise<BigNumber>;
 
-    close(_id: BigNumberish, overrides?: Overrides & { from?: string | Promise<string> }): Promise<BigNumber>;
+    close(
+      _id: BigNumberish,
+      overrides?: Overrides & { from?: string | Promise<string> }
+    ): Promise<BigNumber>;
 
     create(
       _token: string,
       _market: [BigNumberish, BigNumberish, BigNumberish, BigNumberish],
       _intervals: [BigNumberish, BigNumberish],
       _conclusion: BigNumberish,
-      overrides?: Overrides & { from?: string | Promise<string> },
+      overrides?: Overrides & { from?: string | Promise<string> }
     ): Promise<BigNumber>;
 
     depository(overrides?: CallOverrides): Promise<BigNumber>;
 
     getMarkets(overrides?: CallOverrides): Promise<BigNumber>;
 
-    halt(_id: BigNumberish, overrides?: Overrides & { from?: string | Promise<string> }): Promise<BigNumber>;
+    halt(
+      _id: BigNumberish,
+      overrides?: Overrides & { from?: string | Promise<string> }
+    ): Promise<BigNumber>;
 
     ohm(overrides?: CallOverrides): Promise<BigNumber>;
 
     returnReserve(
       _token: string,
       amount: BigNumberish,
-      overrides?: Overrides & { from?: string | Promise<string> },
+      overrides?: Overrides & { from?: string | Promise<string> }
     ): Promise<BigNumber>;
 
     setAuthority(
       _newAuthority: string,
-      overrides?: Overrides & { from?: string | Promise<string> },
+      overrides?: Overrides & { from?: string | Promise<string> }
     ): Promise<BigNumber>;
 
-    setTreasury(_treasury: string, overrides?: Overrides & { from?: string | Promise<string> }): Promise<BigNumber>;
+    setTreasury(
+      _treasury: string,
+      overrides?: Overrides & { from?: string | Promise<string> }
+    ): Promise<BigNumber>;
 
     treasury(overrides?: CallOverrides): Promise<BigNumber>;
   };
@@ -261,11 +323,13 @@ export interface OlympusProMarketCreator extends BaseContract {
   populateTransaction: {
     authority(overrides?: CallOverrides): Promise<PopulatedTransaction>;
 
-    burn(overrides?: Overrides & { from?: string | Promise<string> }): Promise<PopulatedTransaction>;
+    burn(
+      overrides?: Overrides & { from?: string | Promise<string> }
+    ): Promise<PopulatedTransaction>;
 
     close(
       _id: BigNumberish,
-      overrides?: Overrides & { from?: string | Promise<string> },
+      overrides?: Overrides & { from?: string | Promise<string> }
     ): Promise<PopulatedTransaction>;
 
     create(
@@ -273,31 +337,34 @@ export interface OlympusProMarketCreator extends BaseContract {
       _market: [BigNumberish, BigNumberish, BigNumberish, BigNumberish],
       _intervals: [BigNumberish, BigNumberish],
       _conclusion: BigNumberish,
-      overrides?: Overrides & { from?: string | Promise<string> },
+      overrides?: Overrides & { from?: string | Promise<string> }
     ): Promise<PopulatedTransaction>;
 
     depository(overrides?: CallOverrides): Promise<PopulatedTransaction>;
 
     getMarkets(overrides?: CallOverrides): Promise<PopulatedTransaction>;
 
-    halt(_id: BigNumberish, overrides?: Overrides & { from?: string | Promise<string> }): Promise<PopulatedTransaction>;
+    halt(
+      _id: BigNumberish,
+      overrides?: Overrides & { from?: string | Promise<string> }
+    ): Promise<PopulatedTransaction>;
 
     ohm(overrides?: CallOverrides): Promise<PopulatedTransaction>;
 
     returnReserve(
       _token: string,
       amount: BigNumberish,
-      overrides?: Overrides & { from?: string | Promise<string> },
+      overrides?: Overrides & { from?: string | Promise<string> }
     ): Promise<PopulatedTransaction>;
 
     setAuthority(
       _newAuthority: string,
-      overrides?: Overrides & { from?: string | Promise<string> },
+      overrides?: Overrides & { from?: string | Promise<string> }
     ): Promise<PopulatedTransaction>;
 
     setTreasury(
       _treasury: string,
-      overrides?: Overrides & { from?: string | Promise<string> },
+      overrides?: Overrides & { from?: string | Promise<string> }
     ): Promise<PopulatedTransaction>;
 
     treasury(overrides?: CallOverrides): Promise<PopulatedTransaction>;

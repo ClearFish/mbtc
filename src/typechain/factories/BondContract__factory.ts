@@ -563,7 +563,10 @@ export class BondContract__factory {
   static createInterface(): BondContractInterface {
     return new utils.Interface(_abi) as BondContractInterface;
   }
-  static connect(address: string, signerOrProvider: Signer | Provider): BondContract {
+  static connect(
+    address: string,
+    signerOrProvider: Signer | Provider
+  ): BondContract {
     return new Contract(address, _abi, signerOrProvider) as BondContract;
   }
 }

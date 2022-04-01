@@ -1083,7 +1083,10 @@ export class OlympusProV2__factory {
   static createInterface(): OlympusProV2Interface {
     return new utils.Interface(_abi) as OlympusProV2Interface;
   }
-  static connect(address: string, signerOrProvider: Signer | Provider): OlympusProV2 {
+  static connect(
+    address: string,
+    signerOrProvider: Signer | Provider
+  ): OlympusProV2 {
     return new Contract(address, _abi, signerOrProvider) as OlympusProV2;
   }
 }

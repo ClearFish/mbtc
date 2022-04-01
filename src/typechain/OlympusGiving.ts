@@ -44,50 +44,152 @@ export interface OlympusGivingInterface extends utils.Interface {
   };
 
   encodeFunctionData(functionFragment: "authority", values?: undefined): string;
-  encodeFunctionData(functionFragment: "deposit", values: [BigNumberish, string]): string;
-  encodeFunctionData(functionFragment: "depositDisabled", values?: undefined): string;
-  encodeFunctionData(functionFragment: "depositsTo", values: [string, string]): string;
-  encodeFunctionData(functionFragment: "disableDeposits", values: [boolean]): string;
-  encodeFunctionData(functionFragment: "disableRedeems", values: [boolean]): string;
-  encodeFunctionData(functionFragment: "disableWithdrawals", values: [boolean]): string;
-  encodeFunctionData(functionFragment: "donatedTo", values: [string, string]): string;
-  encodeFunctionData(functionFragment: "donationInfo", values: [string, BigNumberish]): string;
-  encodeFunctionData(functionFragment: "emergencyShutdown", values: [boolean]): string;
-  encodeFunctionData(functionFragment: "getAllDeposits", values: [string]): string;
-  encodeFunctionData(functionFragment: "recipientInfo", values: [string]): string;
+  encodeFunctionData(
+    functionFragment: "deposit",
+    values: [BigNumberish, string]
+  ): string;
+  encodeFunctionData(
+    functionFragment: "depositDisabled",
+    values?: undefined
+  ): string;
+  encodeFunctionData(
+    functionFragment: "depositsTo",
+    values: [string, string]
+  ): string;
+  encodeFunctionData(
+    functionFragment: "disableDeposits",
+    values: [boolean]
+  ): string;
+  encodeFunctionData(
+    functionFragment: "disableRedeems",
+    values: [boolean]
+  ): string;
+  encodeFunctionData(
+    functionFragment: "disableWithdrawals",
+    values: [boolean]
+  ): string;
+  encodeFunctionData(
+    functionFragment: "donatedTo",
+    values: [string, string]
+  ): string;
+  encodeFunctionData(
+    functionFragment: "donationInfo",
+    values: [string, BigNumberish]
+  ): string;
+  encodeFunctionData(
+    functionFragment: "emergencyShutdown",
+    values: [boolean]
+  ): string;
+  encodeFunctionData(
+    functionFragment: "getAllDeposits",
+    values: [string]
+  ): string;
+  encodeFunctionData(
+    functionFragment: "recipientInfo",
+    values: [string]
+  ): string;
   encodeFunctionData(functionFragment: "redeem", values?: undefined): string;
-  encodeFunctionData(functionFragment: "redeemDisabled", values?: undefined): string;
-  encodeFunctionData(functionFragment: "redeemableBalance", values: [string]): string;
+  encodeFunctionData(
+    functionFragment: "redeemDisabled",
+    values?: undefined
+  ): string;
+  encodeFunctionData(
+    functionFragment: "redeemableBalance",
+    values: [string]
+  ): string;
   encodeFunctionData(functionFragment: "sOHM", values?: undefined): string;
-  encodeFunctionData(functionFragment: "setAuthority", values: [string]): string;
-  encodeFunctionData(functionFragment: "totalDeposits", values: [string]): string;
-  encodeFunctionData(functionFragment: "totalDonated", values: [string]): string;
-  encodeFunctionData(functionFragment: "withdraw", values: [BigNumberish, string]): string;
-  encodeFunctionData(functionFragment: "withdrawAll", values?: undefined): string;
-  encodeFunctionData(functionFragment: "withdrawDisabled", values?: undefined): string;
+  encodeFunctionData(
+    functionFragment: "setAuthority",
+    values: [string]
+  ): string;
+  encodeFunctionData(
+    functionFragment: "totalDeposits",
+    values: [string]
+  ): string;
+  encodeFunctionData(
+    functionFragment: "totalDonated",
+    values: [string]
+  ): string;
+  encodeFunctionData(
+    functionFragment: "withdraw",
+    values: [BigNumberish, string]
+  ): string;
+  encodeFunctionData(
+    functionFragment: "withdrawAll",
+    values?: undefined
+  ): string;
+  encodeFunctionData(
+    functionFragment: "withdrawDisabled",
+    values?: undefined
+  ): string;
 
   decodeFunctionResult(functionFragment: "authority", data: BytesLike): Result;
   decodeFunctionResult(functionFragment: "deposit", data: BytesLike): Result;
-  decodeFunctionResult(functionFragment: "depositDisabled", data: BytesLike): Result;
+  decodeFunctionResult(
+    functionFragment: "depositDisabled",
+    data: BytesLike
+  ): Result;
   decodeFunctionResult(functionFragment: "depositsTo", data: BytesLike): Result;
-  decodeFunctionResult(functionFragment: "disableDeposits", data: BytesLike): Result;
-  decodeFunctionResult(functionFragment: "disableRedeems", data: BytesLike): Result;
-  decodeFunctionResult(functionFragment: "disableWithdrawals", data: BytesLike): Result;
+  decodeFunctionResult(
+    functionFragment: "disableDeposits",
+    data: BytesLike
+  ): Result;
+  decodeFunctionResult(
+    functionFragment: "disableRedeems",
+    data: BytesLike
+  ): Result;
+  decodeFunctionResult(
+    functionFragment: "disableWithdrawals",
+    data: BytesLike
+  ): Result;
   decodeFunctionResult(functionFragment: "donatedTo", data: BytesLike): Result;
-  decodeFunctionResult(functionFragment: "donationInfo", data: BytesLike): Result;
-  decodeFunctionResult(functionFragment: "emergencyShutdown", data: BytesLike): Result;
-  decodeFunctionResult(functionFragment: "getAllDeposits", data: BytesLike): Result;
-  decodeFunctionResult(functionFragment: "recipientInfo", data: BytesLike): Result;
+  decodeFunctionResult(
+    functionFragment: "donationInfo",
+    data: BytesLike
+  ): Result;
+  decodeFunctionResult(
+    functionFragment: "emergencyShutdown",
+    data: BytesLike
+  ): Result;
+  decodeFunctionResult(
+    functionFragment: "getAllDeposits",
+    data: BytesLike
+  ): Result;
+  decodeFunctionResult(
+    functionFragment: "recipientInfo",
+    data: BytesLike
+  ): Result;
   decodeFunctionResult(functionFragment: "redeem", data: BytesLike): Result;
-  decodeFunctionResult(functionFragment: "redeemDisabled", data: BytesLike): Result;
-  decodeFunctionResult(functionFragment: "redeemableBalance", data: BytesLike): Result;
+  decodeFunctionResult(
+    functionFragment: "redeemDisabled",
+    data: BytesLike
+  ): Result;
+  decodeFunctionResult(
+    functionFragment: "redeemableBalance",
+    data: BytesLike
+  ): Result;
   decodeFunctionResult(functionFragment: "sOHM", data: BytesLike): Result;
-  decodeFunctionResult(functionFragment: "setAuthority", data: BytesLike): Result;
-  decodeFunctionResult(functionFragment: "totalDeposits", data: BytesLike): Result;
-  decodeFunctionResult(functionFragment: "totalDonated", data: BytesLike): Result;
+  decodeFunctionResult(
+    functionFragment: "setAuthority",
+    data: BytesLike
+  ): Result;
+  decodeFunctionResult(
+    functionFragment: "totalDeposits",
+    data: BytesLike
+  ): Result;
+  decodeFunctionResult(
+    functionFragment: "totalDonated",
+    data: BytesLike
+  ): Result;
   decodeFunctionResult(functionFragment: "withdraw", data: BytesLike): Result;
-  decodeFunctionResult(functionFragment: "withdrawAll", data: BytesLike): Result;
-  decodeFunctionResult(functionFragment: "withdrawDisabled", data: BytesLike): Result;
+  decodeFunctionResult(
+    functionFragment: "withdrawAll",
+    data: BytesLike
+  ): Result;
+  decodeFunctionResult(
+    functionFragment: "withdrawDisabled",
+    data: BytesLike
+  ): Result;
 
   events: {
     "AllWithdrawn(address,uint256)": EventFragment;
@@ -108,13 +210,17 @@ export interface OlympusGivingInterface extends utils.Interface {
   getEvent(nameOrSignatureOrTopic: "Withdrawn"): EventFragment;
 }
 
-export type AllWithdrawnEvent = TypedEvent<[string, BigNumber], { donor_: string; amount_: BigNumber }>;
+export type AllWithdrawnEvent = TypedEvent<
+  [string, BigNumber],
+  { donor_: string; amount_: BigNumber }
+>;
 
 export type AllWithdrawnEventFilter = TypedEventFilter<AllWithdrawnEvent>;
 
 export type AuthorityUpdatedEvent = TypedEvent<[string], { authority: string }>;
 
-export type AuthorityUpdatedEventFilter = TypedEventFilter<AuthorityUpdatedEvent>;
+export type AuthorityUpdatedEventFilter =
+  TypedEventFilter<AuthorityUpdatedEvent>;
 
 export type DepositedEvent = TypedEvent<
   [string, string, BigNumber],
@@ -130,11 +236,18 @@ export type DonatedEvent = TypedEvent<
 
 export type DonatedEventFilter = TypedEventFilter<DonatedEvent>;
 
-export type EmergencyShutdownEvent = TypedEvent<[boolean], { active_: boolean }>;
+export type EmergencyShutdownEvent = TypedEvent<
+  [boolean],
+  { active_: boolean }
+>;
 
-export type EmergencyShutdownEventFilter = TypedEventFilter<EmergencyShutdownEvent>;
+export type EmergencyShutdownEventFilter =
+  TypedEventFilter<EmergencyShutdownEvent>;
 
-export type RedeemedEvent = TypedEvent<[string, BigNumber], { recipient_: string; amount_: BigNumber }>;
+export type RedeemedEvent = TypedEvent<
+  [string, BigNumber],
+  { recipient_: string; amount_: BigNumber }
+>;
 
 export type RedeemedEventFilter = TypedEventFilter<RedeemedEvent>;
 
@@ -155,12 +268,16 @@ export interface OlympusGiving extends BaseContract {
   queryFilter<TEvent extends TypedEvent>(
     event: TypedEventFilter<TEvent>,
     fromBlockOrBlockhash?: string | number | undefined,
-    toBlock?: string | number | undefined,
+    toBlock?: string | number | undefined
   ): Promise<Array<TEvent>>;
 
-  listeners<TEvent extends TypedEvent>(eventFilter?: TypedEventFilter<TEvent>): Array<TypedListener<TEvent>>;
+  listeners<TEvent extends TypedEvent>(
+    eventFilter?: TypedEventFilter<TEvent>
+  ): Array<TypedListener<TEvent>>;
   listeners(eventName?: string): Array<Listener>;
-  removeAllListeners<TEvent extends TypedEvent>(eventFilter: TypedEventFilter<TEvent>): this;
+  removeAllListeners<TEvent extends TypedEvent>(
+    eventFilter: TypedEventFilter<TEvent>
+  ): this;
   removeAllListeners(eventName?: string): this;
   off: OnEvent<this>;
   on: OnEvent<this>;
@@ -173,34 +290,42 @@ export interface OlympusGiving extends BaseContract {
     deposit(
       amount_: BigNumberish,
       recipient_: string,
-      overrides?: Overrides & { from?: string | Promise<string> },
+      overrides?: Overrides & { from?: string | Promise<string> }
     ): Promise<ContractTransaction>;
 
     depositDisabled(overrides?: CallOverrides): Promise<[boolean]>;
 
-    depositsTo(donor_: string, recipient_: string, overrides?: CallOverrides): Promise<[BigNumber]>;
+    depositsTo(
+      donor_: string,
+      recipient_: string,
+      overrides?: CallOverrides
+    ): Promise<[BigNumber]>;
 
     disableDeposits(
       active_: boolean,
-      overrides?: Overrides & { from?: string | Promise<string> },
+      overrides?: Overrides & { from?: string | Promise<string> }
     ): Promise<ContractTransaction>;
 
     disableRedeems(
       active_: boolean,
-      overrides?: Overrides & { from?: string | Promise<string> },
+      overrides?: Overrides & { from?: string | Promise<string> }
     ): Promise<ContractTransaction>;
 
     disableWithdrawals(
       active_: boolean,
-      overrides?: Overrides & { from?: string | Promise<string> },
+      overrides?: Overrides & { from?: string | Promise<string> }
     ): Promise<ContractTransaction>;
 
-    donatedTo(donor_: string, recipient_: string, overrides?: CallOverrides): Promise<[BigNumber]>;
+    donatedTo(
+      donor_: string,
+      recipient_: string,
+      overrides?: CallOverrides
+    ): Promise<[BigNumber]>;
 
     donationInfo(
       arg0: string,
       arg1: BigNumberish,
-      overrides?: CallOverrides,
+      overrides?: CallOverrides
     ): Promise<
       [string, BigNumber, BigNumber, BigNumber, BigNumber] & {
         recipient: string;
@@ -213,14 +338,17 @@ export interface OlympusGiving extends BaseContract {
 
     emergencyShutdown(
       active_: boolean,
-      overrides?: Overrides & { from?: string | Promise<string> },
+      overrides?: Overrides & { from?: string | Promise<string> }
     ): Promise<ContractTransaction>;
 
-    getAllDeposits(donor_: string, overrides?: CallOverrides): Promise<[string[], BigNumber[]]>;
+    getAllDeposits(
+      donor_: string,
+      overrides?: CallOverrides
+    ): Promise<[string[], BigNumber[]]>;
 
     recipientInfo(
       arg0: string,
-      overrides?: CallOverrides,
+      overrides?: CallOverrides
     ): Promise<
       [BigNumber, BigNumber, BigNumber, BigNumber] & {
         totalDebt: BigNumber;
@@ -230,30 +358,43 @@ export interface OlympusGiving extends BaseContract {
       }
     >;
 
-    redeem(overrides?: Overrides & { from?: string | Promise<string> }): Promise<ContractTransaction>;
+    redeem(
+      overrides?: Overrides & { from?: string | Promise<string> }
+    ): Promise<ContractTransaction>;
 
     redeemDisabled(overrides?: CallOverrides): Promise<[boolean]>;
 
-    redeemableBalance(recipient_: string, overrides?: CallOverrides): Promise<[BigNumber]>;
+    redeemableBalance(
+      recipient_: string,
+      overrides?: CallOverrides
+    ): Promise<[BigNumber]>;
 
     sOHM(overrides?: CallOverrides): Promise<[string]>;
 
     setAuthority(
       _newAuthority: string,
-      overrides?: Overrides & { from?: string | Promise<string> },
+      overrides?: Overrides & { from?: string | Promise<string> }
     ): Promise<ContractTransaction>;
 
-    totalDeposits(donor_: string, overrides?: CallOverrides): Promise<[BigNumber]>;
+    totalDeposits(
+      donor_: string,
+      overrides?: CallOverrides
+    ): Promise<[BigNumber]>;
 
-    totalDonated(donor_: string, overrides?: CallOverrides): Promise<[BigNumber]>;
+    totalDonated(
+      donor_: string,
+      overrides?: CallOverrides
+    ): Promise<[BigNumber]>;
 
     withdraw(
       amount_: BigNumberish,
       recipient_: string,
-      overrides?: Overrides & { from?: string | Promise<string> },
+      overrides?: Overrides & { from?: string | Promise<string> }
     ): Promise<ContractTransaction>;
 
-    withdrawAll(overrides?: Overrides & { from?: string | Promise<string> }): Promise<ContractTransaction>;
+    withdrawAll(
+      overrides?: Overrides & { from?: string | Promise<string> }
+    ): Promise<ContractTransaction>;
 
     withdrawDisabled(overrides?: CallOverrides): Promise<[boolean]>;
   };
@@ -263,34 +404,42 @@ export interface OlympusGiving extends BaseContract {
   deposit(
     amount_: BigNumberish,
     recipient_: string,
-    overrides?: Overrides & { from?: string | Promise<string> },
+    overrides?: Overrides & { from?: string | Promise<string> }
   ): Promise<ContractTransaction>;
 
   depositDisabled(overrides?: CallOverrides): Promise<boolean>;
 
-  depositsTo(donor_: string, recipient_: string, overrides?: CallOverrides): Promise<BigNumber>;
+  depositsTo(
+    donor_: string,
+    recipient_: string,
+    overrides?: CallOverrides
+  ): Promise<BigNumber>;
 
   disableDeposits(
     active_: boolean,
-    overrides?: Overrides & { from?: string | Promise<string> },
+    overrides?: Overrides & { from?: string | Promise<string> }
   ): Promise<ContractTransaction>;
 
   disableRedeems(
     active_: boolean,
-    overrides?: Overrides & { from?: string | Promise<string> },
+    overrides?: Overrides & { from?: string | Promise<string> }
   ): Promise<ContractTransaction>;
 
   disableWithdrawals(
     active_: boolean,
-    overrides?: Overrides & { from?: string | Promise<string> },
+    overrides?: Overrides & { from?: string | Promise<string> }
   ): Promise<ContractTransaction>;
 
-  donatedTo(donor_: string, recipient_: string, overrides?: CallOverrides): Promise<BigNumber>;
+  donatedTo(
+    donor_: string,
+    recipient_: string,
+    overrides?: CallOverrides
+  ): Promise<BigNumber>;
 
   donationInfo(
     arg0: string,
     arg1: BigNumberish,
-    overrides?: CallOverrides,
+    overrides?: CallOverrides
   ): Promise<
     [string, BigNumber, BigNumber, BigNumber, BigNumber] & {
       recipient: string;
@@ -303,14 +452,17 @@ export interface OlympusGiving extends BaseContract {
 
   emergencyShutdown(
     active_: boolean,
-    overrides?: Overrides & { from?: string | Promise<string> },
+    overrides?: Overrides & { from?: string | Promise<string> }
   ): Promise<ContractTransaction>;
 
-  getAllDeposits(donor_: string, overrides?: CallOverrides): Promise<[string[], BigNumber[]]>;
+  getAllDeposits(
+    donor_: string,
+    overrides?: CallOverrides
+  ): Promise<[string[], BigNumber[]]>;
 
   recipientInfo(
     arg0: string,
-    overrides?: CallOverrides,
+    overrides?: CallOverrides
   ): Promise<
     [BigNumber, BigNumber, BigNumber, BigNumber] & {
       totalDebt: BigNumber;
@@ -320,17 +472,22 @@ export interface OlympusGiving extends BaseContract {
     }
   >;
 
-  redeem(overrides?: Overrides & { from?: string | Promise<string> }): Promise<ContractTransaction>;
+  redeem(
+    overrides?: Overrides & { from?: string | Promise<string> }
+  ): Promise<ContractTransaction>;
 
   redeemDisabled(overrides?: CallOverrides): Promise<boolean>;
 
-  redeemableBalance(recipient_: string, overrides?: CallOverrides): Promise<BigNumber>;
+  redeemableBalance(
+    recipient_: string,
+    overrides?: CallOverrides
+  ): Promise<BigNumber>;
 
   sOHM(overrides?: CallOverrides): Promise<string>;
 
   setAuthority(
     _newAuthority: string,
-    overrides?: Overrides & { from?: string | Promise<string> },
+    overrides?: Overrides & { from?: string | Promise<string> }
   ): Promise<ContractTransaction>;
 
   totalDeposits(donor_: string, overrides?: CallOverrides): Promise<BigNumber>;
@@ -340,34 +497,51 @@ export interface OlympusGiving extends BaseContract {
   withdraw(
     amount_: BigNumberish,
     recipient_: string,
-    overrides?: Overrides & { from?: string | Promise<string> },
+    overrides?: Overrides & { from?: string | Promise<string> }
   ): Promise<ContractTransaction>;
 
-  withdrawAll(overrides?: Overrides & { from?: string | Promise<string> }): Promise<ContractTransaction>;
+  withdrawAll(
+    overrides?: Overrides & { from?: string | Promise<string> }
+  ): Promise<ContractTransaction>;
 
   withdrawDisabled(overrides?: CallOverrides): Promise<boolean>;
 
   callStatic: {
     authority(overrides?: CallOverrides): Promise<string>;
 
-    deposit(amount_: BigNumberish, recipient_: string, overrides?: CallOverrides): Promise<void>;
+    deposit(
+      amount_: BigNumberish,
+      recipient_: string,
+      overrides?: CallOverrides
+    ): Promise<void>;
 
     depositDisabled(overrides?: CallOverrides): Promise<boolean>;
 
-    depositsTo(donor_: string, recipient_: string, overrides?: CallOverrides): Promise<BigNumber>;
+    depositsTo(
+      donor_: string,
+      recipient_: string,
+      overrides?: CallOverrides
+    ): Promise<BigNumber>;
 
     disableDeposits(active_: boolean, overrides?: CallOverrides): Promise<void>;
 
     disableRedeems(active_: boolean, overrides?: CallOverrides): Promise<void>;
 
-    disableWithdrawals(active_: boolean, overrides?: CallOverrides): Promise<void>;
+    disableWithdrawals(
+      active_: boolean,
+      overrides?: CallOverrides
+    ): Promise<void>;
 
-    donatedTo(donor_: string, recipient_: string, overrides?: CallOverrides): Promise<BigNumber>;
+    donatedTo(
+      donor_: string,
+      recipient_: string,
+      overrides?: CallOverrides
+    ): Promise<BigNumber>;
 
     donationInfo(
       arg0: string,
       arg1: BigNumberish,
-      overrides?: CallOverrides,
+      overrides?: CallOverrides
     ): Promise<
       [string, BigNumber, BigNumber, BigNumber, BigNumber] & {
         recipient: string;
@@ -378,13 +552,19 @@ export interface OlympusGiving extends BaseContract {
       }
     >;
 
-    emergencyShutdown(active_: boolean, overrides?: CallOverrides): Promise<void>;
+    emergencyShutdown(
+      active_: boolean,
+      overrides?: CallOverrides
+    ): Promise<void>;
 
-    getAllDeposits(donor_: string, overrides?: CallOverrides): Promise<[string[], BigNumber[]]>;
+    getAllDeposits(
+      donor_: string,
+      overrides?: CallOverrides
+    ): Promise<[string[], BigNumber[]]>;
 
     recipientInfo(
       arg0: string,
-      overrides?: CallOverrides,
+      overrides?: CallOverrides
     ): Promise<
       [BigNumber, BigNumber, BigNumber, BigNumber] & {
         totalDebt: BigNumber;
@@ -398,17 +578,30 @@ export interface OlympusGiving extends BaseContract {
 
     redeemDisabled(overrides?: CallOverrides): Promise<boolean>;
 
-    redeemableBalance(recipient_: string, overrides?: CallOverrides): Promise<BigNumber>;
+    redeemableBalance(
+      recipient_: string,
+      overrides?: CallOverrides
+    ): Promise<BigNumber>;
 
     sOHM(overrides?: CallOverrides): Promise<string>;
 
-    setAuthority(_newAuthority: string, overrides?: CallOverrides): Promise<void>;
+    setAuthority(
+      _newAuthority: string,
+      overrides?: CallOverrides
+    ): Promise<void>;
 
-    totalDeposits(donor_: string, overrides?: CallOverrides): Promise<BigNumber>;
+    totalDeposits(
+      donor_: string,
+      overrides?: CallOverrides
+    ): Promise<BigNumber>;
 
     totalDonated(donor_: string, overrides?: CallOverrides): Promise<BigNumber>;
 
-    withdraw(amount_: BigNumberish, recipient_: string, overrides?: CallOverrides): Promise<void>;
+    withdraw(
+      amount_: BigNumberish,
+      recipient_: string,
+      overrides?: CallOverrides
+    ): Promise<void>;
 
     withdrawAll(overrides?: CallOverrides): Promise<void>;
 
@@ -416,38 +609,61 @@ export interface OlympusGiving extends BaseContract {
   };
 
   filters: {
-    "AllWithdrawn(address,uint256)"(donor_?: string | null, amount_?: BigNumberish | null): AllWithdrawnEventFilter;
-    AllWithdrawn(donor_?: string | null, amount_?: BigNumberish | null): AllWithdrawnEventFilter;
+    "AllWithdrawn(address,uint256)"(
+      donor_?: string | null,
+      amount_?: BigNumberish | null
+    ): AllWithdrawnEventFilter;
+    AllWithdrawn(
+      donor_?: string | null,
+      amount_?: BigNumberish | null
+    ): AllWithdrawnEventFilter;
 
-    "AuthorityUpdated(address)"(authority?: string | null): AuthorityUpdatedEventFilter;
+    "AuthorityUpdated(address)"(
+      authority?: string | null
+    ): AuthorityUpdatedEventFilter;
     AuthorityUpdated(authority?: string | null): AuthorityUpdatedEventFilter;
 
     "Deposited(address,address,uint256)"(
       donor_?: string | null,
       recipient_?: string | null,
-      amount_?: null,
+      amount_?: null
     ): DepositedEventFilter;
-    Deposited(donor_?: string | null, recipient_?: string | null, amount_?: null): DepositedEventFilter;
+    Deposited(
+      donor_?: string | null,
+      recipient_?: string | null,
+      amount_?: null
+    ): DepositedEventFilter;
 
     "Donated(address,address,uint256)"(
       donor_?: string | null,
       recipient_?: string | null,
-      amount_?: null,
+      amount_?: null
     ): DonatedEventFilter;
-    Donated(donor_?: string | null, recipient_?: string | null, amount_?: null): DonatedEventFilter;
+    Donated(
+      donor_?: string | null,
+      recipient_?: string | null,
+      amount_?: null
+    ): DonatedEventFilter;
 
     "EmergencyShutdown(bool)"(active_?: null): EmergencyShutdownEventFilter;
     EmergencyShutdown(active_?: null): EmergencyShutdownEventFilter;
 
-    "Redeemed(address,uint256)"(recipient_?: string | null, amount_?: null): RedeemedEventFilter;
+    "Redeemed(address,uint256)"(
+      recipient_?: string | null,
+      amount_?: null
+    ): RedeemedEventFilter;
     Redeemed(recipient_?: string | null, amount_?: null): RedeemedEventFilter;
 
     "Withdrawn(address,address,uint256)"(
       donor_?: string | null,
       recipient_?: string | null,
-      amount_?: null,
+      amount_?: null
     ): WithdrawnEventFilter;
-    Withdrawn(donor_?: string | null, recipient_?: string | null, amount_?: null): WithdrawnEventFilter;
+    Withdrawn(
+      donor_?: string | null,
+      recipient_?: string | null,
+      amount_?: null
+    ): WithdrawnEventFilter;
   };
 
   estimateGas: {
@@ -456,59 +672,90 @@ export interface OlympusGiving extends BaseContract {
     deposit(
       amount_: BigNumberish,
       recipient_: string,
-      overrides?: Overrides & { from?: string | Promise<string> },
+      overrides?: Overrides & { from?: string | Promise<string> }
     ): Promise<BigNumber>;
 
     depositDisabled(overrides?: CallOverrides): Promise<BigNumber>;
 
-    depositsTo(donor_: string, recipient_: string, overrides?: CallOverrides): Promise<BigNumber>;
+    depositsTo(
+      donor_: string,
+      recipient_: string,
+      overrides?: CallOverrides
+    ): Promise<BigNumber>;
 
-    disableDeposits(active_: boolean, overrides?: Overrides & { from?: string | Promise<string> }): Promise<BigNumber>;
+    disableDeposits(
+      active_: boolean,
+      overrides?: Overrides & { from?: string | Promise<string> }
+    ): Promise<BigNumber>;
 
-    disableRedeems(active_: boolean, overrides?: Overrides & { from?: string | Promise<string> }): Promise<BigNumber>;
+    disableRedeems(
+      active_: boolean,
+      overrides?: Overrides & { from?: string | Promise<string> }
+    ): Promise<BigNumber>;
 
     disableWithdrawals(
       active_: boolean,
-      overrides?: Overrides & { from?: string | Promise<string> },
+      overrides?: Overrides & { from?: string | Promise<string> }
     ): Promise<BigNumber>;
 
-    donatedTo(donor_: string, recipient_: string, overrides?: CallOverrides): Promise<BigNumber>;
+    donatedTo(
+      donor_: string,
+      recipient_: string,
+      overrides?: CallOverrides
+    ): Promise<BigNumber>;
 
-    donationInfo(arg0: string, arg1: BigNumberish, overrides?: CallOverrides): Promise<BigNumber>;
+    donationInfo(
+      arg0: string,
+      arg1: BigNumberish,
+      overrides?: CallOverrides
+    ): Promise<BigNumber>;
 
     emergencyShutdown(
       active_: boolean,
-      overrides?: Overrides & { from?: string | Promise<string> },
+      overrides?: Overrides & { from?: string | Promise<string> }
     ): Promise<BigNumber>;
 
-    getAllDeposits(donor_: string, overrides?: CallOverrides): Promise<BigNumber>;
+    getAllDeposits(
+      donor_: string,
+      overrides?: CallOverrides
+    ): Promise<BigNumber>;
 
     recipientInfo(arg0: string, overrides?: CallOverrides): Promise<BigNumber>;
 
-    redeem(overrides?: Overrides & { from?: string | Promise<string> }): Promise<BigNumber>;
+    redeem(
+      overrides?: Overrides & { from?: string | Promise<string> }
+    ): Promise<BigNumber>;
 
     redeemDisabled(overrides?: CallOverrides): Promise<BigNumber>;
 
-    redeemableBalance(recipient_: string, overrides?: CallOverrides): Promise<BigNumber>;
+    redeemableBalance(
+      recipient_: string,
+      overrides?: CallOverrides
+    ): Promise<BigNumber>;
 
     sOHM(overrides?: CallOverrides): Promise<BigNumber>;
 
     setAuthority(
       _newAuthority: string,
-      overrides?: Overrides & { from?: string | Promise<string> },
+      overrides?: Overrides & { from?: string | Promise<string> }
     ): Promise<BigNumber>;
 
-    totalDeposits(donor_: string, overrides?: CallOverrides): Promise<BigNumber>;
+    totalDeposits(
+      donor_: string,
+      overrides?: CallOverrides
+    ): Promise<BigNumber>;
 
     totalDonated(donor_: string, overrides?: CallOverrides): Promise<BigNumber>;
 
     withdraw(
       amount_: BigNumberish,
       recipient_: string,
-      overrides?: Overrides & { from?: string | Promise<string> },
+      overrides?: Overrides & { from?: string | Promise<string> }
     ): Promise<BigNumber>;
 
-    withdrawAll(overrides?: Overrides & { from?: string | Promise<string> }): Promise<BigNumber>;
+    withdrawAll(
+      overrides?: Overrides & { from?: string | Promise<string> }
+    ): Promise<BigNumber>;
 
     withdrawDisabled(overrides?: CallOverrides): Promise<BigNumber>;
   };
@@ -519,65 +766,96 @@ export interface OlympusGiving extends BaseContract {
     deposit(
       amount_: BigNumberish,
       recipient_: string,
-      overrides?: Overrides & { from?: string | Promise<string> },
+      overrides?: Overrides & { from?: string | Promise<string> }
     ): Promise<PopulatedTransaction>;
 
     depositDisabled(overrides?: CallOverrides): Promise<PopulatedTransaction>;
 
-    depositsTo(donor_: string, recipient_: string, overrides?: CallOverrides): Promise<PopulatedTransaction>;
+    depositsTo(
+      donor_: string,
+      recipient_: string,
+      overrides?: CallOverrides
+    ): Promise<PopulatedTransaction>;
 
     disableDeposits(
       active_: boolean,
-      overrides?: Overrides & { from?: string | Promise<string> },
+      overrides?: Overrides & { from?: string | Promise<string> }
     ): Promise<PopulatedTransaction>;
 
     disableRedeems(
       active_: boolean,
-      overrides?: Overrides & { from?: string | Promise<string> },
+      overrides?: Overrides & { from?: string | Promise<string> }
     ): Promise<PopulatedTransaction>;
 
     disableWithdrawals(
       active_: boolean,
-      overrides?: Overrides & { from?: string | Promise<string> },
+      overrides?: Overrides & { from?: string | Promise<string> }
     ): Promise<PopulatedTransaction>;
 
-    donatedTo(donor_: string, recipient_: string, overrides?: CallOverrides): Promise<PopulatedTransaction>;
+    donatedTo(
+      donor_: string,
+      recipient_: string,
+      overrides?: CallOverrides
+    ): Promise<PopulatedTransaction>;
 
-    donationInfo(arg0: string, arg1: BigNumberish, overrides?: CallOverrides): Promise<PopulatedTransaction>;
+    donationInfo(
+      arg0: string,
+      arg1: BigNumberish,
+      overrides?: CallOverrides
+    ): Promise<PopulatedTransaction>;
 
     emergencyShutdown(
       active_: boolean,
-      overrides?: Overrides & { from?: string | Promise<string> },
+      overrides?: Overrides & { from?: string | Promise<string> }
     ): Promise<PopulatedTransaction>;
 
-    getAllDeposits(donor_: string, overrides?: CallOverrides): Promise<PopulatedTransaction>;
+    getAllDeposits(
+      donor_: string,
+      overrides?: CallOverrides
+    ): Promise<PopulatedTransaction>;
 
-    recipientInfo(arg0: string, overrides?: CallOverrides): Promise<PopulatedTransaction>;
+    recipientInfo(
+      arg0: string,
+      overrides?: CallOverrides
+    ): Promise<PopulatedTransaction>;
 
-    redeem(overrides?: Overrides & { from?: string | Promise<string> }): Promise<PopulatedTransaction>;
+    redeem(
+      overrides?: Overrides & { from?: string | Promise<string> }
+    ): Promise<PopulatedTransaction>;
 
     redeemDisabled(overrides?: CallOverrides): Promise<PopulatedTransaction>;
 
-    redeemableBalance(recipient_: string, overrides?: CallOverrides): Promise<PopulatedTransaction>;
+    redeemableBalance(
+      recipient_: string,
+      overrides?: CallOverrides
+    ): Promise<PopulatedTransaction>;
 
     sOHM(overrides?: CallOverrides): Promise<PopulatedTransaction>;
 
     setAuthority(
       _newAuthority: string,
-      overrides?: Overrides & { from?: string | Promise<string> },
+      overrides?: Overrides & { from?: string | Promise<string> }
     ): Promise<PopulatedTransaction>;
 
-    totalDeposits(donor_: string, overrides?: CallOverrides): Promise<PopulatedTransaction>;
+    totalDeposits(
+      donor_: string,
+      overrides?: CallOverrides
+    ): Promise<PopulatedTransaction>;
 
-    totalDonated(donor_: string, overrides?: CallOverrides): Promise<PopulatedTransaction>;
+    totalDonated(
+      donor_: string,
+      overrides?: CallOverrides
+    ): Promise<PopulatedTransaction>;
 
     withdraw(
       amount_: BigNumberish,
       recipient_: string,
-      overrides?: Overrides & { from?: string | Promise<string> },
+      overrides?: Overrides & { from?: string | Promise<string> }
     ): Promise<PopulatedTransaction>;
 
-    withdrawAll(overrides?: Overrides & { from?: string | Promise<string> }): Promise<PopulatedTransaction>;
+    withdrawAll(
+      overrides?: Overrides & { from?: string | Promise<string> }
+    ): Promise<PopulatedTransaction>;
 
     withdrawDisabled(overrides?: CallOverrides): Promise<PopulatedTransaction>;
   };

@@ -4,7 +4,10 @@
 
 import { Contract, Signer, utils } from "ethers";
 import { Provider } from "@ethersproject/providers";
-import type { CirculatingSupplyContract, CirculatingSupplyContractInterface } from "../CirculatingSupplyContract";
+import type {
+  CirculatingSupplyContract,
+  CirculatingSupplyContractInterface,
+} from "../CirculatingSupplyContract";
 
 const _abi = [
   {
@@ -166,7 +169,14 @@ export class CirculatingSupplyContract__factory {
   static createInterface(): CirculatingSupplyContractInterface {
     return new utils.Interface(_abi) as CirculatingSupplyContractInterface;
   }
-  static connect(address: string, signerOrProvider: Signer | Provider): CirculatingSupplyContract {
-    return new Contract(address, _abi, signerOrProvider) as CirculatingSupplyContract;
+  static connect(
+    address: string,
+    signerOrProvider: Signer | Provider
+  ): CirculatingSupplyContract {
+    return new Contract(
+      address,
+      _abi,
+      signerOrProvider
+    ) as CirculatingSupplyContract;
   }
 }

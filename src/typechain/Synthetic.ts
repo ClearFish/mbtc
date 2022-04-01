@@ -47,29 +47,77 @@ export interface SyntheticInterface extends utils.Interface {
     "isBurner(address)": FunctionFragment;
   };
 
-  encodeFunctionData(functionFragment: "addMember", values: [BigNumberish, string]): string;
-  encodeFunctionData(functionFragment: "allowance", values: [string, string]): string;
-  encodeFunctionData(functionFragment: "approve", values: [string, BigNumberish]): string;
+  encodeFunctionData(
+    functionFragment: "addMember",
+    values: [BigNumberish, string]
+  ): string;
+  encodeFunctionData(
+    functionFragment: "allowance",
+    values: [string, string]
+  ): string;
+  encodeFunctionData(
+    functionFragment: "approve",
+    values: [string, BigNumberish]
+  ): string;
   encodeFunctionData(functionFragment: "balanceOf", values: [string]): string;
   encodeFunctionData(functionFragment: "burn", values: [BigNumberish]): string;
   encodeFunctionData(functionFragment: "decimals", values?: undefined): string;
-  encodeFunctionData(functionFragment: "decreaseAllowance", values: [string, BigNumberish]): string;
-  encodeFunctionData(functionFragment: "getMember", values: [BigNumberish]): string;
-  encodeFunctionData(functionFragment: "holdsRole", values: [BigNumberish, string]): string;
-  encodeFunctionData(functionFragment: "increaseAllowance", values: [string, BigNumberish]): string;
-  encodeFunctionData(functionFragment: "mint", values: [string, BigNumberish]): string;
+  encodeFunctionData(
+    functionFragment: "decreaseAllowance",
+    values: [string, BigNumberish]
+  ): string;
+  encodeFunctionData(
+    functionFragment: "getMember",
+    values: [BigNumberish]
+  ): string;
+  encodeFunctionData(
+    functionFragment: "holdsRole",
+    values: [BigNumberish, string]
+  ): string;
+  encodeFunctionData(
+    functionFragment: "increaseAllowance",
+    values: [string, BigNumberish]
+  ): string;
+  encodeFunctionData(
+    functionFragment: "mint",
+    values: [string, BigNumberish]
+  ): string;
   encodeFunctionData(functionFragment: "name", values?: undefined): string;
-  encodeFunctionData(functionFragment: "removeMember", values: [BigNumberish, string]): string;
-  encodeFunctionData(functionFragment: "renounceMembership", values: [BigNumberish]): string;
-  encodeFunctionData(functionFragment: "resetMember", values: [BigNumberish, string]): string;
+  encodeFunctionData(
+    functionFragment: "removeMember",
+    values: [BigNumberish, string]
+  ): string;
+  encodeFunctionData(
+    functionFragment: "renounceMembership",
+    values: [BigNumberish]
+  ): string;
+  encodeFunctionData(
+    functionFragment: "resetMember",
+    values: [BigNumberish, string]
+  ): string;
   encodeFunctionData(functionFragment: "symbol", values?: undefined): string;
-  encodeFunctionData(functionFragment: "totalSupply", values?: undefined): string;
-  encodeFunctionData(functionFragment: "transfer", values: [string, BigNumberish]): string;
-  encodeFunctionData(functionFragment: "transferFrom", values: [string, string, BigNumberish]): string;
+  encodeFunctionData(
+    functionFragment: "totalSupply",
+    values?: undefined
+  ): string;
+  encodeFunctionData(
+    functionFragment: "transfer",
+    values: [string, BigNumberish]
+  ): string;
+  encodeFunctionData(
+    functionFragment: "transferFrom",
+    values: [string, string, BigNumberish]
+  ): string;
   encodeFunctionData(functionFragment: "addMinter", values: [string]): string;
-  encodeFunctionData(functionFragment: "removeMinter", values: [string]): string;
+  encodeFunctionData(
+    functionFragment: "removeMinter",
+    values: [string]
+  ): string;
   encodeFunctionData(functionFragment: "addBurner", values: [string]): string;
-  encodeFunctionData(functionFragment: "removeBurner", values: [string]): string;
+  encodeFunctionData(
+    functionFragment: "removeBurner",
+    values: [string]
+  ): string;
   encodeFunctionData(functionFragment: "resetOwner", values: [string]): string;
   encodeFunctionData(functionFragment: "isMinter", values: [string]): string;
   encodeFunctionData(functionFragment: "isBurner", values: [string]): string;
@@ -80,23 +128,50 @@ export interface SyntheticInterface extends utils.Interface {
   decodeFunctionResult(functionFragment: "balanceOf", data: BytesLike): Result;
   decodeFunctionResult(functionFragment: "burn", data: BytesLike): Result;
   decodeFunctionResult(functionFragment: "decimals", data: BytesLike): Result;
-  decodeFunctionResult(functionFragment: "decreaseAllowance", data: BytesLike): Result;
+  decodeFunctionResult(
+    functionFragment: "decreaseAllowance",
+    data: BytesLike
+  ): Result;
   decodeFunctionResult(functionFragment: "getMember", data: BytesLike): Result;
   decodeFunctionResult(functionFragment: "holdsRole", data: BytesLike): Result;
-  decodeFunctionResult(functionFragment: "increaseAllowance", data: BytesLike): Result;
+  decodeFunctionResult(
+    functionFragment: "increaseAllowance",
+    data: BytesLike
+  ): Result;
   decodeFunctionResult(functionFragment: "mint", data: BytesLike): Result;
   decodeFunctionResult(functionFragment: "name", data: BytesLike): Result;
-  decodeFunctionResult(functionFragment: "removeMember", data: BytesLike): Result;
-  decodeFunctionResult(functionFragment: "renounceMembership", data: BytesLike): Result;
-  decodeFunctionResult(functionFragment: "resetMember", data: BytesLike): Result;
+  decodeFunctionResult(
+    functionFragment: "removeMember",
+    data: BytesLike
+  ): Result;
+  decodeFunctionResult(
+    functionFragment: "renounceMembership",
+    data: BytesLike
+  ): Result;
+  decodeFunctionResult(
+    functionFragment: "resetMember",
+    data: BytesLike
+  ): Result;
   decodeFunctionResult(functionFragment: "symbol", data: BytesLike): Result;
-  decodeFunctionResult(functionFragment: "totalSupply", data: BytesLike): Result;
+  decodeFunctionResult(
+    functionFragment: "totalSupply",
+    data: BytesLike
+  ): Result;
   decodeFunctionResult(functionFragment: "transfer", data: BytesLike): Result;
-  decodeFunctionResult(functionFragment: "transferFrom", data: BytesLike): Result;
+  decodeFunctionResult(
+    functionFragment: "transferFrom",
+    data: BytesLike
+  ): Result;
   decodeFunctionResult(functionFragment: "addMinter", data: BytesLike): Result;
-  decodeFunctionResult(functionFragment: "removeMinter", data: BytesLike): Result;
+  decodeFunctionResult(
+    functionFragment: "removeMinter",
+    data: BytesLike
+  ): Result;
   decodeFunctionResult(functionFragment: "addBurner", data: BytesLike): Result;
-  decodeFunctionResult(functionFragment: "removeBurner", data: BytesLike): Result;
+  decodeFunctionResult(
+    functionFragment: "removeBurner",
+    data: BytesLike
+  ): Result;
   decodeFunctionResult(functionFragment: "resetOwner", data: BytesLike): Result;
   decodeFunctionResult(functionFragment: "isMinter", data: BytesLike): Result;
   decodeFunctionResult(functionFragment: "isBurner", data: BytesLike): Result;
@@ -121,7 +196,8 @@ export type AddedSharedMemberEvent = TypedEvent<
   { roleId: BigNumber; newMember: string; manager: string }
 >;
 
-export type AddedSharedMemberEventFilter = TypedEventFilter<AddedSharedMemberEvent>;
+export type AddedSharedMemberEventFilter =
+  TypedEventFilter<AddedSharedMemberEvent>;
 
 export type ApprovalEvent = TypedEvent<
   [string, string, BigNumber],
@@ -135,16 +211,21 @@ export type RemovedSharedMemberEvent = TypedEvent<
   { roleId: BigNumber; oldMember: string; manager: string }
 >;
 
-export type RemovedSharedMemberEventFilter = TypedEventFilter<RemovedSharedMemberEvent>;
+export type RemovedSharedMemberEventFilter =
+  TypedEventFilter<RemovedSharedMemberEvent>;
 
 export type ResetExclusiveMemberEvent = TypedEvent<
   [BigNumber, string, string],
   { roleId: BigNumber; newMember: string; manager: string }
 >;
 
-export type ResetExclusiveMemberEventFilter = TypedEventFilter<ResetExclusiveMemberEvent>;
+export type ResetExclusiveMemberEventFilter =
+  TypedEventFilter<ResetExclusiveMemberEvent>;
 
-export type TransferEvent = TypedEvent<[string, string, BigNumber], { from: string; to: string; value: BigNumber }>;
+export type TransferEvent = TypedEvent<
+  [string, string, BigNumber],
+  { from: string; to: string; value: BigNumber }
+>;
 
 export type TransferEventFilter = TypedEventFilter<TransferEvent>;
 
@@ -158,12 +239,16 @@ export interface Synthetic extends BaseContract {
   queryFilter<TEvent extends TypedEvent>(
     event: TypedEventFilter<TEvent>,
     fromBlockOrBlockhash?: string | number | undefined,
-    toBlock?: string | number | undefined,
+    toBlock?: string | number | undefined
   ): Promise<Array<TEvent>>;
 
-  listeners<TEvent extends TypedEvent>(eventFilter?: TypedEventFilter<TEvent>): Array<TypedListener<TEvent>>;
+  listeners<TEvent extends TypedEvent>(
+    eventFilter?: TypedEventFilter<TEvent>
+  ): Array<TypedListener<TEvent>>;
   listeners(eventName?: string): Array<Listener>;
-  removeAllListeners<TEvent extends TypedEvent>(eventFilter: TypedEventFilter<TEvent>): this;
+  removeAllListeners<TEvent extends TypedEvent>(
+    eventFilter: TypedEventFilter<TEvent>
+  ): this;
   removeAllListeners(eventName?: string): this;
   off: OnEvent<this>;
   on: OnEvent<this>;
@@ -180,13 +265,17 @@ export interface Synthetic extends BaseContract {
     addMember(
       roleId: BigNumberish,
       newMember: string,
-      overrides?: Overrides & { from?: string | Promise<string> },
+      overrides?: Overrides & { from?: string | Promise<string> }
     ): Promise<ContractTransaction>;
 
     /**
      * See {IERC20-allowance}.
      */
-    allowance(owner: string, spender: string, overrides?: CallOverrides): Promise<[BigNumber]>;
+    allowance(
+      owner: string,
+      spender: string,
+      overrides?: CallOverrides
+    ): Promise<[BigNumber]>;
 
     /**
      * See {IERC20-approve}.     * Requirements:     * - `spender` cannot be the zero address.
@@ -194,7 +283,7 @@ export interface Synthetic extends BaseContract {
     approve(
       spender: string,
       amount: BigNumberish,
-      overrides?: Overrides & { from?: string | Promise<string> },
+      overrides?: Overrides & { from?: string | Promise<string> }
     ): Promise<ContractTransaction>;
 
     /**
@@ -208,7 +297,7 @@ export interface Synthetic extends BaseContract {
      */
     burn(
       value: BigNumberish,
-      overrides?: Overrides & { from?: string | Promise<string> },
+      overrides?: Overrides & { from?: string | Promise<string> }
     ): Promise<ContractTransaction>;
 
     /**
@@ -222,7 +311,7 @@ export interface Synthetic extends BaseContract {
     decreaseAllowance(
       spender: string,
       subtractedValue: BigNumberish,
-      overrides?: Overrides & { from?: string | Promise<string> },
+      overrides?: Overrides & { from?: string | Promise<string> }
     ): Promise<ContractTransaction>;
 
     /**
@@ -230,7 +319,10 @@ export interface Synthetic extends BaseContract {
      * Gets the current holder of the exclusive role, `roleId`.
      * @param roleId the ExclusiveRole membership to check.
      */
-    getMember(roleId: BigNumberish, overrides?: CallOverrides): Promise<[string]>;
+    getMember(
+      roleId: BigNumberish,
+      overrides?: CallOverrides
+    ): Promise<[string]>;
 
     /**
      * Reverts if roleId does not correspond to an initialized role.
@@ -238,7 +330,11 @@ export interface Synthetic extends BaseContract {
      * @param memberToCheck the address to check.
      * @param roleId the Role to check.
      */
-    holdsRole(roleId: BigNumberish, memberToCheck: string, overrides?: CallOverrides): Promise<[boolean]>;
+    holdsRole(
+      roleId: BigNumberish,
+      memberToCheck: string,
+      overrides?: CallOverrides
+    ): Promise<[boolean]>;
 
     /**
      * Atomically increases the allowance granted to `spender` by the caller.     * This is an alternative to {approve} that can be used as a mitigation for problems described in {IERC20-approve}.     * Emits an {Approval} event indicating the updated allowance.     * Requirements:     * - `spender` cannot be the zero address.
@@ -246,7 +342,7 @@ export interface Synthetic extends BaseContract {
     increaseAllowance(
       spender: string,
       addedValue: BigNumberish,
-      overrides?: Overrides & { from?: string | Promise<string> },
+      overrides?: Overrides & { from?: string | Promise<string> }
     ): Promise<ContractTransaction>;
 
     /**
@@ -257,7 +353,7 @@ export interface Synthetic extends BaseContract {
     mint(
       recipient: string,
       value: BigNumberish,
-      overrides?: Overrides & { from?: string | Promise<string> },
+      overrides?: Overrides & { from?: string | Promise<string> }
     ): Promise<ContractTransaction>;
 
     /**
@@ -274,7 +370,7 @@ export interface Synthetic extends BaseContract {
     removeMember(
       roleId: BigNumberish,
       memberToRemove: string,
-      overrides?: Overrides & { from?: string | Promise<string> },
+      overrides?: Overrides & { from?: string | Promise<string> }
     ): Promise<ContractTransaction>;
 
     /**
@@ -284,7 +380,7 @@ export interface Synthetic extends BaseContract {
      */
     renounceMembership(
       roleId: BigNumberish,
-      overrides?: Overrides & { from?: string | Promise<string> },
+      overrides?: Overrides & { from?: string | Promise<string> }
     ): Promise<ContractTransaction>;
 
     /**
@@ -296,7 +392,7 @@ export interface Synthetic extends BaseContract {
     resetMember(
       roleId: BigNumberish,
       newMember: string,
-      overrides?: Overrides & { from?: string | Promise<string> },
+      overrides?: Overrides & { from?: string | Promise<string> }
     ): Promise<ContractTransaction>;
 
     /**
@@ -315,7 +411,7 @@ export interface Synthetic extends BaseContract {
     transfer(
       recipient: string,
       amount: BigNumberish,
-      overrides?: Overrides & { from?: string | Promise<string> },
+      overrides?: Overrides & { from?: string | Promise<string> }
     ): Promise<ContractTransaction>;
 
     /**
@@ -325,7 +421,7 @@ export interface Synthetic extends BaseContract {
       sender: string,
       recipient: string,
       amount: BigNumberish,
-      overrides?: Overrides & { from?: string | Promise<string> },
+      overrides?: Overrides & { from?: string | Promise<string> }
     ): Promise<ContractTransaction>;
 
     /**
@@ -335,7 +431,7 @@ export interface Synthetic extends BaseContract {
      */
     addMinter(
       account: string,
-      overrides?: Overrides & { from?: string | Promise<string> },
+      overrides?: Overrides & { from?: string | Promise<string> }
     ): Promise<ContractTransaction>;
 
     /**
@@ -345,7 +441,7 @@ export interface Synthetic extends BaseContract {
      */
     removeMinter(
       account: string,
-      overrides?: Overrides & { from?: string | Promise<string> },
+      overrides?: Overrides & { from?: string | Promise<string> }
     ): Promise<ContractTransaction>;
 
     /**
@@ -355,7 +451,7 @@ export interface Synthetic extends BaseContract {
      */
     addBurner(
       account: string,
-      overrides?: Overrides & { from?: string | Promise<string> },
+      overrides?: Overrides & { from?: string | Promise<string> }
     ): Promise<ContractTransaction>;
 
     /**
@@ -365,7 +461,7 @@ export interface Synthetic extends BaseContract {
      */
     removeBurner(
       account: string,
-      overrides?: Overrides & { from?: string | Promise<string> },
+      overrides?: Overrides & { from?: string | Promise<string> }
     ): Promise<ContractTransaction>;
 
     /**
@@ -375,7 +471,7 @@ export interface Synthetic extends BaseContract {
      */
     resetOwner(
       account: string,
-      overrides?: Overrides & { from?: string | Promise<string> },
+      overrides?: Overrides & { from?: string | Promise<string> }
     ): Promise<ContractTransaction>;
 
     /**
@@ -400,13 +496,17 @@ export interface Synthetic extends BaseContract {
   addMember(
     roleId: BigNumberish,
     newMember: string,
-    overrides?: Overrides & { from?: string | Promise<string> },
+    overrides?: Overrides & { from?: string | Promise<string> }
   ): Promise<ContractTransaction>;
 
   /**
    * See {IERC20-allowance}.
    */
-  allowance(owner: string, spender: string, overrides?: CallOverrides): Promise<BigNumber>;
+  allowance(
+    owner: string,
+    spender: string,
+    overrides?: CallOverrides
+  ): Promise<BigNumber>;
 
   /**
    * See {IERC20-approve}.     * Requirements:     * - `spender` cannot be the zero address.
@@ -414,7 +514,7 @@ export interface Synthetic extends BaseContract {
   approve(
     spender: string,
     amount: BigNumberish,
-    overrides?: Overrides & { from?: string | Promise<string> },
+    overrides?: Overrides & { from?: string | Promise<string> }
   ): Promise<ContractTransaction>;
 
   /**
@@ -426,7 +526,10 @@ export interface Synthetic extends BaseContract {
    * Burns `value` tokens owned by `msg.sender`.
    * @param value amount of tokens to burn.
    */
-  burn(value: BigNumberish, overrides?: Overrides & { from?: string | Promise<string> }): Promise<ContractTransaction>;
+  burn(
+    value: BigNumberish,
+    overrides?: Overrides & { from?: string | Promise<string> }
+  ): Promise<ContractTransaction>;
 
   /**
    * Returns the number of decimals used to get its user representation. For example, if `decimals` equals `2`, a balance of `505` tokens should be displayed to a user as `5,05` (`505 / 10 ** 2`).     * Tokens usually opt for a value of 18, imitating the relationship between Ether and Wei. This is the value {ERC20} uses, unless {_setupDecimals} is called.     * NOTE: This information is only used for _display_ purposes: it in no way affects any of the arithmetic of the contract, including {IERC20-balanceOf} and {IERC20-transfer}.
@@ -439,7 +542,7 @@ export interface Synthetic extends BaseContract {
   decreaseAllowance(
     spender: string,
     subtractedValue: BigNumberish,
-    overrides?: Overrides & { from?: string | Promise<string> },
+    overrides?: Overrides & { from?: string | Promise<string> }
   ): Promise<ContractTransaction>;
 
   /**
@@ -455,7 +558,11 @@ export interface Synthetic extends BaseContract {
    * @param memberToCheck the address to check.
    * @param roleId the Role to check.
    */
-  holdsRole(roleId: BigNumberish, memberToCheck: string, overrides?: CallOverrides): Promise<boolean>;
+  holdsRole(
+    roleId: BigNumberish,
+    memberToCheck: string,
+    overrides?: CallOverrides
+  ): Promise<boolean>;
 
   /**
    * Atomically increases the allowance granted to `spender` by the caller.     * This is an alternative to {approve} that can be used as a mitigation for problems described in {IERC20-approve}.     * Emits an {Approval} event indicating the updated allowance.     * Requirements:     * - `spender` cannot be the zero address.
@@ -463,7 +570,7 @@ export interface Synthetic extends BaseContract {
   increaseAllowance(
     spender: string,
     addedValue: BigNumberish,
-    overrides?: Overrides & { from?: string | Promise<string> },
+    overrides?: Overrides & { from?: string | Promise<string> }
   ): Promise<ContractTransaction>;
 
   /**
@@ -474,7 +581,7 @@ export interface Synthetic extends BaseContract {
   mint(
     recipient: string,
     value: BigNumberish,
-    overrides?: Overrides & { from?: string | Promise<string> },
+    overrides?: Overrides & { from?: string | Promise<string> }
   ): Promise<ContractTransaction>;
 
   /**
@@ -491,7 +598,7 @@ export interface Synthetic extends BaseContract {
   removeMember(
     roleId: BigNumberish,
     memberToRemove: string,
-    overrides?: Overrides & { from?: string | Promise<string> },
+    overrides?: Overrides & { from?: string | Promise<string> }
   ): Promise<ContractTransaction>;
 
   /**
@@ -501,7 +608,7 @@ export interface Synthetic extends BaseContract {
    */
   renounceMembership(
     roleId: BigNumberish,
-    overrides?: Overrides & { from?: string | Promise<string> },
+    overrides?: Overrides & { from?: string | Promise<string> }
   ): Promise<ContractTransaction>;
 
   /**
@@ -513,7 +620,7 @@ export interface Synthetic extends BaseContract {
   resetMember(
     roleId: BigNumberish,
     newMember: string,
-    overrides?: Overrides & { from?: string | Promise<string> },
+    overrides?: Overrides & { from?: string | Promise<string> }
   ): Promise<ContractTransaction>;
 
   /**
@@ -532,7 +639,7 @@ export interface Synthetic extends BaseContract {
   transfer(
     recipient: string,
     amount: BigNumberish,
-    overrides?: Overrides & { from?: string | Promise<string> },
+    overrides?: Overrides & { from?: string | Promise<string> }
   ): Promise<ContractTransaction>;
 
   /**
@@ -542,7 +649,7 @@ export interface Synthetic extends BaseContract {
     sender: string,
     recipient: string,
     amount: BigNumberish,
-    overrides?: Overrides & { from?: string | Promise<string> },
+    overrides?: Overrides & { from?: string | Promise<string> }
   ): Promise<ContractTransaction>;
 
   /**
@@ -550,7 +657,10 @@ export interface Synthetic extends BaseContract {
    * Add Minter role to account.
    * @param account The address to which the Minter role is added.
    */
-  addMinter(account: string, overrides?: Overrides & { from?: string | Promise<string> }): Promise<ContractTransaction>;
+  addMinter(
+    account: string,
+    overrides?: Overrides & { from?: string | Promise<string> }
+  ): Promise<ContractTransaction>;
 
   /**
    * The caller must have the Owner role.
@@ -559,7 +669,7 @@ export interface Synthetic extends BaseContract {
    */
   removeMinter(
     account: string,
-    overrides?: Overrides & { from?: string | Promise<string> },
+    overrides?: Overrides & { from?: string | Promise<string> }
   ): Promise<ContractTransaction>;
 
   /**
@@ -567,7 +677,10 @@ export interface Synthetic extends BaseContract {
    * Add Burner role to account.
    * @param account The address to which the Burner role is added.
    */
-  addBurner(account: string, overrides?: Overrides & { from?: string | Promise<string> }): Promise<ContractTransaction>;
+  addBurner(
+    account: string,
+    overrides?: Overrides & { from?: string | Promise<string> }
+  ): Promise<ContractTransaction>;
 
   /**
    * The caller must have the Owner role.
@@ -576,7 +689,7 @@ export interface Synthetic extends BaseContract {
    */
   removeBurner(
     account: string,
-    overrides?: Overrides & { from?: string | Promise<string> },
+    overrides?: Overrides & { from?: string | Promise<string> }
   ): Promise<ContractTransaction>;
 
   /**
@@ -586,7 +699,7 @@ export interface Synthetic extends BaseContract {
    */
   resetOwner(
     account: string,
-    overrides?: Overrides & { from?: string | Promise<string> },
+    overrides?: Overrides & { from?: string | Promise<string> }
   ): Promise<ContractTransaction>;
 
   /**
@@ -608,17 +721,29 @@ export interface Synthetic extends BaseContract {
      * @param newMember the new SharedRole member.
      * @param roleId the SharedRole membership to modify.
      */
-    addMember(roleId: BigNumberish, newMember: string, overrides?: CallOverrides): Promise<void>;
+    addMember(
+      roleId: BigNumberish,
+      newMember: string,
+      overrides?: CallOverrides
+    ): Promise<void>;
 
     /**
      * See {IERC20-allowance}.
      */
-    allowance(owner: string, spender: string, overrides?: CallOverrides): Promise<BigNumber>;
+    allowance(
+      owner: string,
+      spender: string,
+      overrides?: CallOverrides
+    ): Promise<BigNumber>;
 
     /**
      * See {IERC20-approve}.     * Requirements:     * - `spender` cannot be the zero address.
      */
-    approve(spender: string, amount: BigNumberish, overrides?: CallOverrides): Promise<boolean>;
+    approve(
+      spender: string,
+      amount: BigNumberish,
+      overrides?: CallOverrides
+    ): Promise<boolean>;
 
     /**
      * See {IERC20-balanceOf}.
@@ -639,7 +764,11 @@ export interface Synthetic extends BaseContract {
     /**
      * Atomically decreases the allowance granted to `spender` by the caller.     * This is an alternative to {approve} that can be used as a mitigation for problems described in {IERC20-approve}.     * Emits an {Approval} event indicating the updated allowance.     * Requirements:     * - `spender` cannot be the zero address. - `spender` must have allowance for the caller of at least `subtractedValue`.
      */
-    decreaseAllowance(spender: string, subtractedValue: BigNumberish, overrides?: CallOverrides): Promise<boolean>;
+    decreaseAllowance(
+      spender: string,
+      subtractedValue: BigNumberish,
+      overrides?: CallOverrides
+    ): Promise<boolean>;
 
     /**
      * Reverts if `roleId` does not represent an initialized, exclusive role.
@@ -654,19 +783,31 @@ export interface Synthetic extends BaseContract {
      * @param memberToCheck the address to check.
      * @param roleId the Role to check.
      */
-    holdsRole(roleId: BigNumberish, memberToCheck: string, overrides?: CallOverrides): Promise<boolean>;
+    holdsRole(
+      roleId: BigNumberish,
+      memberToCheck: string,
+      overrides?: CallOverrides
+    ): Promise<boolean>;
 
     /**
      * Atomically increases the allowance granted to `spender` by the caller.     * This is an alternative to {approve} that can be used as a mitigation for problems described in {IERC20-approve}.     * Emits an {Approval} event indicating the updated allowance.     * Requirements:     * - `spender` cannot be the zero address.
      */
-    increaseAllowance(spender: string, addedValue: BigNumberish, overrides?: CallOverrides): Promise<boolean>;
+    increaseAllowance(
+      spender: string,
+      addedValue: BigNumberish,
+      overrides?: CallOverrides
+    ): Promise<boolean>;
 
     /**
      * Mints `value` tokens to `recipient`, returning true on success.
      * @param recipient address to mint to.
      * @param value amount of tokens to mint.
      */
-    mint(recipient: string, value: BigNumberish, overrides?: CallOverrides): Promise<boolean>;
+    mint(
+      recipient: string,
+      value: BigNumberish,
+      overrides?: CallOverrides
+    ): Promise<boolean>;
 
     /**
      * Returns the name of the token.
@@ -679,14 +820,21 @@ export interface Synthetic extends BaseContract {
      * @param memberToRemove the current SharedRole member to remove.
      * @param roleId the SharedRole membership to modify.
      */
-    removeMember(roleId: BigNumberish, memberToRemove: string, overrides?: CallOverrides): Promise<void>;
+    removeMember(
+      roleId: BigNumberish,
+      memberToRemove: string,
+      overrides?: CallOverrides
+    ): Promise<void>;
 
     /**
      * Reverts if the caller is not a member of the role for `roleId` or if `roleId` is not an initialized, SharedRole.
      * Removes caller from the role, `roleId`.
      * @param roleId the SharedRole membership to modify.
      */
-    renounceMembership(roleId: BigNumberish, overrides?: CallOverrides): Promise<void>;
+    renounceMembership(
+      roleId: BigNumberish,
+      overrides?: CallOverrides
+    ): Promise<void>;
 
     /**
      * Reverts if the caller is not a member of the managing role for `roleId` or if `roleId` is not an initialized, ExclusiveRole.
@@ -694,7 +842,11 @@ export interface Synthetic extends BaseContract {
      * @param newMember the new ExclusiveRole member.
      * @param roleId the ExclusiveRole membership to modify.
      */
-    resetMember(roleId: BigNumberish, newMember: string, overrides?: CallOverrides): Promise<void>;
+    resetMember(
+      roleId: BigNumberish,
+      newMember: string,
+      overrides?: CallOverrides
+    ): Promise<void>;
 
     /**
      * Returns the symbol of the token, usually a shorter version of the name.
@@ -709,12 +861,21 @@ export interface Synthetic extends BaseContract {
     /**
      * See {IERC20-transfer}.     * Requirements:     * - `recipient` cannot be the zero address. - the caller must have a balance of at least `amount`.
      */
-    transfer(recipient: string, amount: BigNumberish, overrides?: CallOverrides): Promise<boolean>;
+    transfer(
+      recipient: string,
+      amount: BigNumberish,
+      overrides?: CallOverrides
+    ): Promise<boolean>;
 
     /**
      * See {IERC20-transferFrom}.     * Emits an {Approval} event indicating the updated allowance. This is not required by the EIP. See the note at the beginning of {ERC20};     * Requirements: - `sender` and `recipient` cannot be the zero address. - `sender` must have a balance of at least `amount`. - the caller must have allowance for ``sender``'s tokens of at least `amount`.
      */
-    transferFrom(sender: string, recipient: string, amount: BigNumberish, overrides?: CallOverrides): Promise<boolean>;
+    transferFrom(
+      sender: string,
+      recipient: string,
+      amount: BigNumberish,
+      overrides?: CallOverrides
+    ): Promise<boolean>;
 
     /**
      * The caller must have the Owner role.
@@ -768,45 +929,57 @@ export interface Synthetic extends BaseContract {
     "AddedSharedMember(uint256,address,address)"(
       roleId?: BigNumberish | null,
       newMember?: string | null,
-      manager?: string | null,
+      manager?: string | null
     ): AddedSharedMemberEventFilter;
     AddedSharedMember(
       roleId?: BigNumberish | null,
       newMember?: string | null,
-      manager?: string | null,
+      manager?: string | null
     ): AddedSharedMemberEventFilter;
 
     "Approval(address,address,uint256)"(
       owner?: string | null,
       spender?: string | null,
-      value?: null,
+      value?: null
     ): ApprovalEventFilter;
-    Approval(owner?: string | null, spender?: string | null, value?: null): ApprovalEventFilter;
+    Approval(
+      owner?: string | null,
+      spender?: string | null,
+      value?: null
+    ): ApprovalEventFilter;
 
     "RemovedSharedMember(uint256,address,address)"(
       roleId?: BigNumberish | null,
       oldMember?: string | null,
-      manager?: string | null,
+      manager?: string | null
     ): RemovedSharedMemberEventFilter;
     RemovedSharedMember(
       roleId?: BigNumberish | null,
       oldMember?: string | null,
-      manager?: string | null,
+      manager?: string | null
     ): RemovedSharedMemberEventFilter;
 
     "ResetExclusiveMember(uint256,address,address)"(
       roleId?: BigNumberish | null,
       newMember?: string | null,
-      manager?: string | null,
+      manager?: string | null
     ): ResetExclusiveMemberEventFilter;
     ResetExclusiveMember(
       roleId?: BigNumberish | null,
       newMember?: string | null,
-      manager?: string | null,
+      manager?: string | null
     ): ResetExclusiveMemberEventFilter;
 
-    "Transfer(address,address,uint256)"(from?: string | null, to?: string | null, value?: null): TransferEventFilter;
-    Transfer(from?: string | null, to?: string | null, value?: null): TransferEventFilter;
+    "Transfer(address,address,uint256)"(
+      from?: string | null,
+      to?: string | null,
+      value?: null
+    ): TransferEventFilter;
+    Transfer(
+      from?: string | null,
+      to?: string | null,
+      value?: null
+    ): TransferEventFilter;
   };
 
   estimateGas: {
@@ -819,13 +992,17 @@ export interface Synthetic extends BaseContract {
     addMember(
       roleId: BigNumberish,
       newMember: string,
-      overrides?: Overrides & { from?: string | Promise<string> },
+      overrides?: Overrides & { from?: string | Promise<string> }
     ): Promise<BigNumber>;
 
     /**
      * See {IERC20-allowance}.
      */
-    allowance(owner: string, spender: string, overrides?: CallOverrides): Promise<BigNumber>;
+    allowance(
+      owner: string,
+      spender: string,
+      overrides?: CallOverrides
+    ): Promise<BigNumber>;
 
     /**
      * See {IERC20-approve}.     * Requirements:     * - `spender` cannot be the zero address.
@@ -833,7 +1010,7 @@ export interface Synthetic extends BaseContract {
     approve(
       spender: string,
       amount: BigNumberish,
-      overrides?: Overrides & { from?: string | Promise<string> },
+      overrides?: Overrides & { from?: string | Promise<string> }
     ): Promise<BigNumber>;
 
     /**
@@ -845,7 +1022,10 @@ export interface Synthetic extends BaseContract {
      * Burns `value` tokens owned by `msg.sender`.
      * @param value amount of tokens to burn.
      */
-    burn(value: BigNumberish, overrides?: Overrides & { from?: string | Promise<string> }): Promise<BigNumber>;
+    burn(
+      value: BigNumberish,
+      overrides?: Overrides & { from?: string | Promise<string> }
+    ): Promise<BigNumber>;
 
     /**
      * Returns the number of decimals used to get its user representation. For example, if `decimals` equals `2`, a balance of `505` tokens should be displayed to a user as `5,05` (`505 / 10 ** 2`).     * Tokens usually opt for a value of 18, imitating the relationship between Ether and Wei. This is the value {ERC20} uses, unless {_setupDecimals} is called.     * NOTE: This information is only used for _display_ purposes: it in no way affects any of the arithmetic of the contract, including {IERC20-balanceOf} and {IERC20-transfer}.
@@ -858,7 +1038,7 @@ export interface Synthetic extends BaseContract {
     decreaseAllowance(
       spender: string,
       subtractedValue: BigNumberish,
-      overrides?: Overrides & { from?: string | Promise<string> },
+      overrides?: Overrides & { from?: string | Promise<string> }
     ): Promise<BigNumber>;
 
     /**
@@ -866,7 +1046,10 @@ export interface Synthetic extends BaseContract {
      * Gets the current holder of the exclusive role, `roleId`.
      * @param roleId the ExclusiveRole membership to check.
      */
-    getMember(roleId: BigNumberish, overrides?: CallOverrides): Promise<BigNumber>;
+    getMember(
+      roleId: BigNumberish,
+      overrides?: CallOverrides
+    ): Promise<BigNumber>;
 
     /**
      * Reverts if roleId does not correspond to an initialized role.
@@ -874,7 +1057,11 @@ export interface Synthetic extends BaseContract {
      * @param memberToCheck the address to check.
      * @param roleId the Role to check.
      */
-    holdsRole(roleId: BigNumberish, memberToCheck: string, overrides?: CallOverrides): Promise<BigNumber>;
+    holdsRole(
+      roleId: BigNumberish,
+      memberToCheck: string,
+      overrides?: CallOverrides
+    ): Promise<BigNumber>;
 
     /**
      * Atomically increases the allowance granted to `spender` by the caller.     * This is an alternative to {approve} that can be used as a mitigation for problems described in {IERC20-approve}.     * Emits an {Approval} event indicating the updated allowance.     * Requirements:     * - `spender` cannot be the zero address.
@@ -882,7 +1069,7 @@ export interface Synthetic extends BaseContract {
     increaseAllowance(
       spender: string,
       addedValue: BigNumberish,
-      overrides?: Overrides & { from?: string | Promise<string> },
+      overrides?: Overrides & { from?: string | Promise<string> }
     ): Promise<BigNumber>;
 
     /**
@@ -893,7 +1080,7 @@ export interface Synthetic extends BaseContract {
     mint(
       recipient: string,
       value: BigNumberish,
-      overrides?: Overrides & { from?: string | Promise<string> },
+      overrides?: Overrides & { from?: string | Promise<string> }
     ): Promise<BigNumber>;
 
     /**
@@ -910,7 +1097,7 @@ export interface Synthetic extends BaseContract {
     removeMember(
       roleId: BigNumberish,
       memberToRemove: string,
-      overrides?: Overrides & { from?: string | Promise<string> },
+      overrides?: Overrides & { from?: string | Promise<string> }
     ): Promise<BigNumber>;
 
     /**
@@ -920,7 +1107,7 @@ export interface Synthetic extends BaseContract {
      */
     renounceMembership(
       roleId: BigNumberish,
-      overrides?: Overrides & { from?: string | Promise<string> },
+      overrides?: Overrides & { from?: string | Promise<string> }
     ): Promise<BigNumber>;
 
     /**
@@ -932,7 +1119,7 @@ export interface Synthetic extends BaseContract {
     resetMember(
       roleId: BigNumberish,
       newMember: string,
-      overrides?: Overrides & { from?: string | Promise<string> },
+      overrides?: Overrides & { from?: string | Promise<string> }
     ): Promise<BigNumber>;
 
     /**
@@ -951,7 +1138,7 @@ export interface Synthetic extends BaseContract {
     transfer(
       recipient: string,
       amount: BigNumberish,
-      overrides?: Overrides & { from?: string | Promise<string> },
+      overrides?: Overrides & { from?: string | Promise<string> }
     ): Promise<BigNumber>;
 
     /**
@@ -961,7 +1148,7 @@ export interface Synthetic extends BaseContract {
       sender: string,
       recipient: string,
       amount: BigNumberish,
-      overrides?: Overrides & { from?: string | Promise<string> },
+      overrides?: Overrides & { from?: string | Promise<string> }
     ): Promise<BigNumber>;
 
     /**
@@ -969,35 +1156,50 @@ export interface Synthetic extends BaseContract {
      * Add Minter role to account.
      * @param account The address to which the Minter role is added.
      */
-    addMinter(account: string, overrides?: Overrides & { from?: string | Promise<string> }): Promise<BigNumber>;
+    addMinter(
+      account: string,
+      overrides?: Overrides & { from?: string | Promise<string> }
+    ): Promise<BigNumber>;
 
     /**
      * The caller must have the Owner role.
      * Remove Minter role from account.
      * @param account The address from which the Minter role is removed.
      */
-    removeMinter(account: string, overrides?: Overrides & { from?: string | Promise<string> }): Promise<BigNumber>;
+    removeMinter(
+      account: string,
+      overrides?: Overrides & { from?: string | Promise<string> }
+    ): Promise<BigNumber>;
 
     /**
      * The caller must have the Owner role.
      * Add Burner role to account.
      * @param account The address to which the Burner role is added.
      */
-    addBurner(account: string, overrides?: Overrides & { from?: string | Promise<string> }): Promise<BigNumber>;
+    addBurner(
+      account: string,
+      overrides?: Overrides & { from?: string | Promise<string> }
+    ): Promise<BigNumber>;
 
     /**
      * The caller must have the Owner role.
      * Removes Burner role from account.
      * @param account The address from which the Burner role is removed.
      */
-    removeBurner(account: string, overrides?: Overrides & { from?: string | Promise<string> }): Promise<BigNumber>;
+    removeBurner(
+      account: string,
+      overrides?: Overrides & { from?: string | Promise<string> }
+    ): Promise<BigNumber>;
 
     /**
      * The caller must have the Owner role.
      * Reset Owner role to account.
      * @param account The new holder of the Owner role.
      */
-    resetOwner(account: string, overrides?: Overrides & { from?: string | Promise<string> }): Promise<BigNumber>;
+    resetOwner(
+      account: string,
+      overrides?: Overrides & { from?: string | Promise<string> }
+    ): Promise<BigNumber>;
 
     /**
      * Checks if a given account holds the Minter role.
@@ -1022,13 +1224,17 @@ export interface Synthetic extends BaseContract {
     addMember(
       roleId: BigNumberish,
       newMember: string,
-      overrides?: Overrides & { from?: string | Promise<string> },
+      overrides?: Overrides & { from?: string | Promise<string> }
     ): Promise<PopulatedTransaction>;
 
     /**
      * See {IERC20-allowance}.
      */
-    allowance(owner: string, spender: string, overrides?: CallOverrides): Promise<PopulatedTransaction>;
+    allowance(
+      owner: string,
+      spender: string,
+      overrides?: CallOverrides
+    ): Promise<PopulatedTransaction>;
 
     /**
      * See {IERC20-approve}.     * Requirements:     * - `spender` cannot be the zero address.
@@ -1036,13 +1242,16 @@ export interface Synthetic extends BaseContract {
     approve(
       spender: string,
       amount: BigNumberish,
-      overrides?: Overrides & { from?: string | Promise<string> },
+      overrides?: Overrides & { from?: string | Promise<string> }
     ): Promise<PopulatedTransaction>;
 
     /**
      * See {IERC20-balanceOf}.
      */
-    balanceOf(account: string, overrides?: CallOverrides): Promise<PopulatedTransaction>;
+    balanceOf(
+      account: string,
+      overrides?: CallOverrides
+    ): Promise<PopulatedTransaction>;
 
     /**
      * Burns `value` tokens owned by `msg.sender`.
@@ -1050,7 +1259,7 @@ export interface Synthetic extends BaseContract {
      */
     burn(
       value: BigNumberish,
-      overrides?: Overrides & { from?: string | Promise<string> },
+      overrides?: Overrides & { from?: string | Promise<string> }
     ): Promise<PopulatedTransaction>;
 
     /**
@@ -1064,7 +1273,7 @@ export interface Synthetic extends BaseContract {
     decreaseAllowance(
       spender: string,
       subtractedValue: BigNumberish,
-      overrides?: Overrides & { from?: string | Promise<string> },
+      overrides?: Overrides & { from?: string | Promise<string> }
     ): Promise<PopulatedTransaction>;
 
     /**
@@ -1072,7 +1281,10 @@ export interface Synthetic extends BaseContract {
      * Gets the current holder of the exclusive role, `roleId`.
      * @param roleId the ExclusiveRole membership to check.
      */
-    getMember(roleId: BigNumberish, overrides?: CallOverrides): Promise<PopulatedTransaction>;
+    getMember(
+      roleId: BigNumberish,
+      overrides?: CallOverrides
+    ): Promise<PopulatedTransaction>;
 
     /**
      * Reverts if roleId does not correspond to an initialized role.
@@ -1080,7 +1292,11 @@ export interface Synthetic extends BaseContract {
      * @param memberToCheck the address to check.
      * @param roleId the Role to check.
      */
-    holdsRole(roleId: BigNumberish, memberToCheck: string, overrides?: CallOverrides): Promise<PopulatedTransaction>;
+    holdsRole(
+      roleId: BigNumberish,
+      memberToCheck: string,
+      overrides?: CallOverrides
+    ): Promise<PopulatedTransaction>;
 
     /**
      * Atomically increases the allowance granted to `spender` by the caller.     * This is an alternative to {approve} that can be used as a mitigation for problems described in {IERC20-approve}.     * Emits an {Approval} event indicating the updated allowance.     * Requirements:     * - `spender` cannot be the zero address.
@@ -1088,7 +1304,7 @@ export interface Synthetic extends BaseContract {
     increaseAllowance(
       spender: string,
       addedValue: BigNumberish,
-      overrides?: Overrides & { from?: string | Promise<string> },
+      overrides?: Overrides & { from?: string | Promise<string> }
     ): Promise<PopulatedTransaction>;
 
     /**
@@ -1099,7 +1315,7 @@ export interface Synthetic extends BaseContract {
     mint(
       recipient: string,
       value: BigNumberish,
-      overrides?: Overrides & { from?: string | Promise<string> },
+      overrides?: Overrides & { from?: string | Promise<string> }
     ): Promise<PopulatedTransaction>;
 
     /**
@@ -1116,7 +1332,7 @@ export interface Synthetic extends BaseContract {
     removeMember(
       roleId: BigNumberish,
       memberToRemove: string,
-      overrides?: Overrides & { from?: string | Promise<string> },
+      overrides?: Overrides & { from?: string | Promise<string> }
     ): Promise<PopulatedTransaction>;
 
     /**
@@ -1126,7 +1342,7 @@ export interface Synthetic extends BaseContract {
      */
     renounceMembership(
       roleId: BigNumberish,
-      overrides?: Overrides & { from?: string | Promise<string> },
+      overrides?: Overrides & { from?: string | Promise<string> }
     ): Promise<PopulatedTransaction>;
 
     /**
@@ -1138,7 +1354,7 @@ export interface Synthetic extends BaseContract {
     resetMember(
       roleId: BigNumberish,
       newMember: string,
-      overrides?: Overrides & { from?: string | Promise<string> },
+      overrides?: Overrides & { from?: string | Promise<string> }
     ): Promise<PopulatedTransaction>;
 
     /**
@@ -1157,7 +1373,7 @@ export interface Synthetic extends BaseContract {
     transfer(
       recipient: string,
       amount: BigNumberish,
-      overrides?: Overrides & { from?: string | Promise<string> },
+      overrides?: Overrides & { from?: string | Promise<string> }
     ): Promise<PopulatedTransaction>;
 
     /**
@@ -1167,7 +1383,7 @@ export interface Synthetic extends BaseContract {
       sender: string,
       recipient: string,
       amount: BigNumberish,
-      overrides?: Overrides & { from?: string | Promise<string> },
+      overrides?: Overrides & { from?: string | Promise<string> }
     ): Promise<PopulatedTransaction>;
 
     /**
@@ -1177,7 +1393,7 @@ export interface Synthetic extends BaseContract {
      */
     addMinter(
       account: string,
-      overrides?: Overrides & { from?: string | Promise<string> },
+      overrides?: Overrides & { from?: string | Promise<string> }
     ): Promise<PopulatedTransaction>;
 
     /**
@@ -1187,7 +1403,7 @@ export interface Synthetic extends BaseContract {
      */
     removeMinter(
       account: string,
-      overrides?: Overrides & { from?: string | Promise<string> },
+      overrides?: Overrides & { from?: string | Promise<string> }
     ): Promise<PopulatedTransaction>;
 
     /**
@@ -1197,7 +1413,7 @@ export interface Synthetic extends BaseContract {
      */
     addBurner(
       account: string,
-      overrides?: Overrides & { from?: string | Promise<string> },
+      overrides?: Overrides & { from?: string | Promise<string> }
     ): Promise<PopulatedTransaction>;
 
     /**
@@ -1207,7 +1423,7 @@ export interface Synthetic extends BaseContract {
      */
     removeBurner(
       account: string,
-      overrides?: Overrides & { from?: string | Promise<string> },
+      overrides?: Overrides & { from?: string | Promise<string> }
     ): Promise<PopulatedTransaction>;
 
     /**
@@ -1217,19 +1433,25 @@ export interface Synthetic extends BaseContract {
      */
     resetOwner(
       account: string,
-      overrides?: Overrides & { from?: string | Promise<string> },
+      overrides?: Overrides & { from?: string | Promise<string> }
     ): Promise<PopulatedTransaction>;
 
     /**
      * Checks if a given account holds the Minter role.
      * @param account The address which is checked for the Minter role.
      */
-    isMinter(account: string, overrides?: CallOverrides): Promise<PopulatedTransaction>;
+    isMinter(
+      account: string,
+      overrides?: CallOverrides
+    ): Promise<PopulatedTransaction>;
 
     /**
      * Checks if a given account holds the Burner role.
      * @param account The address which is checked for the Burner role.
      */
-    isBurner(account: string, overrides?: CallOverrides): Promise<PopulatedTransaction>;
+    isBurner(
+      account: string,
+      overrides?: CallOverrides
+    ): Promise<PopulatedTransaction>;
   };
 }

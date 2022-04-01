@@ -350,7 +350,10 @@ export class UniswapIERC20__factory {
   static createInterface(): UniswapIERC20Interface {
     return new utils.Interface(_abi) as UniswapIERC20Interface;
   }
-  static connect(address: string, signerOrProvider: Signer | Provider): UniswapIERC20 {
+  static connect(
+    address: string,
+    signerOrProvider: Signer | Provider
+  ): UniswapIERC20 {
     return new Contract(address, _abi, signerOrProvider) as UniswapIERC20;
   }
 }

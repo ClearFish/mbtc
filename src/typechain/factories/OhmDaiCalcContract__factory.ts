@@ -4,7 +4,10 @@
 
 import { Contract, Signer, utils } from "ethers";
 import { Provider } from "@ethersproject/providers";
-import type { OhmDaiCalcContract, OhmDaiCalcContractInterface } from "../OhmDaiCalcContract";
+import type {
+  OhmDaiCalcContract,
+  OhmDaiCalcContractInterface,
+} from "../OhmDaiCalcContract";
 
 const _abi = [
   {
@@ -119,7 +122,10 @@ export class OhmDaiCalcContract__factory {
   static createInterface(): OhmDaiCalcContractInterface {
     return new utils.Interface(_abi) as OhmDaiCalcContractInterface;
   }
-  static connect(address: string, signerOrProvider: Signer | Provider): OhmDaiCalcContract {
+  static connect(
+    address: string,
+    signerOrProvider: Signer | Provider
+  ): OhmDaiCalcContract {
     return new Contract(address, _abi, signerOrProvider) as OhmDaiCalcContract;
   }
 }

@@ -787,7 +787,10 @@ export class EthContract__factory {
   static createInterface(): EthContractInterface {
     return new utils.Interface(_abi) as EthContractInterface;
   }
-  static connect(address: string, signerOrProvider: Signer | Provider): EthContract {
+  static connect(
+    address: string,
+    signerOrProvider: Signer | Provider
+  ): EthContract {
     return new Contract(address, _abi, signerOrProvider) as EthContract;
   }
 }

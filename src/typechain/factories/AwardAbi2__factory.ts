@@ -1490,7 +1490,10 @@ export class AwardAbi2__factory {
   static createInterface(): AwardAbi2Interface {
     return new utils.Interface(_abi) as AwardAbi2Interface;
   }
-  static connect(address: string, signerOrProvider: Signer | Provider): AwardAbi2 {
+  static connect(
+    address: string,
+    signerOrProvider: Signer | Provider
+  ): AwardAbi2 {
     return new Contract(address, _abi, signerOrProvider) as AwardAbi2;
   }
 }

@@ -4,7 +4,10 @@
 
 import { Contract, Signer, utils } from "ethers";
 import { Provider } from "@ethersproject/providers";
-import type { CrossChainMigrator, CrossChainMigratorInterface } from "../CrossChainMigrator";
+import type {
+  CrossChainMigrator,
+  CrossChainMigratorInterface,
+} from "../CrossChainMigrator";
 
 const _abi = [
   {
@@ -135,7 +138,10 @@ export class CrossChainMigrator__factory {
   static createInterface(): CrossChainMigratorInterface {
     return new utils.Interface(_abi) as CrossChainMigratorInterface;
   }
-  static connect(address: string, signerOrProvider: Signer | Provider): CrossChainMigrator {
+  static connect(
+    address: string,
+    signerOrProvider: Signer | Provider
+  ): CrossChainMigrator {
     return new Contract(address, _abi, signerOrProvider) as CrossChainMigrator;
   }
 }

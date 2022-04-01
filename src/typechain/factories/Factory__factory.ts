@@ -834,7 +834,9 @@ type FactoryConstructorParams =
   | [linkLibraryAddresses: FactoryLibraryAddresses, signer?: Signer]
   | ConstructorParameters<typeof ContractFactory>;
 
-const isSuperArgs = (xs: FactoryConstructorParams): xs is ConstructorParameters<typeof ContractFactory> => {
+const isSuperArgs = (
+  xs: FactoryConstructorParams
+): xs is ConstructorParameters<typeof ContractFactory> => {
   return (
     typeof xs[0] === "string" ||
     (Array.isArray as (arg: any) => arg is readonly any[])(xs[0]) ||
@@ -857,7 +859,9 @@ export class Factory__factory extends ContractFactory {
 
     linkedBytecode = linkedBytecode.replace(
       new RegExp("__ExpiringMultiPartyLib_________________", "g"),
-      linkLibraryAddresses["__ExpiringMultiPartyLib_________________"].replace(/^0x/, "").toLowerCase(),
+      linkLibraryAddresses["__ExpiringMultiPartyLib_________________"]
+        .replace(/^0x/, "")
+        .toLowerCase()
     );
 
     return linkedBytecode;
@@ -869,7 +873,7 @@ export class Factory__factory extends ContractFactory {
     _tokenFactoryAddress: string,
     _timerAddress: string,
     _collateralAddress: string,
-    overrides?: Overrides & { from?: string | Promise<string> },
+    overrides?: Overrides & { from?: string | Promise<string> }
   ): Promise<Factory> {
     return super.deploy(
       _finderAddress,
@@ -877,7 +881,7 @@ export class Factory__factory extends ContractFactory {
       _tokenFactoryAddress,
       _timerAddress,
       _collateralAddress,
-      overrides || {},
+      overrides || {}
     ) as Promise<Factory>;
   }
   getDeployTransaction(
@@ -886,7 +890,7 @@ export class Factory__factory extends ContractFactory {
     _tokenFactoryAddress: string,
     _timerAddress: string,
     _collateralAddress: string,
-    overrides?: Overrides & { from?: string | Promise<string> },
+    overrides?: Overrides & { from?: string | Promise<string> }
   ): TransactionRequest {
     return super.getDeployTransaction(
       _finderAddress,
@@ -894,7 +898,7 @@ export class Factory__factory extends ContractFactory {
       _tokenFactoryAddress,
       _timerAddress,
       _collateralAddress,
-      overrides || {},
+      overrides || {}
     );
   }
   attach(address: string): Factory {
@@ -908,7 +912,10 @@ export class Factory__factory extends ContractFactory {
   static createInterface(): FactoryInterface {
     return new utils.Interface(_abi) as FactoryInterface;
   }
-  static connect(address: string, signerOrProvider: Signer | Provider): Factory {
+  static connect(
+    address: string,
+    signerOrProvider: Signer | Provider
+  ): Factory {
     return new Contract(address, _abi, signerOrProvider) as Factory;
   }
 }
