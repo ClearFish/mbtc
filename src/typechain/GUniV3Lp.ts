@@ -69,70 +69,165 @@ export interface GUniV3LpInterface extends utils.Interface {
   };
 
   encodeFunctionData(functionFragment: "GELATO", values?: undefined): string;
-  encodeFunctionData(functionFragment: "allowance", values: [string, string]): string;
-  encodeFunctionData(functionFragment: "approve", values: [string, BigNumberish]): string;
+  encodeFunctionData(
+    functionFragment: "allowance",
+    values: [string, string]
+  ): string;
+  encodeFunctionData(
+    functionFragment: "approve",
+    values: [string, BigNumberish]
+  ): string;
   encodeFunctionData(functionFragment: "balanceOf", values: [string]): string;
-  encodeFunctionData(functionFragment: "burn", values: [BigNumberish, string]): string;
+  encodeFunctionData(
+    functionFragment: "burn",
+    values: [BigNumberish, string]
+  ): string;
   encodeFunctionData(functionFragment: "decimals", values?: undefined): string;
-  encodeFunctionData(functionFragment: "decreaseAllowance", values: [string, BigNumberish]): string;
+  encodeFunctionData(
+    functionFragment: "decreaseAllowance",
+    values: [string, BigNumberish]
+  ): string;
   encodeFunctionData(
     functionFragment: "executiveRebalance",
-    values: [BigNumberish, BigNumberish, BigNumberish, BigNumberish, boolean],
+    values: [BigNumberish, BigNumberish, BigNumberish, BigNumberish, boolean]
   ): string;
-  encodeFunctionData(functionFragment: "gelatoBalance0", values?: undefined): string;
-  encodeFunctionData(functionFragment: "gelatoBalance1", values?: undefined): string;
-  encodeFunctionData(functionFragment: "gelatoFeeBPS", values?: undefined): string;
-  encodeFunctionData(functionFragment: "gelatoRebalanceBPS", values?: undefined): string;
-  encodeFunctionData(functionFragment: "gelatoSlippageBPS", values?: undefined): string;
-  encodeFunctionData(functionFragment: "gelatoSlippageInterval", values?: undefined): string;
-  encodeFunctionData(functionFragment: "gelatoWithdrawBPS", values?: undefined): string;
-  encodeFunctionData(functionFragment: "getMintAmounts", values: [BigNumberish, BigNumberish]): string;
-  encodeFunctionData(functionFragment: "getPositionID", values?: undefined): string;
-  encodeFunctionData(functionFragment: "getUnderlyingBalances", values?: undefined): string;
-  encodeFunctionData(functionFragment: "getUnderlyingBalancesAtPrice", values: [BigNumberish]): string;
-  encodeFunctionData(functionFragment: "increaseAllowance", values: [string, BigNumberish]): string;
+  encodeFunctionData(
+    functionFragment: "gelatoBalance0",
+    values?: undefined
+  ): string;
+  encodeFunctionData(
+    functionFragment: "gelatoBalance1",
+    values?: undefined
+  ): string;
+  encodeFunctionData(
+    functionFragment: "gelatoFeeBPS",
+    values?: undefined
+  ): string;
+  encodeFunctionData(
+    functionFragment: "gelatoRebalanceBPS",
+    values?: undefined
+  ): string;
+  encodeFunctionData(
+    functionFragment: "gelatoSlippageBPS",
+    values?: undefined
+  ): string;
+  encodeFunctionData(
+    functionFragment: "gelatoSlippageInterval",
+    values?: undefined
+  ): string;
+  encodeFunctionData(
+    functionFragment: "gelatoWithdrawBPS",
+    values?: undefined
+  ): string;
+  encodeFunctionData(
+    functionFragment: "getMintAmounts",
+    values: [BigNumberish, BigNumberish]
+  ): string;
+  encodeFunctionData(
+    functionFragment: "getPositionID",
+    values?: undefined
+  ): string;
+  encodeFunctionData(
+    functionFragment: "getUnderlyingBalances",
+    values?: undefined
+  ): string;
+  encodeFunctionData(
+    functionFragment: "getUnderlyingBalancesAtPrice",
+    values: [BigNumberish]
+  ): string;
+  encodeFunctionData(
+    functionFragment: "increaseAllowance",
+    values: [string, BigNumberish]
+  ): string;
   encodeFunctionData(
     functionFragment: "initialize",
-    values: [string, string, string, BigNumberish, BigNumberish, BigNumberish, string],
+    values: [
+      string,
+      string,
+      string,
+      BigNumberish,
+      BigNumberish,
+      BigNumberish,
+      string
+    ]
   ): string;
-  encodeFunctionData(functionFragment: "initializeManagerFee", values: [BigNumberish]): string;
+  encodeFunctionData(
+    functionFragment: "initializeManagerFee",
+    values: [BigNumberish]
+  ): string;
   encodeFunctionData(functionFragment: "lowerTick", values?: undefined): string;
   encodeFunctionData(functionFragment: "manager", values?: undefined): string;
-  encodeFunctionData(functionFragment: "managerBalance0", values?: undefined): string;
-  encodeFunctionData(functionFragment: "managerBalance1", values?: undefined): string;
-  encodeFunctionData(functionFragment: "managerFeeBPS", values?: undefined): string;
-  encodeFunctionData(functionFragment: "managerTreasury", values?: undefined): string;
-  encodeFunctionData(functionFragment: "mint", values: [BigNumberish, string]): string;
+  encodeFunctionData(
+    functionFragment: "managerBalance0",
+    values?: undefined
+  ): string;
+  encodeFunctionData(
+    functionFragment: "managerBalance1",
+    values?: undefined
+  ): string;
+  encodeFunctionData(
+    functionFragment: "managerFeeBPS",
+    values?: undefined
+  ): string;
+  encodeFunctionData(
+    functionFragment: "managerTreasury",
+    values?: undefined
+  ): string;
+  encodeFunctionData(
+    functionFragment: "mint",
+    values: [BigNumberish, string]
+  ): string;
   encodeFunctionData(functionFragment: "name", values?: undefined): string;
   encodeFunctionData(functionFragment: "pool", values?: undefined): string;
   encodeFunctionData(
     functionFragment: "rebalance",
-    values: [BigNumberish, BigNumberish, boolean, BigNumberish, string],
+    values: [BigNumberish, BigNumberish, boolean, BigNumberish, string]
   ): string;
-  encodeFunctionData(functionFragment: "renounceOwnership", values?: undefined): string;
+  encodeFunctionData(
+    functionFragment: "renounceOwnership",
+    values?: undefined
+  ): string;
   encodeFunctionData(functionFragment: "symbol", values?: undefined): string;
   encodeFunctionData(functionFragment: "token0", values?: undefined): string;
   encodeFunctionData(functionFragment: "token1", values?: undefined): string;
-  encodeFunctionData(functionFragment: "totalSupply", values?: undefined): string;
-  encodeFunctionData(functionFragment: "transfer", values: [string, BigNumberish]): string;
-  encodeFunctionData(functionFragment: "transferFrom", values: [string, string, BigNumberish]): string;
-  encodeFunctionData(functionFragment: "transferOwnership", values: [string]): string;
+  encodeFunctionData(
+    functionFragment: "totalSupply",
+    values?: undefined
+  ): string;
+  encodeFunctionData(
+    functionFragment: "transfer",
+    values: [string, BigNumberish]
+  ): string;
+  encodeFunctionData(
+    functionFragment: "transferFrom",
+    values: [string, string, BigNumberish]
+  ): string;
+  encodeFunctionData(
+    functionFragment: "transferOwnership",
+    values: [string]
+  ): string;
   encodeFunctionData(
     functionFragment: "uniswapV3MintCallback",
-    values: [BigNumberish, BigNumberish, BytesLike],
+    values: [BigNumberish, BigNumberish, BytesLike]
   ): string;
   encodeFunctionData(
     functionFragment: "uniswapV3SwapCallback",
-    values: [BigNumberish, BigNumberish, BytesLike],
+    values: [BigNumberish, BigNumberish, BytesLike]
   ): string;
   encodeFunctionData(
     functionFragment: "updateGelatoParams",
-    values: [BigNumberish, BigNumberish, BigNumberish, BigNumberish, string],
+    values: [BigNumberish, BigNumberish, BigNumberish, BigNumberish, string]
   ): string;
   encodeFunctionData(functionFragment: "upperTick", values?: undefined): string;
   encodeFunctionData(functionFragment: "version", values?: undefined): string;
-  encodeFunctionData(functionFragment: "withdrawGelatoBalance", values: [BigNumberish, string]): string;
-  encodeFunctionData(functionFragment: "withdrawManagerBalance", values: [BigNumberish, string]): string;
+  encodeFunctionData(
+    functionFragment: "withdrawGelatoBalance",
+    values: [BigNumberish, string]
+  ): string;
+  encodeFunctionData(
+    functionFragment: "withdrawManagerBalance",
+    values: [BigNumberish, string]
+  ): string;
 
   decodeFunctionResult(functionFragment: "GELATO", data: BytesLike): Result;
   decodeFunctionResult(functionFragment: "allowance", data: BytesLike): Result;
@@ -140,47 +235,131 @@ export interface GUniV3LpInterface extends utils.Interface {
   decodeFunctionResult(functionFragment: "balanceOf", data: BytesLike): Result;
   decodeFunctionResult(functionFragment: "burn", data: BytesLike): Result;
   decodeFunctionResult(functionFragment: "decimals", data: BytesLike): Result;
-  decodeFunctionResult(functionFragment: "decreaseAllowance", data: BytesLike): Result;
-  decodeFunctionResult(functionFragment: "executiveRebalance", data: BytesLike): Result;
-  decodeFunctionResult(functionFragment: "gelatoBalance0", data: BytesLike): Result;
-  decodeFunctionResult(functionFragment: "gelatoBalance1", data: BytesLike): Result;
-  decodeFunctionResult(functionFragment: "gelatoFeeBPS", data: BytesLike): Result;
-  decodeFunctionResult(functionFragment: "gelatoRebalanceBPS", data: BytesLike): Result;
-  decodeFunctionResult(functionFragment: "gelatoSlippageBPS", data: BytesLike): Result;
-  decodeFunctionResult(functionFragment: "gelatoSlippageInterval", data: BytesLike): Result;
-  decodeFunctionResult(functionFragment: "gelatoWithdrawBPS", data: BytesLike): Result;
-  decodeFunctionResult(functionFragment: "getMintAmounts", data: BytesLike): Result;
-  decodeFunctionResult(functionFragment: "getPositionID", data: BytesLike): Result;
-  decodeFunctionResult(functionFragment: "getUnderlyingBalances", data: BytesLike): Result;
-  decodeFunctionResult(functionFragment: "getUnderlyingBalancesAtPrice", data: BytesLike): Result;
-  decodeFunctionResult(functionFragment: "increaseAllowance", data: BytesLike): Result;
+  decodeFunctionResult(
+    functionFragment: "decreaseAllowance",
+    data: BytesLike
+  ): Result;
+  decodeFunctionResult(
+    functionFragment: "executiveRebalance",
+    data: BytesLike
+  ): Result;
+  decodeFunctionResult(
+    functionFragment: "gelatoBalance0",
+    data: BytesLike
+  ): Result;
+  decodeFunctionResult(
+    functionFragment: "gelatoBalance1",
+    data: BytesLike
+  ): Result;
+  decodeFunctionResult(
+    functionFragment: "gelatoFeeBPS",
+    data: BytesLike
+  ): Result;
+  decodeFunctionResult(
+    functionFragment: "gelatoRebalanceBPS",
+    data: BytesLike
+  ): Result;
+  decodeFunctionResult(
+    functionFragment: "gelatoSlippageBPS",
+    data: BytesLike
+  ): Result;
+  decodeFunctionResult(
+    functionFragment: "gelatoSlippageInterval",
+    data: BytesLike
+  ): Result;
+  decodeFunctionResult(
+    functionFragment: "gelatoWithdrawBPS",
+    data: BytesLike
+  ): Result;
+  decodeFunctionResult(
+    functionFragment: "getMintAmounts",
+    data: BytesLike
+  ): Result;
+  decodeFunctionResult(
+    functionFragment: "getPositionID",
+    data: BytesLike
+  ): Result;
+  decodeFunctionResult(
+    functionFragment: "getUnderlyingBalances",
+    data: BytesLike
+  ): Result;
+  decodeFunctionResult(
+    functionFragment: "getUnderlyingBalancesAtPrice",
+    data: BytesLike
+  ): Result;
+  decodeFunctionResult(
+    functionFragment: "increaseAllowance",
+    data: BytesLike
+  ): Result;
   decodeFunctionResult(functionFragment: "initialize", data: BytesLike): Result;
-  decodeFunctionResult(functionFragment: "initializeManagerFee", data: BytesLike): Result;
+  decodeFunctionResult(
+    functionFragment: "initializeManagerFee",
+    data: BytesLike
+  ): Result;
   decodeFunctionResult(functionFragment: "lowerTick", data: BytesLike): Result;
   decodeFunctionResult(functionFragment: "manager", data: BytesLike): Result;
-  decodeFunctionResult(functionFragment: "managerBalance0", data: BytesLike): Result;
-  decodeFunctionResult(functionFragment: "managerBalance1", data: BytesLike): Result;
-  decodeFunctionResult(functionFragment: "managerFeeBPS", data: BytesLike): Result;
-  decodeFunctionResult(functionFragment: "managerTreasury", data: BytesLike): Result;
+  decodeFunctionResult(
+    functionFragment: "managerBalance0",
+    data: BytesLike
+  ): Result;
+  decodeFunctionResult(
+    functionFragment: "managerBalance1",
+    data: BytesLike
+  ): Result;
+  decodeFunctionResult(
+    functionFragment: "managerFeeBPS",
+    data: BytesLike
+  ): Result;
+  decodeFunctionResult(
+    functionFragment: "managerTreasury",
+    data: BytesLike
+  ): Result;
   decodeFunctionResult(functionFragment: "mint", data: BytesLike): Result;
   decodeFunctionResult(functionFragment: "name", data: BytesLike): Result;
   decodeFunctionResult(functionFragment: "pool", data: BytesLike): Result;
   decodeFunctionResult(functionFragment: "rebalance", data: BytesLike): Result;
-  decodeFunctionResult(functionFragment: "renounceOwnership", data: BytesLike): Result;
+  decodeFunctionResult(
+    functionFragment: "renounceOwnership",
+    data: BytesLike
+  ): Result;
   decodeFunctionResult(functionFragment: "symbol", data: BytesLike): Result;
   decodeFunctionResult(functionFragment: "token0", data: BytesLike): Result;
   decodeFunctionResult(functionFragment: "token1", data: BytesLike): Result;
-  decodeFunctionResult(functionFragment: "totalSupply", data: BytesLike): Result;
+  decodeFunctionResult(
+    functionFragment: "totalSupply",
+    data: BytesLike
+  ): Result;
   decodeFunctionResult(functionFragment: "transfer", data: BytesLike): Result;
-  decodeFunctionResult(functionFragment: "transferFrom", data: BytesLike): Result;
-  decodeFunctionResult(functionFragment: "transferOwnership", data: BytesLike): Result;
-  decodeFunctionResult(functionFragment: "uniswapV3MintCallback", data: BytesLike): Result;
-  decodeFunctionResult(functionFragment: "uniswapV3SwapCallback", data: BytesLike): Result;
-  decodeFunctionResult(functionFragment: "updateGelatoParams", data: BytesLike): Result;
+  decodeFunctionResult(
+    functionFragment: "transferFrom",
+    data: BytesLike
+  ): Result;
+  decodeFunctionResult(
+    functionFragment: "transferOwnership",
+    data: BytesLike
+  ): Result;
+  decodeFunctionResult(
+    functionFragment: "uniswapV3MintCallback",
+    data: BytesLike
+  ): Result;
+  decodeFunctionResult(
+    functionFragment: "uniswapV3SwapCallback",
+    data: BytesLike
+  ): Result;
+  decodeFunctionResult(
+    functionFragment: "updateGelatoParams",
+    data: BytesLike
+  ): Result;
   decodeFunctionResult(functionFragment: "upperTick", data: BytesLike): Result;
   decodeFunctionResult(functionFragment: "version", data: BytesLike): Result;
-  decodeFunctionResult(functionFragment: "withdrawGelatoBalance", data: BytesLike): Result;
-  decodeFunctionResult(functionFragment: "withdrawManagerBalance", data: BytesLike): Result;
+  decodeFunctionResult(
+    functionFragment: "withdrawGelatoBalance",
+    data: BytesLike
+  ): Result;
+  decodeFunctionResult(
+    functionFragment: "withdrawManagerBalance",
+    data: BytesLike
+  ): Result;
 
   events: {
     "Approval(address,address,uint256)": EventFragment;
@@ -227,7 +406,10 @@ export type BurnedEvent = TypedEvent<
 
 export type BurnedEventFilter = TypedEventFilter<BurnedEvent>;
 
-export type FeesEarnedEvent = TypedEvent<[BigNumber, BigNumber], { feesEarned0: BigNumber; feesEarned1: BigNumber }>;
+export type FeesEarnedEvent = TypedEvent<
+  [BigNumber, BigNumber],
+  { feesEarned0: BigNumber; feesEarned1: BigNumber }
+>;
 
 export type FeesEarnedEventFilter = TypedEventFilter<FeesEarnedEvent>;
 
@@ -244,9 +426,13 @@ export type MintedEvent = TypedEvent<
 
 export type MintedEventFilter = TypedEventFilter<MintedEvent>;
 
-export type OwnershipTransferredEvent = TypedEvent<[string, string], { previousManager: string; newManager: string }>;
+export type OwnershipTransferredEvent = TypedEvent<
+  [string, string],
+  { previousManager: string; newManager: string }
+>;
 
-export type OwnershipTransferredEventFilter = TypedEventFilter<OwnershipTransferredEvent>;
+export type OwnershipTransferredEventFilter =
+  TypedEventFilter<OwnershipTransferredEvent>;
 
 export type RebalanceEvent = TypedEvent<
   [number, number, BigNumber, BigNumber],
@@ -264,7 +450,10 @@ export type SetManagerFeeEvent = TypedEvent<[number], { managerFee: number }>;
 
 export type SetManagerFeeEventFilter = TypedEventFilter<SetManagerFeeEvent>;
 
-export type TransferEvent = TypedEvent<[string, string, BigNumber], { from: string; to: string; value: BigNumber }>;
+export type TransferEvent = TypedEvent<
+  [string, string, BigNumber],
+  { from: string; to: string; value: BigNumber }
+>;
 
 export type TransferEventFilter = TypedEventFilter<TransferEvent>;
 
@@ -273,7 +462,8 @@ export type UpdateAdminTreasuryEvent = TypedEvent<
   { oldAdminTreasury: string; newAdminTreasury: string }
 >;
 
-export type UpdateAdminTreasuryEventFilter = TypedEventFilter<UpdateAdminTreasuryEvent>;
+export type UpdateAdminTreasuryEventFilter =
+  TypedEventFilter<UpdateAdminTreasuryEvent>;
 
 export type UpdateGelatoParamsEvent = TypedEvent<
   [number, number, number, number],
@@ -285,7 +475,8 @@ export type UpdateGelatoParamsEvent = TypedEvent<
   }
 >;
 
-export type UpdateGelatoParamsEventFilter = TypedEventFilter<UpdateGelatoParamsEvent>;
+export type UpdateGelatoParamsEventFilter =
+  TypedEventFilter<UpdateGelatoParamsEvent>;
 
 export interface GUniV3Lp extends BaseContract {
   connect(signerOrProvider: Signer | Provider | string): this;
@@ -297,12 +488,16 @@ export interface GUniV3Lp extends BaseContract {
   queryFilter<TEvent extends TypedEvent>(
     event: TypedEventFilter<TEvent>,
     fromBlockOrBlockhash?: string | number | undefined,
-    toBlock?: string | number | undefined,
+    toBlock?: string | number | undefined
   ): Promise<Array<TEvent>>;
 
-  listeners<TEvent extends TypedEvent>(eventFilter?: TypedEventFilter<TEvent>): Array<TypedListener<TEvent>>;
+  listeners<TEvent extends TypedEvent>(
+    eventFilter?: TypedEventFilter<TEvent>
+  ): Array<TypedListener<TEvent>>;
   listeners(eventName?: string): Array<Listener>;
-  removeAllListeners<TEvent extends TypedEvent>(eventFilter: TypedEventFilter<TEvent>): this;
+  removeAllListeners<TEvent extends TypedEvent>(
+    eventFilter: TypedEventFilter<TEvent>
+  ): this;
   removeAllListeners(eventName?: string): this;
   off: OnEvent<this>;
   on: OnEvent<this>;
@@ -312,12 +507,16 @@ export interface GUniV3Lp extends BaseContract {
   functions: {
     GELATO(overrides?: CallOverrides): Promise<[string]>;
 
-    allowance(owner: string, spender: string, overrides?: CallOverrides): Promise<[BigNumber]>;
+    allowance(
+      owner: string,
+      spender: string,
+      overrides?: CallOverrides
+    ): Promise<[BigNumber]>;
 
     approve(
       spender: string,
       amount: BigNumberish,
-      overrides?: Overrides & { from?: string | Promise<string> },
+      overrides?: Overrides & { from?: string | Promise<string> }
     ): Promise<ContractTransaction>;
 
     balanceOf(account: string, overrides?: CallOverrides): Promise<[BigNumber]>;
@@ -325,7 +524,7 @@ export interface GUniV3Lp extends BaseContract {
     burn(
       burnAmount: BigNumberish,
       receiver: string,
-      overrides?: Overrides & { from?: string | Promise<string> },
+      overrides?: Overrides & { from?: string | Promise<string> }
     ): Promise<ContractTransaction>;
 
     decimals(overrides?: CallOverrides): Promise<[number]>;
@@ -333,7 +532,7 @@ export interface GUniV3Lp extends BaseContract {
     decreaseAllowance(
       spender: string,
       subtractedValue: BigNumberish,
-      overrides?: Overrides & { from?: string | Promise<string> },
+      overrides?: Overrides & { from?: string | Promise<string> }
     ): Promise<ContractTransaction>;
 
     executiveRebalance(
@@ -342,7 +541,7 @@ export interface GUniV3Lp extends BaseContract {
       swapThresholdPrice: BigNumberish,
       swapAmountBPS: BigNumberish,
       zeroForOne: boolean,
-      overrides?: Overrides & { from?: string | Promise<string> },
+      overrides?: Overrides & { from?: string | Promise<string> }
     ): Promise<ContractTransaction>;
 
     gelatoBalance0(overrides?: CallOverrides): Promise<[BigNumber]>;
@@ -362,7 +561,7 @@ export interface GUniV3Lp extends BaseContract {
     getMintAmounts(
       amount0Max: BigNumberish,
       amount1Max: BigNumberish,
-      overrides?: CallOverrides,
+      overrides?: CallOverrides
     ): Promise<
       [BigNumber, BigNumber, BigNumber] & {
         amount0: BigNumber;
@@ -371,9 +570,13 @@ export interface GUniV3Lp extends BaseContract {
       }
     >;
 
-    getPositionID(overrides?: CallOverrides): Promise<[string] & { positionID: string }>;
+    getPositionID(
+      overrides?: CallOverrides
+    ): Promise<[string] & { positionID: string }>;
 
-    getUnderlyingBalances(overrides?: CallOverrides): Promise<
+    getUnderlyingBalances(
+      overrides?: CallOverrides
+    ): Promise<
       [BigNumber, BigNumber] & {
         amount0Current: BigNumber;
         amount1Current: BigNumber;
@@ -382,7 +585,7 @@ export interface GUniV3Lp extends BaseContract {
 
     getUnderlyingBalancesAtPrice(
       sqrtRatioX96: BigNumberish,
-      overrides?: CallOverrides,
+      overrides?: CallOverrides
     ): Promise<
       [BigNumber, BigNumber] & {
         amount0Current: BigNumber;
@@ -393,7 +596,7 @@ export interface GUniV3Lp extends BaseContract {
     increaseAllowance(
       spender: string,
       addedValue: BigNumberish,
-      overrides?: Overrides & { from?: string | Promise<string> },
+      overrides?: Overrides & { from?: string | Promise<string> }
     ): Promise<ContractTransaction>;
 
     initialize(
@@ -404,12 +607,12 @@ export interface GUniV3Lp extends BaseContract {
       _lowerTick: BigNumberish,
       _upperTick: BigNumberish,
       _manager_: string,
-      overrides?: Overrides & { from?: string | Promise<string> },
+      overrides?: Overrides & { from?: string | Promise<string> }
     ): Promise<ContractTransaction>;
 
     initializeManagerFee(
       _managerFeeBPS: BigNumberish,
-      overrides?: Overrides & { from?: string | Promise<string> },
+      overrides?: Overrides & { from?: string | Promise<string> }
     ): Promise<ContractTransaction>;
 
     lowerTick(overrides?: CallOverrides): Promise<[number]>;
@@ -427,7 +630,7 @@ export interface GUniV3Lp extends BaseContract {
     mint(
       mintAmount: BigNumberish,
       receiver: string,
-      overrides?: Overrides & { from?: string | Promise<string> },
+      overrides?: Overrides & { from?: string | Promise<string> }
     ): Promise<ContractTransaction>;
 
     name(overrides?: CallOverrides): Promise<[string]>;
@@ -440,10 +643,12 @@ export interface GUniV3Lp extends BaseContract {
       zeroForOne: boolean,
       feeAmount: BigNumberish,
       paymentToken: string,
-      overrides?: Overrides & { from?: string | Promise<string> },
+      overrides?: Overrides & { from?: string | Promise<string> }
     ): Promise<ContractTransaction>;
 
-    renounceOwnership(overrides?: Overrides & { from?: string | Promise<string> }): Promise<ContractTransaction>;
+    renounceOwnership(
+      overrides?: Overrides & { from?: string | Promise<string> }
+    ): Promise<ContractTransaction>;
 
     symbol(overrides?: CallOverrides): Promise<[string]>;
 
@@ -456,33 +661,33 @@ export interface GUniV3Lp extends BaseContract {
     transfer(
       recipient: string,
       amount: BigNumberish,
-      overrides?: Overrides & { from?: string | Promise<string> },
+      overrides?: Overrides & { from?: string | Promise<string> }
     ): Promise<ContractTransaction>;
 
     transferFrom(
       sender: string,
       recipient: string,
       amount: BigNumberish,
-      overrides?: Overrides & { from?: string | Promise<string> },
+      overrides?: Overrides & { from?: string | Promise<string> }
     ): Promise<ContractTransaction>;
 
     transferOwnership(
       newOwner: string,
-      overrides?: Overrides & { from?: string | Promise<string> },
+      overrides?: Overrides & { from?: string | Promise<string> }
     ): Promise<ContractTransaction>;
 
     uniswapV3MintCallback(
       amount0Owed: BigNumberish,
       amount1Owed: BigNumberish,
       arg2: BytesLike,
-      overrides?: Overrides & { from?: string | Promise<string> },
+      overrides?: Overrides & { from?: string | Promise<string> }
     ): Promise<ContractTransaction>;
 
     uniswapV3SwapCallback(
       amount0Delta: BigNumberish,
       amount1Delta: BigNumberish,
       arg2: BytesLike,
-      overrides?: Overrides & { from?: string | Promise<string> },
+      overrides?: Overrides & { from?: string | Promise<string> }
     ): Promise<ContractTransaction>;
 
     updateGelatoParams(
@@ -491,7 +696,7 @@ export interface GUniV3Lp extends BaseContract {
       newSlippageBPS: BigNumberish,
       newSlippageInterval: BigNumberish,
       newTreasury: string,
-      overrides?: Overrides & { from?: string | Promise<string> },
+      overrides?: Overrides & { from?: string | Promise<string> }
     ): Promise<ContractTransaction>;
 
     upperTick(overrides?: CallOverrides): Promise<[number]>;
@@ -501,24 +706,28 @@ export interface GUniV3Lp extends BaseContract {
     withdrawGelatoBalance(
       feeAmount: BigNumberish,
       feeToken: string,
-      overrides?: Overrides & { from?: string | Promise<string> },
+      overrides?: Overrides & { from?: string | Promise<string> }
     ): Promise<ContractTransaction>;
 
     withdrawManagerBalance(
       feeAmount: BigNumberish,
       feeToken: string,
-      overrides?: Overrides & { from?: string | Promise<string> },
+      overrides?: Overrides & { from?: string | Promise<string> }
     ): Promise<ContractTransaction>;
   };
 
   GELATO(overrides?: CallOverrides): Promise<string>;
 
-  allowance(owner: string, spender: string, overrides?: CallOverrides): Promise<BigNumber>;
+  allowance(
+    owner: string,
+    spender: string,
+    overrides?: CallOverrides
+  ): Promise<BigNumber>;
 
   approve(
     spender: string,
     amount: BigNumberish,
-    overrides?: Overrides & { from?: string | Promise<string> },
+    overrides?: Overrides & { from?: string | Promise<string> }
   ): Promise<ContractTransaction>;
 
   balanceOf(account: string, overrides?: CallOverrides): Promise<BigNumber>;
@@ -526,7 +735,7 @@ export interface GUniV3Lp extends BaseContract {
   burn(
     burnAmount: BigNumberish,
     receiver: string,
-    overrides?: Overrides & { from?: string | Promise<string> },
+    overrides?: Overrides & { from?: string | Promise<string> }
   ): Promise<ContractTransaction>;
 
   decimals(overrides?: CallOverrides): Promise<number>;
@@ -534,7 +743,7 @@ export interface GUniV3Lp extends BaseContract {
   decreaseAllowance(
     spender: string,
     subtractedValue: BigNumberish,
-    overrides?: Overrides & { from?: string | Promise<string> },
+    overrides?: Overrides & { from?: string | Promise<string> }
   ): Promise<ContractTransaction>;
 
   executiveRebalance(
@@ -543,7 +752,7 @@ export interface GUniV3Lp extends BaseContract {
     swapThresholdPrice: BigNumberish,
     swapAmountBPS: BigNumberish,
     zeroForOne: boolean,
-    overrides?: Overrides & { from?: string | Promise<string> },
+    overrides?: Overrides & { from?: string | Promise<string> }
   ): Promise<ContractTransaction>;
 
   gelatoBalance0(overrides?: CallOverrides): Promise<BigNumber>;
@@ -563,7 +772,7 @@ export interface GUniV3Lp extends BaseContract {
   getMintAmounts(
     amount0Max: BigNumberish,
     amount1Max: BigNumberish,
-    overrides?: CallOverrides,
+    overrides?: CallOverrides
   ): Promise<
     [BigNumber, BigNumber, BigNumber] & {
       amount0: BigNumber;
@@ -574,7 +783,9 @@ export interface GUniV3Lp extends BaseContract {
 
   getPositionID(overrides?: CallOverrides): Promise<string>;
 
-  getUnderlyingBalances(overrides?: CallOverrides): Promise<
+  getUnderlyingBalances(
+    overrides?: CallOverrides
+  ): Promise<
     [BigNumber, BigNumber] & {
       amount0Current: BigNumber;
       amount1Current: BigNumber;
@@ -583,7 +794,7 @@ export interface GUniV3Lp extends BaseContract {
 
   getUnderlyingBalancesAtPrice(
     sqrtRatioX96: BigNumberish,
-    overrides?: CallOverrides,
+    overrides?: CallOverrides
   ): Promise<
     [BigNumber, BigNumber] & {
       amount0Current: BigNumber;
@@ -594,7 +805,7 @@ export interface GUniV3Lp extends BaseContract {
   increaseAllowance(
     spender: string,
     addedValue: BigNumberish,
-    overrides?: Overrides & { from?: string | Promise<string> },
+    overrides?: Overrides & { from?: string | Promise<string> }
   ): Promise<ContractTransaction>;
 
   initialize(
@@ -605,12 +816,12 @@ export interface GUniV3Lp extends BaseContract {
     _lowerTick: BigNumberish,
     _upperTick: BigNumberish,
     _manager_: string,
-    overrides?: Overrides & { from?: string | Promise<string> },
+    overrides?: Overrides & { from?: string | Promise<string> }
   ): Promise<ContractTransaction>;
 
   initializeManagerFee(
     _managerFeeBPS: BigNumberish,
-    overrides?: Overrides & { from?: string | Promise<string> },
+    overrides?: Overrides & { from?: string | Promise<string> }
   ): Promise<ContractTransaction>;
 
   lowerTick(overrides?: CallOverrides): Promise<number>;
@@ -628,7 +839,7 @@ export interface GUniV3Lp extends BaseContract {
   mint(
     mintAmount: BigNumberish,
     receiver: string,
-    overrides?: Overrides & { from?: string | Promise<string> },
+    overrides?: Overrides & { from?: string | Promise<string> }
   ): Promise<ContractTransaction>;
 
   name(overrides?: CallOverrides): Promise<string>;
@@ -641,10 +852,12 @@ export interface GUniV3Lp extends BaseContract {
     zeroForOne: boolean,
     feeAmount: BigNumberish,
     paymentToken: string,
-    overrides?: Overrides & { from?: string | Promise<string> },
+    overrides?: Overrides & { from?: string | Promise<string> }
   ): Promise<ContractTransaction>;
 
-  renounceOwnership(overrides?: Overrides & { from?: string | Promise<string> }): Promise<ContractTransaction>;
+  renounceOwnership(
+    overrides?: Overrides & { from?: string | Promise<string> }
+  ): Promise<ContractTransaction>;
 
   symbol(overrides?: CallOverrides): Promise<string>;
 
@@ -657,33 +870,33 @@ export interface GUniV3Lp extends BaseContract {
   transfer(
     recipient: string,
     amount: BigNumberish,
-    overrides?: Overrides & { from?: string | Promise<string> },
+    overrides?: Overrides & { from?: string | Promise<string> }
   ): Promise<ContractTransaction>;
 
   transferFrom(
     sender: string,
     recipient: string,
     amount: BigNumberish,
-    overrides?: Overrides & { from?: string | Promise<string> },
+    overrides?: Overrides & { from?: string | Promise<string> }
   ): Promise<ContractTransaction>;
 
   transferOwnership(
     newOwner: string,
-    overrides?: Overrides & { from?: string | Promise<string> },
+    overrides?: Overrides & { from?: string | Promise<string> }
   ): Promise<ContractTransaction>;
 
   uniswapV3MintCallback(
     amount0Owed: BigNumberish,
     amount1Owed: BigNumberish,
     arg2: BytesLike,
-    overrides?: Overrides & { from?: string | Promise<string> },
+    overrides?: Overrides & { from?: string | Promise<string> }
   ): Promise<ContractTransaction>;
 
   uniswapV3SwapCallback(
     amount0Delta: BigNumberish,
     amount1Delta: BigNumberish,
     arg2: BytesLike,
-    overrides?: Overrides & { from?: string | Promise<string> },
+    overrides?: Overrides & { from?: string | Promise<string> }
   ): Promise<ContractTransaction>;
 
   updateGelatoParams(
@@ -692,7 +905,7 @@ export interface GUniV3Lp extends BaseContract {
     newSlippageBPS: BigNumberish,
     newSlippageInterval: BigNumberish,
     newTreasury: string,
-    overrides?: Overrides & { from?: string | Promise<string> },
+    overrides?: Overrides & { from?: string | Promise<string> }
   ): Promise<ContractTransaction>;
 
   upperTick(overrides?: CallOverrides): Promise<number>;
@@ -702,28 +915,36 @@ export interface GUniV3Lp extends BaseContract {
   withdrawGelatoBalance(
     feeAmount: BigNumberish,
     feeToken: string,
-    overrides?: Overrides & { from?: string | Promise<string> },
+    overrides?: Overrides & { from?: string | Promise<string> }
   ): Promise<ContractTransaction>;
 
   withdrawManagerBalance(
     feeAmount: BigNumberish,
     feeToken: string,
-    overrides?: Overrides & { from?: string | Promise<string> },
+    overrides?: Overrides & { from?: string | Promise<string> }
   ): Promise<ContractTransaction>;
 
   callStatic: {
     GELATO(overrides?: CallOverrides): Promise<string>;
 
-    allowance(owner: string, spender: string, overrides?: CallOverrides): Promise<BigNumber>;
+    allowance(
+      owner: string,
+      spender: string,
+      overrides?: CallOverrides
+    ): Promise<BigNumber>;
 
-    approve(spender: string, amount: BigNumberish, overrides?: CallOverrides): Promise<boolean>;
+    approve(
+      spender: string,
+      amount: BigNumberish,
+      overrides?: CallOverrides
+    ): Promise<boolean>;
 
     balanceOf(account: string, overrides?: CallOverrides): Promise<BigNumber>;
 
     burn(
       burnAmount: BigNumberish,
       receiver: string,
-      overrides?: CallOverrides,
+      overrides?: CallOverrides
     ): Promise<
       [BigNumber, BigNumber, BigNumber] & {
         amount0: BigNumber;
@@ -734,7 +955,11 @@ export interface GUniV3Lp extends BaseContract {
 
     decimals(overrides?: CallOverrides): Promise<number>;
 
-    decreaseAllowance(spender: string, subtractedValue: BigNumberish, overrides?: CallOverrides): Promise<boolean>;
+    decreaseAllowance(
+      spender: string,
+      subtractedValue: BigNumberish,
+      overrides?: CallOverrides
+    ): Promise<boolean>;
 
     executiveRebalance(
       newLowerTick: BigNumberish,
@@ -742,7 +967,7 @@ export interface GUniV3Lp extends BaseContract {
       swapThresholdPrice: BigNumberish,
       swapAmountBPS: BigNumberish,
       zeroForOne: boolean,
-      overrides?: CallOverrides,
+      overrides?: CallOverrides
     ): Promise<void>;
 
     gelatoBalance0(overrides?: CallOverrides): Promise<BigNumber>;
@@ -762,7 +987,7 @@ export interface GUniV3Lp extends BaseContract {
     getMintAmounts(
       amount0Max: BigNumberish,
       amount1Max: BigNumberish,
-      overrides?: CallOverrides,
+      overrides?: CallOverrides
     ): Promise<
       [BigNumber, BigNumber, BigNumber] & {
         amount0: BigNumber;
@@ -773,7 +998,9 @@ export interface GUniV3Lp extends BaseContract {
 
     getPositionID(overrides?: CallOverrides): Promise<string>;
 
-    getUnderlyingBalances(overrides?: CallOverrides): Promise<
+    getUnderlyingBalances(
+      overrides?: CallOverrides
+    ): Promise<
       [BigNumber, BigNumber] & {
         amount0Current: BigNumber;
         amount1Current: BigNumber;
@@ -782,7 +1009,7 @@ export interface GUniV3Lp extends BaseContract {
 
     getUnderlyingBalancesAtPrice(
       sqrtRatioX96: BigNumberish,
-      overrides?: CallOverrides,
+      overrides?: CallOverrides
     ): Promise<
       [BigNumber, BigNumber] & {
         amount0Current: BigNumber;
@@ -790,7 +1017,11 @@ export interface GUniV3Lp extends BaseContract {
       }
     >;
 
-    increaseAllowance(spender: string, addedValue: BigNumberish, overrides?: CallOverrides): Promise<boolean>;
+    increaseAllowance(
+      spender: string,
+      addedValue: BigNumberish,
+      overrides?: CallOverrides
+    ): Promise<boolean>;
 
     initialize(
       _name: string,
@@ -800,10 +1031,13 @@ export interface GUniV3Lp extends BaseContract {
       _lowerTick: BigNumberish,
       _upperTick: BigNumberish,
       _manager_: string,
-      overrides?: CallOverrides,
+      overrides?: CallOverrides
     ): Promise<void>;
 
-    initializeManagerFee(_managerFeeBPS: BigNumberish, overrides?: CallOverrides): Promise<void>;
+    initializeManagerFee(
+      _managerFeeBPS: BigNumberish,
+      overrides?: CallOverrides
+    ): Promise<void>;
 
     lowerTick(overrides?: CallOverrides): Promise<number>;
 
@@ -820,7 +1054,7 @@ export interface GUniV3Lp extends BaseContract {
     mint(
       mintAmount: BigNumberish,
       receiver: string,
-      overrides?: CallOverrides,
+      overrides?: CallOverrides
     ): Promise<
       [BigNumber, BigNumber, BigNumber] & {
         amount0: BigNumber;
@@ -839,7 +1073,7 @@ export interface GUniV3Lp extends BaseContract {
       zeroForOne: boolean,
       feeAmount: BigNumberish,
       paymentToken: string,
-      overrides?: CallOverrides,
+      overrides?: CallOverrides
     ): Promise<void>;
 
     renounceOwnership(overrides?: CallOverrides): Promise<void>;
@@ -852,24 +1086,36 @@ export interface GUniV3Lp extends BaseContract {
 
     totalSupply(overrides?: CallOverrides): Promise<BigNumber>;
 
-    transfer(recipient: string, amount: BigNumberish, overrides?: CallOverrides): Promise<boolean>;
+    transfer(
+      recipient: string,
+      amount: BigNumberish,
+      overrides?: CallOverrides
+    ): Promise<boolean>;
 
-    transferFrom(sender: string, recipient: string, amount: BigNumberish, overrides?: CallOverrides): Promise<boolean>;
+    transferFrom(
+      sender: string,
+      recipient: string,
+      amount: BigNumberish,
+      overrides?: CallOverrides
+    ): Promise<boolean>;
 
-    transferOwnership(newOwner: string, overrides?: CallOverrides): Promise<void>;
+    transferOwnership(
+      newOwner: string,
+      overrides?: CallOverrides
+    ): Promise<void>;
 
     uniswapV3MintCallback(
       amount0Owed: BigNumberish,
       amount1Owed: BigNumberish,
       arg2: BytesLike,
-      overrides?: CallOverrides,
+      overrides?: CallOverrides
     ): Promise<void>;
 
     uniswapV3SwapCallback(
       amount0Delta: BigNumberish,
       amount1Delta: BigNumberish,
       arg2: BytesLike,
-      overrides?: CallOverrides,
+      overrides?: CallOverrides
     ): Promise<void>;
 
     updateGelatoParams(
@@ -878,42 +1124,57 @@ export interface GUniV3Lp extends BaseContract {
       newSlippageBPS: BigNumberish,
       newSlippageInterval: BigNumberish,
       newTreasury: string,
-      overrides?: CallOverrides,
+      overrides?: CallOverrides
     ): Promise<void>;
 
     upperTick(overrides?: CallOverrides): Promise<number>;
 
     version(overrides?: CallOverrides): Promise<string>;
 
-    withdrawGelatoBalance(feeAmount: BigNumberish, feeToken: string, overrides?: CallOverrides): Promise<void>;
+    withdrawGelatoBalance(
+      feeAmount: BigNumberish,
+      feeToken: string,
+      overrides?: CallOverrides
+    ): Promise<void>;
 
-    withdrawManagerBalance(feeAmount: BigNumberish, feeToken: string, overrides?: CallOverrides): Promise<void>;
+    withdrawManagerBalance(
+      feeAmount: BigNumberish,
+      feeToken: string,
+      overrides?: CallOverrides
+    ): Promise<void>;
   };
 
   filters: {
     "Approval(address,address,uint256)"(
       owner?: string | null,
       spender?: string | null,
-      value?: null,
+      value?: null
     ): ApprovalEventFilter;
-    Approval(owner?: string | null, spender?: string | null, value?: null): ApprovalEventFilter;
+    Approval(
+      owner?: string | null,
+      spender?: string | null,
+      value?: null
+    ): ApprovalEventFilter;
 
     "Burned(address,uint256,uint256,uint256,uint128)"(
       receiver?: null,
       burnAmount?: null,
       amount0Out?: null,
       amount1Out?: null,
-      liquidityBurned?: null,
+      liquidityBurned?: null
     ): BurnedEventFilter;
     Burned(
       receiver?: null,
       burnAmount?: null,
       amount0Out?: null,
       amount1Out?: null,
-      liquidityBurned?: null,
+      liquidityBurned?: null
     ): BurnedEventFilter;
 
-    "FeesEarned(uint256,uint256)"(feesEarned0?: null, feesEarned1?: null): FeesEarnedEventFilter;
+    "FeesEarned(uint256,uint256)"(
+      feesEarned0?: null,
+      feesEarned1?: null
+    ): FeesEarnedEventFilter;
     FeesEarned(feesEarned0?: null, feesEarned1?: null): FeesEarnedEventFilter;
 
     "Minted(address,uint256,uint256,uint256,uint128)"(
@@ -921,70 +1182,88 @@ export interface GUniV3Lp extends BaseContract {
       mintAmount?: null,
       amount0In?: null,
       amount1In?: null,
-      liquidityMinted?: null,
+      liquidityMinted?: null
     ): MintedEventFilter;
     Minted(
       receiver?: null,
       mintAmount?: null,
       amount0In?: null,
       amount1In?: null,
-      liquidityMinted?: null,
+      liquidityMinted?: null
     ): MintedEventFilter;
 
     "OwnershipTransferred(address,address)"(
       previousManager?: string | null,
-      newManager?: string | null,
+      newManager?: string | null
     ): OwnershipTransferredEventFilter;
-    OwnershipTransferred(previousManager?: string | null, newManager?: string | null): OwnershipTransferredEventFilter;
+    OwnershipTransferred(
+      previousManager?: string | null,
+      newManager?: string | null
+    ): OwnershipTransferredEventFilter;
 
     "Rebalance(int24,int24,uint128,uint128)"(
       lowerTick_?: null,
       upperTick_?: null,
       liquidityBefore?: null,
-      liquidityAfter?: null,
+      liquidityAfter?: null
     ): RebalanceEventFilter;
     Rebalance(
       lowerTick_?: null,
       upperTick_?: null,
       liquidityBefore?: null,
-      liquidityAfter?: null,
+      liquidityAfter?: null
     ): RebalanceEventFilter;
 
     "SetManagerFee(uint16)"(managerFee?: null): SetManagerFeeEventFilter;
     SetManagerFee(managerFee?: null): SetManagerFeeEventFilter;
 
-    "Transfer(address,address,uint256)"(from?: string | null, to?: string | null, value?: null): TransferEventFilter;
-    Transfer(from?: string | null, to?: string | null, value?: null): TransferEventFilter;
+    "Transfer(address,address,uint256)"(
+      from?: string | null,
+      to?: string | null,
+      value?: null
+    ): TransferEventFilter;
+    Transfer(
+      from?: string | null,
+      to?: string | null,
+      value?: null
+    ): TransferEventFilter;
 
     "UpdateAdminTreasury(address,address)"(
       oldAdminTreasury?: null,
-      newAdminTreasury?: null,
+      newAdminTreasury?: null
     ): UpdateAdminTreasuryEventFilter;
-    UpdateAdminTreasury(oldAdminTreasury?: null, newAdminTreasury?: null): UpdateAdminTreasuryEventFilter;
+    UpdateAdminTreasury(
+      oldAdminTreasury?: null,
+      newAdminTreasury?: null
+    ): UpdateAdminTreasuryEventFilter;
 
     "UpdateGelatoParams(uint16,uint16,uint16,uint32)"(
       gelatoRebalanceBPS?: null,
       gelatoWithdrawBPS?: null,
       gelatoSlippageBPS?: null,
-      gelatoSlippageInterval?: null,
+      gelatoSlippageInterval?: null
     ): UpdateGelatoParamsEventFilter;
     UpdateGelatoParams(
       gelatoRebalanceBPS?: null,
       gelatoWithdrawBPS?: null,
       gelatoSlippageBPS?: null,
-      gelatoSlippageInterval?: null,
+      gelatoSlippageInterval?: null
     ): UpdateGelatoParamsEventFilter;
   };
 
   estimateGas: {
     GELATO(overrides?: CallOverrides): Promise<BigNumber>;
 
-    allowance(owner: string, spender: string, overrides?: CallOverrides): Promise<BigNumber>;
+    allowance(
+      owner: string,
+      spender: string,
+      overrides?: CallOverrides
+    ): Promise<BigNumber>;
 
     approve(
       spender: string,
       amount: BigNumberish,
-      overrides?: Overrides & { from?: string | Promise<string> },
+      overrides?: Overrides & { from?: string | Promise<string> }
     ): Promise<BigNumber>;
 
     balanceOf(account: string, overrides?: CallOverrides): Promise<BigNumber>;
@@ -992,7 +1271,7 @@ export interface GUniV3Lp extends BaseContract {
     burn(
       burnAmount: BigNumberish,
       receiver: string,
-      overrides?: Overrides & { from?: string | Promise<string> },
+      overrides?: Overrides & { from?: string | Promise<string> }
     ): Promise<BigNumber>;
 
     decimals(overrides?: CallOverrides): Promise<BigNumber>;
@@ -1000,7 +1279,7 @@ export interface GUniV3Lp extends BaseContract {
     decreaseAllowance(
       spender: string,
       subtractedValue: BigNumberish,
-      overrides?: Overrides & { from?: string | Promise<string> },
+      overrides?: Overrides & { from?: string | Promise<string> }
     ): Promise<BigNumber>;
 
     executiveRebalance(
@@ -1009,7 +1288,7 @@ export interface GUniV3Lp extends BaseContract {
       swapThresholdPrice: BigNumberish,
       swapAmountBPS: BigNumberish,
       zeroForOne: boolean,
-      overrides?: Overrides & { from?: string | Promise<string> },
+      overrides?: Overrides & { from?: string | Promise<string> }
     ): Promise<BigNumber>;
 
     gelatoBalance0(overrides?: CallOverrides): Promise<BigNumber>;
@@ -1026,18 +1305,25 @@ export interface GUniV3Lp extends BaseContract {
 
     gelatoWithdrawBPS(overrides?: CallOverrides): Promise<BigNumber>;
 
-    getMintAmounts(amount0Max: BigNumberish, amount1Max: BigNumberish, overrides?: CallOverrides): Promise<BigNumber>;
+    getMintAmounts(
+      amount0Max: BigNumberish,
+      amount1Max: BigNumberish,
+      overrides?: CallOverrides
+    ): Promise<BigNumber>;
 
     getPositionID(overrides?: CallOverrides): Promise<BigNumber>;
 
     getUnderlyingBalances(overrides?: CallOverrides): Promise<BigNumber>;
 
-    getUnderlyingBalancesAtPrice(sqrtRatioX96: BigNumberish, overrides?: CallOverrides): Promise<BigNumber>;
+    getUnderlyingBalancesAtPrice(
+      sqrtRatioX96: BigNumberish,
+      overrides?: CallOverrides
+    ): Promise<BigNumber>;
 
     increaseAllowance(
       spender: string,
       addedValue: BigNumberish,
-      overrides?: Overrides & { from?: string | Promise<string> },
+      overrides?: Overrides & { from?: string | Promise<string> }
     ): Promise<BigNumber>;
 
     initialize(
@@ -1048,12 +1334,12 @@ export interface GUniV3Lp extends BaseContract {
       _lowerTick: BigNumberish,
       _upperTick: BigNumberish,
       _manager_: string,
-      overrides?: Overrides & { from?: string | Promise<string> },
+      overrides?: Overrides & { from?: string | Promise<string> }
     ): Promise<BigNumber>;
 
     initializeManagerFee(
       _managerFeeBPS: BigNumberish,
-      overrides?: Overrides & { from?: string | Promise<string> },
+      overrides?: Overrides & { from?: string | Promise<string> }
     ): Promise<BigNumber>;
 
     lowerTick(overrides?: CallOverrides): Promise<BigNumber>;
@@ -1071,7 +1357,7 @@ export interface GUniV3Lp extends BaseContract {
     mint(
       mintAmount: BigNumberish,
       receiver: string,
-      overrides?: Overrides & { from?: string | Promise<string> },
+      overrides?: Overrides & { from?: string | Promise<string> }
     ): Promise<BigNumber>;
 
     name(overrides?: CallOverrides): Promise<BigNumber>;
@@ -1084,10 +1370,12 @@ export interface GUniV3Lp extends BaseContract {
       zeroForOne: boolean,
       feeAmount: BigNumberish,
       paymentToken: string,
-      overrides?: Overrides & { from?: string | Promise<string> },
+      overrides?: Overrides & { from?: string | Promise<string> }
     ): Promise<BigNumber>;
 
-    renounceOwnership(overrides?: Overrides & { from?: string | Promise<string> }): Promise<BigNumber>;
+    renounceOwnership(
+      overrides?: Overrides & { from?: string | Promise<string> }
+    ): Promise<BigNumber>;
 
     symbol(overrides?: CallOverrides): Promise<BigNumber>;
 
@@ -1100,33 +1388,33 @@ export interface GUniV3Lp extends BaseContract {
     transfer(
       recipient: string,
       amount: BigNumberish,
-      overrides?: Overrides & { from?: string | Promise<string> },
+      overrides?: Overrides & { from?: string | Promise<string> }
     ): Promise<BigNumber>;
 
     transferFrom(
       sender: string,
       recipient: string,
       amount: BigNumberish,
-      overrides?: Overrides & { from?: string | Promise<string> },
+      overrides?: Overrides & { from?: string | Promise<string> }
     ): Promise<BigNumber>;
 
     transferOwnership(
       newOwner: string,
-      overrides?: Overrides & { from?: string | Promise<string> },
+      overrides?: Overrides & { from?: string | Promise<string> }
     ): Promise<BigNumber>;
 
     uniswapV3MintCallback(
       amount0Owed: BigNumberish,
       amount1Owed: BigNumberish,
       arg2: BytesLike,
-      overrides?: Overrides & { from?: string | Promise<string> },
+      overrides?: Overrides & { from?: string | Promise<string> }
     ): Promise<BigNumber>;
 
     uniswapV3SwapCallback(
       amount0Delta: BigNumberish,
       amount1Delta: BigNumberish,
       arg2: BytesLike,
-      overrides?: Overrides & { from?: string | Promise<string> },
+      overrides?: Overrides & { from?: string | Promise<string> }
     ): Promise<BigNumber>;
 
     updateGelatoParams(
@@ -1135,7 +1423,7 @@ export interface GUniV3Lp extends BaseContract {
       newSlippageBPS: BigNumberish,
       newSlippageInterval: BigNumberish,
       newTreasury: string,
-      overrides?: Overrides & { from?: string | Promise<string> },
+      overrides?: Overrides & { from?: string | Promise<string> }
     ): Promise<BigNumber>;
 
     upperTick(overrides?: CallOverrides): Promise<BigNumber>;
@@ -1145,33 +1433,40 @@ export interface GUniV3Lp extends BaseContract {
     withdrawGelatoBalance(
       feeAmount: BigNumberish,
       feeToken: string,
-      overrides?: Overrides & { from?: string | Promise<string> },
+      overrides?: Overrides & { from?: string | Promise<string> }
     ): Promise<BigNumber>;
 
     withdrawManagerBalance(
       feeAmount: BigNumberish,
       feeToken: string,
-      overrides?: Overrides & { from?: string | Promise<string> },
+      overrides?: Overrides & { from?: string | Promise<string> }
     ): Promise<BigNumber>;
   };
 
   populateTransaction: {
     GELATO(overrides?: CallOverrides): Promise<PopulatedTransaction>;
 
-    allowance(owner: string, spender: string, overrides?: CallOverrides): Promise<PopulatedTransaction>;
+    allowance(
+      owner: string,
+      spender: string,
+      overrides?: CallOverrides
+    ): Promise<PopulatedTransaction>;
 
     approve(
       spender: string,
       amount: BigNumberish,
-      overrides?: Overrides & { from?: string | Promise<string> },
+      overrides?: Overrides & { from?: string | Promise<string> }
     ): Promise<PopulatedTransaction>;
 
-    balanceOf(account: string, overrides?: CallOverrides): Promise<PopulatedTransaction>;
+    balanceOf(
+      account: string,
+      overrides?: CallOverrides
+    ): Promise<PopulatedTransaction>;
 
     burn(
       burnAmount: BigNumberish,
       receiver: string,
-      overrides?: Overrides & { from?: string | Promise<string> },
+      overrides?: Overrides & { from?: string | Promise<string> }
     ): Promise<PopulatedTransaction>;
 
     decimals(overrides?: CallOverrides): Promise<PopulatedTransaction>;
@@ -1179,7 +1474,7 @@ export interface GUniV3Lp extends BaseContract {
     decreaseAllowance(
       spender: string,
       subtractedValue: BigNumberish,
-      overrides?: Overrides & { from?: string | Promise<string> },
+      overrides?: Overrides & { from?: string | Promise<string> }
     ): Promise<PopulatedTransaction>;
 
     executiveRebalance(
@@ -1188,7 +1483,7 @@ export interface GUniV3Lp extends BaseContract {
       swapThresholdPrice: BigNumberish,
       swapAmountBPS: BigNumberish,
       zeroForOne: boolean,
-      overrides?: Overrides & { from?: string | Promise<string> },
+      overrides?: Overrides & { from?: string | Promise<string> }
     ): Promise<PopulatedTransaction>;
 
     gelatoBalance0(overrides?: CallOverrides): Promise<PopulatedTransaction>;
@@ -1197,30 +1492,39 @@ export interface GUniV3Lp extends BaseContract {
 
     gelatoFeeBPS(overrides?: CallOverrides): Promise<PopulatedTransaction>;
 
-    gelatoRebalanceBPS(overrides?: CallOverrides): Promise<PopulatedTransaction>;
+    gelatoRebalanceBPS(
+      overrides?: CallOverrides
+    ): Promise<PopulatedTransaction>;
 
     gelatoSlippageBPS(overrides?: CallOverrides): Promise<PopulatedTransaction>;
 
-    gelatoSlippageInterval(overrides?: CallOverrides): Promise<PopulatedTransaction>;
+    gelatoSlippageInterval(
+      overrides?: CallOverrides
+    ): Promise<PopulatedTransaction>;
 
     gelatoWithdrawBPS(overrides?: CallOverrides): Promise<PopulatedTransaction>;
 
     getMintAmounts(
       amount0Max: BigNumberish,
       amount1Max: BigNumberish,
-      overrides?: CallOverrides,
+      overrides?: CallOverrides
     ): Promise<PopulatedTransaction>;
 
     getPositionID(overrides?: CallOverrides): Promise<PopulatedTransaction>;
 
-    getUnderlyingBalances(overrides?: CallOverrides): Promise<PopulatedTransaction>;
+    getUnderlyingBalances(
+      overrides?: CallOverrides
+    ): Promise<PopulatedTransaction>;
 
-    getUnderlyingBalancesAtPrice(sqrtRatioX96: BigNumberish, overrides?: CallOverrides): Promise<PopulatedTransaction>;
+    getUnderlyingBalancesAtPrice(
+      sqrtRatioX96: BigNumberish,
+      overrides?: CallOverrides
+    ): Promise<PopulatedTransaction>;
 
     increaseAllowance(
       spender: string,
       addedValue: BigNumberish,
-      overrides?: Overrides & { from?: string | Promise<string> },
+      overrides?: Overrides & { from?: string | Promise<string> }
     ): Promise<PopulatedTransaction>;
 
     initialize(
@@ -1231,12 +1535,12 @@ export interface GUniV3Lp extends BaseContract {
       _lowerTick: BigNumberish,
       _upperTick: BigNumberish,
       _manager_: string,
-      overrides?: Overrides & { from?: string | Promise<string> },
+      overrides?: Overrides & { from?: string | Promise<string> }
     ): Promise<PopulatedTransaction>;
 
     initializeManagerFee(
       _managerFeeBPS: BigNumberish,
-      overrides?: Overrides & { from?: string | Promise<string> },
+      overrides?: Overrides & { from?: string | Promise<string> }
     ): Promise<PopulatedTransaction>;
 
     lowerTick(overrides?: CallOverrides): Promise<PopulatedTransaction>;
@@ -1254,7 +1558,7 @@ export interface GUniV3Lp extends BaseContract {
     mint(
       mintAmount: BigNumberish,
       receiver: string,
-      overrides?: Overrides & { from?: string | Promise<string> },
+      overrides?: Overrides & { from?: string | Promise<string> }
     ): Promise<PopulatedTransaction>;
 
     name(overrides?: CallOverrides): Promise<PopulatedTransaction>;
@@ -1267,10 +1571,12 @@ export interface GUniV3Lp extends BaseContract {
       zeroForOne: boolean,
       feeAmount: BigNumberish,
       paymentToken: string,
-      overrides?: Overrides & { from?: string | Promise<string> },
+      overrides?: Overrides & { from?: string | Promise<string> }
     ): Promise<PopulatedTransaction>;
 
-    renounceOwnership(overrides?: Overrides & { from?: string | Promise<string> }): Promise<PopulatedTransaction>;
+    renounceOwnership(
+      overrides?: Overrides & { from?: string | Promise<string> }
+    ): Promise<PopulatedTransaction>;
 
     symbol(overrides?: CallOverrides): Promise<PopulatedTransaction>;
 
@@ -1283,33 +1589,33 @@ export interface GUniV3Lp extends BaseContract {
     transfer(
       recipient: string,
       amount: BigNumberish,
-      overrides?: Overrides & { from?: string | Promise<string> },
+      overrides?: Overrides & { from?: string | Promise<string> }
     ): Promise<PopulatedTransaction>;
 
     transferFrom(
       sender: string,
       recipient: string,
       amount: BigNumberish,
-      overrides?: Overrides & { from?: string | Promise<string> },
+      overrides?: Overrides & { from?: string | Promise<string> }
     ): Promise<PopulatedTransaction>;
 
     transferOwnership(
       newOwner: string,
-      overrides?: Overrides & { from?: string | Promise<string> },
+      overrides?: Overrides & { from?: string | Promise<string> }
     ): Promise<PopulatedTransaction>;
 
     uniswapV3MintCallback(
       amount0Owed: BigNumberish,
       amount1Owed: BigNumberish,
       arg2: BytesLike,
-      overrides?: Overrides & { from?: string | Promise<string> },
+      overrides?: Overrides & { from?: string | Promise<string> }
     ): Promise<PopulatedTransaction>;
 
     uniswapV3SwapCallback(
       amount0Delta: BigNumberish,
       amount1Delta: BigNumberish,
       arg2: BytesLike,
-      overrides?: Overrides & { from?: string | Promise<string> },
+      overrides?: Overrides & { from?: string | Promise<string> }
     ): Promise<PopulatedTransaction>;
 
     updateGelatoParams(
@@ -1318,7 +1624,7 @@ export interface GUniV3Lp extends BaseContract {
       newSlippageBPS: BigNumberish,
       newSlippageInterval: BigNumberish,
       newTreasury: string,
-      overrides?: Overrides & { from?: string | Promise<string> },
+      overrides?: Overrides & { from?: string | Promise<string> }
     ): Promise<PopulatedTransaction>;
 
     upperTick(overrides?: CallOverrides): Promise<PopulatedTransaction>;
@@ -1328,13 +1634,13 @@ export interface GUniV3Lp extends BaseContract {
     withdrawGelatoBalance(
       feeAmount: BigNumberish,
       feeToken: string,
-      overrides?: Overrides & { from?: string | Promise<string> },
+      overrides?: Overrides & { from?: string | Promise<string> }
     ): Promise<PopulatedTransaction>;
 
     withdrawManagerBalance(
       feeAmount: BigNumberish,
       feeToken: string,
-      overrides?: Overrides & { from?: string | Promise<string> },
+      overrides?: Overrides & { from?: string | Promise<string> }
     ): Promise<PopulatedTransaction>;
   };
 }

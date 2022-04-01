@@ -4,7 +4,10 @@
 
 import { Contract, Signer, utils } from "ethers";
 import { Provider } from "@ethersproject/providers";
-import type { OlympusTokenMigrator, OlympusTokenMigratorInterface } from "../OlympusTokenMigrator";
+import type {
+  OlympusTokenMigrator,
+  OlympusTokenMigratorInterface,
+} from "../OlympusTokenMigrator";
 
 const _abi = [
   {
@@ -552,7 +555,14 @@ export class OlympusTokenMigrator__factory {
   static createInterface(): OlympusTokenMigratorInterface {
     return new utils.Interface(_abi) as OlympusTokenMigratorInterface;
   }
-  static connect(address: string, signerOrProvider: Signer | Provider): OlympusTokenMigrator {
-    return new Contract(address, _abi, signerOrProvider) as OlympusTokenMigrator;
+  static connect(
+    address: string,
+    signerOrProvider: Signer | Provider
+  ): OlympusTokenMigrator {
+    return new Contract(
+      address,
+      _abi,
+      signerOrProvider
+    ) as OlympusTokenMigrator;
   }
 }

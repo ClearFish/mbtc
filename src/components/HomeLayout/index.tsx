@@ -8,6 +8,7 @@ import Twitter from "../../assets/icons/twitter.svg";
 import Telegram from "../../assets/icons/telegram.svg";
 import Github from "../../assets/icons/github.svg";
 import AndSoOn from "../../assets/icons/medium.svg";
+import MenuClose from "../../assets/icons/nav-close.svg";
 
 import {
   AppBar,
@@ -17,8 +18,9 @@ import {
   Typography,
   Toolbar,
   Box,
-  Menu,
-  MenuItem,
+  // Menu,
+  // MenuItem,
+  Collapse,
   Button,
 } from "@material-ui/core";
 import React, { useState } from "react";
@@ -32,14 +34,14 @@ export default function HomeLayout({ children }: { children: React.ReactNode }) 
 
   const [zoomed, setZoomed] = useState(false);
 
-  const [anchorElNav, setAnchorElNav] = useState(null);
+  const [anchorElNav, setAnchorElNav] = useState(false);
 
-  const handleOpenNavMenu = (event: any) => {
-    setAnchorElNav(event.currentTarget);
+  const handleOpenNavMenu = () => {
+    setAnchorElNav(true);
   };
 
   const handleCloseNavMenu = () => {
-    setAnchorElNav(null);
+    setAnchorElNav(false);
   };
 
   const links = [
@@ -72,13 +74,21 @@ export default function HomeLayout({ children }: { children: React.ReactNode }) 
             </Typography>
             <Box sx={{ flexGrow: 1, display: { xs: "none", md: "flex" } }}>
               {links.map(link => (
-                <Link href={link.href} underline="none" onClick={handleCloseNavMenu}>
+                <Link href={link.href} underline="none" key={link.name} onClick={handleCloseNavMenu}>
                   <Typography variant="h6">{link.name}</Typography>
                 </Link>
               ))}
             </Box>
-            <Box sx={{ flexGrow: 1, justifyContent: "center", display: { xs: "flex", md: "none" } }}>
-              <MenuIcon aria-haspopup="true" onClick={handleOpenNavMenu} className="menu-icon"></MenuIcon>
+            <Box sx={{ flexGrow: 1, justifyContent: "flex-end", display: "flex" }}>
+              {anchorElNav ? (
+                <Box onClick={handleCloseNavMenu}>
+                  <img src={MenuClose} alt="MBTC" className="menu-icon-close" />
+                </Box>
+              ) : (
+                <MenuIcon aria-haspopup="true" onClick={handleOpenNavMenu} className="menu-icon"></MenuIcon>
+              )}
+
+              {/* <MenuIcon aria-haspopup="true" onClick={handleOpenNavMenu} className="menu-icon"></MenuIcon>
               <Menu
                 id="menu-appbar"
                 anchorEl={anchorElNav}
@@ -101,16 +111,38 @@ export default function HomeLayout({ children }: { children: React.ReactNode }) 
                     </Link>
                   </MenuItem>
                 ))}
-              </Menu>
+              </Menu> */}
             </Box>
-            <Box sx={{ display: { xs: "flex", md: "flex" } }}>
-              <Link href={window.location.origin + ""} underline="none">
-                <Button variant="contained" className="header-btn">
-                  Enter App
-                </Button>
-              </Link>
-            </Box>
+            {!isSmallScreen ? (
+              <Box>
+                <Link href={window.location.origin + ""} underline="none">
+                  <Button variant="contained" className="header-btn">
+                    Enter App
+                  </Button>
+                </Link>
+              </Box>
+            ) : null}
           </Toolbar>
+          {isSmallScreen ? (
+            <Collapse in={Boolean(anchorElNav)}>
+              <Box>
+                {links.map(link => (
+                  <Box key={link.name} onClick={handleCloseNavMenu} className="moblie-menu-item">
+                    <Link underline="none" href={link.href}>
+                      <Typography className="moblie-menu-text">{link.name}</Typography>
+                    </Link>
+                  </Box>
+                ))}
+              </Box>
+              <Box className="modile-enter-app-box">
+                <Link href={window.location.origin + ""} underline="none">
+                  <Button variant="contained" className="header-btn">
+                    Enter App
+                  </Button>
+                </Link>
+              </Box>
+            </Collapse>
+          ) : null}
         </Container>
       </AppBar>
       {children}

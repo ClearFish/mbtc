@@ -4,7 +4,10 @@
 
 import { Contract, Signer, utils } from "ethers";
 import { Provider } from "@ethersproject/providers";
-import type { BondDepository, BondDepositoryInterface } from "../BondDepository";
+import type {
+  BondDepository,
+  BondDepositoryInterface,
+} from "../BondDepository";
 
 const _abi = [
   {
@@ -941,7 +944,10 @@ export class BondDepository__factory {
   static createInterface(): BondDepositoryInterface {
     return new utils.Interface(_abi) as BondDepositoryInterface;
   }
-  static connect(address: string, signerOrProvider: Signer | Provider): BondDepository {
+  static connect(
+    address: string,
+    signerOrProvider: Signer | Provider
+  ): BondDepository {
     return new Contract(address, _abi, signerOrProvider) as BondDepository;
   }
 }

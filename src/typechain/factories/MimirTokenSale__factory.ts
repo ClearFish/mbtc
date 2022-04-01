@@ -4,7 +4,10 @@
 
 import { Contract, Signer, utils } from "ethers";
 import { Provider } from "@ethersproject/providers";
-import type { MimirTokenSale, MimirTokenSaleInterface } from "../MimirTokenSale";
+import type {
+  MimirTokenSale,
+  MimirTokenSaleInterface,
+} from "../MimirTokenSale";
 
 const _abi = [
   {
@@ -276,7 +279,10 @@ export class MimirTokenSale__factory {
   static createInterface(): MimirTokenSaleInterface {
     return new utils.Interface(_abi) as MimirTokenSaleInterface;
   }
-  static connect(address: string, signerOrProvider: Signer | Provider): MimirTokenSale {
+  static connect(
+    address: string,
+    signerOrProvider: Signer | Provider
+  ): MimirTokenSale {
     return new Contract(address, _abi, signerOrProvider) as MimirTokenSale;
   }
 }

@@ -4,7 +4,10 @@
 
 import { Contract, Signer, utils } from "ethers";
 import { Provider } from "@ethersproject/providers";
-import type { OlympusMockGiving, OlympusMockGivingInterface } from "../OlympusMockGiving";
+import type {
+  OlympusMockGiving,
+  OlympusMockGivingInterface,
+} from "../OlympusMockGiving";
 
 const _abi = [
   {
@@ -578,7 +581,10 @@ export class OlympusMockGiving__factory {
   static createInterface(): OlympusMockGivingInterface {
     return new utils.Interface(_abi) as OlympusMockGivingInterface;
   }
-  static connect(address: string, signerOrProvider: Signer | Provider): OlympusMockGiving {
+  static connect(
+    address: string,
+    signerOrProvider: Signer | Provider
+  ): OlympusMockGiving {
     return new Contract(address, _abi, signerOrProvider) as OlympusMockGiving;
   }
 }

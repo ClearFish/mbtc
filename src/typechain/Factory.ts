@@ -48,7 +48,7 @@ export type ParamsStructOutput = [
   UnsignedStructOutput,
   UnsignedStructOutput,
   UnsignedStructOutput,
-  UnsignedStructOutput,
+  UnsignedStructOutput
 ] & {
   expirationTimestamp: BigNumber;
   collateralAddress: string;
@@ -92,61 +92,194 @@ export interface FactoryInterface extends utils.Interface {
     "getRevitalID(address)": FunctionFragment;
   };
 
-  encodeFunctionData(functionFragment: "STRICT_LIQUIDATION_LIVENESS", values?: undefined): string;
-  encodeFunctionData(functionFragment: "STRICT_WITHDRAWAL_LIVENESS", values?: undefined): string;
-  encodeFunctionData(functionFragment: "buyerPotions", values: [string, BigNumberish]): string;
-  encodeFunctionData(functionFragment: "buyerRevitalPots", values: [string, BigNumberish]): string;
-  encodeFunctionData(functionFragment: "collateralCurrency", values?: undefined): string;
-  encodeFunctionData(functionFragment: "collateralTokenWhitelist", values?: undefined): string;
-  encodeFunctionData(functionFragment: "contractsAddress", values: [BigNumberish]): string;
+  encodeFunctionData(
+    functionFragment: "STRICT_LIQUIDATION_LIVENESS",
+    values?: undefined
+  ): string;
+  encodeFunctionData(
+    functionFragment: "STRICT_WITHDRAWAL_LIVENESS",
+    values?: undefined
+  ): string;
+  encodeFunctionData(
+    functionFragment: "buyerPotions",
+    values: [string, BigNumberish]
+  ): string;
+  encodeFunctionData(
+    functionFragment: "buyerRevitalPots",
+    values: [string, BigNumberish]
+  ): string;
+  encodeFunctionData(
+    functionFragment: "collateralCurrency",
+    values?: undefined
+  ): string;
+  encodeFunctionData(
+    functionFragment: "collateralTokenWhitelist",
+    values?: undefined
+  ): string;
+  encodeFunctionData(
+    functionFragment: "contractsAddress",
+    values: [BigNumberish]
+  ): string;
   encodeFunctionData(functionFragment: "dataBook", values: [string]): string;
-  encodeFunctionData(functionFragment: "getCurrentTime", values?: undefined): string;
-  encodeFunctionData(functionFragment: "mintedDeposit", values: [string]): string;
+  encodeFunctionData(
+    functionFragment: "getCurrentTime",
+    values?: undefined
+  ): string;
+  encodeFunctionData(
+    functionFragment: "mintedDeposit",
+    values: [string]
+  ): string;
   encodeFunctionData(functionFragment: "mintedPrice", values: [string]): string;
   encodeFunctionData(functionFragment: "revitalBook", values: [string]): string;
-  encodeFunctionData(functionFragment: "setCurrentTime", values: [BigNumberish]): string;
-  encodeFunctionData(functionFragment: "timerAddress", values?: undefined): string;
-  encodeFunctionData(functionFragment: "tokenFactoryAddress", values?: undefined): string;
-  encodeFunctionData(functionFragment: "validExpirationTimestamps", values: [BigNumberish]): string;
+  encodeFunctionData(
+    functionFragment: "setCurrentTime",
+    values: [BigNumberish]
+  ): string;
+  encodeFunctionData(
+    functionFragment: "timerAddress",
+    values?: undefined
+  ): string;
+  encodeFunctionData(
+    functionFragment: "tokenFactoryAddress",
+    values?: undefined
+  ): string;
+  encodeFunctionData(
+    functionFragment: "validExpirationTimestamps",
+    values: [BigNumberish]
+  ): string;
   encodeFunctionData(
     functionFragment: "writeMintPotion",
-    values: [ParamsStruct, string, UnsignedStruct, UnsignedStruct],
+    values: [ParamsStruct, string, UnsignedStruct, UnsignedStruct]
   ): string;
   encodeFunctionData(
     functionFragment: "revitalisePotion",
-    values: [string, string, UnsignedStruct, UnsignedStruct, UnsignedStruct, UnsignedStruct],
+    values: [
+      string,
+      string,
+      UnsignedStruct,
+      UnsignedStruct,
+      UnsignedStruct,
+      UnsignedStruct
+    ]
   ): string;
-  encodeFunctionData(functionFragment: "withdrawPotion", values: [BigNumberish, string, string]): string;
-  encodeFunctionData(functionFragment: "getPotionData", values: [string]): string;
-  encodeFunctionData(functionFragment: "getContractAddressList", values?: undefined): string;
-  encodeFunctionData(functionFragment: "getBuyerPotions", values: [string]): string;
-  encodeFunctionData(functionFragment: "getBuyerRevitalPots", values: [string]): string;
-  encodeFunctionData(functionFragment: "getRevitalID", values: [string]): string;
+  encodeFunctionData(
+    functionFragment: "withdrawPotion",
+    values: [BigNumberish, string, string]
+  ): string;
+  encodeFunctionData(
+    functionFragment: "getPotionData",
+    values: [string]
+  ): string;
+  encodeFunctionData(
+    functionFragment: "getContractAddressList",
+    values?: undefined
+  ): string;
+  encodeFunctionData(
+    functionFragment: "getBuyerPotions",
+    values: [string]
+  ): string;
+  encodeFunctionData(
+    functionFragment: "getBuyerRevitalPots",
+    values: [string]
+  ): string;
+  encodeFunctionData(
+    functionFragment: "getRevitalID",
+    values: [string]
+  ): string;
 
-  decodeFunctionResult(functionFragment: "STRICT_LIQUIDATION_LIVENESS", data: BytesLike): Result;
-  decodeFunctionResult(functionFragment: "STRICT_WITHDRAWAL_LIVENESS", data: BytesLike): Result;
-  decodeFunctionResult(functionFragment: "buyerPotions", data: BytesLike): Result;
-  decodeFunctionResult(functionFragment: "buyerRevitalPots", data: BytesLike): Result;
-  decodeFunctionResult(functionFragment: "collateralCurrency", data: BytesLike): Result;
-  decodeFunctionResult(functionFragment: "collateralTokenWhitelist", data: BytesLike): Result;
-  decodeFunctionResult(functionFragment: "contractsAddress", data: BytesLike): Result;
+  decodeFunctionResult(
+    functionFragment: "STRICT_LIQUIDATION_LIVENESS",
+    data: BytesLike
+  ): Result;
+  decodeFunctionResult(
+    functionFragment: "STRICT_WITHDRAWAL_LIVENESS",
+    data: BytesLike
+  ): Result;
+  decodeFunctionResult(
+    functionFragment: "buyerPotions",
+    data: BytesLike
+  ): Result;
+  decodeFunctionResult(
+    functionFragment: "buyerRevitalPots",
+    data: BytesLike
+  ): Result;
+  decodeFunctionResult(
+    functionFragment: "collateralCurrency",
+    data: BytesLike
+  ): Result;
+  decodeFunctionResult(
+    functionFragment: "collateralTokenWhitelist",
+    data: BytesLike
+  ): Result;
+  decodeFunctionResult(
+    functionFragment: "contractsAddress",
+    data: BytesLike
+  ): Result;
   decodeFunctionResult(functionFragment: "dataBook", data: BytesLike): Result;
-  decodeFunctionResult(functionFragment: "getCurrentTime", data: BytesLike): Result;
-  decodeFunctionResult(functionFragment: "mintedDeposit", data: BytesLike): Result;
-  decodeFunctionResult(functionFragment: "mintedPrice", data: BytesLike): Result;
-  decodeFunctionResult(functionFragment: "revitalBook", data: BytesLike): Result;
-  decodeFunctionResult(functionFragment: "setCurrentTime", data: BytesLike): Result;
-  decodeFunctionResult(functionFragment: "timerAddress", data: BytesLike): Result;
-  decodeFunctionResult(functionFragment: "tokenFactoryAddress", data: BytesLike): Result;
-  decodeFunctionResult(functionFragment: "validExpirationTimestamps", data: BytesLike): Result;
-  decodeFunctionResult(functionFragment: "writeMintPotion", data: BytesLike): Result;
-  decodeFunctionResult(functionFragment: "revitalisePotion", data: BytesLike): Result;
-  decodeFunctionResult(functionFragment: "withdrawPotion", data: BytesLike): Result;
-  decodeFunctionResult(functionFragment: "getPotionData", data: BytesLike): Result;
-  decodeFunctionResult(functionFragment: "getContractAddressList", data: BytesLike): Result;
-  decodeFunctionResult(functionFragment: "getBuyerPotions", data: BytesLike): Result;
-  decodeFunctionResult(functionFragment: "getBuyerRevitalPots", data: BytesLike): Result;
-  decodeFunctionResult(functionFragment: "getRevitalID", data: BytesLike): Result;
+  decodeFunctionResult(
+    functionFragment: "getCurrentTime",
+    data: BytesLike
+  ): Result;
+  decodeFunctionResult(
+    functionFragment: "mintedDeposit",
+    data: BytesLike
+  ): Result;
+  decodeFunctionResult(
+    functionFragment: "mintedPrice",
+    data: BytesLike
+  ): Result;
+  decodeFunctionResult(
+    functionFragment: "revitalBook",
+    data: BytesLike
+  ): Result;
+  decodeFunctionResult(
+    functionFragment: "setCurrentTime",
+    data: BytesLike
+  ): Result;
+  decodeFunctionResult(
+    functionFragment: "timerAddress",
+    data: BytesLike
+  ): Result;
+  decodeFunctionResult(
+    functionFragment: "tokenFactoryAddress",
+    data: BytesLike
+  ): Result;
+  decodeFunctionResult(
+    functionFragment: "validExpirationTimestamps",
+    data: BytesLike
+  ): Result;
+  decodeFunctionResult(
+    functionFragment: "writeMintPotion",
+    data: BytesLike
+  ): Result;
+  decodeFunctionResult(
+    functionFragment: "revitalisePotion",
+    data: BytesLike
+  ): Result;
+  decodeFunctionResult(
+    functionFragment: "withdrawPotion",
+    data: BytesLike
+  ): Result;
+  decodeFunctionResult(
+    functionFragment: "getPotionData",
+    data: BytesLike
+  ): Result;
+  decodeFunctionResult(
+    functionFragment: "getContractAddressList",
+    data: BytesLike
+  ): Result;
+  decodeFunctionResult(
+    functionFragment: "getBuyerPotions",
+    data: BytesLike
+  ): Result;
+  decodeFunctionResult(
+    functionFragment: "getBuyerRevitalPots",
+    data: BytesLike
+  ): Result;
+  decodeFunctionResult(
+    functionFragment: "getRevitalID",
+    data: BytesLike
+  ): Result;
 
   events: {
     "CreatedPotion(address,address)": EventFragment;
@@ -169,7 +302,8 @@ export type RevitalisedPotionEvent = TypedEvent<
   { LiquidationID: BigNumber; deployerAddress: string }
 >;
 
-export type RevitalisedPotionEventFilter = TypedEventFilter<RevitalisedPotionEvent>;
+export type RevitalisedPotionEventFilter =
+  TypedEventFilter<RevitalisedPotionEvent>;
 
 export interface Factory extends BaseContract {
   connect(signerOrProvider: Signer | Provider | string): this;
@@ -181,12 +315,16 @@ export interface Factory extends BaseContract {
   queryFilter<TEvent extends TypedEvent>(
     event: TypedEventFilter<TEvent>,
     fromBlockOrBlockhash?: string | number | undefined,
-    toBlock?: string | number | undefined,
+    toBlock?: string | number | undefined
   ): Promise<Array<TEvent>>;
 
-  listeners<TEvent extends TypedEvent>(eventFilter?: TypedEventFilter<TEvent>): Array<TypedListener<TEvent>>;
+  listeners<TEvent extends TypedEvent>(
+    eventFilter?: TypedEventFilter<TEvent>
+  ): Array<TypedListener<TEvent>>;
   listeners(eventName?: string): Array<Listener>;
-  removeAllListeners<TEvent extends TypedEvent>(eventFilter: TypedEventFilter<TEvent>): this;
+  removeAllListeners<TEvent extends TypedEvent>(
+    eventFilter: TypedEventFilter<TEvent>
+  ): this;
   removeAllListeners(eventName?: string): this;
   off: OnEvent<this>;
   on: OnEvent<this>;
@@ -194,23 +332,36 @@ export interface Factory extends BaseContract {
   removeListener: OnEvent<this>;
 
   functions: {
-    STRICT_LIQUIDATION_LIVENESS(overrides?: CallOverrides): Promise<[BigNumber]>;
+    STRICT_LIQUIDATION_LIVENESS(
+      overrides?: CallOverrides
+    ): Promise<[BigNumber]>;
 
     STRICT_WITHDRAWAL_LIVENESS(overrides?: CallOverrides): Promise<[BigNumber]>;
 
-    buyerPotions(arg0: string, arg1: BigNumberish, overrides?: CallOverrides): Promise<[string]>;
+    buyerPotions(
+      arg0: string,
+      arg1: BigNumberish,
+      overrides?: CallOverrides
+    ): Promise<[string]>;
 
-    buyerRevitalPots(arg0: string, arg1: BigNumberish, overrides?: CallOverrides): Promise<[string]>;
+    buyerRevitalPots(
+      arg0: string,
+      arg1: BigNumberish,
+      overrides?: CallOverrides
+    ): Promise<[string]>;
 
     collateralCurrency(overrides?: CallOverrides): Promise<[string]>;
 
     collateralTokenWhitelist(overrides?: CallOverrides): Promise<[string]>;
 
-    contractsAddress(arg0: BigNumberish, overrides?: CallOverrides): Promise<[string]>;
+    contractsAddress(
+      arg0: BigNumberish,
+      overrides?: CallOverrides
+    ): Promise<[string]>;
 
     dataBook(
       arg0: string,
-      overrides?: CallOverrides,
+      overrides?: CallOverrides
     ): Promise<
       [
         BigNumber,
@@ -220,7 +371,7 @@ export interface Factory extends BaseContract {
         UnsignedStructOutput,
         BigNumber,
         UnsignedStructOutput,
-        UnsignedStructOutput,
+        UnsignedStructOutput
       ] & {
         expira: BigNumber;
         assetClass: string;
@@ -238,9 +389,15 @@ export interface Factory extends BaseContract {
      */
     getCurrentTime(overrides?: CallOverrides): Promise<[BigNumber]>;
 
-    mintedDeposit(arg0: string, overrides?: CallOverrides): Promise<[BigNumber] & { rawValue: BigNumber }>;
+    mintedDeposit(
+      arg0: string,
+      overrides?: CallOverrides
+    ): Promise<[BigNumber] & { rawValue: BigNumber }>;
 
-    mintedPrice(arg0: string, overrides?: CallOverrides): Promise<[BigNumber] & { rawValue: BigNumber }>;
+    mintedPrice(
+      arg0: string,
+      overrides?: CallOverrides
+    ): Promise<[BigNumber] & { rawValue: BigNumber }>;
 
     revitalBook(arg0: string, overrides?: CallOverrides): Promise<[BigNumber]>;
 
@@ -251,21 +408,24 @@ export interface Factory extends BaseContract {
      */
     setCurrentTime(
       time: BigNumberish,
-      overrides?: Overrides & { from?: string | Promise<string> },
+      overrides?: Overrides & { from?: string | Promise<string> }
     ): Promise<ContractTransaction>;
 
     timerAddress(overrides?: CallOverrides): Promise<[string]>;
 
     tokenFactoryAddress(overrides?: CallOverrides): Promise<[string]>;
 
-    validExpirationTimestamps(arg0: BigNumberish, overrides?: CallOverrides): Promise<[boolean]>;
+    validExpirationTimestamps(
+      arg0: BigNumberish,
+      overrides?: CallOverrides
+    ): Promise<[boolean]>;
 
     writeMintPotion(
       params: ParamsStruct,
       poolAddress: string,
       nTokens: UnsignedStruct,
       deposit: UnsignedStruct,
-      overrides?: Overrides & { from?: string | Promise<string> },
+      overrides?: Overrides & { from?: string | Promise<string> }
     ): Promise<ContractTransaction>;
 
     revitalisePotion(
@@ -275,14 +435,14 @@ export interface Factory extends BaseContract {
       assetPrice: UnsignedStruct,
       dvmBond: UnsignedStruct,
       finalDeposit: UnsignedStruct,
-      overrides?: Overrides & { from?: string | Promise<string> },
+      overrides?: Overrides & { from?: string | Promise<string> }
     ): Promise<ContractTransaction>;
 
     withdrawPotion(
       revitalID: BigNumberish,
       potionAddress: string,
       poolAddress: string,
-      overrides?: Overrides & { from?: string | Promise<string> },
+      overrides?: Overrides & { from?: string | Promise<string> }
     ): Promise<ContractTransaction>;
 
     /**
@@ -290,7 +450,7 @@ export interface Factory extends BaseContract {
      */
     getPotionData(
       potionAddrs: string,
-      overrides?: CallOverrides,
+      overrides?: CallOverrides
     ): Promise<
       [
         BigNumber,
@@ -300,7 +460,7 @@ export interface Factory extends BaseContract {
         UnsignedStructOutput,
         BigNumber,
         UnsignedStructOutput,
-        UnsignedStructOutput,
+        UnsignedStructOutput
       ] & {
         expiry: BigNumber;
         asset: string;
@@ -316,38 +476,60 @@ export interface Factory extends BaseContract {
     /**
      * **************************************         FACTORY DATA FUNCTIONS           ****************************************
      */
-    getContractAddressList(overrides?: CallOverrides): Promise<[string[]] & { list: string[] }>;
+    getContractAddressList(
+      overrides?: CallOverrides
+    ): Promise<[string[]] & { list: string[] }>;
 
     /**
      * **************************************         BUYER DATA FUNCTIONS           ****************************************
      */
-    getBuyerPotions(buyer: string, overrides?: CallOverrides): Promise<[string[]] & { list: string[] }>;
+    getBuyerPotions(
+      buyer: string,
+      overrides?: CallOverrides
+    ): Promise<[string[]] & { list: string[] }>;
 
-    getBuyerRevitalPots(buyer: string, overrides?: CallOverrides): Promise<[string[]] & { list: string[] }>;
+    getBuyerRevitalPots(
+      buyer: string,
+      overrides?: CallOverrides
+    ): Promise<[string[]] & { list: string[] }>;
 
     /**
      * **************************************         REVITAL DATA FUNCTIONS           ****************************************
      */
-    getRevitalID(potionAddress: string, overrides?: CallOverrides): Promise<[BigNumber] & { price: BigNumber }>;
+    getRevitalID(
+      potionAddress: string,
+      overrides?: CallOverrides
+    ): Promise<[BigNumber] & { price: BigNumber }>;
   };
 
   STRICT_LIQUIDATION_LIVENESS(overrides?: CallOverrides): Promise<BigNumber>;
 
   STRICT_WITHDRAWAL_LIVENESS(overrides?: CallOverrides): Promise<BigNumber>;
 
-  buyerPotions(arg0: string, arg1: BigNumberish, overrides?: CallOverrides): Promise<string>;
+  buyerPotions(
+    arg0: string,
+    arg1: BigNumberish,
+    overrides?: CallOverrides
+  ): Promise<string>;
 
-  buyerRevitalPots(arg0: string, arg1: BigNumberish, overrides?: CallOverrides): Promise<string>;
+  buyerRevitalPots(
+    arg0: string,
+    arg1: BigNumberish,
+    overrides?: CallOverrides
+  ): Promise<string>;
 
   collateralCurrency(overrides?: CallOverrides): Promise<string>;
 
   collateralTokenWhitelist(overrides?: CallOverrides): Promise<string>;
 
-  contractsAddress(arg0: BigNumberish, overrides?: CallOverrides): Promise<string>;
+  contractsAddress(
+    arg0: BigNumberish,
+    overrides?: CallOverrides
+  ): Promise<string>;
 
   dataBook(
     arg0: string,
-    overrides?: CallOverrides,
+    overrides?: CallOverrides
   ): Promise<
     [
       BigNumber,
@@ -357,7 +539,7 @@ export interface Factory extends BaseContract {
       UnsignedStructOutput,
       BigNumber,
       UnsignedStructOutput,
-      UnsignedStructOutput,
+      UnsignedStructOutput
     ] & {
       expira: BigNumber;
       assetClass: string;
@@ -388,21 +570,24 @@ export interface Factory extends BaseContract {
    */
   setCurrentTime(
     time: BigNumberish,
-    overrides?: Overrides & { from?: string | Promise<string> },
+    overrides?: Overrides & { from?: string | Promise<string> }
   ): Promise<ContractTransaction>;
 
   timerAddress(overrides?: CallOverrides): Promise<string>;
 
   tokenFactoryAddress(overrides?: CallOverrides): Promise<string>;
 
-  validExpirationTimestamps(arg0: BigNumberish, overrides?: CallOverrides): Promise<boolean>;
+  validExpirationTimestamps(
+    arg0: BigNumberish,
+    overrides?: CallOverrides
+  ): Promise<boolean>;
 
   writeMintPotion(
     params: ParamsStruct,
     poolAddress: string,
     nTokens: UnsignedStruct,
     deposit: UnsignedStruct,
-    overrides?: Overrides & { from?: string | Promise<string> },
+    overrides?: Overrides & { from?: string | Promise<string> }
   ): Promise<ContractTransaction>;
 
   revitalisePotion(
@@ -412,14 +597,14 @@ export interface Factory extends BaseContract {
     assetPrice: UnsignedStruct,
     dvmBond: UnsignedStruct,
     finalDeposit: UnsignedStruct,
-    overrides?: Overrides & { from?: string | Promise<string> },
+    overrides?: Overrides & { from?: string | Promise<string> }
   ): Promise<ContractTransaction>;
 
   withdrawPotion(
     revitalID: BigNumberish,
     potionAddress: string,
     poolAddress: string,
-    overrides?: Overrides & { from?: string | Promise<string> },
+    overrides?: Overrides & { from?: string | Promise<string> }
   ): Promise<ContractTransaction>;
 
   /**
@@ -427,7 +612,7 @@ export interface Factory extends BaseContract {
    */
   getPotionData(
     potionAddrs: string,
-    overrides?: CallOverrides,
+    overrides?: CallOverrides
   ): Promise<
     [
       BigNumber,
@@ -437,7 +622,7 @@ export interface Factory extends BaseContract {
       UnsignedStructOutput,
       BigNumber,
       UnsignedStructOutput,
-      UnsignedStructOutput,
+      UnsignedStructOutput
     ] & {
       expiry: BigNumber;
       asset: string;
@@ -460,31 +645,48 @@ export interface Factory extends BaseContract {
    */
   getBuyerPotions(buyer: string, overrides?: CallOverrides): Promise<string[]>;
 
-  getBuyerRevitalPots(buyer: string, overrides?: CallOverrides): Promise<string[]>;
+  getBuyerRevitalPots(
+    buyer: string,
+    overrides?: CallOverrides
+  ): Promise<string[]>;
 
   /**
    * **************************************         REVITAL DATA FUNCTIONS           ****************************************
    */
-  getRevitalID(potionAddress: string, overrides?: CallOverrides): Promise<BigNumber>;
+  getRevitalID(
+    potionAddress: string,
+    overrides?: CallOverrides
+  ): Promise<BigNumber>;
 
   callStatic: {
     STRICT_LIQUIDATION_LIVENESS(overrides?: CallOverrides): Promise<BigNumber>;
 
     STRICT_WITHDRAWAL_LIVENESS(overrides?: CallOverrides): Promise<BigNumber>;
 
-    buyerPotions(arg0: string, arg1: BigNumberish, overrides?: CallOverrides): Promise<string>;
+    buyerPotions(
+      arg0: string,
+      arg1: BigNumberish,
+      overrides?: CallOverrides
+    ): Promise<string>;
 
-    buyerRevitalPots(arg0: string, arg1: BigNumberish, overrides?: CallOverrides): Promise<string>;
+    buyerRevitalPots(
+      arg0: string,
+      arg1: BigNumberish,
+      overrides?: CallOverrides
+    ): Promise<string>;
 
     collateralCurrency(overrides?: CallOverrides): Promise<string>;
 
     collateralTokenWhitelist(overrides?: CallOverrides): Promise<string>;
 
-    contractsAddress(arg0: BigNumberish, overrides?: CallOverrides): Promise<string>;
+    contractsAddress(
+      arg0: BigNumberish,
+      overrides?: CallOverrides
+    ): Promise<string>;
 
     dataBook(
       arg0: string,
-      overrides?: CallOverrides,
+      overrides?: CallOverrides
     ): Promise<
       [
         BigNumber,
@@ -494,7 +696,7 @@ export interface Factory extends BaseContract {
         UnsignedStructOutput,
         BigNumber,
         UnsignedStructOutput,
-        UnsignedStructOutput,
+        UnsignedStructOutput
       ] & {
         expira: BigNumber;
         assetClass: string;
@@ -523,20 +725,26 @@ export interface Factory extends BaseContract {
      * Sets the current time.
      * @param time timestamp to set current Testable time to.
      */
-    setCurrentTime(time: BigNumberish, overrides?: CallOverrides): Promise<void>;
+    setCurrentTime(
+      time: BigNumberish,
+      overrides?: CallOverrides
+    ): Promise<void>;
 
     timerAddress(overrides?: CallOverrides): Promise<string>;
 
     tokenFactoryAddress(overrides?: CallOverrides): Promise<string>;
 
-    validExpirationTimestamps(arg0: BigNumberish, overrides?: CallOverrides): Promise<boolean>;
+    validExpirationTimestamps(
+      arg0: BigNumberish,
+      overrides?: CallOverrides
+    ): Promise<boolean>;
 
     writeMintPotion(
       params: ParamsStruct,
       poolAddress: string,
       nTokens: UnsignedStruct,
       deposit: UnsignedStruct,
-      overrides?: CallOverrides,
+      overrides?: CallOverrides
     ): Promise<void>;
 
     revitalisePotion(
@@ -546,14 +754,14 @@ export interface Factory extends BaseContract {
       assetPrice: UnsignedStruct,
       dvmBond: UnsignedStruct,
       finalDeposit: UnsignedStruct,
-      overrides?: CallOverrides,
+      overrides?: CallOverrides
     ): Promise<void>;
 
     withdrawPotion(
       revitalID: BigNumberish,
       potionAddress: string,
       poolAddress: string,
-      overrides?: CallOverrides,
+      overrides?: CallOverrides
     ): Promise<void>;
 
     /**
@@ -561,7 +769,7 @@ export interface Factory extends BaseContract {
      */
     getPotionData(
       potionAddrs: string,
-      overrides?: CallOverrides,
+      overrides?: CallOverrides
     ): Promise<
       [
         BigNumber,
@@ -571,7 +779,7 @@ export interface Factory extends BaseContract {
         UnsignedStructOutput,
         BigNumber,
         UnsignedStructOutput,
-        UnsignedStructOutput,
+        UnsignedStructOutput
       ] & {
         expiry: BigNumber;
         asset: string;
@@ -592,28 +800,43 @@ export interface Factory extends BaseContract {
     /**
      * **************************************         BUYER DATA FUNCTIONS           ****************************************
      */
-    getBuyerPotions(buyer: string, overrides?: CallOverrides): Promise<string[]>;
+    getBuyerPotions(
+      buyer: string,
+      overrides?: CallOverrides
+    ): Promise<string[]>;
 
-    getBuyerRevitalPots(buyer: string, overrides?: CallOverrides): Promise<string[]>;
+    getBuyerRevitalPots(
+      buyer: string,
+      overrides?: CallOverrides
+    ): Promise<string[]>;
 
     /**
      * **************************************         REVITAL DATA FUNCTIONS           ****************************************
      */
-    getRevitalID(potionAddress: string, overrides?: CallOverrides): Promise<BigNumber>;
+    getRevitalID(
+      potionAddress: string,
+      overrides?: CallOverrides
+    ): Promise<BigNumber>;
   };
 
   filters: {
     "CreatedPotion(address,address)"(
       expiringMultiPartyAddress?: string | null,
-      deployerAddress?: string | null,
+      deployerAddress?: string | null
     ): CreatedPotionEventFilter;
-    CreatedPotion(expiringMultiPartyAddress?: string | null, deployerAddress?: string | null): CreatedPotionEventFilter;
+    CreatedPotion(
+      expiringMultiPartyAddress?: string | null,
+      deployerAddress?: string | null
+    ): CreatedPotionEventFilter;
 
     "RevitalisedPotion(uint256,address)"(
       LiquidationID?: null,
-      deployerAddress?: string | null,
+      deployerAddress?: string | null
     ): RevitalisedPotionEventFilter;
-    RevitalisedPotion(LiquidationID?: null, deployerAddress?: string | null): RevitalisedPotionEventFilter;
+    RevitalisedPotion(
+      LiquidationID?: null,
+      deployerAddress?: string | null
+    ): RevitalisedPotionEventFilter;
   };
 
   estimateGas: {
@@ -621,15 +844,26 @@ export interface Factory extends BaseContract {
 
     STRICT_WITHDRAWAL_LIVENESS(overrides?: CallOverrides): Promise<BigNumber>;
 
-    buyerPotions(arg0: string, arg1: BigNumberish, overrides?: CallOverrides): Promise<BigNumber>;
+    buyerPotions(
+      arg0: string,
+      arg1: BigNumberish,
+      overrides?: CallOverrides
+    ): Promise<BigNumber>;
 
-    buyerRevitalPots(arg0: string, arg1: BigNumberish, overrides?: CallOverrides): Promise<BigNumber>;
+    buyerRevitalPots(
+      arg0: string,
+      arg1: BigNumberish,
+      overrides?: CallOverrides
+    ): Promise<BigNumber>;
 
     collateralCurrency(overrides?: CallOverrides): Promise<BigNumber>;
 
     collateralTokenWhitelist(overrides?: CallOverrides): Promise<BigNumber>;
 
-    contractsAddress(arg0: BigNumberish, overrides?: CallOverrides): Promise<BigNumber>;
+    contractsAddress(
+      arg0: BigNumberish,
+      overrides?: CallOverrides
+    ): Promise<BigNumber>;
 
     dataBook(arg0: string, overrides?: CallOverrides): Promise<BigNumber>;
 
@@ -649,20 +883,26 @@ export interface Factory extends BaseContract {
      * Sets the current time.
      * @param time timestamp to set current Testable time to.
      */
-    setCurrentTime(time: BigNumberish, overrides?: Overrides & { from?: string | Promise<string> }): Promise<BigNumber>;
+    setCurrentTime(
+      time: BigNumberish,
+      overrides?: Overrides & { from?: string | Promise<string> }
+    ): Promise<BigNumber>;
 
     timerAddress(overrides?: CallOverrides): Promise<BigNumber>;
 
     tokenFactoryAddress(overrides?: CallOverrides): Promise<BigNumber>;
 
-    validExpirationTimestamps(arg0: BigNumberish, overrides?: CallOverrides): Promise<BigNumber>;
+    validExpirationTimestamps(
+      arg0: BigNumberish,
+      overrides?: CallOverrides
+    ): Promise<BigNumber>;
 
     writeMintPotion(
       params: ParamsStruct,
       poolAddress: string,
       nTokens: UnsignedStruct,
       deposit: UnsignedStruct,
-      overrides?: Overrides & { from?: string | Promise<string> },
+      overrides?: Overrides & { from?: string | Promise<string> }
     ): Promise<BigNumber>;
 
     revitalisePotion(
@@ -672,20 +912,23 @@ export interface Factory extends BaseContract {
       assetPrice: UnsignedStruct,
       dvmBond: UnsignedStruct,
       finalDeposit: UnsignedStruct,
-      overrides?: Overrides & { from?: string | Promise<string> },
+      overrides?: Overrides & { from?: string | Promise<string> }
     ): Promise<BigNumber>;
 
     withdrawPotion(
       revitalID: BigNumberish,
       potionAddress: string,
       poolAddress: string,
-      overrides?: Overrides & { from?: string | Promise<string> },
+      overrides?: Overrides & { from?: string | Promise<string> }
     ): Promise<BigNumber>;
 
     /**
      * **************************************         FRONTEND DATA FUNCTIONS           ****************************************
      */
-    getPotionData(potionAddrs: string, overrides?: CallOverrides): Promise<BigNumber>;
+    getPotionData(
+      potionAddrs: string,
+      overrides?: CallOverrides
+    ): Promise<BigNumber>;
 
     /**
      * **************************************         FACTORY DATA FUNCTIONS           ****************************************
@@ -695,43 +938,83 @@ export interface Factory extends BaseContract {
     /**
      * **************************************         BUYER DATA FUNCTIONS           ****************************************
      */
-    getBuyerPotions(buyer: string, overrides?: CallOverrides): Promise<BigNumber>;
+    getBuyerPotions(
+      buyer: string,
+      overrides?: CallOverrides
+    ): Promise<BigNumber>;
 
-    getBuyerRevitalPots(buyer: string, overrides?: CallOverrides): Promise<BigNumber>;
+    getBuyerRevitalPots(
+      buyer: string,
+      overrides?: CallOverrides
+    ): Promise<BigNumber>;
 
     /**
      * **************************************         REVITAL DATA FUNCTIONS           ****************************************
      */
-    getRevitalID(potionAddress: string, overrides?: CallOverrides): Promise<BigNumber>;
+    getRevitalID(
+      potionAddress: string,
+      overrides?: CallOverrides
+    ): Promise<BigNumber>;
   };
 
   populateTransaction: {
-    STRICT_LIQUIDATION_LIVENESS(overrides?: CallOverrides): Promise<PopulatedTransaction>;
+    STRICT_LIQUIDATION_LIVENESS(
+      overrides?: CallOverrides
+    ): Promise<PopulatedTransaction>;
 
-    STRICT_WITHDRAWAL_LIVENESS(overrides?: CallOverrides): Promise<PopulatedTransaction>;
+    STRICT_WITHDRAWAL_LIVENESS(
+      overrides?: CallOverrides
+    ): Promise<PopulatedTransaction>;
 
-    buyerPotions(arg0: string, arg1: BigNumberish, overrides?: CallOverrides): Promise<PopulatedTransaction>;
+    buyerPotions(
+      arg0: string,
+      arg1: BigNumberish,
+      overrides?: CallOverrides
+    ): Promise<PopulatedTransaction>;
 
-    buyerRevitalPots(arg0: string, arg1: BigNumberish, overrides?: CallOverrides): Promise<PopulatedTransaction>;
+    buyerRevitalPots(
+      arg0: string,
+      arg1: BigNumberish,
+      overrides?: CallOverrides
+    ): Promise<PopulatedTransaction>;
 
-    collateralCurrency(overrides?: CallOverrides): Promise<PopulatedTransaction>;
+    collateralCurrency(
+      overrides?: CallOverrides
+    ): Promise<PopulatedTransaction>;
 
-    collateralTokenWhitelist(overrides?: CallOverrides): Promise<PopulatedTransaction>;
+    collateralTokenWhitelist(
+      overrides?: CallOverrides
+    ): Promise<PopulatedTransaction>;
 
-    contractsAddress(arg0: BigNumberish, overrides?: CallOverrides): Promise<PopulatedTransaction>;
+    contractsAddress(
+      arg0: BigNumberish,
+      overrides?: CallOverrides
+    ): Promise<PopulatedTransaction>;
 
-    dataBook(arg0: string, overrides?: CallOverrides): Promise<PopulatedTransaction>;
+    dataBook(
+      arg0: string,
+      overrides?: CallOverrides
+    ): Promise<PopulatedTransaction>;
 
     /**
      * Gets the current time. Will return the last time set in `setCurrentTime` if running in test mode. Otherwise, it will return the block timestamp.
      */
     getCurrentTime(overrides?: CallOverrides): Promise<PopulatedTransaction>;
 
-    mintedDeposit(arg0: string, overrides?: CallOverrides): Promise<PopulatedTransaction>;
+    mintedDeposit(
+      arg0: string,
+      overrides?: CallOverrides
+    ): Promise<PopulatedTransaction>;
 
-    mintedPrice(arg0: string, overrides?: CallOverrides): Promise<PopulatedTransaction>;
+    mintedPrice(
+      arg0: string,
+      overrides?: CallOverrides
+    ): Promise<PopulatedTransaction>;
 
-    revitalBook(arg0: string, overrides?: CallOverrides): Promise<PopulatedTransaction>;
+    revitalBook(
+      arg0: string,
+      overrides?: CallOverrides
+    ): Promise<PopulatedTransaction>;
 
     /**
      * Will revert if not running in test mode.
@@ -740,21 +1023,26 @@ export interface Factory extends BaseContract {
      */
     setCurrentTime(
       time: BigNumberish,
-      overrides?: Overrides & { from?: string | Promise<string> },
+      overrides?: Overrides & { from?: string | Promise<string> }
     ): Promise<PopulatedTransaction>;
 
     timerAddress(overrides?: CallOverrides): Promise<PopulatedTransaction>;
 
-    tokenFactoryAddress(overrides?: CallOverrides): Promise<PopulatedTransaction>;
+    tokenFactoryAddress(
+      overrides?: CallOverrides
+    ): Promise<PopulatedTransaction>;
 
-    validExpirationTimestamps(arg0: BigNumberish, overrides?: CallOverrides): Promise<PopulatedTransaction>;
+    validExpirationTimestamps(
+      arg0: BigNumberish,
+      overrides?: CallOverrides
+    ): Promise<PopulatedTransaction>;
 
     writeMintPotion(
       params: ParamsStruct,
       poolAddress: string,
       nTokens: UnsignedStruct,
       deposit: UnsignedStruct,
-      overrides?: Overrides & { from?: string | Promise<string> },
+      overrides?: Overrides & { from?: string | Promise<string> }
     ): Promise<PopulatedTransaction>;
 
     revitalisePotion(
@@ -764,36 +1052,50 @@ export interface Factory extends BaseContract {
       assetPrice: UnsignedStruct,
       dvmBond: UnsignedStruct,
       finalDeposit: UnsignedStruct,
-      overrides?: Overrides & { from?: string | Promise<string> },
+      overrides?: Overrides & { from?: string | Promise<string> }
     ): Promise<PopulatedTransaction>;
 
     withdrawPotion(
       revitalID: BigNumberish,
       potionAddress: string,
       poolAddress: string,
-      overrides?: Overrides & { from?: string | Promise<string> },
+      overrides?: Overrides & { from?: string | Promise<string> }
     ): Promise<PopulatedTransaction>;
 
     /**
      * **************************************         FRONTEND DATA FUNCTIONS           ****************************************
      */
-    getPotionData(potionAddrs: string, overrides?: CallOverrides): Promise<PopulatedTransaction>;
+    getPotionData(
+      potionAddrs: string,
+      overrides?: CallOverrides
+    ): Promise<PopulatedTransaction>;
 
     /**
      * **************************************         FACTORY DATA FUNCTIONS           ****************************************
      */
-    getContractAddressList(overrides?: CallOverrides): Promise<PopulatedTransaction>;
+    getContractAddressList(
+      overrides?: CallOverrides
+    ): Promise<PopulatedTransaction>;
 
     /**
      * **************************************         BUYER DATA FUNCTIONS           ****************************************
      */
-    getBuyerPotions(buyer: string, overrides?: CallOverrides): Promise<PopulatedTransaction>;
+    getBuyerPotions(
+      buyer: string,
+      overrides?: CallOverrides
+    ): Promise<PopulatedTransaction>;
 
-    getBuyerRevitalPots(buyer: string, overrides?: CallOverrides): Promise<PopulatedTransaction>;
+    getBuyerRevitalPots(
+      buyer: string,
+      overrides?: CallOverrides
+    ): Promise<PopulatedTransaction>;
 
     /**
      * **************************************         REVITAL DATA FUNCTIONS           ****************************************
      */
-    getRevitalID(potionAddress: string, overrides?: CallOverrides): Promise<PopulatedTransaction>;
+    getRevitalID(
+      potionAddress: string,
+      overrides?: CallOverrides
+    ): Promise<PopulatedTransaction>;
   };
 }

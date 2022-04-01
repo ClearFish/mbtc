@@ -31,24 +31,60 @@ export interface CirculatingSupplyContractInterface extends utils.Interface {
   };
 
   encodeFunctionData(functionFragment: "OHM", values?: undefined): string;
-  encodeFunctionData(functionFragment: "OHMCirculatingSupply", values?: undefined): string;
-  encodeFunctionData(functionFragment: "getNonCirculatingOHM", values?: undefined): string;
+  encodeFunctionData(
+    functionFragment: "OHMCirculatingSupply",
+    values?: undefined
+  ): string;
+  encodeFunctionData(
+    functionFragment: "getNonCirculatingOHM",
+    values?: undefined
+  ): string;
   encodeFunctionData(functionFragment: "initialize", values: [string]): string;
-  encodeFunctionData(functionFragment: "isInitialized", values?: undefined): string;
-  encodeFunctionData(functionFragment: "nonCirculatingOHMAddresses", values: [BigNumberish]): string;
+  encodeFunctionData(
+    functionFragment: "isInitialized",
+    values?: undefined
+  ): string;
+  encodeFunctionData(
+    functionFragment: "nonCirculatingOHMAddresses",
+    values: [BigNumberish]
+  ): string;
   encodeFunctionData(functionFragment: "owner", values?: undefined): string;
-  encodeFunctionData(functionFragment: "setNonCirculatingOHMAddresses", values: [string[]]): string;
-  encodeFunctionData(functionFragment: "transferOwnership", values: [string]): string;
+  encodeFunctionData(
+    functionFragment: "setNonCirculatingOHMAddresses",
+    values: [string[]]
+  ): string;
+  encodeFunctionData(
+    functionFragment: "transferOwnership",
+    values: [string]
+  ): string;
 
   decodeFunctionResult(functionFragment: "OHM", data: BytesLike): Result;
-  decodeFunctionResult(functionFragment: "OHMCirculatingSupply", data: BytesLike): Result;
-  decodeFunctionResult(functionFragment: "getNonCirculatingOHM", data: BytesLike): Result;
+  decodeFunctionResult(
+    functionFragment: "OHMCirculatingSupply",
+    data: BytesLike
+  ): Result;
+  decodeFunctionResult(
+    functionFragment: "getNonCirculatingOHM",
+    data: BytesLike
+  ): Result;
   decodeFunctionResult(functionFragment: "initialize", data: BytesLike): Result;
-  decodeFunctionResult(functionFragment: "isInitialized", data: BytesLike): Result;
-  decodeFunctionResult(functionFragment: "nonCirculatingOHMAddresses", data: BytesLike): Result;
+  decodeFunctionResult(
+    functionFragment: "isInitialized",
+    data: BytesLike
+  ): Result;
+  decodeFunctionResult(
+    functionFragment: "nonCirculatingOHMAddresses",
+    data: BytesLike
+  ): Result;
   decodeFunctionResult(functionFragment: "owner", data: BytesLike): Result;
-  decodeFunctionResult(functionFragment: "setNonCirculatingOHMAddresses", data: BytesLike): Result;
-  decodeFunctionResult(functionFragment: "transferOwnership", data: BytesLike): Result;
+  decodeFunctionResult(
+    functionFragment: "setNonCirculatingOHMAddresses",
+    data: BytesLike
+  ): Result;
+  decodeFunctionResult(
+    functionFragment: "transferOwnership",
+    data: BytesLike
+  ): Result;
 
   events: {};
 }
@@ -63,12 +99,16 @@ export interface CirculatingSupplyContract extends BaseContract {
   queryFilter<TEvent extends TypedEvent>(
     event: TypedEventFilter<TEvent>,
     fromBlockOrBlockhash?: string | number | undefined,
-    toBlock?: string | number | undefined,
+    toBlock?: string | number | undefined
   ): Promise<Array<TEvent>>;
 
-  listeners<TEvent extends TypedEvent>(eventFilter?: TypedEventFilter<TEvent>): Array<TypedListener<TEvent>>;
+  listeners<TEvent extends TypedEvent>(
+    eventFilter?: TypedEventFilter<TEvent>
+  ): Array<TypedListener<TEvent>>;
   listeners(eventName?: string): Array<Listener>;
-  removeAllListeners<TEvent extends TypedEvent>(eventFilter: TypedEventFilter<TEvent>): this;
+  removeAllListeners<TEvent extends TypedEvent>(
+    eventFilter: TypedEventFilter<TEvent>
+  ): this;
   removeAllListeners(eventName?: string): this;
   off: OnEvent<this>;
   on: OnEvent<this>;
@@ -82,22 +122,28 @@ export interface CirculatingSupplyContract extends BaseContract {
 
     getNonCirculatingOHM(overrides?: CallOverrides): Promise<[BigNumber]>;
 
-    initialize(_ohm: string, overrides?: Overrides & { from?: string | Promise<string> }): Promise<ContractTransaction>;
+    initialize(
+      _ohm: string,
+      overrides?: Overrides & { from?: string | Promise<string> }
+    ): Promise<ContractTransaction>;
 
     isInitialized(overrides?: CallOverrides): Promise<[boolean]>;
 
-    nonCirculatingOHMAddresses(arg0: BigNumberish, overrides?: CallOverrides): Promise<[string]>;
+    nonCirculatingOHMAddresses(
+      arg0: BigNumberish,
+      overrides?: CallOverrides
+    ): Promise<[string]>;
 
     owner(overrides?: CallOverrides): Promise<[string]>;
 
     setNonCirculatingOHMAddresses(
       _nonCirculatingAddresses: string[],
-      overrides?: Overrides & { from?: string | Promise<string> },
+      overrides?: Overrides & { from?: string | Promise<string> }
     ): Promise<ContractTransaction>;
 
     transferOwnership(
       _owner: string,
-      overrides?: Overrides & { from?: string | Promise<string> },
+      overrides?: Overrides & { from?: string | Promise<string> }
     ): Promise<ContractTransaction>;
   };
 
@@ -107,22 +153,28 @@ export interface CirculatingSupplyContract extends BaseContract {
 
   getNonCirculatingOHM(overrides?: CallOverrides): Promise<BigNumber>;
 
-  initialize(_ohm: string, overrides?: Overrides & { from?: string | Promise<string> }): Promise<ContractTransaction>;
+  initialize(
+    _ohm: string,
+    overrides?: Overrides & { from?: string | Promise<string> }
+  ): Promise<ContractTransaction>;
 
   isInitialized(overrides?: CallOverrides): Promise<boolean>;
 
-  nonCirculatingOHMAddresses(arg0: BigNumberish, overrides?: CallOverrides): Promise<string>;
+  nonCirculatingOHMAddresses(
+    arg0: BigNumberish,
+    overrides?: CallOverrides
+  ): Promise<string>;
 
   owner(overrides?: CallOverrides): Promise<string>;
 
   setNonCirculatingOHMAddresses(
     _nonCirculatingAddresses: string[],
-    overrides?: Overrides & { from?: string | Promise<string> },
+    overrides?: Overrides & { from?: string | Promise<string> }
   ): Promise<ContractTransaction>;
 
   transferOwnership(
     _owner: string,
-    overrides?: Overrides & { from?: string | Promise<string> },
+    overrides?: Overrides & { from?: string | Promise<string> }
   ): Promise<ContractTransaction>;
 
   callStatic: {
@@ -136,13 +188,22 @@ export interface CirculatingSupplyContract extends BaseContract {
 
     isInitialized(overrides?: CallOverrides): Promise<boolean>;
 
-    nonCirculatingOHMAddresses(arg0: BigNumberish, overrides?: CallOverrides): Promise<string>;
+    nonCirculatingOHMAddresses(
+      arg0: BigNumberish,
+      overrides?: CallOverrides
+    ): Promise<string>;
 
     owner(overrides?: CallOverrides): Promise<string>;
 
-    setNonCirculatingOHMAddresses(_nonCirculatingAddresses: string[], overrides?: CallOverrides): Promise<boolean>;
+    setNonCirculatingOHMAddresses(
+      _nonCirculatingAddresses: string[],
+      overrides?: CallOverrides
+    ): Promise<boolean>;
 
-    transferOwnership(_owner: string, overrides?: CallOverrides): Promise<boolean>;
+    transferOwnership(
+      _owner: string,
+      overrides?: CallOverrides
+    ): Promise<boolean>;
   };
 
   filters: {};
@@ -154,48 +215,64 @@ export interface CirculatingSupplyContract extends BaseContract {
 
     getNonCirculatingOHM(overrides?: CallOverrides): Promise<BigNumber>;
 
-    initialize(_ohm: string, overrides?: Overrides & { from?: string | Promise<string> }): Promise<BigNumber>;
+    initialize(
+      _ohm: string,
+      overrides?: Overrides & { from?: string | Promise<string> }
+    ): Promise<BigNumber>;
 
     isInitialized(overrides?: CallOverrides): Promise<BigNumber>;
 
-    nonCirculatingOHMAddresses(arg0: BigNumberish, overrides?: CallOverrides): Promise<BigNumber>;
+    nonCirculatingOHMAddresses(
+      arg0: BigNumberish,
+      overrides?: CallOverrides
+    ): Promise<BigNumber>;
 
     owner(overrides?: CallOverrides): Promise<BigNumber>;
 
     setNonCirculatingOHMAddresses(
       _nonCirculatingAddresses: string[],
-      overrides?: Overrides & { from?: string | Promise<string> },
+      overrides?: Overrides & { from?: string | Promise<string> }
     ): Promise<BigNumber>;
 
-    transferOwnership(_owner: string, overrides?: Overrides & { from?: string | Promise<string> }): Promise<BigNumber>;
+    transferOwnership(
+      _owner: string,
+      overrides?: Overrides & { from?: string | Promise<string> }
+    ): Promise<BigNumber>;
   };
 
   populateTransaction: {
     OHM(overrides?: CallOverrides): Promise<PopulatedTransaction>;
 
-    OHMCirculatingSupply(overrides?: CallOverrides): Promise<PopulatedTransaction>;
+    OHMCirculatingSupply(
+      overrides?: CallOverrides
+    ): Promise<PopulatedTransaction>;
 
-    getNonCirculatingOHM(overrides?: CallOverrides): Promise<PopulatedTransaction>;
+    getNonCirculatingOHM(
+      overrides?: CallOverrides
+    ): Promise<PopulatedTransaction>;
 
     initialize(
       _ohm: string,
-      overrides?: Overrides & { from?: string | Promise<string> },
+      overrides?: Overrides & { from?: string | Promise<string> }
     ): Promise<PopulatedTransaction>;
 
     isInitialized(overrides?: CallOverrides): Promise<PopulatedTransaction>;
 
-    nonCirculatingOHMAddresses(arg0: BigNumberish, overrides?: CallOverrides): Promise<PopulatedTransaction>;
+    nonCirculatingOHMAddresses(
+      arg0: BigNumberish,
+      overrides?: CallOverrides
+    ): Promise<PopulatedTransaction>;
 
     owner(overrides?: CallOverrides): Promise<PopulatedTransaction>;
 
     setNonCirculatingOHMAddresses(
       _nonCirculatingAddresses: string[],
-      overrides?: Overrides & { from?: string | Promise<string> },
+      overrides?: Overrides & { from?: string | Promise<string> }
     ): Promise<PopulatedTransaction>;
 
     transferOwnership(
       _owner: string,
-      overrides?: Overrides & { from?: string | Promise<string> },
+      overrides?: Overrides & { from?: string | Promise<string> }
     ): Promise<PopulatedTransaction>;
   };
 }

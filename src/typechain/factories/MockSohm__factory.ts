@@ -478,7 +478,10 @@ export class MockSohm__factory {
   static createInterface(): MockSohmInterface {
     return new utils.Interface(_abi) as MockSohmInterface;
   }
-  static connect(address: string, signerOrProvider: Signer | Provider): MockSohm {
+  static connect(
+    address: string,
+    signerOrProvider: Signer | Provider
+  ): MockSohm {
     return new Contract(address, _abi, signerOrProvider) as MockSohm;
   }
 }

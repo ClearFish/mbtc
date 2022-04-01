@@ -4,7 +4,10 @@
 
 import { Contract, Signer, utils } from "ethers";
 import { Provider } from "@ethersproject/providers";
-import type { ExpandedIERC20, ExpandedIERC20Interface } from "../ExpandedIERC20";
+import type {
+  ExpandedIERC20,
+  ExpandedIERC20Interface,
+} from "../ExpandedIERC20";
 
 const _abi = [
   {
@@ -234,7 +237,10 @@ export class ExpandedIERC20__factory {
   static createInterface(): ExpandedIERC20Interface {
     return new utils.Interface(_abi) as ExpandedIERC20Interface;
   }
-  static connect(address: string, signerOrProvider: Signer | Provider): ExpandedIERC20 {
+  static connect(
+    address: string,
+    signerOrProvider: Signer | Provider
+  ): ExpandedIERC20 {
     return new Contract(address, _abi, signerOrProvider) as ExpandedIERC20;
   }
 }

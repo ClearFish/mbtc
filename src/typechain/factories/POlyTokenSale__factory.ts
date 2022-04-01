@@ -328,7 +328,10 @@ export class POlyTokenSale__factory {
   static createInterface(): POlyTokenSaleInterface {
     return new utils.Interface(_abi) as POlyTokenSaleInterface;
   }
-  static connect(address: string, signerOrProvider: Signer | Provider): POlyTokenSale {
+  static connect(
+    address: string,
+    signerOrProvider: Signer | Provider
+  ): POlyTokenSale {
     return new Contract(address, _abi, signerOrProvider) as POlyTokenSale;
   }
 }

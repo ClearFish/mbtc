@@ -4,7 +4,10 @@
 
 import { Contract, Signer, utils } from "ethers";
 import { Provider } from "@ethersproject/providers";
-import type { OlympusProMarketCreator, OlympusProMarketCreatorInterface } from "../OlympusProMarketCreator";
+import type {
+  OlympusProMarketCreator,
+  OlympusProMarketCreatorInterface,
+} from "../OlympusProMarketCreator";
 
 const _abi = [
   {
@@ -228,7 +231,14 @@ export class OlympusProMarketCreator__factory {
   static createInterface(): OlympusProMarketCreatorInterface {
     return new utils.Interface(_abi) as OlympusProMarketCreatorInterface;
   }
-  static connect(address: string, signerOrProvider: Signer | Provider): OlympusProMarketCreator {
-    return new Contract(address, _abi, signerOrProvider) as OlympusProMarketCreator;
+  static connect(
+    address: string,
+    signerOrProvider: Signer | Provider
+  ): OlympusProMarketCreator {
+    return new Contract(
+      address,
+      _abi,
+      signerOrProvider
+    ) as OlympusProMarketCreator;
   }
 }

@@ -53,7 +53,10 @@ export class OlympusFaucet__factory {
   static createInterface(): OlympusFaucetInterface {
     return new utils.Interface(_abi) as OlympusFaucetInterface;
   }
-  static connect(address: string, signerOrProvider: Signer | Provider): OlympusFaucet {
+  static connect(
+    address: string,
+    signerOrProvider: Signer | Provider
+  ): OlympusFaucet {
     return new Contract(address, _abi, signerOrProvider) as OlympusFaucet;
   }
 }

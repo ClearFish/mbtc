@@ -1162,7 +1162,10 @@ export class GUniV3Lp__factory {
   static createInterface(): GUniV3LpInterface {
     return new utils.Interface(_abi) as GUniV3LpInterface;
   }
-  static connect(address: string, signerOrProvider: Signer | Provider): GUniV3Lp {
+  static connect(
+    address: string,
+    signerOrProvider: Signer | Provider
+  ): GUniV3Lp {
     return new Contract(address, _abi, signerOrProvider) as GUniV3Lp;
   }
 }

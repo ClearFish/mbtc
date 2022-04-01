@@ -4,7 +4,10 @@
 
 import { Contract, Signer, utils } from "ethers";
 import { Provider } from "@ethersproject/providers";
-import type { BondCalcContract, BondCalcContractInterface } from "../BondCalcContract";
+import type {
+  BondCalcContract,
+  BondCalcContractInterface,
+} from "../BondCalcContract";
 
 const _abi = [
   {
@@ -119,7 +122,10 @@ export class BondCalcContract__factory {
   static createInterface(): BondCalcContractInterface {
     return new utils.Interface(_abi) as BondCalcContractInterface;
   }
-  static connect(address: string, signerOrProvider: Signer | Provider): BondCalcContract {
+  static connect(
+    address: string,
+    signerOrProvider: Signer | Provider
+  ): BondCalcContract {
     return new Contract(address, _abi, signerOrProvider) as BondCalcContract;
   }
 }
