@@ -62,95 +62,302 @@ export interface PrizePoolAbiInterface extends utils.Interface {
     "withdrawWithTimelockFrom(address,uint256,address)": FunctionFragment;
   };
 
-  encodeFunctionData(functionFragment: "accountedBalance", values?: undefined): string;
-  encodeFunctionData(functionFragment: "award", values: [string, BigNumberish, string]): string;
-  encodeFunctionData(functionFragment: "awardBalance", values?: undefined): string;
-  encodeFunctionData(functionFragment: "awardExternalERC20", values: [string, string, BigNumberish]): string;
-  encodeFunctionData(functionFragment: "awardExternalERC721", values: [string, string, BigNumberish[]]): string;
+  encodeFunctionData(
+    functionFragment: "accountedBalance",
+    values?: undefined
+  ): string;
+  encodeFunctionData(
+    functionFragment: "award",
+    values: [string, BigNumberish, string]
+  ): string;
+  encodeFunctionData(
+    functionFragment: "awardBalance",
+    values?: undefined
+  ): string;
+  encodeFunctionData(
+    functionFragment: "awardExternalERC20",
+    values: [string, string, BigNumberish]
+  ): string;
+  encodeFunctionData(
+    functionFragment: "awardExternalERC721",
+    values: [string, string, BigNumberish[]]
+  ): string;
   encodeFunctionData(functionFragment: "balance", values?: undefined): string;
-  encodeFunctionData(functionFragment: "balanceOfCredit", values: [string, string]): string;
-  encodeFunctionData(functionFragment: "beforeTokenTransfer", values: [string, string, BigNumberish]): string;
-  encodeFunctionData(functionFragment: "calculateEarlyExitFee", values: [string, string, BigNumberish]): string;
-  encodeFunctionData(functionFragment: "calculateReserveFee", values: [BigNumberish]): string;
-  encodeFunctionData(functionFragment: "calculateTimelockDuration", values: [string, string, BigNumberish]): string;
-  encodeFunctionData(functionFragment: "canAwardExternal", values: [string]): string;
-  encodeFunctionData(functionFragment: "captureAwardBalance", values?: undefined): string;
-  encodeFunctionData(functionFragment: "compLikeDelegate", values: [string, string]): string;
-  encodeFunctionData(functionFragment: "creditPlanOf", values: [string]): string;
-  encodeFunctionData(functionFragment: "depositTo", values: [string, BigNumberish, string, string]): string;
+  encodeFunctionData(
+    functionFragment: "balanceOfCredit",
+    values: [string, string]
+  ): string;
+  encodeFunctionData(
+    functionFragment: "beforeTokenTransfer",
+    values: [string, string, BigNumberish]
+  ): string;
+  encodeFunctionData(
+    functionFragment: "calculateEarlyExitFee",
+    values: [string, string, BigNumberish]
+  ): string;
+  encodeFunctionData(
+    functionFragment: "calculateReserveFee",
+    values: [BigNumberish]
+  ): string;
+  encodeFunctionData(
+    functionFragment: "calculateTimelockDuration",
+    values: [string, string, BigNumberish]
+  ): string;
+  encodeFunctionData(
+    functionFragment: "canAwardExternal",
+    values: [string]
+  ): string;
+  encodeFunctionData(
+    functionFragment: "captureAwardBalance",
+    values?: undefined
+  ): string;
+  encodeFunctionData(
+    functionFragment: "compLikeDelegate",
+    values: [string, string]
+  ): string;
+  encodeFunctionData(
+    functionFragment: "creditPlanOf",
+    values: [string]
+  ): string;
+  encodeFunctionData(
+    functionFragment: "depositTo",
+    values: [string, BigNumberish, string, string]
+  ): string;
   encodeFunctionData(
     functionFragment: "estimateCreditAccrualTime",
-    values: [string, BigNumberish, BigNumberish],
+    values: [string, BigNumberish, BigNumberish]
   ): string;
-  encodeFunctionData(functionFragment: "initialize", values: [string, string[], BigNumberish, BigNumberish]): string;
-  encodeFunctionData(functionFragment: "liquidityCap", values?: undefined): string;
-  encodeFunctionData(functionFragment: "maxExitFeeMantissa", values?: undefined): string;
-  encodeFunctionData(functionFragment: "maxTimelockDuration", values?: undefined): string;
+  encodeFunctionData(
+    functionFragment: "initialize",
+    values: [string, string[], BigNumberish, BigNumberish]
+  ): string;
+  encodeFunctionData(
+    functionFragment: "liquidityCap",
+    values?: undefined
+  ): string;
+  encodeFunctionData(
+    functionFragment: "maxExitFeeMantissa",
+    values?: undefined
+  ): string;
+  encodeFunctionData(
+    functionFragment: "maxTimelockDuration",
+    values?: undefined
+  ): string;
   encodeFunctionData(functionFragment: "owner", values?: undefined): string;
-  encodeFunctionData(functionFragment: "prizeStrategy", values?: undefined): string;
-  encodeFunctionData(functionFragment: "renounceOwnership", values?: undefined): string;
-  encodeFunctionData(functionFragment: "reserveRegistry", values?: undefined): string;
-  encodeFunctionData(functionFragment: "reserveTotalSupply", values?: undefined): string;
-  encodeFunctionData(functionFragment: "setCreditPlanOf", values: [string, BigNumberish, BigNumberish]): string;
-  encodeFunctionData(functionFragment: "setLiquidityCap", values: [BigNumberish]): string;
-  encodeFunctionData(functionFragment: "setPrizeStrategy", values: [string]): string;
-  encodeFunctionData(functionFragment: "sweepTimelockBalances", values: [string[]]): string;
-  encodeFunctionData(functionFragment: "timelockBalanceAvailableAt", values: [string]): string;
-  encodeFunctionData(functionFragment: "timelockBalanceOf", values: [string]): string;
-  encodeFunctionData(functionFragment: "timelockDepositTo", values: [string, BigNumberish, string]): string;
-  encodeFunctionData(functionFragment: "timelockTotalSupply", values?: undefined): string;
+  encodeFunctionData(
+    functionFragment: "prizeStrategy",
+    values?: undefined
+  ): string;
+  encodeFunctionData(
+    functionFragment: "renounceOwnership",
+    values?: undefined
+  ): string;
+  encodeFunctionData(
+    functionFragment: "reserveRegistry",
+    values?: undefined
+  ): string;
+  encodeFunctionData(
+    functionFragment: "reserveTotalSupply",
+    values?: undefined
+  ): string;
+  encodeFunctionData(
+    functionFragment: "setCreditPlanOf",
+    values: [string, BigNumberish, BigNumberish]
+  ): string;
+  encodeFunctionData(
+    functionFragment: "setLiquidityCap",
+    values: [BigNumberish]
+  ): string;
+  encodeFunctionData(
+    functionFragment: "setPrizeStrategy",
+    values: [string]
+  ): string;
+  encodeFunctionData(
+    functionFragment: "sweepTimelockBalances",
+    values: [string[]]
+  ): string;
+  encodeFunctionData(
+    functionFragment: "timelockBalanceAvailableAt",
+    values: [string]
+  ): string;
+  encodeFunctionData(
+    functionFragment: "timelockBalanceOf",
+    values: [string]
+  ): string;
+  encodeFunctionData(
+    functionFragment: "timelockDepositTo",
+    values: [string, BigNumberish, string]
+  ): string;
+  encodeFunctionData(
+    functionFragment: "timelockTotalSupply",
+    values?: undefined
+  ): string;
   encodeFunctionData(functionFragment: "token", values?: undefined): string;
   encodeFunctionData(functionFragment: "tokens", values?: undefined): string;
-  encodeFunctionData(functionFragment: "transferExternalERC20", values: [string, string, BigNumberish]): string;
-  encodeFunctionData(functionFragment: "transferOwnership", values: [string]): string;
+  encodeFunctionData(
+    functionFragment: "transferExternalERC20",
+    values: [string, string, BigNumberish]
+  ): string;
+  encodeFunctionData(
+    functionFragment: "transferOwnership",
+    values: [string]
+  ): string;
   encodeFunctionData(
     functionFragment: "withdrawInstantlyFrom",
-    values: [string, BigNumberish, string, BigNumberish],
+    values: [string, BigNumberish, string, BigNumberish]
   ): string;
-  encodeFunctionData(functionFragment: "withdrawReserve", values: [string]): string;
-  encodeFunctionData(functionFragment: "withdrawWithTimelockFrom", values: [string, BigNumberish, string]): string;
+  encodeFunctionData(
+    functionFragment: "withdrawReserve",
+    values: [string]
+  ): string;
+  encodeFunctionData(
+    functionFragment: "withdrawWithTimelockFrom",
+    values: [string, BigNumberish, string]
+  ): string;
 
-  decodeFunctionResult(functionFragment: "accountedBalance", data: BytesLike): Result;
+  decodeFunctionResult(
+    functionFragment: "accountedBalance",
+    data: BytesLike
+  ): Result;
   decodeFunctionResult(functionFragment: "award", data: BytesLike): Result;
-  decodeFunctionResult(functionFragment: "awardBalance", data: BytesLike): Result;
-  decodeFunctionResult(functionFragment: "awardExternalERC20", data: BytesLike): Result;
-  decodeFunctionResult(functionFragment: "awardExternalERC721", data: BytesLike): Result;
+  decodeFunctionResult(
+    functionFragment: "awardBalance",
+    data: BytesLike
+  ): Result;
+  decodeFunctionResult(
+    functionFragment: "awardExternalERC20",
+    data: BytesLike
+  ): Result;
+  decodeFunctionResult(
+    functionFragment: "awardExternalERC721",
+    data: BytesLike
+  ): Result;
   decodeFunctionResult(functionFragment: "balance", data: BytesLike): Result;
-  decodeFunctionResult(functionFragment: "balanceOfCredit", data: BytesLike): Result;
-  decodeFunctionResult(functionFragment: "beforeTokenTransfer", data: BytesLike): Result;
-  decodeFunctionResult(functionFragment: "calculateEarlyExitFee", data: BytesLike): Result;
-  decodeFunctionResult(functionFragment: "calculateReserveFee", data: BytesLike): Result;
-  decodeFunctionResult(functionFragment: "calculateTimelockDuration", data: BytesLike): Result;
-  decodeFunctionResult(functionFragment: "canAwardExternal", data: BytesLike): Result;
-  decodeFunctionResult(functionFragment: "captureAwardBalance", data: BytesLike): Result;
-  decodeFunctionResult(functionFragment: "compLikeDelegate", data: BytesLike): Result;
-  decodeFunctionResult(functionFragment: "creditPlanOf", data: BytesLike): Result;
+  decodeFunctionResult(
+    functionFragment: "balanceOfCredit",
+    data: BytesLike
+  ): Result;
+  decodeFunctionResult(
+    functionFragment: "beforeTokenTransfer",
+    data: BytesLike
+  ): Result;
+  decodeFunctionResult(
+    functionFragment: "calculateEarlyExitFee",
+    data: BytesLike
+  ): Result;
+  decodeFunctionResult(
+    functionFragment: "calculateReserveFee",
+    data: BytesLike
+  ): Result;
+  decodeFunctionResult(
+    functionFragment: "calculateTimelockDuration",
+    data: BytesLike
+  ): Result;
+  decodeFunctionResult(
+    functionFragment: "canAwardExternal",
+    data: BytesLike
+  ): Result;
+  decodeFunctionResult(
+    functionFragment: "captureAwardBalance",
+    data: BytesLike
+  ): Result;
+  decodeFunctionResult(
+    functionFragment: "compLikeDelegate",
+    data: BytesLike
+  ): Result;
+  decodeFunctionResult(
+    functionFragment: "creditPlanOf",
+    data: BytesLike
+  ): Result;
   decodeFunctionResult(functionFragment: "depositTo", data: BytesLike): Result;
-  decodeFunctionResult(functionFragment: "estimateCreditAccrualTime", data: BytesLike): Result;
+  decodeFunctionResult(
+    functionFragment: "estimateCreditAccrualTime",
+    data: BytesLike
+  ): Result;
   decodeFunctionResult(functionFragment: "initialize", data: BytesLike): Result;
-  decodeFunctionResult(functionFragment: "liquidityCap", data: BytesLike): Result;
-  decodeFunctionResult(functionFragment: "maxExitFeeMantissa", data: BytesLike): Result;
-  decodeFunctionResult(functionFragment: "maxTimelockDuration", data: BytesLike): Result;
+  decodeFunctionResult(
+    functionFragment: "liquidityCap",
+    data: BytesLike
+  ): Result;
+  decodeFunctionResult(
+    functionFragment: "maxExitFeeMantissa",
+    data: BytesLike
+  ): Result;
+  decodeFunctionResult(
+    functionFragment: "maxTimelockDuration",
+    data: BytesLike
+  ): Result;
   decodeFunctionResult(functionFragment: "owner", data: BytesLike): Result;
-  decodeFunctionResult(functionFragment: "prizeStrategy", data: BytesLike): Result;
-  decodeFunctionResult(functionFragment: "renounceOwnership", data: BytesLike): Result;
-  decodeFunctionResult(functionFragment: "reserveRegistry", data: BytesLike): Result;
-  decodeFunctionResult(functionFragment: "reserveTotalSupply", data: BytesLike): Result;
-  decodeFunctionResult(functionFragment: "setCreditPlanOf", data: BytesLike): Result;
-  decodeFunctionResult(functionFragment: "setLiquidityCap", data: BytesLike): Result;
-  decodeFunctionResult(functionFragment: "setPrizeStrategy", data: BytesLike): Result;
-  decodeFunctionResult(functionFragment: "sweepTimelockBalances", data: BytesLike): Result;
-  decodeFunctionResult(functionFragment: "timelockBalanceAvailableAt", data: BytesLike): Result;
-  decodeFunctionResult(functionFragment: "timelockBalanceOf", data: BytesLike): Result;
-  decodeFunctionResult(functionFragment: "timelockDepositTo", data: BytesLike): Result;
-  decodeFunctionResult(functionFragment: "timelockTotalSupply", data: BytesLike): Result;
+  decodeFunctionResult(
+    functionFragment: "prizeStrategy",
+    data: BytesLike
+  ): Result;
+  decodeFunctionResult(
+    functionFragment: "renounceOwnership",
+    data: BytesLike
+  ): Result;
+  decodeFunctionResult(
+    functionFragment: "reserveRegistry",
+    data: BytesLike
+  ): Result;
+  decodeFunctionResult(
+    functionFragment: "reserveTotalSupply",
+    data: BytesLike
+  ): Result;
+  decodeFunctionResult(
+    functionFragment: "setCreditPlanOf",
+    data: BytesLike
+  ): Result;
+  decodeFunctionResult(
+    functionFragment: "setLiquidityCap",
+    data: BytesLike
+  ): Result;
+  decodeFunctionResult(
+    functionFragment: "setPrizeStrategy",
+    data: BytesLike
+  ): Result;
+  decodeFunctionResult(
+    functionFragment: "sweepTimelockBalances",
+    data: BytesLike
+  ): Result;
+  decodeFunctionResult(
+    functionFragment: "timelockBalanceAvailableAt",
+    data: BytesLike
+  ): Result;
+  decodeFunctionResult(
+    functionFragment: "timelockBalanceOf",
+    data: BytesLike
+  ): Result;
+  decodeFunctionResult(
+    functionFragment: "timelockDepositTo",
+    data: BytesLike
+  ): Result;
+  decodeFunctionResult(
+    functionFragment: "timelockTotalSupply",
+    data: BytesLike
+  ): Result;
   decodeFunctionResult(functionFragment: "token", data: BytesLike): Result;
   decodeFunctionResult(functionFragment: "tokens", data: BytesLike): Result;
-  decodeFunctionResult(functionFragment: "transferExternalERC20", data: BytesLike): Result;
-  decodeFunctionResult(functionFragment: "transferOwnership", data: BytesLike): Result;
-  decodeFunctionResult(functionFragment: "withdrawInstantlyFrom", data: BytesLike): Result;
-  decodeFunctionResult(functionFragment: "withdrawReserve", data: BytesLike): Result;
-  decodeFunctionResult(functionFragment: "withdrawWithTimelockFrom", data: BytesLike): Result;
+  decodeFunctionResult(
+    functionFragment: "transferExternalERC20",
+    data: BytesLike
+  ): Result;
+  decodeFunctionResult(
+    functionFragment: "transferOwnership",
+    data: BytesLike
+  ): Result;
+  decodeFunctionResult(
+    functionFragment: "withdrawInstantlyFrom",
+    data: BytesLike
+  ): Result;
+  decodeFunctionResult(
+    functionFragment: "withdrawReserve",
+    data: BytesLike
+  ): Result;
+  decodeFunctionResult(
+    functionFragment: "withdrawWithTimelockFrom",
+    data: BytesLike
+  ): Result;
 
   events: {
     "AwardCaptured(uint256)": EventFragment;
@@ -215,18 +422,21 @@ export type AwardedExternalERC20Event = TypedEvent<
   { winner: string; token: string; amount: BigNumber }
 >;
 
-export type AwardedExternalERC20EventFilter = TypedEventFilter<AwardedExternalERC20Event>;
+export type AwardedExternalERC20EventFilter =
+  TypedEventFilter<AwardedExternalERC20Event>;
 
 export type AwardedExternalERC721Event = TypedEvent<
   [string, string, BigNumber[]],
   { winner: string; token: string; tokenIds: BigNumber[] }
 >;
 
-export type AwardedExternalERC721EventFilter = TypedEventFilter<AwardedExternalERC721Event>;
+export type AwardedExternalERC721EventFilter =
+  TypedEventFilter<AwardedExternalERC721Event>;
 
 export type ControlledTokenAddedEvent = TypedEvent<[string], { token: string }>;
 
-export type ControlledTokenAddedEventFilter = TypedEventFilter<ControlledTokenAddedEvent>;
+export type ControlledTokenAddedEventFilter =
+  TypedEventFilter<ControlledTokenAddedEvent>;
 
 export type CreditBurnedEvent = TypedEvent<
   [string, string, BigNumber],
@@ -289,38 +499,63 @@ export type InstantWithdrawalEvent = TypedEvent<
   }
 >;
 
-export type InstantWithdrawalEventFilter = TypedEventFilter<InstantWithdrawalEvent>;
+export type InstantWithdrawalEventFilter =
+  TypedEventFilter<InstantWithdrawalEvent>;
 
-export type LiquidityCapSetEvent = TypedEvent<[BigNumber], { liquidityCap: BigNumber }>;
+export type LiquidityCapSetEvent = TypedEvent<
+  [BigNumber],
+  { liquidityCap: BigNumber }
+>;
 
 export type LiquidityCapSetEventFilter = TypedEventFilter<LiquidityCapSetEvent>;
 
-export type OwnershipTransferredEvent = TypedEvent<[string, string], { previousOwner: string; newOwner: string }>;
+export type OwnershipTransferredEvent = TypedEvent<
+  [string, string],
+  { previousOwner: string; newOwner: string }
+>;
 
-export type OwnershipTransferredEventFilter = TypedEventFilter<OwnershipTransferredEvent>;
+export type OwnershipTransferredEventFilter =
+  TypedEventFilter<OwnershipTransferredEvent>;
 
-export type PrizeStrategySetEvent = TypedEvent<[string], { prizeStrategy: string }>;
+export type PrizeStrategySetEvent = TypedEvent<
+  [string],
+  { prizeStrategy: string }
+>;
 
-export type PrizeStrategySetEventFilter = TypedEventFilter<PrizeStrategySetEvent>;
+export type PrizeStrategySetEventFilter =
+  TypedEventFilter<PrizeStrategySetEvent>;
 
-export type ReserveFeeCapturedEvent = TypedEvent<[BigNumber], { amount: BigNumber }>;
+export type ReserveFeeCapturedEvent = TypedEvent<
+  [BigNumber],
+  { amount: BigNumber }
+>;
 
-export type ReserveFeeCapturedEventFilter = TypedEventFilter<ReserveFeeCapturedEvent>;
+export type ReserveFeeCapturedEventFilter =
+  TypedEventFilter<ReserveFeeCapturedEvent>;
 
-export type ReserveWithdrawalEvent = TypedEvent<[string, BigNumber], { to: string; amount: BigNumber }>;
+export type ReserveWithdrawalEvent = TypedEvent<
+  [string, BigNumber],
+  { to: string; amount: BigNumber }
+>;
 
-export type ReserveWithdrawalEventFilter = TypedEventFilter<ReserveWithdrawalEvent>;
+export type ReserveWithdrawalEventFilter =
+  TypedEventFilter<ReserveWithdrawalEvent>;
 
-export type StakePrizePoolInitializedEvent = TypedEvent<[string], { stakeToken: string }>;
+export type StakePrizePoolInitializedEvent = TypedEvent<
+  [string],
+  { stakeToken: string }
+>;
 
-export type StakePrizePoolInitializedEventFilter = TypedEventFilter<StakePrizePoolInitializedEvent>;
+export type StakePrizePoolInitializedEventFilter =
+  TypedEventFilter<StakePrizePoolInitializedEvent>;
 
 export type TimelockDepositedEvent = TypedEvent<
   [string, string, string, BigNumber],
   { operator: string; to: string; token: string; amount: BigNumber }
 >;
 
-export type TimelockDepositedEventFilter = TypedEventFilter<TimelockDepositedEvent>;
+export type TimelockDepositedEventFilter =
+  TypedEventFilter<TimelockDepositedEvent>;
 
 export type TimelockedWithdrawalEvent = TypedEvent<
   [string, string, string, BigNumber, BigNumber],
@@ -333,21 +568,24 @@ export type TimelockedWithdrawalEvent = TypedEvent<
   }
 >;
 
-export type TimelockedWithdrawalEventFilter = TypedEventFilter<TimelockedWithdrawalEvent>;
+export type TimelockedWithdrawalEventFilter =
+  TypedEventFilter<TimelockedWithdrawalEvent>;
 
 export type TimelockedWithdrawalSweptEvent = TypedEvent<
   [string, string, BigNumber, BigNumber],
   { operator: string; from: string; amount: BigNumber; redeemed: BigNumber }
 >;
 
-export type TimelockedWithdrawalSweptEventFilter = TypedEventFilter<TimelockedWithdrawalSweptEvent>;
+export type TimelockedWithdrawalSweptEventFilter =
+  TypedEventFilter<TimelockedWithdrawalSweptEvent>;
 
 export type TransferredExternalERC20Event = TypedEvent<
   [string, string, BigNumber],
   { to: string; token: string; amount: BigNumber }
 >;
 
-export type TransferredExternalERC20EventFilter = TypedEventFilter<TransferredExternalERC20Event>;
+export type TransferredExternalERC20EventFilter =
+  TypedEventFilter<TransferredExternalERC20Event>;
 
 export interface PrizePoolAbi extends BaseContract {
   connect(signerOrProvider: Signer | Provider | string): this;
@@ -359,12 +597,16 @@ export interface PrizePoolAbi extends BaseContract {
   queryFilter<TEvent extends TypedEvent>(
     event: TypedEventFilter<TEvent>,
     fromBlockOrBlockhash?: string | number | undefined,
-    toBlock?: string | number | undefined,
+    toBlock?: string | number | undefined
   ): Promise<Array<TEvent>>;
 
-  listeners<TEvent extends TypedEvent>(eventFilter?: TypedEventFilter<TEvent>): Array<TypedListener<TEvent>>;
+  listeners<TEvent extends TypedEvent>(
+    eventFilter?: TypedEventFilter<TEvent>
+  ): Array<TypedListener<TEvent>>;
   listeners(eventName?: string): Array<Listener>;
-  removeAllListeners<TEvent extends TypedEvent>(eventFilter: TypedEventFilter<TEvent>): this;
+  removeAllListeners<TEvent extends TypedEvent>(
+    eventFilter: TypedEventFilter<TEvent>
+  ): this;
   removeAllListeners(eventName?: string): this;
   off: OnEvent<this>;
   on: OnEvent<this>;
@@ -378,7 +620,7 @@ export interface PrizePoolAbi extends BaseContract {
       to: string,
       amount: BigNumberish,
       controlledToken: string,
-      overrides?: Overrides & { from?: string | Promise<string> },
+      overrides?: Overrides & { from?: string | Promise<string> }
     ): Promise<ContractTransaction>;
 
     awardBalance(overrides?: CallOverrides): Promise<[BigNumber]>;
@@ -387,60 +629,70 @@ export interface PrizePoolAbi extends BaseContract {
       to: string,
       externalToken: string,
       amount: BigNumberish,
-      overrides?: Overrides & { from?: string | Promise<string> },
+      overrides?: Overrides & { from?: string | Promise<string> }
     ): Promise<ContractTransaction>;
 
     awardExternalERC721(
       to: string,
       externalToken: string,
       tokenIds: BigNumberish[],
-      overrides?: Overrides & { from?: string | Promise<string> },
+      overrides?: Overrides & { from?: string | Promise<string> }
     ): Promise<ContractTransaction>;
 
-    balance(overrides?: Overrides & { from?: string | Promise<string> }): Promise<ContractTransaction>;
+    balance(
+      overrides?: Overrides & { from?: string | Promise<string> }
+    ): Promise<ContractTransaction>;
 
     balanceOfCredit(
       user: string,
       controlledToken: string,
-      overrides?: Overrides & { from?: string | Promise<string> },
+      overrides?: Overrides & { from?: string | Promise<string> }
     ): Promise<ContractTransaction>;
 
     beforeTokenTransfer(
       from: string,
       to: string,
       amount: BigNumberish,
-      overrides?: Overrides & { from?: string | Promise<string> },
+      overrides?: Overrides & { from?: string | Promise<string> }
     ): Promise<ContractTransaction>;
 
     calculateEarlyExitFee(
       from: string,
       controlledToken: string,
       amount: BigNumberish,
-      overrides?: Overrides & { from?: string | Promise<string> },
+      overrides?: Overrides & { from?: string | Promise<string> }
     ): Promise<ContractTransaction>;
 
-    calculateReserveFee(amount: BigNumberish, overrides?: CallOverrides): Promise<[BigNumber]>;
+    calculateReserveFee(
+      amount: BigNumberish,
+      overrides?: CallOverrides
+    ): Promise<[BigNumber]>;
 
     calculateTimelockDuration(
       from: string,
       controlledToken: string,
       amount: BigNumberish,
-      overrides?: Overrides & { from?: string | Promise<string> },
+      overrides?: Overrides & { from?: string | Promise<string> }
     ): Promise<ContractTransaction>;
 
-    canAwardExternal(_externalToken: string, overrides?: CallOverrides): Promise<[boolean]>;
+    canAwardExternal(
+      _externalToken: string,
+      overrides?: CallOverrides
+    ): Promise<[boolean]>;
 
-    captureAwardBalance(overrides?: Overrides & { from?: string | Promise<string> }): Promise<ContractTransaction>;
+    captureAwardBalance(
+      overrides?: Overrides & { from?: string | Promise<string> }
+    ): Promise<ContractTransaction>;
 
     compLikeDelegate(
       compLike: string,
       to: string,
-      overrides?: Overrides & { from?: string | Promise<string> },
+      overrides?: Overrides & { from?: string | Promise<string> }
     ): Promise<ContractTransaction>;
 
     creditPlanOf(
       controlledToken: string,
-      overrides?: CallOverrides,
+      overrides?: CallOverrides
     ): Promise<
       [BigNumber, BigNumber] & {
         creditLimitMantissa: BigNumber;
@@ -453,14 +705,14 @@ export interface PrizePoolAbi extends BaseContract {
       amount: BigNumberish,
       controlledToken: string,
       referrer: string,
-      overrides?: Overrides & { from?: string | Promise<string> },
+      overrides?: Overrides & { from?: string | Promise<string> }
     ): Promise<ContractTransaction>;
 
     estimateCreditAccrualTime(
       _controlledToken: string,
       _principal: BigNumberish,
       _interest: BigNumberish,
-      overrides?: CallOverrides,
+      overrides?: CallOverrides
     ): Promise<[BigNumber] & { durationSeconds: BigNumber }>;
 
     "initialize(address,address[],uint256,uint256)"(
@@ -468,7 +720,7 @@ export interface PrizePoolAbi extends BaseContract {
       _controlledTokens: string[],
       _maxExitFeeMantissa: BigNumberish,
       _maxTimelockDuration: BigNumberish,
-      overrides?: Overrides & { from?: string | Promise<string> },
+      overrides?: Overrides & { from?: string | Promise<string> }
     ): Promise<ContractTransaction>;
 
     "initialize(address,address[],uint256,uint256,address)"(
@@ -477,7 +729,7 @@ export interface PrizePoolAbi extends BaseContract {
       _maxExitFeeMantissa: BigNumberish,
       _maxTimelockDuration: BigNumberish,
       _stakeToken: string,
-      overrides?: Overrides & { from?: string | Promise<string> },
+      overrides?: Overrides & { from?: string | Promise<string> }
     ): Promise<ContractTransaction>;
 
     liquidityCap(overrides?: CallOverrides): Promise<[BigNumber]>;
@@ -490,7 +742,9 @@ export interface PrizePoolAbi extends BaseContract {
 
     prizeStrategy(overrides?: CallOverrides): Promise<[string]>;
 
-    renounceOwnership(overrides?: Overrides & { from?: string | Promise<string> }): Promise<ContractTransaction>;
+    renounceOwnership(
+      overrides?: Overrides & { from?: string | Promise<string> }
+    ): Promise<ContractTransaction>;
 
     reserveRegistry(overrides?: CallOverrides): Promise<[string]>;
 
@@ -500,33 +754,39 @@ export interface PrizePoolAbi extends BaseContract {
       _controlledToken: string,
       _creditRateMantissa: BigNumberish,
       _creditLimitMantissa: BigNumberish,
-      overrides?: Overrides & { from?: string | Promise<string> },
+      overrides?: Overrides & { from?: string | Promise<string> }
     ): Promise<ContractTransaction>;
 
     setLiquidityCap(
       _liquidityCap: BigNumberish,
-      overrides?: Overrides & { from?: string | Promise<string> },
+      overrides?: Overrides & { from?: string | Promise<string> }
     ): Promise<ContractTransaction>;
 
     setPrizeStrategy(
       _prizeStrategy: string,
-      overrides?: Overrides & { from?: string | Promise<string> },
+      overrides?: Overrides & { from?: string | Promise<string> }
     ): Promise<ContractTransaction>;
 
     sweepTimelockBalances(
       users: string[],
-      overrides?: Overrides & { from?: string | Promise<string> },
+      overrides?: Overrides & { from?: string | Promise<string> }
     ): Promise<ContractTransaction>;
 
-    timelockBalanceAvailableAt(user: string, overrides?: CallOverrides): Promise<[BigNumber]>;
+    timelockBalanceAvailableAt(
+      user: string,
+      overrides?: CallOverrides
+    ): Promise<[BigNumber]>;
 
-    timelockBalanceOf(user: string, overrides?: CallOverrides): Promise<[BigNumber]>;
+    timelockBalanceOf(
+      user: string,
+      overrides?: CallOverrides
+    ): Promise<[BigNumber]>;
 
     timelockDepositTo(
       to: string,
       amount: BigNumberish,
       controlledToken: string,
-      overrides?: Overrides & { from?: string | Promise<string> },
+      overrides?: Overrides & { from?: string | Promise<string> }
     ): Promise<ContractTransaction>;
 
     timelockTotalSupply(overrides?: CallOverrides): Promise<[BigNumber]>;
@@ -539,12 +799,12 @@ export interface PrizePoolAbi extends BaseContract {
       to: string,
       externalToken: string,
       amount: BigNumberish,
-      overrides?: Overrides & { from?: string | Promise<string> },
+      overrides?: Overrides & { from?: string | Promise<string> }
     ): Promise<ContractTransaction>;
 
     transferOwnership(
       newOwner: string,
-      overrides?: Overrides & { from?: string | Promise<string> },
+      overrides?: Overrides & { from?: string | Promise<string> }
     ): Promise<ContractTransaction>;
 
     withdrawInstantlyFrom(
@@ -552,19 +812,19 @@ export interface PrizePoolAbi extends BaseContract {
       amount: BigNumberish,
       controlledToken: string,
       maximumExitFee: BigNumberish,
-      overrides?: Overrides & { from?: string | Promise<string> },
+      overrides?: Overrides & { from?: string | Promise<string> }
     ): Promise<ContractTransaction>;
 
     withdrawReserve(
       to: string,
-      overrides?: Overrides & { from?: string | Promise<string> },
+      overrides?: Overrides & { from?: string | Promise<string> }
     ): Promise<ContractTransaction>;
 
     withdrawWithTimelockFrom(
       from: string,
       amount: BigNumberish,
       controlledToken: string,
-      overrides?: Overrides & { from?: string | Promise<string> },
+      overrides?: Overrides & { from?: string | Promise<string> }
     ): Promise<ContractTransaction>;
   };
 
@@ -574,7 +834,7 @@ export interface PrizePoolAbi extends BaseContract {
     to: string,
     amount: BigNumberish,
     controlledToken: string,
-    overrides?: Overrides & { from?: string | Promise<string> },
+    overrides?: Overrides & { from?: string | Promise<string> }
   ): Promise<ContractTransaction>;
 
   awardBalance(overrides?: CallOverrides): Promise<BigNumber>;
@@ -583,60 +843,70 @@ export interface PrizePoolAbi extends BaseContract {
     to: string,
     externalToken: string,
     amount: BigNumberish,
-    overrides?: Overrides & { from?: string | Promise<string> },
+    overrides?: Overrides & { from?: string | Promise<string> }
   ): Promise<ContractTransaction>;
 
   awardExternalERC721(
     to: string,
     externalToken: string,
     tokenIds: BigNumberish[],
-    overrides?: Overrides & { from?: string | Promise<string> },
+    overrides?: Overrides & { from?: string | Promise<string> }
   ): Promise<ContractTransaction>;
 
-  balance(overrides?: Overrides & { from?: string | Promise<string> }): Promise<ContractTransaction>;
+  balance(
+    overrides?: Overrides & { from?: string | Promise<string> }
+  ): Promise<ContractTransaction>;
 
   balanceOfCredit(
     user: string,
     controlledToken: string,
-    overrides?: Overrides & { from?: string | Promise<string> },
+    overrides?: Overrides & { from?: string | Promise<string> }
   ): Promise<ContractTransaction>;
 
   beforeTokenTransfer(
     from: string,
     to: string,
     amount: BigNumberish,
-    overrides?: Overrides & { from?: string | Promise<string> },
+    overrides?: Overrides & { from?: string | Promise<string> }
   ): Promise<ContractTransaction>;
 
   calculateEarlyExitFee(
     from: string,
     controlledToken: string,
     amount: BigNumberish,
-    overrides?: Overrides & { from?: string | Promise<string> },
+    overrides?: Overrides & { from?: string | Promise<string> }
   ): Promise<ContractTransaction>;
 
-  calculateReserveFee(amount: BigNumberish, overrides?: CallOverrides): Promise<BigNumber>;
+  calculateReserveFee(
+    amount: BigNumberish,
+    overrides?: CallOverrides
+  ): Promise<BigNumber>;
 
   calculateTimelockDuration(
     from: string,
     controlledToken: string,
     amount: BigNumberish,
-    overrides?: Overrides & { from?: string | Promise<string> },
+    overrides?: Overrides & { from?: string | Promise<string> }
   ): Promise<ContractTransaction>;
 
-  canAwardExternal(_externalToken: string, overrides?: CallOverrides): Promise<boolean>;
+  canAwardExternal(
+    _externalToken: string,
+    overrides?: CallOverrides
+  ): Promise<boolean>;
 
-  captureAwardBalance(overrides?: Overrides & { from?: string | Promise<string> }): Promise<ContractTransaction>;
+  captureAwardBalance(
+    overrides?: Overrides & { from?: string | Promise<string> }
+  ): Promise<ContractTransaction>;
 
   compLikeDelegate(
     compLike: string,
     to: string,
-    overrides?: Overrides & { from?: string | Promise<string> },
+    overrides?: Overrides & { from?: string | Promise<string> }
   ): Promise<ContractTransaction>;
 
   creditPlanOf(
     controlledToken: string,
-    overrides?: CallOverrides,
+    overrides?: CallOverrides
   ): Promise<
     [BigNumber, BigNumber] & {
       creditLimitMantissa: BigNumber;
@@ -649,14 +919,14 @@ export interface PrizePoolAbi extends BaseContract {
     amount: BigNumberish,
     controlledToken: string,
     referrer: string,
-    overrides?: Overrides & { from?: string | Promise<string> },
+    overrides?: Overrides & { from?: string | Promise<string> }
   ): Promise<ContractTransaction>;
 
   estimateCreditAccrualTime(
     _controlledToken: string,
     _principal: BigNumberish,
     _interest: BigNumberish,
-    overrides?: CallOverrides,
+    overrides?: CallOverrides
   ): Promise<BigNumber>;
 
   "initialize(address,address[],uint256,uint256)"(
@@ -664,7 +934,7 @@ export interface PrizePoolAbi extends BaseContract {
     _controlledTokens: string[],
     _maxExitFeeMantissa: BigNumberish,
     _maxTimelockDuration: BigNumberish,
-    overrides?: Overrides & { from?: string | Promise<string> },
+    overrides?: Overrides & { from?: string | Promise<string> }
   ): Promise<ContractTransaction>;
 
   "initialize(address,address[],uint256,uint256,address)"(
@@ -673,7 +943,7 @@ export interface PrizePoolAbi extends BaseContract {
     _maxExitFeeMantissa: BigNumberish,
     _maxTimelockDuration: BigNumberish,
     _stakeToken: string,
-    overrides?: Overrides & { from?: string | Promise<string> },
+    overrides?: Overrides & { from?: string | Promise<string> }
   ): Promise<ContractTransaction>;
 
   liquidityCap(overrides?: CallOverrides): Promise<BigNumber>;
@@ -686,7 +956,9 @@ export interface PrizePoolAbi extends BaseContract {
 
   prizeStrategy(overrides?: CallOverrides): Promise<string>;
 
-  renounceOwnership(overrides?: Overrides & { from?: string | Promise<string> }): Promise<ContractTransaction>;
+  renounceOwnership(
+    overrides?: Overrides & { from?: string | Promise<string> }
+  ): Promise<ContractTransaction>;
 
   reserveRegistry(overrides?: CallOverrides): Promise<string>;
 
@@ -696,33 +968,39 @@ export interface PrizePoolAbi extends BaseContract {
     _controlledToken: string,
     _creditRateMantissa: BigNumberish,
     _creditLimitMantissa: BigNumberish,
-    overrides?: Overrides & { from?: string | Promise<string> },
+    overrides?: Overrides & { from?: string | Promise<string> }
   ): Promise<ContractTransaction>;
 
   setLiquidityCap(
     _liquidityCap: BigNumberish,
-    overrides?: Overrides & { from?: string | Promise<string> },
+    overrides?: Overrides & { from?: string | Promise<string> }
   ): Promise<ContractTransaction>;
 
   setPrizeStrategy(
     _prizeStrategy: string,
-    overrides?: Overrides & { from?: string | Promise<string> },
+    overrides?: Overrides & { from?: string | Promise<string> }
   ): Promise<ContractTransaction>;
 
   sweepTimelockBalances(
     users: string[],
-    overrides?: Overrides & { from?: string | Promise<string> },
+    overrides?: Overrides & { from?: string | Promise<string> }
   ): Promise<ContractTransaction>;
 
-  timelockBalanceAvailableAt(user: string, overrides?: CallOverrides): Promise<BigNumber>;
+  timelockBalanceAvailableAt(
+    user: string,
+    overrides?: CallOverrides
+  ): Promise<BigNumber>;
 
-  timelockBalanceOf(user: string, overrides?: CallOverrides): Promise<BigNumber>;
+  timelockBalanceOf(
+    user: string,
+    overrides?: CallOverrides
+  ): Promise<BigNumber>;
 
   timelockDepositTo(
     to: string,
     amount: BigNumberish,
     controlledToken: string,
-    overrides?: Overrides & { from?: string | Promise<string> },
+    overrides?: Overrides & { from?: string | Promise<string> }
   ): Promise<ContractTransaction>;
 
   timelockTotalSupply(overrides?: CallOverrides): Promise<BigNumber>;
@@ -735,12 +1013,12 @@ export interface PrizePoolAbi extends BaseContract {
     to: string,
     externalToken: string,
     amount: BigNumberish,
-    overrides?: Overrides & { from?: string | Promise<string> },
+    overrides?: Overrides & { from?: string | Promise<string> }
   ): Promise<ContractTransaction>;
 
   transferOwnership(
     newOwner: string,
-    overrides?: Overrides & { from?: string | Promise<string> },
+    overrides?: Overrides & { from?: string | Promise<string> }
   ): Promise<ContractTransaction>;
 
   withdrawInstantlyFrom(
@@ -748,25 +1026,30 @@ export interface PrizePoolAbi extends BaseContract {
     amount: BigNumberish,
     controlledToken: string,
     maximumExitFee: BigNumberish,
-    overrides?: Overrides & { from?: string | Promise<string> },
+    overrides?: Overrides & { from?: string | Promise<string> }
   ): Promise<ContractTransaction>;
 
   withdrawReserve(
     to: string,
-    overrides?: Overrides & { from?: string | Promise<string> },
+    overrides?: Overrides & { from?: string | Promise<string> }
   ): Promise<ContractTransaction>;
 
   withdrawWithTimelockFrom(
     from: string,
     amount: BigNumberish,
     controlledToken: string,
-    overrides?: Overrides & { from?: string | Promise<string> },
+    overrides?: Overrides & { from?: string | Promise<string> }
   ): Promise<ContractTransaction>;
 
   callStatic: {
     accountedBalance(overrides?: CallOverrides): Promise<BigNumber>;
 
-    award(to: string, amount: BigNumberish, controlledToken: string, overrides?: CallOverrides): Promise<void>;
+    award(
+      to: string,
+      amount: BigNumberish,
+      controlledToken: string,
+      overrides?: CallOverrides
+    ): Promise<void>;
 
     awardBalance(overrides?: CallOverrides): Promise<BigNumber>;
 
@@ -774,36 +1057,50 @@ export interface PrizePoolAbi extends BaseContract {
       to: string,
       externalToken: string,
       amount: BigNumberish,
-      overrides?: CallOverrides,
+      overrides?: CallOverrides
     ): Promise<void>;
 
     awardExternalERC721(
       to: string,
       externalToken: string,
       tokenIds: BigNumberish[],
-      overrides?: CallOverrides,
+      overrides?: CallOverrides
     ): Promise<void>;
 
     balance(overrides?: CallOverrides): Promise<BigNumber>;
 
-    balanceOfCredit(user: string, controlledToken: string, overrides?: CallOverrides): Promise<BigNumber>;
+    balanceOfCredit(
+      user: string,
+      controlledToken: string,
+      overrides?: CallOverrides
+    ): Promise<BigNumber>;
 
-    beforeTokenTransfer(from: string, to: string, amount: BigNumberish, overrides?: CallOverrides): Promise<void>;
+    beforeTokenTransfer(
+      from: string,
+      to: string,
+      amount: BigNumberish,
+      overrides?: CallOverrides
+    ): Promise<void>;
 
     calculateEarlyExitFee(
       from: string,
       controlledToken: string,
       amount: BigNumberish,
-      overrides?: CallOverrides,
-    ): Promise<[BigNumber, BigNumber] & { exitFee: BigNumber; burnedCredit: BigNumber }>;
+      overrides?: CallOverrides
+    ): Promise<
+      [BigNumber, BigNumber] & { exitFee: BigNumber; burnedCredit: BigNumber }
+    >;
 
-    calculateReserveFee(amount: BigNumberish, overrides?: CallOverrides): Promise<BigNumber>;
+    calculateReserveFee(
+      amount: BigNumberish,
+      overrides?: CallOverrides
+    ): Promise<BigNumber>;
 
     calculateTimelockDuration(
       from: string,
       controlledToken: string,
       amount: BigNumberish,
-      overrides?: CallOverrides,
+      overrides?: CallOverrides
     ): Promise<
       [BigNumber, BigNumber] & {
         durationSeconds: BigNumber;
@@ -811,15 +1108,22 @@ export interface PrizePoolAbi extends BaseContract {
       }
     >;
 
-    canAwardExternal(_externalToken: string, overrides?: CallOverrides): Promise<boolean>;
+    canAwardExternal(
+      _externalToken: string,
+      overrides?: CallOverrides
+    ): Promise<boolean>;
 
     captureAwardBalance(overrides?: CallOverrides): Promise<BigNumber>;
 
-    compLikeDelegate(compLike: string, to: string, overrides?: CallOverrides): Promise<void>;
+    compLikeDelegate(
+      compLike: string,
+      to: string,
+      overrides?: CallOverrides
+    ): Promise<void>;
 
     creditPlanOf(
       controlledToken: string,
-      overrides?: CallOverrides,
+      overrides?: CallOverrides
     ): Promise<
       [BigNumber, BigNumber] & {
         creditLimitMantissa: BigNumber;
@@ -832,14 +1136,14 @@ export interface PrizePoolAbi extends BaseContract {
       amount: BigNumberish,
       controlledToken: string,
       referrer: string,
-      overrides?: CallOverrides,
+      overrides?: CallOverrides
     ): Promise<void>;
 
     estimateCreditAccrualTime(
       _controlledToken: string,
       _principal: BigNumberish,
       _interest: BigNumberish,
-      overrides?: CallOverrides,
+      overrides?: CallOverrides
     ): Promise<BigNumber>;
 
     "initialize(address,address[],uint256,uint256)"(
@@ -847,7 +1151,7 @@ export interface PrizePoolAbi extends BaseContract {
       _controlledTokens: string[],
       _maxExitFeeMantissa: BigNumberish,
       _maxTimelockDuration: BigNumberish,
-      overrides?: CallOverrides,
+      overrides?: CallOverrides
     ): Promise<void>;
 
     "initialize(address,address[],uint256,uint256,address)"(
@@ -856,7 +1160,7 @@ export interface PrizePoolAbi extends BaseContract {
       _maxExitFeeMantissa: BigNumberish,
       _maxTimelockDuration: BigNumberish,
       _stakeToken: string,
-      overrides?: CallOverrides,
+      overrides?: CallOverrides
     ): Promise<void>;
 
     liquidityCap(overrides?: CallOverrides): Promise<BigNumber>;
@@ -879,24 +1183,39 @@ export interface PrizePoolAbi extends BaseContract {
       _controlledToken: string,
       _creditRateMantissa: BigNumberish,
       _creditLimitMantissa: BigNumberish,
-      overrides?: CallOverrides,
+      overrides?: CallOverrides
     ): Promise<void>;
 
-    setLiquidityCap(_liquidityCap: BigNumberish, overrides?: CallOverrides): Promise<void>;
+    setLiquidityCap(
+      _liquidityCap: BigNumberish,
+      overrides?: CallOverrides
+    ): Promise<void>;
 
-    setPrizeStrategy(_prizeStrategy: string, overrides?: CallOverrides): Promise<void>;
+    setPrizeStrategy(
+      _prizeStrategy: string,
+      overrides?: CallOverrides
+    ): Promise<void>;
 
-    sweepTimelockBalances(users: string[], overrides?: CallOverrides): Promise<BigNumber>;
+    sweepTimelockBalances(
+      users: string[],
+      overrides?: CallOverrides
+    ): Promise<BigNumber>;
 
-    timelockBalanceAvailableAt(user: string, overrides?: CallOverrides): Promise<BigNumber>;
+    timelockBalanceAvailableAt(
+      user: string,
+      overrides?: CallOverrides
+    ): Promise<BigNumber>;
 
-    timelockBalanceOf(user: string, overrides?: CallOverrides): Promise<BigNumber>;
+    timelockBalanceOf(
+      user: string,
+      overrides?: CallOverrides
+    ): Promise<BigNumber>;
 
     timelockDepositTo(
       to: string,
       amount: BigNumberish,
       controlledToken: string,
-      overrides?: CallOverrides,
+      overrides?: CallOverrides
     ): Promise<void>;
 
     timelockTotalSupply(overrides?: CallOverrides): Promise<BigNumber>;
@@ -909,17 +1228,20 @@ export interface PrizePoolAbi extends BaseContract {
       to: string,
       externalToken: string,
       amount: BigNumberish,
-      overrides?: CallOverrides,
+      overrides?: CallOverrides
     ): Promise<void>;
 
-    transferOwnership(newOwner: string, overrides?: CallOverrides): Promise<void>;
+    transferOwnership(
+      newOwner: string,
+      overrides?: CallOverrides
+    ): Promise<void>;
 
     withdrawInstantlyFrom(
       from: string,
       amount: BigNumberish,
       controlledToken: string,
       maximumExitFee: BigNumberish,
-      overrides?: CallOverrides,
+      overrides?: CallOverrides
     ): Promise<BigNumber>;
 
     withdrawReserve(to: string, overrides?: CallOverrides): Promise<BigNumber>;
@@ -928,7 +1250,7 @@ export interface PrizePoolAbi extends BaseContract {
       from: string,
       amount: BigNumberish,
       controlledToken: string,
-      overrides?: CallOverrides,
+      overrides?: CallOverrides
     ): Promise<BigNumber>;
   };
 
@@ -939,73 +1261,101 @@ export interface PrizePoolAbi extends BaseContract {
     "Awarded(address,address,uint256)"(
       winner?: string | null,
       token?: string | null,
-      amount?: null,
+      amount?: null
     ): AwardedEventFilter;
-    Awarded(winner?: string | null, token?: string | null, amount?: null): AwardedEventFilter;
+    Awarded(
+      winner?: string | null,
+      token?: string | null,
+      amount?: null
+    ): AwardedEventFilter;
 
     "AwardedExternalERC20(address,address,uint256)"(
       winner?: string | null,
       token?: string | null,
-      amount?: null,
+      amount?: null
     ): AwardedExternalERC20EventFilter;
-    AwardedExternalERC20(winner?: string | null, token?: string | null, amount?: null): AwardedExternalERC20EventFilter;
+    AwardedExternalERC20(
+      winner?: string | null,
+      token?: string | null,
+      amount?: null
+    ): AwardedExternalERC20EventFilter;
 
     "AwardedExternalERC721(address,address,uint256[])"(
       winner?: string | null,
       token?: string | null,
-      tokenIds?: null,
+      tokenIds?: null
     ): AwardedExternalERC721EventFilter;
     AwardedExternalERC721(
       winner?: string | null,
       token?: string | null,
-      tokenIds?: null,
+      tokenIds?: null
     ): AwardedExternalERC721EventFilter;
 
-    "ControlledTokenAdded(address)"(token?: string | null): ControlledTokenAddedEventFilter;
-    ControlledTokenAdded(token?: string | null): ControlledTokenAddedEventFilter;
+    "ControlledTokenAdded(address)"(
+      token?: string | null
+    ): ControlledTokenAddedEventFilter;
+    ControlledTokenAdded(
+      token?: string | null
+    ): ControlledTokenAddedEventFilter;
 
     "CreditBurned(address,address,uint256)"(
       user?: string | null,
       token?: string | null,
-      amount?: null,
+      amount?: null
     ): CreditBurnedEventFilter;
-    CreditBurned(user?: string | null, token?: string | null, amount?: null): CreditBurnedEventFilter;
+    CreditBurned(
+      user?: string | null,
+      token?: string | null,
+      amount?: null
+    ): CreditBurnedEventFilter;
 
     "CreditMinted(address,address,uint256)"(
       user?: string | null,
       token?: string | null,
-      amount?: null,
+      amount?: null
     ): CreditMintedEventFilter;
-    CreditMinted(user?: string | null, token?: string | null, amount?: null): CreditMintedEventFilter;
+    CreditMinted(
+      user?: string | null,
+      token?: string | null,
+      amount?: null
+    ): CreditMintedEventFilter;
 
     "CreditPlanSet(address,uint128,uint128)"(
       token?: null,
       creditLimitMantissa?: null,
-      creditRateMantissa?: null,
+      creditRateMantissa?: null
     ): CreditPlanSetEventFilter;
-    CreditPlanSet(token?: null, creditLimitMantissa?: null, creditRateMantissa?: null): CreditPlanSetEventFilter;
+    CreditPlanSet(
+      token?: null,
+      creditLimitMantissa?: null,
+      creditRateMantissa?: null
+    ): CreditPlanSetEventFilter;
 
     "Deposited(address,address,address,uint256,address)"(
       operator?: string | null,
       to?: string | null,
       token?: string | null,
       amount?: null,
-      referrer?: null,
+      referrer?: null
     ): DepositedEventFilter;
     Deposited(
       operator?: string | null,
       to?: string | null,
       token?: string | null,
       amount?: null,
-      referrer?: null,
+      referrer?: null
     ): DepositedEventFilter;
 
     "Initialized(address,uint256,uint256)"(
       reserveRegistry?: null,
       maxExitFeeMantissa?: null,
-      maxTimelockDuration?: null,
+      maxTimelockDuration?: null
     ): InitializedEventFilter;
-    Initialized(reserveRegistry?: null, maxExitFeeMantissa?: null, maxTimelockDuration?: null): InitializedEventFilter;
+    Initialized(
+      reserveRegistry?: null,
+      maxExitFeeMantissa?: null,
+      maxTimelockDuration?: null
+    ): InitializedEventFilter;
 
     "InstantWithdrawal(address,address,address,uint256,uint256,uint256)"(
       operator?: string | null,
@@ -1013,7 +1363,7 @@ export interface PrizePoolAbi extends BaseContract {
       token?: string | null,
       amount?: null,
       redeemed?: null,
-      exitFee?: null,
+      exitFee?: null
     ): InstantWithdrawalEventFilter;
     InstantWithdrawal(
       operator?: string | null,
@@ -1021,7 +1371,7 @@ export interface PrizePoolAbi extends BaseContract {
       token?: string | null,
       amount?: null,
       redeemed?: null,
-      exitFee?: null,
+      exitFee?: null
     ): InstantWithdrawalEventFilter;
 
     "LiquidityCapSet(uint256)"(liquidityCap?: null): LiquidityCapSetEventFilter;
@@ -1029,33 +1379,50 @@ export interface PrizePoolAbi extends BaseContract {
 
     "OwnershipTransferred(address,address)"(
       previousOwner?: string | null,
-      newOwner?: string | null,
+      newOwner?: string | null
     ): OwnershipTransferredEventFilter;
-    OwnershipTransferred(previousOwner?: string | null, newOwner?: string | null): OwnershipTransferredEventFilter;
+    OwnershipTransferred(
+      previousOwner?: string | null,
+      newOwner?: string | null
+    ): OwnershipTransferredEventFilter;
 
-    "PrizeStrategySet(address)"(prizeStrategy?: string | null): PrizeStrategySetEventFilter;
-    PrizeStrategySet(prizeStrategy?: string | null): PrizeStrategySetEventFilter;
+    "PrizeStrategySet(address)"(
+      prizeStrategy?: string | null
+    ): PrizeStrategySetEventFilter;
+    PrizeStrategySet(
+      prizeStrategy?: string | null
+    ): PrizeStrategySetEventFilter;
 
     "ReserveFeeCaptured(uint256)"(amount?: null): ReserveFeeCapturedEventFilter;
     ReserveFeeCaptured(amount?: null): ReserveFeeCapturedEventFilter;
 
-    "ReserveWithdrawal(address,uint256)"(to?: string | null, amount?: null): ReserveWithdrawalEventFilter;
-    ReserveWithdrawal(to?: string | null, amount?: null): ReserveWithdrawalEventFilter;
+    "ReserveWithdrawal(address,uint256)"(
+      to?: string | null,
+      amount?: null
+    ): ReserveWithdrawalEventFilter;
+    ReserveWithdrawal(
+      to?: string | null,
+      amount?: null
+    ): ReserveWithdrawalEventFilter;
 
-    "StakePrizePoolInitialized(address)"(stakeToken?: string | null): StakePrizePoolInitializedEventFilter;
-    StakePrizePoolInitialized(stakeToken?: string | null): StakePrizePoolInitializedEventFilter;
+    "StakePrizePoolInitialized(address)"(
+      stakeToken?: string | null
+    ): StakePrizePoolInitializedEventFilter;
+    StakePrizePoolInitialized(
+      stakeToken?: string | null
+    ): StakePrizePoolInitializedEventFilter;
 
     "TimelockDeposited(address,address,address,uint256)"(
       operator?: string | null,
       to?: string | null,
       token?: string | null,
-      amount?: null,
+      amount?: null
     ): TimelockDepositedEventFilter;
     TimelockDeposited(
       operator?: string | null,
       to?: string | null,
       token?: string | null,
-      amount?: null,
+      amount?: null
     ): TimelockDepositedEventFilter;
 
     "TimelockedWithdrawal(address,address,address,uint256,uint256)"(
@@ -1063,38 +1430,38 @@ export interface PrizePoolAbi extends BaseContract {
       from?: string | null,
       token?: string | null,
       amount?: null,
-      unlockTimestamp?: null,
+      unlockTimestamp?: null
     ): TimelockedWithdrawalEventFilter;
     TimelockedWithdrawal(
       operator?: string | null,
       from?: string | null,
       token?: string | null,
       amount?: null,
-      unlockTimestamp?: null,
+      unlockTimestamp?: null
     ): TimelockedWithdrawalEventFilter;
 
     "TimelockedWithdrawalSwept(address,address,uint256,uint256)"(
       operator?: string | null,
       from?: string | null,
       amount?: null,
-      redeemed?: null,
+      redeemed?: null
     ): TimelockedWithdrawalSweptEventFilter;
     TimelockedWithdrawalSwept(
       operator?: string | null,
       from?: string | null,
       amount?: null,
-      redeemed?: null,
+      redeemed?: null
     ): TimelockedWithdrawalSweptEventFilter;
 
     "TransferredExternalERC20(address,address,uint256)"(
       to?: string | null,
       token?: string | null,
-      amount?: null,
+      amount?: null
     ): TransferredExternalERC20EventFilter;
     TransferredExternalERC20(
       to?: string | null,
       token?: string | null,
-      amount?: null,
+      amount?: null
     ): TransferredExternalERC20EventFilter;
   };
 
@@ -1105,7 +1472,7 @@ export interface PrizePoolAbi extends BaseContract {
       to: string,
       amount: BigNumberish,
       controlledToken: string,
-      overrides?: Overrides & { from?: string | Promise<string> },
+      overrides?: Overrides & { from?: string | Promise<string> }
     ): Promise<BigNumber>;
 
     awardBalance(overrides?: CallOverrides): Promise<BigNumber>;
@@ -1114,72 +1481,85 @@ export interface PrizePoolAbi extends BaseContract {
       to: string,
       externalToken: string,
       amount: BigNumberish,
-      overrides?: Overrides & { from?: string | Promise<string> },
+      overrides?: Overrides & { from?: string | Promise<string> }
     ): Promise<BigNumber>;
 
     awardExternalERC721(
       to: string,
       externalToken: string,
       tokenIds: BigNumberish[],
-      overrides?: Overrides & { from?: string | Promise<string> },
+      overrides?: Overrides & { from?: string | Promise<string> }
     ): Promise<BigNumber>;
 
-    balance(overrides?: Overrides & { from?: string | Promise<string> }): Promise<BigNumber>;
+    balance(
+      overrides?: Overrides & { from?: string | Promise<string> }
+    ): Promise<BigNumber>;
 
     balanceOfCredit(
       user: string,
       controlledToken: string,
-      overrides?: Overrides & { from?: string | Promise<string> },
+      overrides?: Overrides & { from?: string | Promise<string> }
     ): Promise<BigNumber>;
 
     beforeTokenTransfer(
       from: string,
       to: string,
       amount: BigNumberish,
-      overrides?: Overrides & { from?: string | Promise<string> },
+      overrides?: Overrides & { from?: string | Promise<string> }
     ): Promise<BigNumber>;
 
     calculateEarlyExitFee(
       from: string,
       controlledToken: string,
       amount: BigNumberish,
-      overrides?: Overrides & { from?: string | Promise<string> },
+      overrides?: Overrides & { from?: string | Promise<string> }
     ): Promise<BigNumber>;
 
-    calculateReserveFee(amount: BigNumberish, overrides?: CallOverrides): Promise<BigNumber>;
+    calculateReserveFee(
+      amount: BigNumberish,
+      overrides?: CallOverrides
+    ): Promise<BigNumber>;
 
     calculateTimelockDuration(
       from: string,
       controlledToken: string,
       amount: BigNumberish,
-      overrides?: Overrides & { from?: string | Promise<string> },
+      overrides?: Overrides & { from?: string | Promise<string> }
     ): Promise<BigNumber>;
 
-    canAwardExternal(_externalToken: string, overrides?: CallOverrides): Promise<BigNumber>;
+    canAwardExternal(
+      _externalToken: string,
+      overrides?: CallOverrides
+    ): Promise<BigNumber>;
 
-    captureAwardBalance(overrides?: Overrides & { from?: string | Promise<string> }): Promise<BigNumber>;
+    captureAwardBalance(
+      overrides?: Overrides & { from?: string | Promise<string> }
+    ): Promise<BigNumber>;
 
     compLikeDelegate(
       compLike: string,
       to: string,
-      overrides?: Overrides & { from?: string | Promise<string> },
+      overrides?: Overrides & { from?: string | Promise<string> }
     ): Promise<BigNumber>;
 
-    creditPlanOf(controlledToken: string, overrides?: CallOverrides): Promise<BigNumber>;
+    creditPlanOf(
+      controlledToken: string,
+      overrides?: CallOverrides
+    ): Promise<BigNumber>;
 
     depositTo(
       to: string,
       amount: BigNumberish,
       controlledToken: string,
       referrer: string,
-      overrides?: Overrides & { from?: string | Promise<string> },
+      overrides?: Overrides & { from?: string | Promise<string> }
     ): Promise<BigNumber>;
 
     estimateCreditAccrualTime(
       _controlledToken: string,
       _principal: BigNumberish,
       _interest: BigNumberish,
-      overrides?: CallOverrides,
+      overrides?: CallOverrides
     ): Promise<BigNumber>;
 
     "initialize(address,address[],uint256,uint256)"(
@@ -1187,7 +1567,7 @@ export interface PrizePoolAbi extends BaseContract {
       _controlledTokens: string[],
       _maxExitFeeMantissa: BigNumberish,
       _maxTimelockDuration: BigNumberish,
-      overrides?: Overrides & { from?: string | Promise<string> },
+      overrides?: Overrides & { from?: string | Promise<string> }
     ): Promise<BigNumber>;
 
     "initialize(address,address[],uint256,uint256,address)"(
@@ -1196,7 +1576,7 @@ export interface PrizePoolAbi extends BaseContract {
       _maxExitFeeMantissa: BigNumberish,
       _maxTimelockDuration: BigNumberish,
       _stakeToken: string,
-      overrides?: Overrides & { from?: string | Promise<string> },
+      overrides?: Overrides & { from?: string | Promise<string> }
     ): Promise<BigNumber>;
 
     liquidityCap(overrides?: CallOverrides): Promise<BigNumber>;
@@ -1209,7 +1589,9 @@ export interface PrizePoolAbi extends BaseContract {
 
     prizeStrategy(overrides?: CallOverrides): Promise<BigNumber>;
 
-    renounceOwnership(overrides?: Overrides & { from?: string | Promise<string> }): Promise<BigNumber>;
+    renounceOwnership(
+      overrides?: Overrides & { from?: string | Promise<string> }
+    ): Promise<BigNumber>;
 
     reserveRegistry(overrides?: CallOverrides): Promise<BigNumber>;
 
@@ -1219,33 +1601,39 @@ export interface PrizePoolAbi extends BaseContract {
       _controlledToken: string,
       _creditRateMantissa: BigNumberish,
       _creditLimitMantissa: BigNumberish,
-      overrides?: Overrides & { from?: string | Promise<string> },
+      overrides?: Overrides & { from?: string | Promise<string> }
     ): Promise<BigNumber>;
 
     setLiquidityCap(
       _liquidityCap: BigNumberish,
-      overrides?: Overrides & { from?: string | Promise<string> },
+      overrides?: Overrides & { from?: string | Promise<string> }
     ): Promise<BigNumber>;
 
     setPrizeStrategy(
       _prizeStrategy: string,
-      overrides?: Overrides & { from?: string | Promise<string> },
+      overrides?: Overrides & { from?: string | Promise<string> }
     ): Promise<BigNumber>;
 
     sweepTimelockBalances(
       users: string[],
-      overrides?: Overrides & { from?: string | Promise<string> },
+      overrides?: Overrides & { from?: string | Promise<string> }
     ): Promise<BigNumber>;
 
-    timelockBalanceAvailableAt(user: string, overrides?: CallOverrides): Promise<BigNumber>;
+    timelockBalanceAvailableAt(
+      user: string,
+      overrides?: CallOverrides
+    ): Promise<BigNumber>;
 
-    timelockBalanceOf(user: string, overrides?: CallOverrides): Promise<BigNumber>;
+    timelockBalanceOf(
+      user: string,
+      overrides?: CallOverrides
+    ): Promise<BigNumber>;
 
     timelockDepositTo(
       to: string,
       amount: BigNumberish,
       controlledToken: string,
-      overrides?: Overrides & { from?: string | Promise<string> },
+      overrides?: Overrides & { from?: string | Promise<string> }
     ): Promise<BigNumber>;
 
     timelockTotalSupply(overrides?: CallOverrides): Promise<BigNumber>;
@@ -1258,12 +1646,12 @@ export interface PrizePoolAbi extends BaseContract {
       to: string,
       externalToken: string,
       amount: BigNumberish,
-      overrides?: Overrides & { from?: string | Promise<string> },
+      overrides?: Overrides & { from?: string | Promise<string> }
     ): Promise<BigNumber>;
 
     transferOwnership(
       newOwner: string,
-      overrides?: Overrides & { from?: string | Promise<string> },
+      overrides?: Overrides & { from?: string | Promise<string> }
     ): Promise<BigNumber>;
 
     withdrawInstantlyFrom(
@@ -1271,16 +1659,19 @@ export interface PrizePoolAbi extends BaseContract {
       amount: BigNumberish,
       controlledToken: string,
       maximumExitFee: BigNumberish,
-      overrides?: Overrides & { from?: string | Promise<string> },
+      overrides?: Overrides & { from?: string | Promise<string> }
     ): Promise<BigNumber>;
 
-    withdrawReserve(to: string, overrides?: Overrides & { from?: string | Promise<string> }): Promise<BigNumber>;
+    withdrawReserve(
+      to: string,
+      overrides?: Overrides & { from?: string | Promise<string> }
+    ): Promise<BigNumber>;
 
     withdrawWithTimelockFrom(
       from: string,
       amount: BigNumberish,
       controlledToken: string,
-      overrides?: Overrides & { from?: string | Promise<string> },
+      overrides?: Overrides & { from?: string | Promise<string> }
     ): Promise<BigNumber>;
   };
 
@@ -1291,7 +1682,7 @@ export interface PrizePoolAbi extends BaseContract {
       to: string,
       amount: BigNumberish,
       controlledToken: string,
-      overrides?: Overrides & { from?: string | Promise<string> },
+      overrides?: Overrides & { from?: string | Promise<string> }
     ): Promise<PopulatedTransaction>;
 
     awardBalance(overrides?: CallOverrides): Promise<PopulatedTransaction>;
@@ -1300,72 +1691,85 @@ export interface PrizePoolAbi extends BaseContract {
       to: string,
       externalToken: string,
       amount: BigNumberish,
-      overrides?: Overrides & { from?: string | Promise<string> },
+      overrides?: Overrides & { from?: string | Promise<string> }
     ): Promise<PopulatedTransaction>;
 
     awardExternalERC721(
       to: string,
       externalToken: string,
       tokenIds: BigNumberish[],
-      overrides?: Overrides & { from?: string | Promise<string> },
+      overrides?: Overrides & { from?: string | Promise<string> }
     ): Promise<PopulatedTransaction>;
 
-    balance(overrides?: Overrides & { from?: string | Promise<string> }): Promise<PopulatedTransaction>;
+    balance(
+      overrides?: Overrides & { from?: string | Promise<string> }
+    ): Promise<PopulatedTransaction>;
 
     balanceOfCredit(
       user: string,
       controlledToken: string,
-      overrides?: Overrides & { from?: string | Promise<string> },
+      overrides?: Overrides & { from?: string | Promise<string> }
     ): Promise<PopulatedTransaction>;
 
     beforeTokenTransfer(
       from: string,
       to: string,
       amount: BigNumberish,
-      overrides?: Overrides & { from?: string | Promise<string> },
+      overrides?: Overrides & { from?: string | Promise<string> }
     ): Promise<PopulatedTransaction>;
 
     calculateEarlyExitFee(
       from: string,
       controlledToken: string,
       amount: BigNumberish,
-      overrides?: Overrides & { from?: string | Promise<string> },
+      overrides?: Overrides & { from?: string | Promise<string> }
     ): Promise<PopulatedTransaction>;
 
-    calculateReserveFee(amount: BigNumberish, overrides?: CallOverrides): Promise<PopulatedTransaction>;
+    calculateReserveFee(
+      amount: BigNumberish,
+      overrides?: CallOverrides
+    ): Promise<PopulatedTransaction>;
 
     calculateTimelockDuration(
       from: string,
       controlledToken: string,
       amount: BigNumberish,
-      overrides?: Overrides & { from?: string | Promise<string> },
+      overrides?: Overrides & { from?: string | Promise<string> }
     ): Promise<PopulatedTransaction>;
 
-    canAwardExternal(_externalToken: string, overrides?: CallOverrides): Promise<PopulatedTransaction>;
+    canAwardExternal(
+      _externalToken: string,
+      overrides?: CallOverrides
+    ): Promise<PopulatedTransaction>;
 
-    captureAwardBalance(overrides?: Overrides & { from?: string | Promise<string> }): Promise<PopulatedTransaction>;
+    captureAwardBalance(
+      overrides?: Overrides & { from?: string | Promise<string> }
+    ): Promise<PopulatedTransaction>;
 
     compLikeDelegate(
       compLike: string,
       to: string,
-      overrides?: Overrides & { from?: string | Promise<string> },
+      overrides?: Overrides & { from?: string | Promise<string> }
     ): Promise<PopulatedTransaction>;
 
-    creditPlanOf(controlledToken: string, overrides?: CallOverrides): Promise<PopulatedTransaction>;
+    creditPlanOf(
+      controlledToken: string,
+      overrides?: CallOverrides
+    ): Promise<PopulatedTransaction>;
 
     depositTo(
       to: string,
       amount: BigNumberish,
       controlledToken: string,
       referrer: string,
-      overrides?: Overrides & { from?: string | Promise<string> },
+      overrides?: Overrides & { from?: string | Promise<string> }
     ): Promise<PopulatedTransaction>;
 
     estimateCreditAccrualTime(
       _controlledToken: string,
       _principal: BigNumberish,
       _interest: BigNumberish,
-      overrides?: CallOverrides,
+      overrides?: CallOverrides
     ): Promise<PopulatedTransaction>;
 
     "initialize(address,address[],uint256,uint256)"(
@@ -1373,7 +1777,7 @@ export interface PrizePoolAbi extends BaseContract {
       _controlledTokens: string[],
       _maxExitFeeMantissa: BigNumberish,
       _maxTimelockDuration: BigNumberish,
-      overrides?: Overrides & { from?: string | Promise<string> },
+      overrides?: Overrides & { from?: string | Promise<string> }
     ): Promise<PopulatedTransaction>;
 
     "initialize(address,address[],uint256,uint256,address)"(
@@ -1382,59 +1786,75 @@ export interface PrizePoolAbi extends BaseContract {
       _maxExitFeeMantissa: BigNumberish,
       _maxTimelockDuration: BigNumberish,
       _stakeToken: string,
-      overrides?: Overrides & { from?: string | Promise<string> },
+      overrides?: Overrides & { from?: string | Promise<string> }
     ): Promise<PopulatedTransaction>;
 
     liquidityCap(overrides?: CallOverrides): Promise<PopulatedTransaction>;
 
-    maxExitFeeMantissa(overrides?: CallOverrides): Promise<PopulatedTransaction>;
+    maxExitFeeMantissa(
+      overrides?: CallOverrides
+    ): Promise<PopulatedTransaction>;
 
-    maxTimelockDuration(overrides?: CallOverrides): Promise<PopulatedTransaction>;
+    maxTimelockDuration(
+      overrides?: CallOverrides
+    ): Promise<PopulatedTransaction>;
 
     owner(overrides?: CallOverrides): Promise<PopulatedTransaction>;
 
     prizeStrategy(overrides?: CallOverrides): Promise<PopulatedTransaction>;
 
-    renounceOwnership(overrides?: Overrides & { from?: string | Promise<string> }): Promise<PopulatedTransaction>;
+    renounceOwnership(
+      overrides?: Overrides & { from?: string | Promise<string> }
+    ): Promise<PopulatedTransaction>;
 
     reserveRegistry(overrides?: CallOverrides): Promise<PopulatedTransaction>;
 
-    reserveTotalSupply(overrides?: CallOverrides): Promise<PopulatedTransaction>;
+    reserveTotalSupply(
+      overrides?: CallOverrides
+    ): Promise<PopulatedTransaction>;
 
     setCreditPlanOf(
       _controlledToken: string,
       _creditRateMantissa: BigNumberish,
       _creditLimitMantissa: BigNumberish,
-      overrides?: Overrides & { from?: string | Promise<string> },
+      overrides?: Overrides & { from?: string | Promise<string> }
     ): Promise<PopulatedTransaction>;
 
     setLiquidityCap(
       _liquidityCap: BigNumberish,
-      overrides?: Overrides & { from?: string | Promise<string> },
+      overrides?: Overrides & { from?: string | Promise<string> }
     ): Promise<PopulatedTransaction>;
 
     setPrizeStrategy(
       _prizeStrategy: string,
-      overrides?: Overrides & { from?: string | Promise<string> },
+      overrides?: Overrides & { from?: string | Promise<string> }
     ): Promise<PopulatedTransaction>;
 
     sweepTimelockBalances(
       users: string[],
-      overrides?: Overrides & { from?: string | Promise<string> },
+      overrides?: Overrides & { from?: string | Promise<string> }
     ): Promise<PopulatedTransaction>;
 
-    timelockBalanceAvailableAt(user: string, overrides?: CallOverrides): Promise<PopulatedTransaction>;
+    timelockBalanceAvailableAt(
+      user: string,
+      overrides?: CallOverrides
+    ): Promise<PopulatedTransaction>;
 
-    timelockBalanceOf(user: string, overrides?: CallOverrides): Promise<PopulatedTransaction>;
+    timelockBalanceOf(
+      user: string,
+      overrides?: CallOverrides
+    ): Promise<PopulatedTransaction>;
 
     timelockDepositTo(
       to: string,
       amount: BigNumberish,
       controlledToken: string,
-      overrides?: Overrides & { from?: string | Promise<string> },
+      overrides?: Overrides & { from?: string | Promise<string> }
     ): Promise<PopulatedTransaction>;
 
-    timelockTotalSupply(overrides?: CallOverrides): Promise<PopulatedTransaction>;
+    timelockTotalSupply(
+      overrides?: CallOverrides
+    ): Promise<PopulatedTransaction>;
 
     token(overrides?: CallOverrides): Promise<PopulatedTransaction>;
 
@@ -1444,12 +1864,12 @@ export interface PrizePoolAbi extends BaseContract {
       to: string,
       externalToken: string,
       amount: BigNumberish,
-      overrides?: Overrides & { from?: string | Promise<string> },
+      overrides?: Overrides & { from?: string | Promise<string> }
     ): Promise<PopulatedTransaction>;
 
     transferOwnership(
       newOwner: string,
-      overrides?: Overrides & { from?: string | Promise<string> },
+      overrides?: Overrides & { from?: string | Promise<string> }
     ): Promise<PopulatedTransaction>;
 
     withdrawInstantlyFrom(
@@ -1457,19 +1877,19 @@ export interface PrizePoolAbi extends BaseContract {
       amount: BigNumberish,
       controlledToken: string,
       maximumExitFee: BigNumberish,
-      overrides?: Overrides & { from?: string | Promise<string> },
+      overrides?: Overrides & { from?: string | Promise<string> }
     ): Promise<PopulatedTransaction>;
 
     withdrawReserve(
       to: string,
-      overrides?: Overrides & { from?: string | Promise<string> },
+      overrides?: Overrides & { from?: string | Promise<string> }
     ): Promise<PopulatedTransaction>;
 
     withdrawWithTimelockFrom(
       from: string,
       amount: BigNumberish,
       controlledToken: string,
-      overrides?: Overrides & { from?: string | Promise<string> },
+      overrides?: Overrides & { from?: string | Promise<string> }
     ): Promise<PopulatedTransaction>;
   };
 }

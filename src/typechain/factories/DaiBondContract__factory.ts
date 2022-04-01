@@ -4,7 +4,10 @@
 
 import { Contract, Signer, utils } from "ethers";
 import { Provider } from "@ethersproject/providers";
-import type { DaiBondContract, DaiBondContractInterface } from "../DaiBondContract";
+import type {
+  DaiBondContract,
+  DaiBondContractInterface,
+} from "../DaiBondContract";
 
 const _abi = [
   {
@@ -565,7 +568,10 @@ export class DaiBondContract__factory {
   static createInterface(): DaiBondContractInterface {
     return new utils.Interface(_abi) as DaiBondContractInterface;
   }
-  static connect(address: string, signerOrProvider: Signer | Provider): DaiBondContract {
+  static connect(
+    address: string,
+    signerOrProvider: Signer | Provider
+  ): DaiBondContract {
     return new Contract(address, _abi, signerOrProvider) as DaiBondContract;
   }
 }

@@ -69,7 +69,10 @@ export class StakingHelper__factory {
   static createInterface(): StakingHelperInterface {
     return new utils.Interface(_abi) as StakingHelperInterface;
   }
-  static connect(address: string, signerOrProvider: Signer | Provider): StakingHelper {
+  static connect(
+    address: string,
+    signerOrProvider: Signer | Provider
+  ): StakingHelper {
     return new Contract(address, _abi, signerOrProvider) as StakingHelper;
   }
 }

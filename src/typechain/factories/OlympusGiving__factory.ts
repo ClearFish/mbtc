@@ -556,7 +556,10 @@ export class OlympusGiving__factory {
   static createInterface(): OlympusGivingInterface {
     return new utils.Interface(_abi) as OlympusGivingInterface;
   }
-  static connect(address: string, signerOrProvider: Signer | Provider): OlympusGiving {
+  static connect(
+    address: string,
+    signerOrProvider: Signer | Provider
+  ): OlympusGiving {
     return new Contract(address, _abi, signerOrProvider) as OlympusGiving;
   }
 }

@@ -4,7 +4,10 @@
 
 import { Contract, Signer, utils } from "ethers";
 import { Provider } from "@ethersproject/providers";
-import type { OlympusStaking, OlympusStakingInterface } from "../OlympusStaking";
+import type {
+  OlympusStaking,
+  OlympusStakingInterface,
+} from "../OlympusStaking";
 
 const _abi = [
   {
@@ -435,7 +438,10 @@ export class OlympusStaking__factory {
   static createInterface(): OlympusStakingInterface {
     return new utils.Interface(_abi) as OlympusStakingInterface;
   }
-  static connect(address: string, signerOrProvider: Signer | Provider): OlympusStaking {
+  static connect(
+    address: string,
+    signerOrProvider: Signer | Provider
+  ): OlympusStaking {
     return new Contract(address, _abi, signerOrProvider) as OlympusStaking;
   }
 }

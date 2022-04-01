@@ -721,7 +721,10 @@ export class V2sOhmNew__factory {
   static createInterface(): V2sOhmNewInterface {
     return new utils.Interface(_abi) as V2sOhmNewInterface;
   }
-  static connect(address: string, signerOrProvider: Signer | Provider): V2sOhmNew {
+  static connect(
+    address: string,
+    signerOrProvider: Signer | Provider
+  ): V2sOhmNew {
     return new Contract(address, _abi, signerOrProvider) as V2sOhmNew;
   }
 }

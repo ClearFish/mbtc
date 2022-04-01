@@ -810,7 +810,10 @@ export class FraxContract__factory {
   static createInterface(): FraxContractInterface {
     return new utils.Interface(_abi) as FraxContractInterface;
   }
-  static connect(address: string, signerOrProvider: Signer | Provider): FraxContract {
+  static connect(
+    address: string,
+    signerOrProvider: Signer | Provider
+  ): FraxContract {
     return new Contract(address, _abi, signerOrProvider) as FraxContract;
   }
 }

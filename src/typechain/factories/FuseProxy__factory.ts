@@ -1726,7 +1726,10 @@ export class FuseProxy__factory {
   static createInterface(): FuseProxyInterface {
     return new utils.Interface(_abi) as FuseProxyInterface;
   }
-  static connect(address: string, signerOrProvider: Signer | Provider): FuseProxy {
+  static connect(
+    address: string,
+    signerOrProvider: Signer | Provider
+  ): FuseProxy {
     return new Contract(address, _abi, signerOrProvider) as FuseProxy;
   }
 }

@@ -155,7 +155,10 @@ export class RedeemHelper__factory {
   static createInterface(): RedeemHelperInterface {
     return new utils.Interface(_abi) as RedeemHelperInterface;
   }
-  static connect(address: string, signerOrProvider: Signer | Provider): RedeemHelper {
+  static connect(
+    address: string,
+    signerOrProvider: Signer | Provider
+  ): RedeemHelper {
     return new Contract(address, _abi, signerOrProvider) as RedeemHelper;
   }
 }

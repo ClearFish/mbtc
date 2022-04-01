@@ -45,48 +45,108 @@ export interface OlympusStakingv2Interface extends utils.Interface {
 
   encodeFunctionData(functionFragment: "OHM", values?: undefined): string;
   encodeFunctionData(functionFragment: "authority", values?: undefined): string;
-  encodeFunctionData(functionFragment: "claim", values: [string, boolean]): string;
-  encodeFunctionData(functionFragment: "distributor", values?: undefined): string;
+  encodeFunctionData(
+    functionFragment: "claim",
+    values: [string, boolean]
+  ): string;
+  encodeFunctionData(
+    functionFragment: "distributor",
+    values?: undefined
+  ): string;
   encodeFunctionData(functionFragment: "epoch", values?: undefined): string;
   encodeFunctionData(functionFragment: "forfeit", values?: undefined): string;
   encodeFunctionData(functionFragment: "gOHM", values?: undefined): string;
   encodeFunctionData(functionFragment: "index", values?: undefined): string;
   encodeFunctionData(functionFragment: "rebase", values?: undefined): string;
   encodeFunctionData(functionFragment: "sOHM", values?: undefined): string;
-  encodeFunctionData(functionFragment: "secondsToNextEpoch", values?: undefined): string;
-  encodeFunctionData(functionFragment: "setAuthority", values: [string]): string;
-  encodeFunctionData(functionFragment: "setDistributor", values: [string]): string;
-  encodeFunctionData(functionFragment: "setWarmupLength", values: [BigNumberish]): string;
-  encodeFunctionData(functionFragment: "stake", values: [string, BigNumberish, boolean, boolean]): string;
-  encodeFunctionData(functionFragment: "supplyInWarmup", values?: undefined): string;
-  encodeFunctionData(functionFragment: "toggleLock", values?: undefined): string;
-  encodeFunctionData(functionFragment: "unstake", values: [string, BigNumberish, boolean, boolean]): string;
-  encodeFunctionData(functionFragment: "unwrap", values: [string, BigNumberish]): string;
+  encodeFunctionData(
+    functionFragment: "secondsToNextEpoch",
+    values?: undefined
+  ): string;
+  encodeFunctionData(
+    functionFragment: "setAuthority",
+    values: [string]
+  ): string;
+  encodeFunctionData(
+    functionFragment: "setDistributor",
+    values: [string]
+  ): string;
+  encodeFunctionData(
+    functionFragment: "setWarmupLength",
+    values: [BigNumberish]
+  ): string;
+  encodeFunctionData(
+    functionFragment: "stake",
+    values: [string, BigNumberish, boolean, boolean]
+  ): string;
+  encodeFunctionData(
+    functionFragment: "supplyInWarmup",
+    values?: undefined
+  ): string;
+  encodeFunctionData(
+    functionFragment: "toggleLock",
+    values?: undefined
+  ): string;
+  encodeFunctionData(
+    functionFragment: "unstake",
+    values: [string, BigNumberish, boolean, boolean]
+  ): string;
+  encodeFunctionData(
+    functionFragment: "unwrap",
+    values: [string, BigNumberish]
+  ): string;
   encodeFunctionData(functionFragment: "warmupInfo", values: [string]): string;
-  encodeFunctionData(functionFragment: "warmupPeriod", values?: undefined): string;
-  encodeFunctionData(functionFragment: "wrap", values: [string, BigNumberish]): string;
+  encodeFunctionData(
+    functionFragment: "warmupPeriod",
+    values?: undefined
+  ): string;
+  encodeFunctionData(
+    functionFragment: "wrap",
+    values: [string, BigNumberish]
+  ): string;
 
   decodeFunctionResult(functionFragment: "OHM", data: BytesLike): Result;
   decodeFunctionResult(functionFragment: "authority", data: BytesLike): Result;
   decodeFunctionResult(functionFragment: "claim", data: BytesLike): Result;
-  decodeFunctionResult(functionFragment: "distributor", data: BytesLike): Result;
+  decodeFunctionResult(
+    functionFragment: "distributor",
+    data: BytesLike
+  ): Result;
   decodeFunctionResult(functionFragment: "epoch", data: BytesLike): Result;
   decodeFunctionResult(functionFragment: "forfeit", data: BytesLike): Result;
   decodeFunctionResult(functionFragment: "gOHM", data: BytesLike): Result;
   decodeFunctionResult(functionFragment: "index", data: BytesLike): Result;
   decodeFunctionResult(functionFragment: "rebase", data: BytesLike): Result;
   decodeFunctionResult(functionFragment: "sOHM", data: BytesLike): Result;
-  decodeFunctionResult(functionFragment: "secondsToNextEpoch", data: BytesLike): Result;
-  decodeFunctionResult(functionFragment: "setAuthority", data: BytesLike): Result;
-  decodeFunctionResult(functionFragment: "setDistributor", data: BytesLike): Result;
-  decodeFunctionResult(functionFragment: "setWarmupLength", data: BytesLike): Result;
+  decodeFunctionResult(
+    functionFragment: "secondsToNextEpoch",
+    data: BytesLike
+  ): Result;
+  decodeFunctionResult(
+    functionFragment: "setAuthority",
+    data: BytesLike
+  ): Result;
+  decodeFunctionResult(
+    functionFragment: "setDistributor",
+    data: BytesLike
+  ): Result;
+  decodeFunctionResult(
+    functionFragment: "setWarmupLength",
+    data: BytesLike
+  ): Result;
   decodeFunctionResult(functionFragment: "stake", data: BytesLike): Result;
-  decodeFunctionResult(functionFragment: "supplyInWarmup", data: BytesLike): Result;
+  decodeFunctionResult(
+    functionFragment: "supplyInWarmup",
+    data: BytesLike
+  ): Result;
   decodeFunctionResult(functionFragment: "toggleLock", data: BytesLike): Result;
   decodeFunctionResult(functionFragment: "unstake", data: BytesLike): Result;
   decodeFunctionResult(functionFragment: "unwrap", data: BytesLike): Result;
   decodeFunctionResult(functionFragment: "warmupInfo", data: BytesLike): Result;
-  decodeFunctionResult(functionFragment: "warmupPeriod", data: BytesLike): Result;
+  decodeFunctionResult(
+    functionFragment: "warmupPeriod",
+    data: BytesLike
+  ): Result;
   decodeFunctionResult(functionFragment: "wrap", data: BytesLike): Result;
 
   events: {
@@ -102,7 +162,8 @@ export interface OlympusStakingv2Interface extends utils.Interface {
 
 export type AuthorityUpdatedEvent = TypedEvent<[string], { authority: string }>;
 
-export type AuthorityUpdatedEventFilter = TypedEventFilter<AuthorityUpdatedEvent>;
+export type AuthorityUpdatedEventFilter =
+  TypedEventFilter<AuthorityUpdatedEvent>;
 
 export type DistributorSetEvent = TypedEvent<[string], { distributor: string }>;
 
@@ -122,12 +183,16 @@ export interface OlympusStakingv2 extends BaseContract {
   queryFilter<TEvent extends TypedEvent>(
     event: TypedEventFilter<TEvent>,
     fromBlockOrBlockhash?: string | number | undefined,
-    toBlock?: string | number | undefined,
+    toBlock?: string | number | undefined
   ): Promise<Array<TEvent>>;
 
-  listeners<TEvent extends TypedEvent>(eventFilter?: TypedEventFilter<TEvent>): Array<TypedListener<TEvent>>;
+  listeners<TEvent extends TypedEvent>(
+    eventFilter?: TypedEventFilter<TEvent>
+  ): Array<TypedListener<TEvent>>;
   listeners(eventName?: string): Array<Listener>;
-  removeAllListeners<TEvent extends TypedEvent>(eventFilter: TypedEventFilter<TEvent>): this;
+  removeAllListeners<TEvent extends TypedEvent>(
+    eventFilter: TypedEventFilter<TEvent>
+  ): this;
   removeAllListeners(eventName?: string): this;
   off: OnEvent<this>;
   on: OnEvent<this>;
@@ -142,12 +207,14 @@ export interface OlympusStakingv2 extends BaseContract {
     claim(
       _to: string,
       _rebasing: boolean,
-      overrides?: Overrides & { from?: string | Promise<string> },
+      overrides?: Overrides & { from?: string | Promise<string> }
     ): Promise<ContractTransaction>;
 
     distributor(overrides?: CallOverrides): Promise<[string]>;
 
-    epoch(overrides?: CallOverrides): Promise<
+    epoch(
+      overrides?: CallOverrides
+    ): Promise<
       [BigNumber, BigNumber, BigNumber, BigNumber] & {
         length: BigNumber;
         number: BigNumber;
@@ -156,13 +223,17 @@ export interface OlympusStakingv2 extends BaseContract {
       }
     >;
 
-    forfeit(overrides?: Overrides & { from?: string | Promise<string> }): Promise<ContractTransaction>;
+    forfeit(
+      overrides?: Overrides & { from?: string | Promise<string> }
+    ): Promise<ContractTransaction>;
 
     gOHM(overrides?: CallOverrides): Promise<[string]>;
 
     index(overrides?: CallOverrides): Promise<[BigNumber]>;
 
-    rebase(overrides?: Overrides & { from?: string | Promise<string> }): Promise<ContractTransaction>;
+    rebase(
+      overrides?: Overrides & { from?: string | Promise<string> }
+    ): Promise<ContractTransaction>;
 
     sOHM(overrides?: CallOverrides): Promise<[string]>;
 
@@ -170,17 +241,17 @@ export interface OlympusStakingv2 extends BaseContract {
 
     setAuthority(
       _newAuthority: string,
-      overrides?: Overrides & { from?: string | Promise<string> },
+      overrides?: Overrides & { from?: string | Promise<string> }
     ): Promise<ContractTransaction>;
 
     setDistributor(
       _distributor: string,
-      overrides?: Overrides & { from?: string | Promise<string> },
+      overrides?: Overrides & { from?: string | Promise<string> }
     ): Promise<ContractTransaction>;
 
     setWarmupLength(
       _warmupPeriod: BigNumberish,
-      overrides?: Overrides & { from?: string | Promise<string> },
+      overrides?: Overrides & { from?: string | Promise<string> }
     ): Promise<ContractTransaction>;
 
     stake(
@@ -188,30 +259,32 @@ export interface OlympusStakingv2 extends BaseContract {
       _amount: BigNumberish,
       _rebasing: boolean,
       _claim: boolean,
-      overrides?: Overrides & { from?: string | Promise<string> },
+      overrides?: Overrides & { from?: string | Promise<string> }
     ): Promise<ContractTransaction>;
 
     supplyInWarmup(overrides?: CallOverrides): Promise<[BigNumber]>;
 
-    toggleLock(overrides?: Overrides & { from?: string | Promise<string> }): Promise<ContractTransaction>;
+    toggleLock(
+      overrides?: Overrides & { from?: string | Promise<string> }
+    ): Promise<ContractTransaction>;
 
     unstake(
       _to: string,
       _amount: BigNumberish,
       _trigger: boolean,
       _rebasing: boolean,
-      overrides?: Overrides & { from?: string | Promise<string> },
+      overrides?: Overrides & { from?: string | Promise<string> }
     ): Promise<ContractTransaction>;
 
     unwrap(
       _to: string,
       _amount: BigNumberish,
-      overrides?: Overrides & { from?: string | Promise<string> },
+      overrides?: Overrides & { from?: string | Promise<string> }
     ): Promise<ContractTransaction>;
 
     warmupInfo(
       arg0: string,
-      overrides?: CallOverrides,
+      overrides?: CallOverrides
     ): Promise<
       [BigNumber, BigNumber, BigNumber, boolean] & {
         deposit: BigNumber;
@@ -226,7 +299,7 @@ export interface OlympusStakingv2 extends BaseContract {
     wrap(
       _to: string,
       _amount: BigNumberish,
-      overrides?: Overrides & { from?: string | Promise<string> },
+      overrides?: Overrides & { from?: string | Promise<string> }
     ): Promise<ContractTransaction>;
   };
 
@@ -237,12 +310,14 @@ export interface OlympusStakingv2 extends BaseContract {
   claim(
     _to: string,
     _rebasing: boolean,
-    overrides?: Overrides & { from?: string | Promise<string> },
+    overrides?: Overrides & { from?: string | Promise<string> }
   ): Promise<ContractTransaction>;
 
   distributor(overrides?: CallOverrides): Promise<string>;
 
-  epoch(overrides?: CallOverrides): Promise<
+  epoch(
+    overrides?: CallOverrides
+  ): Promise<
     [BigNumber, BigNumber, BigNumber, BigNumber] & {
       length: BigNumber;
       number: BigNumber;
@@ -251,13 +326,17 @@ export interface OlympusStakingv2 extends BaseContract {
     }
   >;
 
-  forfeit(overrides?: Overrides & { from?: string | Promise<string> }): Promise<ContractTransaction>;
+  forfeit(
+    overrides?: Overrides & { from?: string | Promise<string> }
+  ): Promise<ContractTransaction>;
 
   gOHM(overrides?: CallOverrides): Promise<string>;
 
   index(overrides?: CallOverrides): Promise<BigNumber>;
 
-  rebase(overrides?: Overrides & { from?: string | Promise<string> }): Promise<ContractTransaction>;
+  rebase(
+    overrides?: Overrides & { from?: string | Promise<string> }
+  ): Promise<ContractTransaction>;
 
   sOHM(overrides?: CallOverrides): Promise<string>;
 
@@ -265,17 +344,17 @@ export interface OlympusStakingv2 extends BaseContract {
 
   setAuthority(
     _newAuthority: string,
-    overrides?: Overrides & { from?: string | Promise<string> },
+    overrides?: Overrides & { from?: string | Promise<string> }
   ): Promise<ContractTransaction>;
 
   setDistributor(
     _distributor: string,
-    overrides?: Overrides & { from?: string | Promise<string> },
+    overrides?: Overrides & { from?: string | Promise<string> }
   ): Promise<ContractTransaction>;
 
   setWarmupLength(
     _warmupPeriod: BigNumberish,
-    overrides?: Overrides & { from?: string | Promise<string> },
+    overrides?: Overrides & { from?: string | Promise<string> }
   ): Promise<ContractTransaction>;
 
   stake(
@@ -283,30 +362,32 @@ export interface OlympusStakingv2 extends BaseContract {
     _amount: BigNumberish,
     _rebasing: boolean,
     _claim: boolean,
-    overrides?: Overrides & { from?: string | Promise<string> },
+    overrides?: Overrides & { from?: string | Promise<string> }
   ): Promise<ContractTransaction>;
 
   supplyInWarmup(overrides?: CallOverrides): Promise<BigNumber>;
 
-  toggleLock(overrides?: Overrides & { from?: string | Promise<string> }): Promise<ContractTransaction>;
+  toggleLock(
+    overrides?: Overrides & { from?: string | Promise<string> }
+  ): Promise<ContractTransaction>;
 
   unstake(
     _to: string,
     _amount: BigNumberish,
     _trigger: boolean,
     _rebasing: boolean,
-    overrides?: Overrides & { from?: string | Promise<string> },
+    overrides?: Overrides & { from?: string | Promise<string> }
   ): Promise<ContractTransaction>;
 
   unwrap(
     _to: string,
     _amount: BigNumberish,
-    overrides?: Overrides & { from?: string | Promise<string> },
+    overrides?: Overrides & { from?: string | Promise<string> }
   ): Promise<ContractTransaction>;
 
   warmupInfo(
     arg0: string,
-    overrides?: CallOverrides,
+    overrides?: CallOverrides
   ): Promise<
     [BigNumber, BigNumber, BigNumber, boolean] & {
       deposit: BigNumber;
@@ -321,7 +402,7 @@ export interface OlympusStakingv2 extends BaseContract {
   wrap(
     _to: string,
     _amount: BigNumberish,
-    overrides?: Overrides & { from?: string | Promise<string> },
+    overrides?: Overrides & { from?: string | Promise<string> }
   ): Promise<ContractTransaction>;
 
   callStatic: {
@@ -329,11 +410,17 @@ export interface OlympusStakingv2 extends BaseContract {
 
     authority(overrides?: CallOverrides): Promise<string>;
 
-    claim(_to: string, _rebasing: boolean, overrides?: CallOverrides): Promise<BigNumber>;
+    claim(
+      _to: string,
+      _rebasing: boolean,
+      overrides?: CallOverrides
+    ): Promise<BigNumber>;
 
     distributor(overrides?: CallOverrides): Promise<string>;
 
-    epoch(overrides?: CallOverrides): Promise<
+    epoch(
+      overrides?: CallOverrides
+    ): Promise<
       [BigNumber, BigNumber, BigNumber, BigNumber] & {
         length: BigNumber;
         number: BigNumber;
@@ -354,18 +441,27 @@ export interface OlympusStakingv2 extends BaseContract {
 
     secondsToNextEpoch(overrides?: CallOverrides): Promise<BigNumber>;
 
-    setAuthority(_newAuthority: string, overrides?: CallOverrides): Promise<void>;
+    setAuthority(
+      _newAuthority: string,
+      overrides?: CallOverrides
+    ): Promise<void>;
 
-    setDistributor(_distributor: string, overrides?: CallOverrides): Promise<void>;
+    setDistributor(
+      _distributor: string,
+      overrides?: CallOverrides
+    ): Promise<void>;
 
-    setWarmupLength(_warmupPeriod: BigNumberish, overrides?: CallOverrides): Promise<void>;
+    setWarmupLength(
+      _warmupPeriod: BigNumberish,
+      overrides?: CallOverrides
+    ): Promise<void>;
 
     stake(
       _to: string,
       _amount: BigNumberish,
       _rebasing: boolean,
       _claim: boolean,
-      overrides?: CallOverrides,
+      overrides?: CallOverrides
     ): Promise<BigNumber>;
 
     supplyInWarmup(overrides?: CallOverrides): Promise<BigNumber>;
@@ -377,14 +473,18 @@ export interface OlympusStakingv2 extends BaseContract {
       _amount: BigNumberish,
       _trigger: boolean,
       _rebasing: boolean,
-      overrides?: CallOverrides,
+      overrides?: CallOverrides
     ): Promise<BigNumber>;
 
-    unwrap(_to: string, _amount: BigNumberish, overrides?: CallOverrides): Promise<BigNumber>;
+    unwrap(
+      _to: string,
+      _amount: BigNumberish,
+      overrides?: CallOverrides
+    ): Promise<BigNumber>;
 
     warmupInfo(
       arg0: string,
-      overrides?: CallOverrides,
+      overrides?: CallOverrides
     ): Promise<
       [BigNumber, BigNumber, BigNumber, boolean] & {
         deposit: BigNumber;
@@ -396,11 +496,17 @@ export interface OlympusStakingv2 extends BaseContract {
 
     warmupPeriod(overrides?: CallOverrides): Promise<BigNumber>;
 
-    wrap(_to: string, _amount: BigNumberish, overrides?: CallOverrides): Promise<BigNumber>;
+    wrap(
+      _to: string,
+      _amount: BigNumberish,
+      overrides?: CallOverrides
+    ): Promise<BigNumber>;
   };
 
   filters: {
-    "AuthorityUpdated(address)"(authority?: string | null): AuthorityUpdatedEventFilter;
+    "AuthorityUpdated(address)"(
+      authority?: string | null
+    ): AuthorityUpdatedEventFilter;
     AuthorityUpdated(authority?: string | null): AuthorityUpdatedEventFilter;
 
     "DistributorSet(address)"(distributor?: null): DistributorSetEventFilter;
@@ -418,20 +524,24 @@ export interface OlympusStakingv2 extends BaseContract {
     claim(
       _to: string,
       _rebasing: boolean,
-      overrides?: Overrides & { from?: string | Promise<string> },
+      overrides?: Overrides & { from?: string | Promise<string> }
     ): Promise<BigNumber>;
 
     distributor(overrides?: CallOverrides): Promise<BigNumber>;
 
     epoch(overrides?: CallOverrides): Promise<BigNumber>;
 
-    forfeit(overrides?: Overrides & { from?: string | Promise<string> }): Promise<BigNumber>;
+    forfeit(
+      overrides?: Overrides & { from?: string | Promise<string> }
+    ): Promise<BigNumber>;
 
     gOHM(overrides?: CallOverrides): Promise<BigNumber>;
 
     index(overrides?: CallOverrides): Promise<BigNumber>;
 
-    rebase(overrides?: Overrides & { from?: string | Promise<string> }): Promise<BigNumber>;
+    rebase(
+      overrides?: Overrides & { from?: string | Promise<string> }
+    ): Promise<BigNumber>;
 
     sOHM(overrides?: CallOverrides): Promise<BigNumber>;
 
@@ -439,17 +549,17 @@ export interface OlympusStakingv2 extends BaseContract {
 
     setAuthority(
       _newAuthority: string,
-      overrides?: Overrides & { from?: string | Promise<string> },
+      overrides?: Overrides & { from?: string | Promise<string> }
     ): Promise<BigNumber>;
 
     setDistributor(
       _distributor: string,
-      overrides?: Overrides & { from?: string | Promise<string> },
+      overrides?: Overrides & { from?: string | Promise<string> }
     ): Promise<BigNumber>;
 
     setWarmupLength(
       _warmupPeriod: BigNumberish,
-      overrides?: Overrides & { from?: string | Promise<string> },
+      overrides?: Overrides & { from?: string | Promise<string> }
     ): Promise<BigNumber>;
 
     stake(
@@ -457,25 +567,27 @@ export interface OlympusStakingv2 extends BaseContract {
       _amount: BigNumberish,
       _rebasing: boolean,
       _claim: boolean,
-      overrides?: Overrides & { from?: string | Promise<string> },
+      overrides?: Overrides & { from?: string | Promise<string> }
     ): Promise<BigNumber>;
 
     supplyInWarmup(overrides?: CallOverrides): Promise<BigNumber>;
 
-    toggleLock(overrides?: Overrides & { from?: string | Promise<string> }): Promise<BigNumber>;
+    toggleLock(
+      overrides?: Overrides & { from?: string | Promise<string> }
+    ): Promise<BigNumber>;
 
     unstake(
       _to: string,
       _amount: BigNumberish,
       _trigger: boolean,
       _rebasing: boolean,
-      overrides?: Overrides & { from?: string | Promise<string> },
+      overrides?: Overrides & { from?: string | Promise<string> }
     ): Promise<BigNumber>;
 
     unwrap(
       _to: string,
       _amount: BigNumberish,
-      overrides?: Overrides & { from?: string | Promise<string> },
+      overrides?: Overrides & { from?: string | Promise<string> }
     ): Promise<BigNumber>;
 
     warmupInfo(arg0: string, overrides?: CallOverrides): Promise<BigNumber>;
@@ -485,7 +597,7 @@ export interface OlympusStakingv2 extends BaseContract {
     wrap(
       _to: string,
       _amount: BigNumberish,
-      overrides?: Overrides & { from?: string | Promise<string> },
+      overrides?: Overrides & { from?: string | Promise<string> }
     ): Promise<BigNumber>;
   };
 
@@ -497,38 +609,44 @@ export interface OlympusStakingv2 extends BaseContract {
     claim(
       _to: string,
       _rebasing: boolean,
-      overrides?: Overrides & { from?: string | Promise<string> },
+      overrides?: Overrides & { from?: string | Promise<string> }
     ): Promise<PopulatedTransaction>;
 
     distributor(overrides?: CallOverrides): Promise<PopulatedTransaction>;
 
     epoch(overrides?: CallOverrides): Promise<PopulatedTransaction>;
 
-    forfeit(overrides?: Overrides & { from?: string | Promise<string> }): Promise<PopulatedTransaction>;
+    forfeit(
+      overrides?: Overrides & { from?: string | Promise<string> }
+    ): Promise<PopulatedTransaction>;
 
     gOHM(overrides?: CallOverrides): Promise<PopulatedTransaction>;
 
     index(overrides?: CallOverrides): Promise<PopulatedTransaction>;
 
-    rebase(overrides?: Overrides & { from?: string | Promise<string> }): Promise<PopulatedTransaction>;
+    rebase(
+      overrides?: Overrides & { from?: string | Promise<string> }
+    ): Promise<PopulatedTransaction>;
 
     sOHM(overrides?: CallOverrides): Promise<PopulatedTransaction>;
 
-    secondsToNextEpoch(overrides?: CallOverrides): Promise<PopulatedTransaction>;
+    secondsToNextEpoch(
+      overrides?: CallOverrides
+    ): Promise<PopulatedTransaction>;
 
     setAuthority(
       _newAuthority: string,
-      overrides?: Overrides & { from?: string | Promise<string> },
+      overrides?: Overrides & { from?: string | Promise<string> }
     ): Promise<PopulatedTransaction>;
 
     setDistributor(
       _distributor: string,
-      overrides?: Overrides & { from?: string | Promise<string> },
+      overrides?: Overrides & { from?: string | Promise<string> }
     ): Promise<PopulatedTransaction>;
 
     setWarmupLength(
       _warmupPeriod: BigNumberish,
-      overrides?: Overrides & { from?: string | Promise<string> },
+      overrides?: Overrides & { from?: string | Promise<string> }
     ): Promise<PopulatedTransaction>;
 
     stake(
@@ -536,35 +654,40 @@ export interface OlympusStakingv2 extends BaseContract {
       _amount: BigNumberish,
       _rebasing: boolean,
       _claim: boolean,
-      overrides?: Overrides & { from?: string | Promise<string> },
+      overrides?: Overrides & { from?: string | Promise<string> }
     ): Promise<PopulatedTransaction>;
 
     supplyInWarmup(overrides?: CallOverrides): Promise<PopulatedTransaction>;
 
-    toggleLock(overrides?: Overrides & { from?: string | Promise<string> }): Promise<PopulatedTransaction>;
+    toggleLock(
+      overrides?: Overrides & { from?: string | Promise<string> }
+    ): Promise<PopulatedTransaction>;
 
     unstake(
       _to: string,
       _amount: BigNumberish,
       _trigger: boolean,
       _rebasing: boolean,
-      overrides?: Overrides & { from?: string | Promise<string> },
+      overrides?: Overrides & { from?: string | Promise<string> }
     ): Promise<PopulatedTransaction>;
 
     unwrap(
       _to: string,
       _amount: BigNumberish,
-      overrides?: Overrides & { from?: string | Promise<string> },
+      overrides?: Overrides & { from?: string | Promise<string> }
     ): Promise<PopulatedTransaction>;
 
-    warmupInfo(arg0: string, overrides?: CallOverrides): Promise<PopulatedTransaction>;
+    warmupInfo(
+      arg0: string,
+      overrides?: CallOverrides
+    ): Promise<PopulatedTransaction>;
 
     warmupPeriod(overrides?: CallOverrides): Promise<PopulatedTransaction>;
 
     wrap(
       _to: string,
       _amount: BigNumberish,
-      overrides?: Overrides & { from?: string | Promise<string> },
+      overrides?: Overrides & { from?: string | Promise<string> }
     ): Promise<PopulatedTransaction>;
   };
 }

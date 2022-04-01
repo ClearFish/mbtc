@@ -810,7 +810,10 @@ export class LusdContract__factory {
   static createInterface(): LusdContractInterface {
     return new utils.Interface(_abi) as LusdContractInterface;
   }
-  static connect(address: string, signerOrProvider: Signer | Provider): LusdContract {
+  static connect(
+    address: string,
+    signerOrProvider: Signer | Provider
+  ): LusdContract {
     return new Contract(address, _abi, signerOrProvider) as LusdContract;
   }
 }

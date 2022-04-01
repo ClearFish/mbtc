@@ -725,7 +725,10 @@ export class UniswapV2Lp__factory {
   static createInterface(): UniswapV2LpInterface {
     return new utils.Interface(_abi) as UniswapV2LpInterface;
   }
-  static connect(address: string, signerOrProvider: Signer | Provider): UniswapV2Lp {
+  static connect(
+    address: string,
+    signerOrProvider: Signer | Provider
+  ): UniswapV2Lp {
     return new Contract(address, _abi, signerOrProvider) as UniswapV2Lp;
   }
 }

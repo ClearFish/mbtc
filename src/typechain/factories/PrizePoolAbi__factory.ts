@@ -1327,7 +1327,10 @@ export class PrizePoolAbi__factory {
   static createInterface(): PrizePoolAbiInterface {
     return new utils.Interface(_abi) as PrizePoolAbiInterface;
   }
-  static connect(address: string, signerOrProvider: Signer | Provider): PrizePoolAbi {
+  static connect(
+    address: string,
+    signerOrProvider: Signer | Provider
+  ): PrizePoolAbi {
     return new Contract(address, _abi, signerOrProvider) as PrizePoolAbi;
   }
 }

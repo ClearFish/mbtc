@@ -737,7 +737,10 @@ export class CvxContract__factory {
   static createInterface(): CvxContractInterface {
     return new utils.Interface(_abi) as CvxContractInterface;
   }
-  static connect(address: string, signerOrProvider: Signer | Provider): CvxContract {
+  static connect(
+    address: string,
+    signerOrProvider: Signer | Provider
+  ): CvxContract {
     return new Contract(address, _abi, signerOrProvider) as CvxContract;
   }
 }
