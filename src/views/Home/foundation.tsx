@@ -7,6 +7,7 @@ import Adrian from "../../assets/images/person/Adrian.jpg";
 import Malik from "../../assets/images/person/Malik.jpg";
 import Haider from "../../assets/images/person/Haider.jpeg";
 import Andy from "../../assets/images/person/Andy.png";
+import Alekwe from "../../assets/images/person/Alekwe.jpg";
 
 import MetaBitcoin from "../../assets/images/meta-bitcoin.png";
 import FoundationTxt from "../../assets/images/foundation.png";
@@ -55,6 +56,11 @@ export function Foundation() {
       info: "Community Captain",
       src: Andy,
     },
+    {
+      name: "Alekwe Kingsley",
+      info: "Marketing and business analyst",
+      src: Alekwe,
+    },
   ];
 
   return (
@@ -65,7 +71,7 @@ export function Foundation() {
             paddingLeft: isSmallScreen || isVerySmallScreen ? "1rem" : "3rem",
             paddingRight: isSmallScreen || isVerySmallScreen ? "1rem" : "3rem",
             paddingTop: isSmallScreen || isVerySmallScreen ? "6rem" : "10rem",
-            paddingBottom: "8rem",
+            paddingBottom: isSmallScreen || isVerySmallScreen ? "4rem" : "8rem",
           }}
           className={isSmallScreen ? "" : "foundation-bg"}
         >
@@ -94,6 +100,17 @@ export function Foundation() {
           </Typography>
           <Typography variant="h4" align="left" className="gradient-text">
             BOARD
+          </Typography>
+          <Typography variant="body1" align="left" className="normal-text">
+            DM
+            <a
+              style={{
+                color: "#D39B33",
+              }}
+            >
+              {` zero2onetdao@gmail.com `}
+            </a>
+            for registering to be a verified member.
           </Typography>
           <Grid container className="board-list" justifyContent="space-between" alignItems="stretch" spacing={1}>
             {personList.map((item, index) => (

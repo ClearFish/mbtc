@@ -226,7 +226,7 @@ export function Home() {
           style={{
             paddingLeft: isSmallScreen || isVerySmallScreen ? "1rem" : "3rem",
             paddingRight: isSmallScreen || isVerySmallScreen ? "1rem" : "3rem",
-            paddingTop: isSmallScreen || isVerySmallScreen ? "6rem" : "13rem",
+            paddingTop: isSmallScreen || isVerySmallScreen ? "5rem" : "13rem",
             position: "relative",
           }}
         >
@@ -235,6 +235,8 @@ export function Home() {
             muted
             autoPlay
             loop
+            playsInline={true}
+            controls={false}
             className="coin-vedio"
           ></video>
           <div className="block-left">
@@ -265,8 +267,8 @@ export function Home() {
           style={{
             paddingLeft: isSmallScreen || isVerySmallScreen ? "1rem" : "3rem",
             paddingRight: isSmallScreen || isVerySmallScreen ? "1rem" : "3rem",
-            paddingTop: isSmallScreen || isVerySmallScreen ? "6rem" : "9rem",
-            display: "flex",
+            paddingTop: isSmallScreen || isVerySmallScreen ? "0rem" : "9rem",
+            display: isSmallScreen ? "block" : "flex",
             justifyContent: "flex-end",
             alignItems: "center",
           }}
@@ -315,7 +317,7 @@ export function Home() {
           style={{
             paddingLeft: isSmallScreen || isVerySmallScreen ? "1rem" : "3rem",
             paddingRight: isSmallScreen || isVerySmallScreen ? "1rem" : "3rem",
-            paddingTop: isSmallScreen || isVerySmallScreen ? "2rem" : "4rem",
+            paddingTop: isSmallScreen || isVerySmallScreen ? "0rem" : "4rem",
           }}
         >
           <Grid container spacing={isSmallScreen ? 3 : 8}>
@@ -325,7 +327,7 @@ export function Home() {
                 href="#/economy#mbtc"
                 underline="none"
                 style={{
-                  background: `url(${CardMBTC})`,
+                  background: `url(${CardMBTC}) no-repeat`,
                   backgroundSize: "100%",
                 }}
               >
@@ -338,7 +340,7 @@ export function Home() {
                 href="#/economy#mfuel"
                 underline="none"
                 style={{
-                  background: `url(${CardMFUEL})`,
+                  background: `url(${CardMFUEL}) no-repeat`,
                   backgroundSize: "100%",
                 }}
               >
@@ -354,7 +356,7 @@ export function Home() {
                 href="#/economy#miner"
                 underline="none"
                 style={{
-                  background: `url(${CardMINER})`,
+                  background: `url(${CardMINER}) no-repeat`,
                   backgroundSize: "100%",
                 }}
               >
@@ -367,7 +369,7 @@ export function Home() {
                 href="#/economy#pool"
                 underline="none"
                 style={{
-                  background: `url(${CardPOOL})`,
+                  background: `url(${CardPOOL}) no-repeat`,
                   backgroundSize: "100%",
                 }}
               >
