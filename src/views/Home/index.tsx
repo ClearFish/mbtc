@@ -282,7 +282,7 @@ export function Home() {
               Meta Bitcoin?
             </Typography>
             <ul className="bitcoin-list">
-              <li>In 2022, Meta Satishi Nakamoto launched MBTC, a decentralized digital currency in the metaverse.</li>
+              <li>In 2022, Meta Satoshi Nakamoto launched MBTC, a decentralized digital currency in the metaverse.</li>
               <li>
                 MBTC mining requires hash power from NFT miners using next-gen proof-of-NFT validation with zero energy
                 consumption.
