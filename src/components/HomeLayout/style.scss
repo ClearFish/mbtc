@@ -5,6 +5,8 @@
     background-color: rgba(255, 255, 255, .05) !important;
     backdrop-filter: blur(6px);
     z-index: 999999;
+    transition: transform .5s;
+	transform: translateZ(0);
     .modile-enter-app-box {
         border-top: 1px solid #edeef1;
         padding: 1rem 0;
@@ -53,7 +55,6 @@
     }
 
 }
-
 .social-link {
     img {
         width: 2.2rem;
@@ -94,7 +95,9 @@
             color: #ccd2d4;
         }
     }
-    &.isMobile {
+}
+.isMobile {
+    .bottom {
         .header-left {
             display: block;
             margin-bottom: 1.5rem;
@@ -109,4 +112,17 @@
             line-height: 2.1rem;
         }
     }
+    .headroom {
+        will-change: transform;
+        transition: transform 200ms linear;
+    }
+    .headroom--pinned {
+        transform: translateY(0%);
+    }
+    .headroom--unpinned {
+        transform: translateY(-100%);
+    }
+}
+.is-hide {
+	transform: translateY(-100%);
 }

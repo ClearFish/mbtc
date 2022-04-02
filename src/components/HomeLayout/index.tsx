@@ -1,6 +1,7 @@
 // eslint-disable-next-line simple-import-sort/imports
 import "./style.scss";
 import { useLocation } from "react-router-dom";
+import { useEffect } from "react";
 
 import Logo from "../../assets/images/logo-4.png";
 import LogoCoin from "../../assets/images/logo-3.png";
@@ -25,6 +26,7 @@ import {
 } from "@material-ui/core";
 import React, { useState } from "react";
 import { Menu as MenuIcon } from "@material-ui/icons";
+import Headroom from "headroom.js";
 
 export default function HomeLayout({ children }: { children: React.ReactNode }) {
   const isSmallScreen = useMediaQuery("(max-width: 650px)");
@@ -35,6 +37,12 @@ export default function HomeLayout({ children }: { children: React.ReactNode }) 
   const [zoomed, setZoomed] = useState(false);
 
   const [anchorElNav, setAnchorElNav] = useState(false);
+
+  useEffect(() => {
+    const header: HTMLElement = document.querySelector(".fixed-header") as HTMLElement;
+    const headroom = new Headroom(header);
+    headroom.init();
+  }, []);
 
   const handleOpenNavMenu = () => {
     setAnchorElNav(true);
@@ -60,7 +68,7 @@ export default function HomeLayout({ children }: { children: React.ReactNode }) 
   ];
 
   return (
-    <div className="home">
+    <div className={`home ${isSmallScreen ? "isMobile" : ""} `}>
       <AppBar className="fixed-header">
         <Container
           style={{
@@ -146,7 +154,7 @@ export default function HomeLayout({ children }: { children: React.ReactNode }) 
         </Container>
       </AppBar>
       {children}
-      <div className={`bottom ${isSmallScreen ? "isMobile" : ""} `}>
+      <div className="bottom">
         <Typography variant="h4" align="center" className="bottom-title">
           Get more out of
           <br />
