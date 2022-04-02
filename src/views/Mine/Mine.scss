@@ -1,5 +1,14 @@
 #mine-view {
-    .ohm-card {
+    .ohm-card-mine {
         max-width: unset !important;
+        width: unset !important;
+        padding: 0;
+        background-color: unset !important;
+        .card-banner {
+            width: 100%;
+        }
+    }
+    .btc-item-container {
+        padding: 1.4rem 1.46rem;
     }
 }

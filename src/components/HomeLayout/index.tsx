@@ -88,17 +88,15 @@ export default function HomeLayout({ children }: { children: React.ReactNode }) 
                 <MenuIcon aria-haspopup="true" onClick={handleOpenNavMenu} className="menu-icon"></MenuIcon>
               )}
             </Box>
-            {!isSmallScreen ? (
-              <Box>
-                <Link href="#/dashboard" underline="none" target="_blank">
-                  <Button variant="contained" className="header-btn">
-                    Enter App
-                  </Button>
-                </Link>
-              </Box>
-            ) : null}
+            <Box sx={{ flexGrow: 1, justifyContent: "flex-end", display: { xs: "none", md: "flex" } }}>
+              <Link href="#/dashboard" underline="none" target="_blank">
+                <Button variant="contained" className="header-btn">
+                  Enter App
+                </Button>
+              </Link>
+            </Box>
           </Toolbar>
-          {isSmallScreen ? (
+          <Box sx={{ display: { xs: "block", md: "none" } }}>
             <Collapse in={Boolean(anchorElNav)}>
               <Box>
                 {links.map(link => (
@@ -117,7 +115,7 @@ export default function HomeLayout({ children }: { children: React.ReactNode }) 
                 </Link>
               </Box>
             </Collapse>
-          ) : null}
+          </Box>
         </Container>
       </AppBar>
       {children}

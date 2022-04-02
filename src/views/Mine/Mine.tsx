@@ -1,10 +1,11 @@
 import "./Mine.scss";
+import MineBanner from "../../assets/images/mine/mine-banner.png";
 
 import { memo } from "react";
 import { useHistory } from "react-router-dom";
 import { useWeb3Context } from "src/hooks";
 import { usePathForNetwork } from "src/hooks/usePathForNetwork";
-import { Paper } from "@olympusdao/component-library";
+// import { Paper } from "@olympusdao/component-library";
 import { Container, useMediaQuery, Box, Grid } from "@material-ui/core";
 
 const Mine: React.FC = () => {
@@ -24,11 +25,26 @@ const Mine: React.FC = () => {
         }}
       >
         <Box className="hero-metrics">
-          <Paper className="ohm-card">
-            <Grid></Grid>
-          </Paper>
+          <Grid xs={12} md={12}>
+            <Box className="ohm-card-mine">
+              <img className="card-banner" src={MineBanner} />
+            </Box>
+          </Grid>
         </Box>
       </Container>
+      <Box
+        className="btc-item-container"
+        style={{
+          paddingLeft: isSmallScreen || isVerySmallScreen ? "0" : "1.4rem",
+          paddingRight: isSmallScreen || isVerySmallScreen ? "0" : "1.4rem",
+        }}
+      >
+        <Grid container spacing={3}>
+          <Grid item xs={12}>
+            <Box className="ohm-card-mine">xs=12</Box>
+          </Grid>
+        </Grid>
+      </Box>
     </div>
   );
 };
