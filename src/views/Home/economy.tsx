@@ -40,7 +40,7 @@ export function Economy() {
           style={{
             paddingLeft: isSmallScreen || isVerySmallScreen ? "1rem" : "3rem",
             paddingRight: isSmallScreen || isVerySmallScreen ? "1rem" : "3rem",
-            paddingTop: isSmallScreen || isVerySmallScreen ? "6rem" : "13rem",
+            paddingTop: isSmallScreen || isVerySmallScreen ? "5rem" : "13rem",
             position: "relative",
           }}
         >
@@ -49,6 +49,8 @@ export function Economy() {
             muted
             autoPlay
             loop
+            controls={false}
+            playsInline={true}
             className="coin-vedio"
           ></video>
           <div className="block-left">
@@ -65,7 +67,7 @@ export function Economy() {
             paddingLeft: isSmallScreen || isVerySmallScreen ? "1rem" : "3rem",
             paddingRight: isSmallScreen || isVerySmallScreen ? "1rem" : "3rem",
             paddingTop: "1rem",
-            paddingBottom: "8rem",
+            paddingBottom: isSmallScreen || isVerySmallScreen ? "4rem" : "8rem",
           }}
           id="mbtc"
         >
@@ -102,7 +104,7 @@ export function Economy() {
                 </Typography>
                 <Typography variant="body2" align="left" className="card-info">
                   NFT Miner mines MBTC by providing hash power
-                  <br />
+                  {isSmallScreen ? " " : <br />}
                   using proof-of-NFT
                 </Typography>
               </Grid>

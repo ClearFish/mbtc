@@ -5,6 +5,14 @@
     background-color: rgba(255, 255, 255, .05) !important;
     backdrop-filter: blur(6px);
     z-index: 999999;
+    .modile-enter-app-box {
+        border-top: 1px solid #edeef1;
+        padding: 1rem 0;
+    }
+    a>.moblie-menu-text {
+        color: #FFFFFF;
+        padding: 0.75rem 0;
+    }
     a>.MuiTypography-h6 {
         color: #FFFFFF;
         transition: color .2s ease-in-out;
@@ -25,6 +33,9 @@
     }
     .menu-icon {
         font-size: 2rem;
+    }
+    .menu-icon-close {
+        width: 2em;
     }
 }
 .header-logo {
@@ -94,6 +105,8 @@
         }
         .bottom-title {
             font-size: 2rem;
+            font-family: 'PingFang SC';
+            line-height: 2.1rem;
         }
     }
 }

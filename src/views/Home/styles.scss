@@ -17,7 +17,6 @@
         width: 600px;
         max-width: 100%;
         font-family: 'PingFang SC';
-        font-weight: 800;
         font-size: 2.6rem;
         letter-spacing: -0.04em;
         background: linear-gradient(89.97deg, #AE67FA 1.84%, #F49867 102.67%);
@@ -57,7 +56,7 @@
         max-width: 1080px;
     }
     &.economy {
-        min-height: 44rem !important;
+        min-height: 44rem;
         background: #000000;
     }
 }
@@ -73,11 +72,11 @@
         object-fit: cover;
         max-height: 100vh;
         position: relative;
-        z-index: 100;
+        z-index: 8;
     }
     .block-right {
         width: 55%;
-        z-index: 100;
+        z-index: 10;
     }
     .wimb-text {
         width: 534px;
@@ -124,7 +123,28 @@
                 top: -10px;
                 background: url("../../assets/images/star.png") center no-repeat;
                 background-size: cover;
-
+            }
+        }
+    }
+    .opt-block {
+        align-items: center;
+    }
+    .opt-list {
+        display: flex;
+        align-items: center;
+        .opt-audit {
+            display: block;
+            width: 120px;
+            object-fit: contain;
+            margin-left: 1rem;
+            transition: .2s ease-in-out;
+            display: flex;
+            align-items: center;
+            &:hover {
+                transform: scale(1.1);
+            }
+            img {
+                width: 100%;
             }
         }
     }
@@ -701,7 +721,10 @@
         max-width: 60%;
     }
     .board-list {
-        margin-top: 0rem;
+        margin-top: 2rem;
+        .notMobile {
+            max-width: 13%;
+        }
         .board-card {
             overflow: hidden;
             border-radius: 5px;
@@ -719,10 +742,14 @@
                     outline: none;
                     border: none;
                 }
+                border: 1px solid #D39B33;
+                box-sizing: border-box;
+                overflow: hidden;
             }
             .MuiCardContent-root {
                 padding: 0;
                 color: #FFFFFF;
+                min-height: 6rem;
                 .MuiTypography-h6 {
                     padding-top: 0.2rem;
                     font-size: 1rem;
@@ -733,6 +760,10 @@
                     font-family: "PingFang SC";
                 }
             }
+        }
+        .lg-card {
+            max-width: 12%;
+            flex-basis: 12%;
         }
     }
     .meta-img,
@@ -749,55 +780,79 @@
             margin-bottom: 2rem !important;
         }
         .tng-text {
+            line-height: 1.8rem;
             text-align: center;
             font-size: 1.7rem;
+            font-weight: bold;
         }
         .social-link {
             display: none;
         }
         .coin-vedio {
             position: inherit;
+            width: 100%;
         }
         .mbtc-txt {
             display: flex;
             align-items: center;
             text-align: center;
-            font-size: 1.5rem;
-            line-height: 1.6rem;
+            font-size: 1.3rem;
+            line-height: 1.5rem;
+        }
+        &.economy {
+            min-height: 30rem;
         }
     }
     .block2 {
         position: relative;
         .block-left {
-            position: absolute;
+            position: static;
             left: 0;
             right: 0;
-            top: 100px;
+            top: 0;
             overflow: hidden;
+
         }
         .diamond-img {
             width: 150%;
-            position: relative;
             margin-left: -50%;
         }
         .block-right {
-            margin-top: 100%;
             width: 100%;
             overflow: hidden;
+            top: -60px;
+            position: relative;
         }
         .wimb-text {
             height: auto;
             width: 100%;
-            font-size: 3.7rem;
-            line-height: 4rem;
+            font-size: 3.5rem;
+            line-height: 3.5rem;
             text-align: right !important;
+            margin-bottom: 2.6rem;
             &:after {
-                bottom: -1.2rem;
+                bottom: -0.6rem;
             }
+        }
+        .bitcoin-list {
+            li {
+                margin-bottom: 1rem;
+            }
+            margin-bottom: 2.6rem;
         }
         .download-btn {
             margin-left: calc(50% - 6rem);
-            margin-bottom: 2rem;
+            display: block;
+            margin-bottom: 0.5rem;
+        }
+        .opt-list {
+            justify-content: space-around;
+        }
+        .opt-audit {
+            width: 45%;
+            margin: 2px 4px 0 0;
+            height:  5rem;
+            margin-left: 0;
         }
     }
     .block3 {
@@ -805,8 +860,11 @@
             display: none;
         }
         .block-card {
-            height: 300px;
+            height: 260px;
             border-radius: 5px;
+            &:hover {
+                transform: scale(1);
+            }
         }
         .block-partner {
             border-radius: 8px;
@@ -955,16 +1013,19 @@
         }
         .golden-img {
             margin-top: 2rem;
+            margin-bottom: 1rem;
             width: 100%;
             display: inline-block;
         }
         .gradient-text {
-            font-size: 1.8rem;
+            font-size: 1.6rem;
             padding-bottom: 0rem;
+            padding-top: 2rem;
         }
         .normal-text {
             padding-left: 0;
             max-width: 100%;
+            line-height: 1.8rem;
         }
         .board-card {
             .MuiCardContent-root {
