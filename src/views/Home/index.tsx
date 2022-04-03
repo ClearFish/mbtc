@@ -224,9 +224,9 @@ export function Home() {
       <div className="block1">
         <Container
           style={{
-            paddingLeft: isSmallScreen || isVerySmallScreen ? "1rem" : "3rem",
-            paddingRight: isSmallScreen || isVerySmallScreen ? "1rem" : "3rem",
-            paddingTop: isSmallScreen || isVerySmallScreen ? "5rem" : "13rem",
+            paddingLeft: isSmallScreen || isVerySmallScreen ? "0rem" : "3rem",
+            paddingRight: isSmallScreen || isVerySmallScreen ? "0rem" : "3rem",
+            paddingTop: isSmallScreen || isVerySmallScreen ? "6rem" : "13rem",
             position: "relative",
           }}
         >
@@ -239,26 +239,33 @@ export function Home() {
             controls={false}
             className="coin-vedio"
           ></video>
-          <div className="block-left">
-            <img src={isSmallScreen ? MetaBitconMobile : MetaBitcon} alt="" className="meta-img" />
-            <Typography variant="body1" align="left" className="tng-text">
-              The Next Generation Crypto Providing a Cross-chain Trust Standard in the Metaverse
-            </Typography>
-            <div className="social-link">
-              <Link href="https://twitter.com/MetaMBTC" target={"_blank"} underline="none">
-                <img src={Twitter} alt="" />
-              </Link>
-              <Link href="https://t.me/MetaMBTC" target={"_blank"} underline="none">
-                <img src={Telegram} alt="" />
-              </Link>
-              <Link href="https://github.com/meta-btc" target={"_blank"} underline="none">
-                <img src={Github} alt="" />
-              </Link>
-              <Link href="https://medium.com/@MetaBitcoin" target={"_blank"} underline="none">
-                <img src={AndSoOn} alt="" />
-              </Link>
+          <Container
+            style={{
+              paddingLeft: isSmallScreen || isVerySmallScreen ? "1rem" : "0",
+              paddingRight: isSmallScreen || isVerySmallScreen ? "1rem" : "0",
+            }}
+          >
+            <div className="block-left">
+              <img src={isSmallScreen ? MetaBitconMobile : MetaBitcon} alt="" className="meta-img" />
+              <Typography variant="body1" align="left" className="tng-text">
+                The Next Generation Crypto Providing a Cross-chain Trust Standard in the Metaverse
+              </Typography>
+              <div className="social-link">
+                <Link href="https://twitter.com/MetaMBTC" target={"_blank"} underline="none">
+                  <img src={Twitter} alt="" />
+                </Link>
+                <Link href="https://t.me/MetaMBTC" target={"_blank"} underline="none">
+                  <img src={Telegram} alt="" />
+                </Link>
+                <Link href="https://github.com/meta-btc" target={"_blank"} underline="none">
+                  <img src={Github} alt="" />
+                </Link>
+                <Link href="https://medium.com/@MetaBitcoin" target={"_blank"} underline="none">
+                  <img src={AndSoOn} alt="" />
+                </Link>
+              </div>
             </div>
-          </div>
+          </Container>
         </Container>
         <Typography className="mbtc-txt">MBTC Genesis Block Launch Countdown: One month</Typography>
       </div>
@@ -267,7 +274,7 @@ export function Home() {
           style={{
             paddingLeft: isSmallScreen || isVerySmallScreen ? "1rem" : "3rem",
             paddingRight: isSmallScreen || isVerySmallScreen ? "1rem" : "3rem",
-            paddingTop: isSmallScreen || isVerySmallScreen ? "0rem" : "9rem",
+            paddingTop: isSmallScreen || isVerySmallScreen ? "2rem" : "6rem",
             display: isSmallScreen ? "block" : "flex",
             justifyContent: "flex-end",
             alignItems: "center",

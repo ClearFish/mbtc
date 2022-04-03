@@ -70,7 +70,7 @@ export function Foundation() {
           style={{
             paddingLeft: isSmallScreen || isVerySmallScreen ? "1rem" : "3rem",
             paddingRight: isSmallScreen || isVerySmallScreen ? "1rem" : "3rem",
-            paddingTop: isSmallScreen || isVerySmallScreen ? "6rem" : "10rem",
+            paddingTop: isSmallScreen || isVerySmallScreen ? "5rem" : "10rem",
             paddingBottom: isSmallScreen || isVerySmallScreen ? "4rem" : "8rem",
           }}
           className={isSmallScreen ? "" : "foundation-bg"}

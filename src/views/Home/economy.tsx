@@ -40,7 +40,7 @@ export function Economy() {
           style={{
             paddingLeft: isSmallScreen || isVerySmallScreen ? "1rem" : "3rem",
             paddingRight: isSmallScreen || isVerySmallScreen ? "1rem" : "3rem",
-            paddingTop: isSmallScreen || isVerySmallScreen ? "5rem" : "13rem",
+            paddingTop: isSmallScreen || isVerySmallScreen ? "6rem" : "13rem",
             position: "relative",
           }}
         >
