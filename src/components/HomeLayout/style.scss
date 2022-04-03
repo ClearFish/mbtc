@@ -5,8 +5,6 @@
     background-color: rgba(255, 255, 255, .05) !important;
     backdrop-filter: blur(6px);
     z-index: 999999;
-    transition: transform .5s;
-	transform: translateZ(0);
     .modile-enter-app-box {
         border-top: 1px solid #edeef1;
         padding: 1rem 0;

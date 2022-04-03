@@ -274,7 +274,7 @@ export function Home() {
           style={{
             paddingLeft: isSmallScreen || isVerySmallScreen ? "1rem" : "3rem",
             paddingRight: isSmallScreen || isVerySmallScreen ? "1rem" : "3rem",
-            paddingTop: isSmallScreen || isVerySmallScreen ? "2rem" : "9rem",
+            paddingTop: isSmallScreen || isVerySmallScreen ? "2rem" : "6rem",
             display: isSmallScreen ? "block" : "flex",
             justifyContent: "flex-end",
             alignItems: "center",

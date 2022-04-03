@@ -95,31 +95,6 @@ export default function HomeLayout({ children }: { children: React.ReactNode }) 
               ) : (
                 <MenuIcon aria-haspopup="true" onClick={handleOpenNavMenu} className="menu-icon"></MenuIcon>
               )}
-
-              {/* <MenuIcon aria-haspopup="true" onClick={handleOpenNavMenu} className="menu-icon"></MenuIcon>
-              <Menu
-                id="menu-appbar"
-                anchorEl={anchorElNav}
-                anchorOrigin={{
-                  vertical: "bottom",
-                  horizontal: "center",
-                }}
-                keepMounted
-                transformOrigin={{
-                  vertical: "top",
-                  horizontal: "center",
-                }}
-                open={Boolean(anchorElNav)}
-                onClose={handleCloseNavMenu}
-              >
-                {links.map(link => (
-                  <MenuItem key={link.name} onClick={handleCloseNavMenu}>
-                    <Link underline="none" href={link.href}>
-                      <Typography align="center">{link.name}</Typography>
-                    </Link>
-                  </MenuItem>
-                ))}
-              </Menu> */}
             </Box>
             {!isSmallScreen ? (
               <Box>
