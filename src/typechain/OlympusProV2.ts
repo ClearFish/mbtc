@@ -61,7 +61,10 @@ export interface OlympusProV2Interface extends utils.Interface {
     "whitelisted(address)": FunctionFragment;
   };
 
-  encodeFunctionData(functionFragment: "adjustments", values: [BigNumberish]): string;
+  encodeFunctionData(
+    functionFragment: "adjustments",
+    values: [BigNumberish]
+  ): string;
   encodeFunctionData(functionFragment: "authority", values?: undefined): string;
   encodeFunctionData(functionFragment: "close", values: [BigNumberish]): string;
   encodeFunctionData(
@@ -71,76 +74,193 @@ export interface OlympusProV2Interface extends utils.Interface {
       [BigNumberish, BigNumberish, BigNumberish, BigNumberish],
       [boolean, boolean],
       [BigNumberish, BigNumberish],
-      [BigNumberish, BigNumberish],
-    ],
+      [BigNumberish, BigNumberish]
+    ]
   ): string;
-  encodeFunctionData(functionFragment: "currentControlVariable", values: [BigNumberish]): string;
-  encodeFunctionData(functionFragment: "currentDebt", values: [BigNumberish]): string;
+  encodeFunctionData(
+    functionFragment: "currentControlVariable",
+    values: [BigNumberish]
+  ): string;
+  encodeFunctionData(
+    functionFragment: "currentDebt",
+    values: [BigNumberish]
+  ): string;
   encodeFunctionData(functionFragment: "daoReward", values?: undefined): string;
   encodeFunctionData(
     functionFragment: "deposit",
-    values: [BigNumberish, [BigNumberish, BigNumberish], [string, string]],
+    values: [BigNumberish, [BigNumberish, BigNumberish], [string, string]]
   ): string;
-  encodeFunctionData(functionFragment: "disableRewards", values: [boolean]): string;
-  encodeFunctionData(functionFragment: "enableRewards", values?: undefined): string;
+  encodeFunctionData(
+    functionFragment: "disableRewards",
+    values: [boolean]
+  ): string;
+  encodeFunctionData(
+    functionFragment: "enableRewards",
+    values?: undefined
+  ): string;
   encodeFunctionData(
     functionFragment: "findMarketFor",
-    values: [string, string, BigNumberish, BigNumberish, BigNumberish],
+    values: [string, string, BigNumberish, BigNumberish, BigNumberish]
   ): string;
   encodeFunctionData(functionFragment: "getReward", values: [string[]]): string;
   encodeFunctionData(functionFragment: "indexesFor", values: [string]): string;
-  encodeFunctionData(functionFragment: "instantSwap", values: [BigNumberish]): string;
-  encodeFunctionData(functionFragment: "isLive", values: [BigNumberish]): string;
-  encodeFunctionData(functionFragment: "liveMarkets", values?: undefined): string;
-  encodeFunctionData(functionFragment: "liveMarketsBetween", values: [BigNumberish, BigNumberish]): string;
-  encodeFunctionData(functionFragment: "liveMarketsFor", values: [boolean, boolean, string]): string;
-  encodeFunctionData(functionFragment: "marketPrice", values: [BigNumberish]): string;
-  encodeFunctionData(functionFragment: "markets", values: [BigNumberish]): string;
-  encodeFunctionData(functionFragment: "marketsFor", values: [string, string]): string;
-  encodeFunctionData(functionFragment: "marketsForBase", values: [string, BigNumberish]): string;
-  encodeFunctionData(functionFragment: "marketsForCreator", values: [string, BigNumberish]): string;
-  encodeFunctionData(functionFragment: "marketsForQuote", values: [string, BigNumberish]): string;
+  encodeFunctionData(
+    functionFragment: "instantSwap",
+    values: [BigNumberish]
+  ): string;
+  encodeFunctionData(
+    functionFragment: "isLive",
+    values: [BigNumberish]
+  ): string;
+  encodeFunctionData(
+    functionFragment: "liveMarkets",
+    values?: undefined
+  ): string;
+  encodeFunctionData(
+    functionFragment: "liveMarketsBetween",
+    values: [BigNumberish, BigNumberish]
+  ): string;
+  encodeFunctionData(
+    functionFragment: "liveMarketsFor",
+    values: [boolean, boolean, string]
+  ): string;
+  encodeFunctionData(
+    functionFragment: "marketPrice",
+    values: [BigNumberish]
+  ): string;
+  encodeFunctionData(
+    functionFragment: "markets",
+    values: [BigNumberish]
+  ): string;
+  encodeFunctionData(
+    functionFragment: "marketsFor",
+    values: [string, string]
+  ): string;
+  encodeFunctionData(
+    functionFragment: "marketsForBase",
+    values: [string, BigNumberish]
+  ): string;
+  encodeFunctionData(
+    functionFragment: "marketsForCreator",
+    values: [string, BigNumberish]
+  ): string;
+  encodeFunctionData(
+    functionFragment: "marketsForQuote",
+    values: [string, BigNumberish]
+  ): string;
   encodeFunctionData(functionFragment: "maxIn", values: [BigNumberish]): string;
-  encodeFunctionData(functionFragment: "metadata", values: [BigNumberish]): string;
-  encodeFunctionData(functionFragment: "notes", values: [string, BigNumberish]): string;
-  encodeFunctionData(functionFragment: "payoutFor", values: [BigNumberish, BigNumberish]): string;
-  encodeFunctionData(functionFragment: "pendingFor", values: [string, BigNumberish]): string;
-  encodeFunctionData(functionFragment: "pullNote", values: [string, BigNumberish]): string;
-  encodeFunctionData(functionFragment: "pushNote", values: [string, BigNumberish]): string;
-  encodeFunctionData(functionFragment: "redeem", values: [string, BigNumberish[]]): string;
+  encodeFunctionData(
+    functionFragment: "metadata",
+    values: [BigNumberish]
+  ): string;
+  encodeFunctionData(
+    functionFragment: "notes",
+    values: [string, BigNumberish]
+  ): string;
+  encodeFunctionData(
+    functionFragment: "payoutFor",
+    values: [BigNumberish, BigNumberish]
+  ): string;
+  encodeFunctionData(
+    functionFragment: "pendingFor",
+    values: [string, BigNumberish]
+  ): string;
+  encodeFunctionData(
+    functionFragment: "pullNote",
+    values: [string, BigNumberish]
+  ): string;
+  encodeFunctionData(
+    functionFragment: "pushNote",
+    values: [string, BigNumberish]
+  ): string;
+  encodeFunctionData(
+    functionFragment: "redeem",
+    values: [string, BigNumberish[]]
+  ): string;
   encodeFunctionData(functionFragment: "redeemAll", values: [string]): string;
   encodeFunctionData(functionFragment: "refReward", values?: undefined): string;
-  encodeFunctionData(functionFragment: "rewards", values: [string, string]): string;
-  encodeFunctionData(functionFragment: "setAuthority", values: [string]): string;
+  encodeFunctionData(
+    functionFragment: "rewards",
+    values: [string, string]
+  ): string;
+  encodeFunctionData(
+    functionFragment: "setAuthority",
+    values: [string]
+  ): string;
   encodeFunctionData(functionFragment: "terms", values: [BigNumberish]): string;
-  encodeFunctionData(functionFragment: "vestingContract", values?: undefined): string;
+  encodeFunctionData(
+    functionFragment: "vestingContract",
+    values?: undefined
+  ): string;
   encodeFunctionData(functionFragment: "whitelist", values: [string]): string;
   encodeFunctionData(functionFragment: "whitelisted", values: [string]): string;
 
-  decodeFunctionResult(functionFragment: "adjustments", data: BytesLike): Result;
+  decodeFunctionResult(
+    functionFragment: "adjustments",
+    data: BytesLike
+  ): Result;
   decodeFunctionResult(functionFragment: "authority", data: BytesLike): Result;
   decodeFunctionResult(functionFragment: "close", data: BytesLike): Result;
   decodeFunctionResult(functionFragment: "create", data: BytesLike): Result;
-  decodeFunctionResult(functionFragment: "currentControlVariable", data: BytesLike): Result;
-  decodeFunctionResult(functionFragment: "currentDebt", data: BytesLike): Result;
+  decodeFunctionResult(
+    functionFragment: "currentControlVariable",
+    data: BytesLike
+  ): Result;
+  decodeFunctionResult(
+    functionFragment: "currentDebt",
+    data: BytesLike
+  ): Result;
   decodeFunctionResult(functionFragment: "daoReward", data: BytesLike): Result;
   decodeFunctionResult(functionFragment: "deposit", data: BytesLike): Result;
-  decodeFunctionResult(functionFragment: "disableRewards", data: BytesLike): Result;
-  decodeFunctionResult(functionFragment: "enableRewards", data: BytesLike): Result;
-  decodeFunctionResult(functionFragment: "findMarketFor", data: BytesLike): Result;
+  decodeFunctionResult(
+    functionFragment: "disableRewards",
+    data: BytesLike
+  ): Result;
+  decodeFunctionResult(
+    functionFragment: "enableRewards",
+    data: BytesLike
+  ): Result;
+  decodeFunctionResult(
+    functionFragment: "findMarketFor",
+    data: BytesLike
+  ): Result;
   decodeFunctionResult(functionFragment: "getReward", data: BytesLike): Result;
   decodeFunctionResult(functionFragment: "indexesFor", data: BytesLike): Result;
-  decodeFunctionResult(functionFragment: "instantSwap", data: BytesLike): Result;
+  decodeFunctionResult(
+    functionFragment: "instantSwap",
+    data: BytesLike
+  ): Result;
   decodeFunctionResult(functionFragment: "isLive", data: BytesLike): Result;
-  decodeFunctionResult(functionFragment: "liveMarkets", data: BytesLike): Result;
-  decodeFunctionResult(functionFragment: "liveMarketsBetween", data: BytesLike): Result;
-  decodeFunctionResult(functionFragment: "liveMarketsFor", data: BytesLike): Result;
-  decodeFunctionResult(functionFragment: "marketPrice", data: BytesLike): Result;
+  decodeFunctionResult(
+    functionFragment: "liveMarkets",
+    data: BytesLike
+  ): Result;
+  decodeFunctionResult(
+    functionFragment: "liveMarketsBetween",
+    data: BytesLike
+  ): Result;
+  decodeFunctionResult(
+    functionFragment: "liveMarketsFor",
+    data: BytesLike
+  ): Result;
+  decodeFunctionResult(
+    functionFragment: "marketPrice",
+    data: BytesLike
+  ): Result;
   decodeFunctionResult(functionFragment: "markets", data: BytesLike): Result;
   decodeFunctionResult(functionFragment: "marketsFor", data: BytesLike): Result;
-  decodeFunctionResult(functionFragment: "marketsForBase", data: BytesLike): Result;
-  decodeFunctionResult(functionFragment: "marketsForCreator", data: BytesLike): Result;
-  decodeFunctionResult(functionFragment: "marketsForQuote", data: BytesLike): Result;
+  decodeFunctionResult(
+    functionFragment: "marketsForBase",
+    data: BytesLike
+  ): Result;
+  decodeFunctionResult(
+    functionFragment: "marketsForCreator",
+    data: BytesLike
+  ): Result;
+  decodeFunctionResult(
+    functionFragment: "marketsForQuote",
+    data: BytesLike
+  ): Result;
   decodeFunctionResult(functionFragment: "maxIn", data: BytesLike): Result;
   decodeFunctionResult(functionFragment: "metadata", data: BytesLike): Result;
   decodeFunctionResult(functionFragment: "notes", data: BytesLike): Result;
@@ -152,11 +272,20 @@ export interface OlympusProV2Interface extends utils.Interface {
   decodeFunctionResult(functionFragment: "redeemAll", data: BytesLike): Result;
   decodeFunctionResult(functionFragment: "refReward", data: BytesLike): Result;
   decodeFunctionResult(functionFragment: "rewards", data: BytesLike): Result;
-  decodeFunctionResult(functionFragment: "setAuthority", data: BytesLike): Result;
+  decodeFunctionResult(
+    functionFragment: "setAuthority",
+    data: BytesLike
+  ): Result;
   decodeFunctionResult(functionFragment: "terms", data: BytesLike): Result;
-  decodeFunctionResult(functionFragment: "vestingContract", data: BytesLike): Result;
+  decodeFunctionResult(
+    functionFragment: "vestingContract",
+    data: BytesLike
+  ): Result;
   decodeFunctionResult(functionFragment: "whitelist", data: BytesLike): Result;
-  decodeFunctionResult(functionFragment: "whitelisted", data: BytesLike): Result;
+  decodeFunctionResult(
+    functionFragment: "whitelisted",
+    data: BytesLike
+  ): Result;
 
   events: {
     "AuthorityUpdated(address)": EventFragment;
@@ -175,7 +304,8 @@ export interface OlympusProV2Interface extends utils.Interface {
 
 export type AuthorityUpdatedEvent = TypedEvent<[string], { authority: string }>;
 
-export type AuthorityUpdatedEventFilter = TypedEventFilter<AuthorityUpdatedEvent>;
+export type AuthorityUpdatedEventFilter =
+  TypedEventFilter<AuthorityUpdatedEvent>;
 
 export type BondEvent = TypedEvent<
   [BigNumber, BigNumber, BigNumber],
@@ -222,12 +352,16 @@ export interface OlympusProV2 extends BaseContract {
   queryFilter<TEvent extends TypedEvent>(
     event: TypedEventFilter<TEvent>,
     fromBlockOrBlockhash?: string | number | undefined,
-    toBlock?: string | number | undefined,
+    toBlock?: string | number | undefined
   ): Promise<Array<TEvent>>;
 
-  listeners<TEvent extends TypedEvent>(eventFilter?: TypedEventFilter<TEvent>): Array<TypedListener<TEvent>>;
+  listeners<TEvent extends TypedEvent>(
+    eventFilter?: TypedEventFilter<TEvent>
+  ): Array<TypedListener<TEvent>>;
   listeners(eventName?: string): Array<Listener>;
-  removeAllListeners<TEvent extends TypedEvent>(eventFilter: TypedEventFilter<TEvent>): this;
+  removeAllListeners<TEvent extends TypedEvent>(
+    eventFilter: TypedEventFilter<TEvent>
+  ): this;
   removeAllListeners(eventName?: string): this;
   off: OnEvent<this>;
   on: OnEvent<this>;
@@ -237,7 +371,7 @@ export interface OlympusProV2 extends BaseContract {
   functions: {
     adjustments(
       arg0: BigNumberish,
-      overrides?: CallOverrides,
+      overrides?: CallOverrides
     ): Promise<
       [BigNumber, number, number, boolean] & {
         change: BigNumber;
@@ -249,7 +383,10 @@ export interface OlympusProV2 extends BaseContract {
 
     authority(overrides?: CallOverrides): Promise<[string]>;
 
-    close(_id: BigNumberish, overrides?: Overrides & { from?: string | Promise<string> }): Promise<ContractTransaction>;
+    close(
+      _id: BigNumberish,
+      overrides?: Overrides & { from?: string | Promise<string> }
+    ): Promise<ContractTransaction>;
 
     create(
       _tokens: [string, string],
@@ -257,12 +394,18 @@ export interface OlympusProV2 extends BaseContract {
       _booleans: [boolean, boolean],
       _terms: [BigNumberish, BigNumberish],
       _intervals: [BigNumberish, BigNumberish],
-      overrides?: Overrides & { from?: string | Promise<string> },
+      overrides?: Overrides & { from?: string | Promise<string> }
     ): Promise<ContractTransaction>;
 
-    currentControlVariable(_id: BigNumberish, overrides?: CallOverrides): Promise<[BigNumber]>;
+    currentControlVariable(
+      _id: BigNumberish,
+      overrides?: CallOverrides
+    ): Promise<[BigNumber]>;
 
-    currentDebt(_id: BigNumberish, overrides?: CallOverrides): Promise<[BigNumber]>;
+    currentDebt(
+      _id: BigNumberish,
+      overrides?: CallOverrides
+    ): Promise<[BigNumber]>;
 
     daoReward(overrides?: CallOverrides): Promise<[BigNumber]>;
 
@@ -270,15 +413,17 @@ export interface OlympusProV2 extends BaseContract {
       _id: BigNumberish,
       _amounts: [BigNumberish, BigNumberish],
       _addresses: [string, string],
-      overrides?: Overrides & { from?: string | Promise<string> },
+      overrides?: Overrides & { from?: string | Promise<string> }
     ): Promise<ContractTransaction>;
 
     disableRewards(
       _dao: boolean,
-      overrides?: Overrides & { from?: string | Promise<string> },
+      overrides?: Overrides & { from?: string | Promise<string> }
     ): Promise<ContractTransaction>;
 
-    enableRewards(overrides?: Overrides & { from?: string | Promise<string> }): Promise<ContractTransaction>;
+    enableRewards(
+      overrides?: Overrides & { from?: string | Promise<string> }
+    ): Promise<ContractTransaction>;
 
     findMarketFor(
       tokenIn: string,
@@ -286,17 +431,23 @@ export interface OlympusProV2 extends BaseContract {
       amountIn: BigNumberish,
       minAmountOut: BigNumberish,
       maxExpiry: BigNumberish,
-      overrides?: CallOverrides,
+      overrides?: CallOverrides
     ): Promise<[BigNumber] & { id: BigNumber }>;
 
     getReward(
       tokens: string[],
-      overrides?: Overrides & { from?: string | Promise<string> },
+      overrides?: Overrides & { from?: string | Promise<string> }
     ): Promise<ContractTransaction>;
 
-    indexesFor(_user: string, overrides?: CallOverrides): Promise<[BigNumber[]] & { indexes_: BigNumber[] }>;
+    indexesFor(
+      _user: string,
+      overrides?: CallOverrides
+    ): Promise<[BigNumber[]] & { indexes_: BigNumber[] }>;
 
-    instantSwap(_id: BigNumberish, overrides?: CallOverrides): Promise<[boolean]>;
+    instantSwap(
+      _id: BigNumberish,
+      overrides?: CallOverrides
+    ): Promise<[boolean]>;
 
     isLive(_id: BigNumberish, overrides?: CallOverrides): Promise<[boolean]>;
 
@@ -305,23 +456,38 @@ export interface OlympusProV2 extends BaseContract {
     liveMarketsBetween(
       firstIndex: BigNumberish,
       lastIndex: BigNumberish,
-      overrides?: CallOverrides,
+      overrides?: CallOverrides
     ): Promise<[BigNumber[]]>;
 
     liveMarketsFor(
       _creator: boolean,
       _base: boolean,
       _address: string,
-      overrides?: CallOverrides,
+      overrides?: CallOverrides
     ): Promise<[BigNumber[]]>;
 
-    marketPrice(_id: BigNumberish, overrides?: CallOverrides): Promise<[BigNumber]>;
+    marketPrice(
+      _id: BigNumberish,
+      overrides?: CallOverrides
+    ): Promise<[BigNumber]>;
 
     markets(
       arg0: BigNumberish,
-      overrides?: CallOverrides,
+      overrides?: CallOverrides
     ): Promise<
-      [string, string, string, boolean, boolean, BigNumber, BigNumber, BigNumber, BigNumber, BigNumber, BigNumber] & {
+      [
+        string,
+        string,
+        string,
+        boolean,
+        boolean,
+        BigNumber,
+        BigNumber,
+        BigNumber,
+        BigNumber,
+        BigNumber,
+        BigNumber
+      ] & {
         creator: string;
         baseToken: string;
         quoteToken: string;
@@ -336,19 +502,35 @@ export interface OlympusProV2 extends BaseContract {
       }
     >;
 
-    marketsFor(tokenIn: string, tokenOut: string, overrides?: CallOverrides): Promise<[BigNumber[]]>;
+    marketsFor(
+      tokenIn: string,
+      tokenOut: string,
+      overrides?: CallOverrides
+    ): Promise<[BigNumber[]]>;
 
-    marketsForBase(arg0: string, arg1: BigNumberish, overrides?: CallOverrides): Promise<[BigNumber]>;
+    marketsForBase(
+      arg0: string,
+      arg1: BigNumberish,
+      overrides?: CallOverrides
+    ): Promise<[BigNumber]>;
 
-    marketsForCreator(arg0: string, arg1: BigNumberish, overrides?: CallOverrides): Promise<[BigNumber]>;
+    marketsForCreator(
+      arg0: string,
+      arg1: BigNumberish,
+      overrides?: CallOverrides
+    ): Promise<[BigNumber]>;
 
-    marketsForQuote(arg0: string, arg1: BigNumberish, overrides?: CallOverrides): Promise<[BigNumber]>;
+    marketsForQuote(
+      arg0: string,
+      arg1: BigNumberish,
+      overrides?: CallOverrides
+    ): Promise<[BigNumber]>;
 
     maxIn(_id: BigNumberish, overrides?: CallOverrides): Promise<[BigNumber]>;
 
     metadata(
       arg0: BigNumberish,
-      overrides?: CallOverrides,
+      overrides?: CallOverrides
     ): Promise<
       [number, number, number, number, number, number, number] & {
         lastTune: number;
@@ -364,7 +546,7 @@ export interface OlympusProV2 extends BaseContract {
     notes(
       arg0: string,
       arg1: BigNumberish,
-      overrides?: CallOverrides,
+      overrides?: CallOverrides
     ): Promise<
       [BigNumber, number, number, number, number, string] & {
         payout: BigNumber;
@@ -376,46 +558,59 @@ export interface OlympusProV2 extends BaseContract {
       }
     >;
 
-    payoutFor(_amount: BigNumberish, _id: BigNumberish, overrides?: CallOverrides): Promise<[BigNumber]>;
+    payoutFor(
+      _amount: BigNumberish,
+      _id: BigNumberish,
+      overrides?: CallOverrides
+    ): Promise<[BigNumber]>;
 
     pendingFor(
       _user: string,
       _index: BigNumberish,
-      overrides?: CallOverrides,
-    ): Promise<[BigNumber, boolean] & { payout_: BigNumber; matured_: boolean }>;
+      overrides?: CallOverrides
+    ): Promise<
+      [BigNumber, boolean] & { payout_: BigNumber; matured_: boolean }
+    >;
 
     pullNote(
       _from: string,
       _index: BigNumberish,
-      overrides?: Overrides & { from?: string | Promise<string> },
+      overrides?: Overrides & { from?: string | Promise<string> }
     ): Promise<ContractTransaction>;
 
     pushNote(
       _to: string,
       _index: BigNumberish,
-      overrides?: Overrides & { from?: string | Promise<string> },
+      overrides?: Overrides & { from?: string | Promise<string> }
     ): Promise<ContractTransaction>;
 
     redeem(
       _user: string,
       _indexes: BigNumberish[],
-      overrides?: Overrides & { from?: string | Promise<string> },
+      overrides?: Overrides & { from?: string | Promise<string> }
     ): Promise<ContractTransaction>;
 
-    redeemAll(_user: string, overrides?: Overrides & { from?: string | Promise<string> }): Promise<ContractTransaction>;
+    redeemAll(
+      _user: string,
+      overrides?: Overrides & { from?: string | Promise<string> }
+    ): Promise<ContractTransaction>;
 
     refReward(overrides?: CallOverrides): Promise<[BigNumber]>;
 
-    rewards(arg0: string, arg1: string, overrides?: CallOverrides): Promise<[BigNumber]>;
+    rewards(
+      arg0: string,
+      arg1: string,
+      overrides?: CallOverrides
+    ): Promise<[BigNumber]>;
 
     setAuthority(
       _newAuthority: string,
-      overrides?: Overrides & { from?: string | Promise<string> },
+      overrides?: Overrides & { from?: string | Promise<string> }
     ): Promise<ContractTransaction>;
 
     terms(
       arg0: BigNumberish,
-      overrides?: CallOverrides,
+      overrides?: CallOverrides
     ): Promise<
       [BigNumber, BigNumber, boolean, number, number] & {
         controlVariable: BigNumber;
@@ -430,7 +625,7 @@ export interface OlympusProV2 extends BaseContract {
 
     whitelist(
       _operator: string,
-      overrides?: Overrides & { from?: string | Promise<string> },
+      overrides?: Overrides & { from?: string | Promise<string> }
     ): Promise<ContractTransaction>;
 
     whitelisted(arg0: string, overrides?: CallOverrides): Promise<[boolean]>;
@@ -438,7 +633,7 @@ export interface OlympusProV2 extends BaseContract {
 
   adjustments(
     arg0: BigNumberish,
-    overrides?: CallOverrides,
+    overrides?: CallOverrides
   ): Promise<
     [BigNumber, number, number, boolean] & {
       change: BigNumber;
@@ -450,7 +645,10 @@ export interface OlympusProV2 extends BaseContract {
 
   authority(overrides?: CallOverrides): Promise<string>;
 
-  close(_id: BigNumberish, overrides?: Overrides & { from?: string | Promise<string> }): Promise<ContractTransaction>;
+  close(
+    _id: BigNumberish,
+    overrides?: Overrides & { from?: string | Promise<string> }
+  ): Promise<ContractTransaction>;
 
   create(
     _tokens: [string, string],
@@ -458,10 +656,13 @@ export interface OlympusProV2 extends BaseContract {
     _booleans: [boolean, boolean],
     _terms: [BigNumberish, BigNumberish],
     _intervals: [BigNumberish, BigNumberish],
-    overrides?: Overrides & { from?: string | Promise<string> },
+    overrides?: Overrides & { from?: string | Promise<string> }
   ): Promise<ContractTransaction>;
 
-  currentControlVariable(_id: BigNumberish, overrides?: CallOverrides): Promise<BigNumber>;
+  currentControlVariable(
+    _id: BigNumberish,
+    overrides?: CallOverrides
+  ): Promise<BigNumber>;
 
   currentDebt(_id: BigNumberish, overrides?: CallOverrides): Promise<BigNumber>;
 
@@ -471,15 +672,17 @@ export interface OlympusProV2 extends BaseContract {
     _id: BigNumberish,
     _amounts: [BigNumberish, BigNumberish],
     _addresses: [string, string],
-    overrides?: Overrides & { from?: string | Promise<string> },
+    overrides?: Overrides & { from?: string | Promise<string> }
   ): Promise<ContractTransaction>;
 
   disableRewards(
     _dao: boolean,
-    overrides?: Overrides & { from?: string | Promise<string> },
+    overrides?: Overrides & { from?: string | Promise<string> }
   ): Promise<ContractTransaction>;
 
-  enableRewards(overrides?: Overrides & { from?: string | Promise<string> }): Promise<ContractTransaction>;
+  enableRewards(
+    overrides?: Overrides & { from?: string | Promise<string> }
+  ): Promise<ContractTransaction>;
 
   findMarketFor(
     tokenIn: string,
@@ -487,12 +690,12 @@ export interface OlympusProV2 extends BaseContract {
     amountIn: BigNumberish,
     minAmountOut: BigNumberish,
     maxExpiry: BigNumberish,
-    overrides?: CallOverrides,
+    overrides?: CallOverrides
   ): Promise<BigNumber>;
 
   getReward(
     tokens: string[],
-    overrides?: Overrides & { from?: string | Promise<string> },
+    overrides?: Overrides & { from?: string | Promise<string> }
   ): Promise<ContractTransaction>;
 
   indexesFor(_user: string, overrides?: CallOverrides): Promise<BigNumber[]>;
@@ -506,18 +709,35 @@ export interface OlympusProV2 extends BaseContract {
   liveMarketsBetween(
     firstIndex: BigNumberish,
     lastIndex: BigNumberish,
-    overrides?: CallOverrides,
+    overrides?: CallOverrides
   ): Promise<BigNumber[]>;
 
-  liveMarketsFor(_creator: boolean, _base: boolean, _address: string, overrides?: CallOverrides): Promise<BigNumber[]>;
+  liveMarketsFor(
+    _creator: boolean,
+    _base: boolean,
+    _address: string,
+    overrides?: CallOverrides
+  ): Promise<BigNumber[]>;
 
   marketPrice(_id: BigNumberish, overrides?: CallOverrides): Promise<BigNumber>;
 
   markets(
     arg0: BigNumberish,
-    overrides?: CallOverrides,
+    overrides?: CallOverrides
   ): Promise<
-    [string, string, string, boolean, boolean, BigNumber, BigNumber, BigNumber, BigNumber, BigNumber, BigNumber] & {
+    [
+      string,
+      string,
+      string,
+      boolean,
+      boolean,
+      BigNumber,
+      BigNumber,
+      BigNumber,
+      BigNumber,
+      BigNumber,
+      BigNumber
+    ] & {
       creator: string;
       baseToken: string;
       quoteToken: string;
@@ -532,19 +752,35 @@ export interface OlympusProV2 extends BaseContract {
     }
   >;
 
-  marketsFor(tokenIn: string, tokenOut: string, overrides?: CallOverrides): Promise<BigNumber[]>;
+  marketsFor(
+    tokenIn: string,
+    tokenOut: string,
+    overrides?: CallOverrides
+  ): Promise<BigNumber[]>;
 
-  marketsForBase(arg0: string, arg1: BigNumberish, overrides?: CallOverrides): Promise<BigNumber>;
+  marketsForBase(
+    arg0: string,
+    arg1: BigNumberish,
+    overrides?: CallOverrides
+  ): Promise<BigNumber>;
 
-  marketsForCreator(arg0: string, arg1: BigNumberish, overrides?: CallOverrides): Promise<BigNumber>;
+  marketsForCreator(
+    arg0: string,
+    arg1: BigNumberish,
+    overrides?: CallOverrides
+  ): Promise<BigNumber>;
 
-  marketsForQuote(arg0: string, arg1: BigNumberish, overrides?: CallOverrides): Promise<BigNumber>;
+  marketsForQuote(
+    arg0: string,
+    arg1: BigNumberish,
+    overrides?: CallOverrides
+  ): Promise<BigNumber>;
 
   maxIn(_id: BigNumberish, overrides?: CallOverrides): Promise<BigNumber>;
 
   metadata(
     arg0: BigNumberish,
-    overrides?: CallOverrides,
+    overrides?: CallOverrides
   ): Promise<
     [number, number, number, number, number, number, number] & {
       lastTune: number;
@@ -560,7 +796,7 @@ export interface OlympusProV2 extends BaseContract {
   notes(
     arg0: string,
     arg1: BigNumberish,
-    overrides?: CallOverrides,
+    overrides?: CallOverrides
   ): Promise<
     [BigNumber, number, number, number, number, string] & {
       payout: BigNumber;
@@ -572,46 +808,57 @@ export interface OlympusProV2 extends BaseContract {
     }
   >;
 
-  payoutFor(_amount: BigNumberish, _id: BigNumberish, overrides?: CallOverrides): Promise<BigNumber>;
+  payoutFor(
+    _amount: BigNumberish,
+    _id: BigNumberish,
+    overrides?: CallOverrides
+  ): Promise<BigNumber>;
 
   pendingFor(
     _user: string,
     _index: BigNumberish,
-    overrides?: CallOverrides,
+    overrides?: CallOverrides
   ): Promise<[BigNumber, boolean] & { payout_: BigNumber; matured_: boolean }>;
 
   pullNote(
     _from: string,
     _index: BigNumberish,
-    overrides?: Overrides & { from?: string | Promise<string> },
+    overrides?: Overrides & { from?: string | Promise<string> }
   ): Promise<ContractTransaction>;
 
   pushNote(
     _to: string,
     _index: BigNumberish,
-    overrides?: Overrides & { from?: string | Promise<string> },
+    overrides?: Overrides & { from?: string | Promise<string> }
   ): Promise<ContractTransaction>;
 
   redeem(
     _user: string,
     _indexes: BigNumberish[],
-    overrides?: Overrides & { from?: string | Promise<string> },
+    overrides?: Overrides & { from?: string | Promise<string> }
   ): Promise<ContractTransaction>;
 
-  redeemAll(_user: string, overrides?: Overrides & { from?: string | Promise<string> }): Promise<ContractTransaction>;
+  redeemAll(
+    _user: string,
+    overrides?: Overrides & { from?: string | Promise<string> }
+  ): Promise<ContractTransaction>;
 
   refReward(overrides?: CallOverrides): Promise<BigNumber>;
 
-  rewards(arg0: string, arg1: string, overrides?: CallOverrides): Promise<BigNumber>;
+  rewards(
+    arg0: string,
+    arg1: string,
+    overrides?: CallOverrides
+  ): Promise<BigNumber>;
 
   setAuthority(
     _newAuthority: string,
-    overrides?: Overrides & { from?: string | Promise<string> },
+    overrides?: Overrides & { from?: string | Promise<string> }
   ): Promise<ContractTransaction>;
 
   terms(
     arg0: BigNumberish,
-    overrides?: CallOverrides,
+    overrides?: CallOverrides
   ): Promise<
     [BigNumber, BigNumber, boolean, number, number] & {
       controlVariable: BigNumber;
@@ -626,7 +873,7 @@ export interface OlympusProV2 extends BaseContract {
 
   whitelist(
     _operator: string,
-    overrides?: Overrides & { from?: string | Promise<string> },
+    overrides?: Overrides & { from?: string | Promise<string> }
   ): Promise<ContractTransaction>;
 
   whitelisted(arg0: string, overrides?: CallOverrides): Promise<boolean>;
@@ -634,7 +881,7 @@ export interface OlympusProV2 extends BaseContract {
   callStatic: {
     adjustments(
       arg0: BigNumberish,
-      overrides?: CallOverrides,
+      overrides?: CallOverrides
     ): Promise<
       [BigNumber, number, number, boolean] & {
         change: BigNumber;
@@ -654,12 +901,18 @@ export interface OlympusProV2 extends BaseContract {
       _booleans: [boolean, boolean],
       _terms: [BigNumberish, BigNumberish],
       _intervals: [BigNumberish, BigNumberish],
-      overrides?: CallOverrides,
+      overrides?: CallOverrides
     ): Promise<BigNumber>;
 
-    currentControlVariable(_id: BigNumberish, overrides?: CallOverrides): Promise<BigNumber>;
+    currentControlVariable(
+      _id: BigNumberish,
+      overrides?: CallOverrides
+    ): Promise<BigNumber>;
 
-    currentDebt(_id: BigNumberish, overrides?: CallOverrides): Promise<BigNumber>;
+    currentDebt(
+      _id: BigNumberish,
+      overrides?: CallOverrides
+    ): Promise<BigNumber>;
 
     daoReward(overrides?: CallOverrides): Promise<BigNumber>;
 
@@ -667,7 +920,7 @@ export interface OlympusProV2 extends BaseContract {
       _id: BigNumberish,
       _amounts: [BigNumberish, BigNumberish],
       _addresses: [string, string],
-      overrides?: CallOverrides,
+      overrides?: CallOverrides
     ): Promise<
       [BigNumber, BigNumber, BigNumber] & {
         payout_: BigNumber;
@@ -686,7 +939,7 @@ export interface OlympusProV2 extends BaseContract {
       amountIn: BigNumberish,
       minAmountOut: BigNumberish,
       maxExpiry: BigNumberish,
-      overrides?: CallOverrides,
+      overrides?: CallOverrides
     ): Promise<BigNumber>;
 
     getReward(tokens: string[], overrides?: CallOverrides): Promise<void>;
@@ -702,23 +955,38 @@ export interface OlympusProV2 extends BaseContract {
     liveMarketsBetween(
       firstIndex: BigNumberish,
       lastIndex: BigNumberish,
-      overrides?: CallOverrides,
+      overrides?: CallOverrides
     ): Promise<BigNumber[]>;
 
     liveMarketsFor(
       _creator: boolean,
       _base: boolean,
       _address: string,
-      overrides?: CallOverrides,
+      overrides?: CallOverrides
     ): Promise<BigNumber[]>;
 
-    marketPrice(_id: BigNumberish, overrides?: CallOverrides): Promise<BigNumber>;
+    marketPrice(
+      _id: BigNumberish,
+      overrides?: CallOverrides
+    ): Promise<BigNumber>;
 
     markets(
       arg0: BigNumberish,
-      overrides?: CallOverrides,
+      overrides?: CallOverrides
     ): Promise<
-      [string, string, string, boolean, boolean, BigNumber, BigNumber, BigNumber, BigNumber, BigNumber, BigNumber] & {
+      [
+        string,
+        string,
+        string,
+        boolean,
+        boolean,
+        BigNumber,
+        BigNumber,
+        BigNumber,
+        BigNumber,
+        BigNumber,
+        BigNumber
+      ] & {
         creator: string;
         baseToken: string;
         quoteToken: string;
@@ -733,19 +1001,35 @@ export interface OlympusProV2 extends BaseContract {
       }
     >;
 
-    marketsFor(tokenIn: string, tokenOut: string, overrides?: CallOverrides): Promise<BigNumber[]>;
+    marketsFor(
+      tokenIn: string,
+      tokenOut: string,
+      overrides?: CallOverrides
+    ): Promise<BigNumber[]>;
 
-    marketsForBase(arg0: string, arg1: BigNumberish, overrides?: CallOverrides): Promise<BigNumber>;
+    marketsForBase(
+      arg0: string,
+      arg1: BigNumberish,
+      overrides?: CallOverrides
+    ): Promise<BigNumber>;
 
-    marketsForCreator(arg0: string, arg1: BigNumberish, overrides?: CallOverrides): Promise<BigNumber>;
+    marketsForCreator(
+      arg0: string,
+      arg1: BigNumberish,
+      overrides?: CallOverrides
+    ): Promise<BigNumber>;
 
-    marketsForQuote(arg0: string, arg1: BigNumberish, overrides?: CallOverrides): Promise<BigNumber>;
+    marketsForQuote(
+      arg0: string,
+      arg1: BigNumberish,
+      overrides?: CallOverrides
+    ): Promise<BigNumber>;
 
     maxIn(_id: BigNumberish, overrides?: CallOverrides): Promise<BigNumber>;
 
     metadata(
       arg0: BigNumberish,
-      overrides?: CallOverrides,
+      overrides?: CallOverrides
     ): Promise<
       [number, number, number, number, number, number, number] & {
         lastTune: number;
@@ -761,7 +1045,7 @@ export interface OlympusProV2 extends BaseContract {
     notes(
       arg0: string,
       arg1: BigNumberish,
-      overrides?: CallOverrides,
+      overrides?: CallOverrides
     ): Promise<
       [BigNumber, number, number, number, number, string] & {
         payout: BigNumber;
@@ -773,31 +1057,56 @@ export interface OlympusProV2 extends BaseContract {
       }
     >;
 
-    payoutFor(_amount: BigNumberish, _id: BigNumberish, overrides?: CallOverrides): Promise<BigNumber>;
+    payoutFor(
+      _amount: BigNumberish,
+      _id: BigNumberish,
+      overrides?: CallOverrides
+    ): Promise<BigNumber>;
 
     pendingFor(
       _user: string,
       _index: BigNumberish,
-      overrides?: CallOverrides,
-    ): Promise<[BigNumber, boolean] & { payout_: BigNumber; matured_: boolean }>;
+      overrides?: CallOverrides
+    ): Promise<
+      [BigNumber, boolean] & { payout_: BigNumber; matured_: boolean }
+    >;
 
-    pullNote(_from: string, _index: BigNumberish, overrides?: CallOverrides): Promise<BigNumber>;
+    pullNote(
+      _from: string,
+      _index: BigNumberish,
+      overrides?: CallOverrides
+    ): Promise<BigNumber>;
 
-    pushNote(_to: string, _index: BigNumberish, overrides?: CallOverrides): Promise<void>;
+    pushNote(
+      _to: string,
+      _index: BigNumberish,
+      overrides?: CallOverrides
+    ): Promise<void>;
 
-    redeem(_user: string, _indexes: BigNumberish[], overrides?: CallOverrides): Promise<void>;
+    redeem(
+      _user: string,
+      _indexes: BigNumberish[],
+      overrides?: CallOverrides
+    ): Promise<void>;
 
     redeemAll(_user: string, overrides?: CallOverrides): Promise<void>;
 
     refReward(overrides?: CallOverrides): Promise<BigNumber>;
 
-    rewards(arg0: string, arg1: string, overrides?: CallOverrides): Promise<BigNumber>;
+    rewards(
+      arg0: string,
+      arg1: string,
+      overrides?: CallOverrides
+    ): Promise<BigNumber>;
 
-    setAuthority(_newAuthority: string, overrides?: CallOverrides): Promise<void>;
+    setAuthority(
+      _newAuthority: string,
+      overrides?: CallOverrides
+    ): Promise<void>;
 
     terms(
       arg0: BigNumberish,
-      overrides?: CallOverrides,
+      overrides?: CallOverrides
     ): Promise<
       [BigNumber, BigNumber, boolean, number, number] & {
         controlVariable: BigNumber;
@@ -816,11 +1125,21 @@ export interface OlympusProV2 extends BaseContract {
   };
 
   filters: {
-    "AuthorityUpdated(address)"(authority?: string | null): AuthorityUpdatedEventFilter;
+    "AuthorityUpdated(address)"(
+      authority?: string | null
+    ): AuthorityUpdatedEventFilter;
     AuthorityUpdated(authority?: string | null): AuthorityUpdatedEventFilter;
 
-    "Bond(uint256,uint256,uint256)"(id?: BigNumberish | null, amount?: null, price?: null): BondEventFilter;
-    Bond(id?: BigNumberish | null, amount?: null, price?: null): BondEventFilter;
+    "Bond(uint256,uint256,uint256)"(
+      id?: BigNumberish | null,
+      amount?: null,
+      price?: null
+    ): BondEventFilter;
+    Bond(
+      id?: BigNumberish | null,
+      amount?: null,
+      price?: null
+    ): BondEventFilter;
 
     "CloseMarket(uint256)"(id?: BigNumberish | null): CloseMarketEventFilter;
     CloseMarket(id?: BigNumberish | null): CloseMarketEventFilter;
@@ -830,30 +1149,40 @@ export interface OlympusProV2 extends BaseContract {
       baseToken?: null,
       quoteToken?: null,
       initialPrice?: null,
-      conclusion?: null,
+      conclusion?: null
     ): CreateMarketEventFilter;
     CreateMarket(
       id?: BigNumberish | null,
       baseToken?: null,
       quoteToken?: null,
       initialPrice?: null,
-      conclusion?: null,
+      conclusion?: null
     ): CreateMarketEventFilter;
 
     "Tuned(uint256,uint256,uint256)"(
       id?: BigNumberish | null,
       oldControlVariable?: null,
-      newControlVariable?: null,
+      newControlVariable?: null
     ): TunedEventFilter;
-    Tuned(id?: BigNumberish | null, oldControlVariable?: null, newControlVariable?: null): TunedEventFilter;
+    Tuned(
+      id?: BigNumberish | null,
+      oldControlVariable?: null,
+      newControlVariable?: null
+    ): TunedEventFilter;
   };
 
   estimateGas: {
-    adjustments(arg0: BigNumberish, overrides?: CallOverrides): Promise<BigNumber>;
+    adjustments(
+      arg0: BigNumberish,
+      overrides?: CallOverrides
+    ): Promise<BigNumber>;
 
     authority(overrides?: CallOverrides): Promise<BigNumber>;
 
-    close(_id: BigNumberish, overrides?: Overrides & { from?: string | Promise<string> }): Promise<BigNumber>;
+    close(
+      _id: BigNumberish,
+      overrides?: Overrides & { from?: string | Promise<string> }
+    ): Promise<BigNumber>;
 
     create(
       _tokens: [string, string],
@@ -861,12 +1190,18 @@ export interface OlympusProV2 extends BaseContract {
       _booleans: [boolean, boolean],
       _terms: [BigNumberish, BigNumberish],
       _intervals: [BigNumberish, BigNumberish],
-      overrides?: Overrides & { from?: string | Promise<string> },
+      overrides?: Overrides & { from?: string | Promise<string> }
     ): Promise<BigNumber>;
 
-    currentControlVariable(_id: BigNumberish, overrides?: CallOverrides): Promise<BigNumber>;
+    currentControlVariable(
+      _id: BigNumberish,
+      overrides?: CallOverrides
+    ): Promise<BigNumber>;
 
-    currentDebt(_id: BigNumberish, overrides?: CallOverrides): Promise<BigNumber>;
+    currentDebt(
+      _id: BigNumberish,
+      overrides?: CallOverrides
+    ): Promise<BigNumber>;
 
     daoReward(overrides?: CallOverrides): Promise<BigNumber>;
 
@@ -874,12 +1209,17 @@ export interface OlympusProV2 extends BaseContract {
       _id: BigNumberish,
       _amounts: [BigNumberish, BigNumberish],
       _addresses: [string, string],
-      overrides?: Overrides & { from?: string | Promise<string> },
+      overrides?: Overrides & { from?: string | Promise<string> }
     ): Promise<BigNumber>;
 
-    disableRewards(_dao: boolean, overrides?: Overrides & { from?: string | Promise<string> }): Promise<BigNumber>;
+    disableRewards(
+      _dao: boolean,
+      overrides?: Overrides & { from?: string | Promise<string> }
+    ): Promise<BigNumber>;
 
-    enableRewards(overrides?: Overrides & { from?: string | Promise<string> }): Promise<BigNumber>;
+    enableRewards(
+      overrides?: Overrides & { from?: string | Promise<string> }
+    ): Promise<BigNumber>;
 
     findMarketFor(
       tokenIn: string,
@@ -887,14 +1227,20 @@ export interface OlympusProV2 extends BaseContract {
       amountIn: BigNumberish,
       minAmountOut: BigNumberish,
       maxExpiry: BigNumberish,
-      overrides?: CallOverrides,
+      overrides?: CallOverrides
     ): Promise<BigNumber>;
 
-    getReward(tokens: string[], overrides?: Overrides & { from?: string | Promise<string> }): Promise<BigNumber>;
+    getReward(
+      tokens: string[],
+      overrides?: Overrides & { from?: string | Promise<string> }
+    ): Promise<BigNumber>;
 
     indexesFor(_user: string, overrides?: CallOverrides): Promise<BigNumber>;
 
-    instantSwap(_id: BigNumberish, overrides?: CallOverrides): Promise<BigNumber>;
+    instantSwap(
+      _id: BigNumberish,
+      overrides?: CallOverrides
+    ): Promise<BigNumber>;
 
     isLive(_id: BigNumberish, overrides?: CallOverrides): Promise<BigNumber>;
 
@@ -903,79 +1249,128 @@ export interface OlympusProV2 extends BaseContract {
     liveMarketsBetween(
       firstIndex: BigNumberish,
       lastIndex: BigNumberish,
-      overrides?: CallOverrides,
+      overrides?: CallOverrides
     ): Promise<BigNumber>;
 
-    liveMarketsFor(_creator: boolean, _base: boolean, _address: string, overrides?: CallOverrides): Promise<BigNumber>;
+    liveMarketsFor(
+      _creator: boolean,
+      _base: boolean,
+      _address: string,
+      overrides?: CallOverrides
+    ): Promise<BigNumber>;
 
-    marketPrice(_id: BigNumberish, overrides?: CallOverrides): Promise<BigNumber>;
+    marketPrice(
+      _id: BigNumberish,
+      overrides?: CallOverrides
+    ): Promise<BigNumber>;
 
     markets(arg0: BigNumberish, overrides?: CallOverrides): Promise<BigNumber>;
 
-    marketsFor(tokenIn: string, tokenOut: string, overrides?: CallOverrides): Promise<BigNumber>;
+    marketsFor(
+      tokenIn: string,
+      tokenOut: string,
+      overrides?: CallOverrides
+    ): Promise<BigNumber>;
 
-    marketsForBase(arg0: string, arg1: BigNumberish, overrides?: CallOverrides): Promise<BigNumber>;
+    marketsForBase(
+      arg0: string,
+      arg1: BigNumberish,
+      overrides?: CallOverrides
+    ): Promise<BigNumber>;
 
-    marketsForCreator(arg0: string, arg1: BigNumberish, overrides?: CallOverrides): Promise<BigNumber>;
+    marketsForCreator(
+      arg0: string,
+      arg1: BigNumberish,
+      overrides?: CallOverrides
+    ): Promise<BigNumber>;
 
-    marketsForQuote(arg0: string, arg1: BigNumberish, overrides?: CallOverrides): Promise<BigNumber>;
+    marketsForQuote(
+      arg0: string,
+      arg1: BigNumberish,
+      overrides?: CallOverrides
+    ): Promise<BigNumber>;
 
     maxIn(_id: BigNumberish, overrides?: CallOverrides): Promise<BigNumber>;
 
     metadata(arg0: BigNumberish, overrides?: CallOverrides): Promise<BigNumber>;
 
-    notes(arg0: string, arg1: BigNumberish, overrides?: CallOverrides): Promise<BigNumber>;
+    notes(
+      arg0: string,
+      arg1: BigNumberish,
+      overrides?: CallOverrides
+    ): Promise<BigNumber>;
 
-    payoutFor(_amount: BigNumberish, _id: BigNumberish, overrides?: CallOverrides): Promise<BigNumber>;
+    payoutFor(
+      _amount: BigNumberish,
+      _id: BigNumberish,
+      overrides?: CallOverrides
+    ): Promise<BigNumber>;
 
-    pendingFor(_user: string, _index: BigNumberish, overrides?: CallOverrides): Promise<BigNumber>;
+    pendingFor(
+      _user: string,
+      _index: BigNumberish,
+      overrides?: CallOverrides
+    ): Promise<BigNumber>;
 
     pullNote(
       _from: string,
       _index: BigNumberish,
-      overrides?: Overrides & { from?: string | Promise<string> },
+      overrides?: Overrides & { from?: string | Promise<string> }
     ): Promise<BigNumber>;
 
     pushNote(
       _to: string,
       _index: BigNumberish,
-      overrides?: Overrides & { from?: string | Promise<string> },
+      overrides?: Overrides & { from?: string | Promise<string> }
     ): Promise<BigNumber>;
 
     redeem(
       _user: string,
       _indexes: BigNumberish[],
-      overrides?: Overrides & { from?: string | Promise<string> },
+      overrides?: Overrides & { from?: string | Promise<string> }
     ): Promise<BigNumber>;
 
-    redeemAll(_user: string, overrides?: Overrides & { from?: string | Promise<string> }): Promise<BigNumber>;
+    redeemAll(
+      _user: string,
+      overrides?: Overrides & { from?: string | Promise<string> }
+    ): Promise<BigNumber>;
 
     refReward(overrides?: CallOverrides): Promise<BigNumber>;
 
-    rewards(arg0: string, arg1: string, overrides?: CallOverrides): Promise<BigNumber>;
+    rewards(
+      arg0: string,
+      arg1: string,
+      overrides?: CallOverrides
+    ): Promise<BigNumber>;
 
     setAuthority(
       _newAuthority: string,
-      overrides?: Overrides & { from?: string | Promise<string> },
+      overrides?: Overrides & { from?: string | Promise<string> }
     ): Promise<BigNumber>;
 
     terms(arg0: BigNumberish, overrides?: CallOverrides): Promise<BigNumber>;
 
     vestingContract(overrides?: CallOverrides): Promise<BigNumber>;
 
-    whitelist(_operator: string, overrides?: Overrides & { from?: string | Promise<string> }): Promise<BigNumber>;
+    whitelist(
+      _operator: string,
+      overrides?: Overrides & { from?: string | Promise<string> }
+    ): Promise<BigNumber>;
 
     whitelisted(arg0: string, overrides?: CallOverrides): Promise<BigNumber>;
   };
 
   populateTransaction: {
-    adjustments(arg0: BigNumberish, overrides?: CallOverrides): Promise<PopulatedTransaction>;
+    adjustments(
+      arg0: BigNumberish,
+      overrides?: CallOverrides
+    ): Promise<PopulatedTransaction>;
 
     authority(overrides?: CallOverrides): Promise<PopulatedTransaction>;
 
     close(
       _id: BigNumberish,
-      overrides?: Overrides & { from?: string | Promise<string> },
+      overrides?: Overrides & { from?: string | Promise<string> }
     ): Promise<PopulatedTransaction>;
 
     create(
@@ -984,12 +1379,18 @@ export interface OlympusProV2 extends BaseContract {
       _booleans: [boolean, boolean],
       _terms: [BigNumberish, BigNumberish],
       _intervals: [BigNumberish, BigNumberish],
-      overrides?: Overrides & { from?: string | Promise<string> },
+      overrides?: Overrides & { from?: string | Promise<string> }
     ): Promise<PopulatedTransaction>;
 
-    currentControlVariable(_id: BigNumberish, overrides?: CallOverrides): Promise<PopulatedTransaction>;
+    currentControlVariable(
+      _id: BigNumberish,
+      overrides?: CallOverrides
+    ): Promise<PopulatedTransaction>;
 
-    currentDebt(_id: BigNumberish, overrides?: CallOverrides): Promise<PopulatedTransaction>;
+    currentDebt(
+      _id: BigNumberish,
+      overrides?: CallOverrides
+    ): Promise<PopulatedTransaction>;
 
     daoReward(overrides?: CallOverrides): Promise<PopulatedTransaction>;
 
@@ -997,15 +1398,17 @@ export interface OlympusProV2 extends BaseContract {
       _id: BigNumberish,
       _amounts: [BigNumberish, BigNumberish],
       _addresses: [string, string],
-      overrides?: Overrides & { from?: string | Promise<string> },
+      overrides?: Overrides & { from?: string | Promise<string> }
     ): Promise<PopulatedTransaction>;
 
     disableRewards(
       _dao: boolean,
-      overrides?: Overrides & { from?: string | Promise<string> },
+      overrides?: Overrides & { from?: string | Promise<string> }
     ): Promise<PopulatedTransaction>;
 
-    enableRewards(overrides?: Overrides & { from?: string | Promise<string> }): Promise<PopulatedTransaction>;
+    enableRewards(
+      overrides?: Overrides & { from?: string | Promise<string> }
+    ): Promise<PopulatedTransaction>;
 
     findMarketFor(
       tokenIn: string,
@@ -1013,98 +1416,157 @@ export interface OlympusProV2 extends BaseContract {
       amountIn: BigNumberish,
       minAmountOut: BigNumberish,
       maxExpiry: BigNumberish,
-      overrides?: CallOverrides,
+      overrides?: CallOverrides
     ): Promise<PopulatedTransaction>;
 
     getReward(
       tokens: string[],
-      overrides?: Overrides & { from?: string | Promise<string> },
+      overrides?: Overrides & { from?: string | Promise<string> }
     ): Promise<PopulatedTransaction>;
 
-    indexesFor(_user: string, overrides?: CallOverrides): Promise<PopulatedTransaction>;
+    indexesFor(
+      _user: string,
+      overrides?: CallOverrides
+    ): Promise<PopulatedTransaction>;
 
-    instantSwap(_id: BigNumberish, overrides?: CallOverrides): Promise<PopulatedTransaction>;
+    instantSwap(
+      _id: BigNumberish,
+      overrides?: CallOverrides
+    ): Promise<PopulatedTransaction>;
 
-    isLive(_id: BigNumberish, overrides?: CallOverrides): Promise<PopulatedTransaction>;
+    isLive(
+      _id: BigNumberish,
+      overrides?: CallOverrides
+    ): Promise<PopulatedTransaction>;
 
     liveMarkets(overrides?: CallOverrides): Promise<PopulatedTransaction>;
 
     liveMarketsBetween(
       firstIndex: BigNumberish,
       lastIndex: BigNumberish,
-      overrides?: CallOverrides,
+      overrides?: CallOverrides
     ): Promise<PopulatedTransaction>;
 
     liveMarketsFor(
       _creator: boolean,
       _base: boolean,
       _address: string,
-      overrides?: CallOverrides,
+      overrides?: CallOverrides
     ): Promise<PopulatedTransaction>;
 
-    marketPrice(_id: BigNumberish, overrides?: CallOverrides): Promise<PopulatedTransaction>;
+    marketPrice(
+      _id: BigNumberish,
+      overrides?: CallOverrides
+    ): Promise<PopulatedTransaction>;
 
-    markets(arg0: BigNumberish, overrides?: CallOverrides): Promise<PopulatedTransaction>;
+    markets(
+      arg0: BigNumberish,
+      overrides?: CallOverrides
+    ): Promise<PopulatedTransaction>;
 
-    marketsFor(tokenIn: string, tokenOut: string, overrides?: CallOverrides): Promise<PopulatedTransaction>;
+    marketsFor(
+      tokenIn: string,
+      tokenOut: string,
+      overrides?: CallOverrides
+    ): Promise<PopulatedTransaction>;
 
-    marketsForBase(arg0: string, arg1: BigNumberish, overrides?: CallOverrides): Promise<PopulatedTransaction>;
+    marketsForBase(
+      arg0: string,
+      arg1: BigNumberish,
+      overrides?: CallOverrides
+    ): Promise<PopulatedTransaction>;
 
-    marketsForCreator(arg0: string, arg1: BigNumberish, overrides?: CallOverrides): Promise<PopulatedTransaction>;
+    marketsForCreator(
+      arg0: string,
+      arg1: BigNumberish,
+      overrides?: CallOverrides
+    ): Promise<PopulatedTransaction>;
 
-    marketsForQuote(arg0: string, arg1: BigNumberish, overrides?: CallOverrides): Promise<PopulatedTransaction>;
+    marketsForQuote(
+      arg0: string,
+      arg1: BigNumberish,
+      overrides?: CallOverrides
+    ): Promise<PopulatedTransaction>;
 
-    maxIn(_id: BigNumberish, overrides?: CallOverrides): Promise<PopulatedTransaction>;
+    maxIn(
+      _id: BigNumberish,
+      overrides?: CallOverrides
+    ): Promise<PopulatedTransaction>;
 
-    metadata(arg0: BigNumberish, overrides?: CallOverrides): Promise<PopulatedTransaction>;
+    metadata(
+      arg0: BigNumberish,
+      overrides?: CallOverrides
+    ): Promise<PopulatedTransaction>;
 
-    notes(arg0: string, arg1: BigNumberish, overrides?: CallOverrides): Promise<PopulatedTransaction>;
+    notes(
+      arg0: string,
+      arg1: BigNumberish,
+      overrides?: CallOverrides
+    ): Promise<PopulatedTransaction>;
 
-    payoutFor(_amount: BigNumberish, _id: BigNumberish, overrides?: CallOverrides): Promise<PopulatedTransaction>;
+    payoutFor(
+      _amount: BigNumberish,
+      _id: BigNumberish,
+      overrides?: CallOverrides
+    ): Promise<PopulatedTransaction>;
 
-    pendingFor(_user: string, _index: BigNumberish, overrides?: CallOverrides): Promise<PopulatedTransaction>;
+    pendingFor(
+      _user: string,
+      _index: BigNumberish,
+      overrides?: CallOverrides
+    ): Promise<PopulatedTransaction>;
 
     pullNote(
       _from: string,
       _index: BigNumberish,
-      overrides?: Overrides & { from?: string | Promise<string> },
+      overrides?: Overrides & { from?: string | Promise<string> }
     ): Promise<PopulatedTransaction>;
 
     pushNote(
       _to: string,
       _index: BigNumberish,
-      overrides?: Overrides & { from?: string | Promise<string> },
+      overrides?: Overrides & { from?: string | Promise<string> }
     ): Promise<PopulatedTransaction>;
 
     redeem(
       _user: string,
       _indexes: BigNumberish[],
-      overrides?: Overrides & { from?: string | Promise<string> },
+      overrides?: Overrides & { from?: string | Promise<string> }
     ): Promise<PopulatedTransaction>;
 
     redeemAll(
       _user: string,
-      overrides?: Overrides & { from?: string | Promise<string> },
+      overrides?: Overrides & { from?: string | Promise<string> }
     ): Promise<PopulatedTransaction>;
 
     refReward(overrides?: CallOverrides): Promise<PopulatedTransaction>;
 
-    rewards(arg0: string, arg1: string, overrides?: CallOverrides): Promise<PopulatedTransaction>;
+    rewards(
+      arg0: string,
+      arg1: string,
+      overrides?: CallOverrides
+    ): Promise<PopulatedTransaction>;
 
     setAuthority(
       _newAuthority: string,
-      overrides?: Overrides & { from?: string | Promise<string> },
+      overrides?: Overrides & { from?: string | Promise<string> }
     ): Promise<PopulatedTransaction>;
 
-    terms(arg0: BigNumberish, overrides?: CallOverrides): Promise<PopulatedTransaction>;
+    terms(
+      arg0: BigNumberish,
+      overrides?: CallOverrides
+    ): Promise<PopulatedTransaction>;
 
     vestingContract(overrides?: CallOverrides): Promise<PopulatedTransaction>;
 
     whitelist(
       _operator: string,
-      overrides?: Overrides & { from?: string | Promise<string> },
+      overrides?: Overrides & { from?: string | Promise<string> }
     ): Promise<PopulatedTransaction>;
 
-    whitelisted(arg0: string, overrides?: CallOverrides): Promise<PopulatedTransaction>;
+    whitelisted(
+      arg0: string,
+      overrides?: CallOverrides
+    ): Promise<PopulatedTransaction>;
   };
 }

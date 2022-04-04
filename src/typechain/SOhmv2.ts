@@ -51,70 +51,180 @@ export interface SOhmv2Interface extends utils.Interface {
     "transferFrom(address,address,uint256)": FunctionFragment;
   };
 
-  encodeFunctionData(functionFragment: "DOMAIN_SEPARATOR", values?: undefined): string;
+  encodeFunctionData(
+    functionFragment: "DOMAIN_SEPARATOR",
+    values?: undefined
+  ): string;
   encodeFunctionData(functionFragment: "INDEX", values?: undefined): string;
-  encodeFunctionData(functionFragment: "PERMIT_TYPEHASH", values?: undefined): string;
-  encodeFunctionData(functionFragment: "allowance", values: [string, string]): string;
-  encodeFunctionData(functionFragment: "approve", values: [string, BigNumberish]): string;
-  encodeFunctionData(functionFragment: "balanceForGons", values: [BigNumberish]): string;
+  encodeFunctionData(
+    functionFragment: "PERMIT_TYPEHASH",
+    values?: undefined
+  ): string;
+  encodeFunctionData(
+    functionFragment: "allowance",
+    values: [string, string]
+  ): string;
+  encodeFunctionData(
+    functionFragment: "approve",
+    values: [string, BigNumberish]
+  ): string;
+  encodeFunctionData(
+    functionFragment: "balanceForGons",
+    values: [BigNumberish]
+  ): string;
   encodeFunctionData(functionFragment: "balanceOf", values: [string]): string;
-  encodeFunctionData(functionFragment: "circulatingSupply", values?: undefined): string;
+  encodeFunctionData(
+    functionFragment: "circulatingSupply",
+    values?: undefined
+  ): string;
   encodeFunctionData(functionFragment: "decimals", values?: undefined): string;
-  encodeFunctionData(functionFragment: "decreaseAllowance", values: [string, BigNumberish]): string;
-  encodeFunctionData(functionFragment: "gonsForBalance", values: [BigNumberish]): string;
-  encodeFunctionData(functionFragment: "increaseAllowance", values: [string, BigNumberish]): string;
+  encodeFunctionData(
+    functionFragment: "decreaseAllowance",
+    values: [string, BigNumberish]
+  ): string;
+  encodeFunctionData(
+    functionFragment: "gonsForBalance",
+    values: [BigNumberish]
+  ): string;
+  encodeFunctionData(
+    functionFragment: "increaseAllowance",
+    values: [string, BigNumberish]
+  ): string;
   encodeFunctionData(functionFragment: "index", values?: undefined): string;
   encodeFunctionData(functionFragment: "initialize", values: [string]): string;
-  encodeFunctionData(functionFragment: "initializer", values?: undefined): string;
+  encodeFunctionData(
+    functionFragment: "initializer",
+    values?: undefined
+  ): string;
   encodeFunctionData(functionFragment: "manager", values?: undefined): string;
   encodeFunctionData(functionFragment: "name", values?: undefined): string;
   encodeFunctionData(functionFragment: "nonces", values: [string]): string;
   encodeFunctionData(
     functionFragment: "permit",
-    values: [string, string, BigNumberish, BigNumberish, BigNumberish, BytesLike, BytesLike],
+    values: [
+      string,
+      string,
+      BigNumberish,
+      BigNumberish,
+      BigNumberish,
+      BytesLike,
+      BytesLike
+    ]
   ): string;
-  encodeFunctionData(functionFragment: "pullManagement", values?: undefined): string;
-  encodeFunctionData(functionFragment: "pushManagement", values: [string]): string;
-  encodeFunctionData(functionFragment: "rebase", values: [BigNumberish, BigNumberish]): string;
-  encodeFunctionData(functionFragment: "rebases", values: [BigNumberish]): string;
-  encodeFunctionData(functionFragment: "renounceManagement", values?: undefined): string;
-  encodeFunctionData(functionFragment: "setIndex", values: [BigNumberish]): string;
-  encodeFunctionData(functionFragment: "stakingContract", values?: undefined): string;
+  encodeFunctionData(
+    functionFragment: "pullManagement",
+    values?: undefined
+  ): string;
+  encodeFunctionData(
+    functionFragment: "pushManagement",
+    values: [string]
+  ): string;
+  encodeFunctionData(
+    functionFragment: "rebase",
+    values: [BigNumberish, BigNumberish]
+  ): string;
+  encodeFunctionData(
+    functionFragment: "rebases",
+    values: [BigNumberish]
+  ): string;
+  encodeFunctionData(
+    functionFragment: "renounceManagement",
+    values?: undefined
+  ): string;
+  encodeFunctionData(
+    functionFragment: "setIndex",
+    values: [BigNumberish]
+  ): string;
+  encodeFunctionData(
+    functionFragment: "stakingContract",
+    values?: undefined
+  ): string;
   encodeFunctionData(functionFragment: "symbol", values?: undefined): string;
-  encodeFunctionData(functionFragment: "totalSupply", values?: undefined): string;
-  encodeFunctionData(functionFragment: "transfer", values: [string, BigNumberish]): string;
-  encodeFunctionData(functionFragment: "transferFrom", values: [string, string, BigNumberish]): string;
+  encodeFunctionData(
+    functionFragment: "totalSupply",
+    values?: undefined
+  ): string;
+  encodeFunctionData(
+    functionFragment: "transfer",
+    values: [string, BigNumberish]
+  ): string;
+  encodeFunctionData(
+    functionFragment: "transferFrom",
+    values: [string, string, BigNumberish]
+  ): string;
 
-  decodeFunctionResult(functionFragment: "DOMAIN_SEPARATOR", data: BytesLike): Result;
+  decodeFunctionResult(
+    functionFragment: "DOMAIN_SEPARATOR",
+    data: BytesLike
+  ): Result;
   decodeFunctionResult(functionFragment: "INDEX", data: BytesLike): Result;
-  decodeFunctionResult(functionFragment: "PERMIT_TYPEHASH", data: BytesLike): Result;
+  decodeFunctionResult(
+    functionFragment: "PERMIT_TYPEHASH",
+    data: BytesLike
+  ): Result;
   decodeFunctionResult(functionFragment: "allowance", data: BytesLike): Result;
   decodeFunctionResult(functionFragment: "approve", data: BytesLike): Result;
-  decodeFunctionResult(functionFragment: "balanceForGons", data: BytesLike): Result;
+  decodeFunctionResult(
+    functionFragment: "balanceForGons",
+    data: BytesLike
+  ): Result;
   decodeFunctionResult(functionFragment: "balanceOf", data: BytesLike): Result;
-  decodeFunctionResult(functionFragment: "circulatingSupply", data: BytesLike): Result;
+  decodeFunctionResult(
+    functionFragment: "circulatingSupply",
+    data: BytesLike
+  ): Result;
   decodeFunctionResult(functionFragment: "decimals", data: BytesLike): Result;
-  decodeFunctionResult(functionFragment: "decreaseAllowance", data: BytesLike): Result;
-  decodeFunctionResult(functionFragment: "gonsForBalance", data: BytesLike): Result;
-  decodeFunctionResult(functionFragment: "increaseAllowance", data: BytesLike): Result;
+  decodeFunctionResult(
+    functionFragment: "decreaseAllowance",
+    data: BytesLike
+  ): Result;
+  decodeFunctionResult(
+    functionFragment: "gonsForBalance",
+    data: BytesLike
+  ): Result;
+  decodeFunctionResult(
+    functionFragment: "increaseAllowance",
+    data: BytesLike
+  ): Result;
   decodeFunctionResult(functionFragment: "index", data: BytesLike): Result;
   decodeFunctionResult(functionFragment: "initialize", data: BytesLike): Result;
-  decodeFunctionResult(functionFragment: "initializer", data: BytesLike): Result;
+  decodeFunctionResult(
+    functionFragment: "initializer",
+    data: BytesLike
+  ): Result;
   decodeFunctionResult(functionFragment: "manager", data: BytesLike): Result;
   decodeFunctionResult(functionFragment: "name", data: BytesLike): Result;
   decodeFunctionResult(functionFragment: "nonces", data: BytesLike): Result;
   decodeFunctionResult(functionFragment: "permit", data: BytesLike): Result;
-  decodeFunctionResult(functionFragment: "pullManagement", data: BytesLike): Result;
-  decodeFunctionResult(functionFragment: "pushManagement", data: BytesLike): Result;
+  decodeFunctionResult(
+    functionFragment: "pullManagement",
+    data: BytesLike
+  ): Result;
+  decodeFunctionResult(
+    functionFragment: "pushManagement",
+    data: BytesLike
+  ): Result;
   decodeFunctionResult(functionFragment: "rebase", data: BytesLike): Result;
   decodeFunctionResult(functionFragment: "rebases", data: BytesLike): Result;
-  decodeFunctionResult(functionFragment: "renounceManagement", data: BytesLike): Result;
+  decodeFunctionResult(
+    functionFragment: "renounceManagement",
+    data: BytesLike
+  ): Result;
   decodeFunctionResult(functionFragment: "setIndex", data: BytesLike): Result;
-  decodeFunctionResult(functionFragment: "stakingContract", data: BytesLike): Result;
+  decodeFunctionResult(
+    functionFragment: "stakingContract",
+    data: BytesLike
+  ): Result;
   decodeFunctionResult(functionFragment: "symbol", data: BytesLike): Result;
-  decodeFunctionResult(functionFragment: "totalSupply", data: BytesLike): Result;
+  decodeFunctionResult(
+    functionFragment: "totalSupply",
+    data: BytesLike
+  ): Result;
   decodeFunctionResult(functionFragment: "transfer", data: BytesLike): Result;
-  decodeFunctionResult(functionFragment: "transferFrom", data: BytesLike): Result;
+  decodeFunctionResult(
+    functionFragment: "transferFrom",
+    data: BytesLike
+  ): Result;
 
   events: {
     "Approval(address,address,uint256)": EventFragment;
@@ -149,9 +259,13 @@ export type LogRebaseEvent = TypedEvent<
 
 export type LogRebaseEventFilter = TypedEventFilter<LogRebaseEvent>;
 
-export type LogStakingContractUpdatedEvent = TypedEvent<[string], { stakingContract: string }>;
+export type LogStakingContractUpdatedEvent = TypedEvent<
+  [string],
+  { stakingContract: string }
+>;
 
-export type LogStakingContractUpdatedEventFilter = TypedEventFilter<LogStakingContractUpdatedEvent>;
+export type LogStakingContractUpdatedEventFilter =
+  TypedEventFilter<LogStakingContractUpdatedEvent>;
 
 export type LogSupplyEvent = TypedEvent<
   [BigNumber, BigNumber, BigNumber],
@@ -160,15 +274,24 @@ export type LogSupplyEvent = TypedEvent<
 
 export type LogSupplyEventFilter = TypedEventFilter<LogSupplyEvent>;
 
-export type OwnershipPulledEvent = TypedEvent<[string, string], { previousOwner: string; newOwner: string }>;
+export type OwnershipPulledEvent = TypedEvent<
+  [string, string],
+  { previousOwner: string; newOwner: string }
+>;
 
 export type OwnershipPulledEventFilter = TypedEventFilter<OwnershipPulledEvent>;
 
-export type OwnershipPushedEvent = TypedEvent<[string, string], { previousOwner: string; newOwner: string }>;
+export type OwnershipPushedEvent = TypedEvent<
+  [string, string],
+  { previousOwner: string; newOwner: string }
+>;
 
 export type OwnershipPushedEventFilter = TypedEventFilter<OwnershipPushedEvent>;
 
-export type TransferEvent = TypedEvent<[string, string, BigNumber], { from: string; to: string; value: BigNumber }>;
+export type TransferEvent = TypedEvent<
+  [string, string, BigNumber],
+  { from: string; to: string; value: BigNumber }
+>;
 
 export type TransferEventFilter = TypedEventFilter<TransferEvent>;
 
@@ -182,12 +305,16 @@ export interface SOhmv2 extends BaseContract {
   queryFilter<TEvent extends TypedEvent>(
     event: TypedEventFilter<TEvent>,
     fromBlockOrBlockhash?: string | number | undefined,
-    toBlock?: string | number | undefined,
+    toBlock?: string | number | undefined
   ): Promise<Array<TEvent>>;
 
-  listeners<TEvent extends TypedEvent>(eventFilter?: TypedEventFilter<TEvent>): Array<TypedListener<TEvent>>;
+  listeners<TEvent extends TypedEvent>(
+    eventFilter?: TypedEventFilter<TEvent>
+  ): Array<TypedListener<TEvent>>;
   listeners(eventName?: string): Array<Listener>;
-  removeAllListeners<TEvent extends TypedEvent>(eventFilter: TypedEventFilter<TEvent>): this;
+  removeAllListeners<TEvent extends TypedEvent>(
+    eventFilter: TypedEventFilter<TEvent>
+  ): this;
   removeAllListeners(eventName?: string): this;
   off: OnEvent<this>;
   on: OnEvent<this>;
@@ -201,15 +328,22 @@ export interface SOhmv2 extends BaseContract {
 
     PERMIT_TYPEHASH(overrides?: CallOverrides): Promise<[string]>;
 
-    allowance(owner_: string, spender: string, overrides?: CallOverrides): Promise<[BigNumber]>;
+    allowance(
+      owner_: string,
+      spender: string,
+      overrides?: CallOverrides
+    ): Promise<[BigNumber]>;
 
     approve(
       spender: string,
       value: BigNumberish,
-      overrides?: Overrides & { from?: string | Promise<string> },
+      overrides?: Overrides & { from?: string | Promise<string> }
     ): Promise<ContractTransaction>;
 
-    balanceForGons(gons: BigNumberish, overrides?: CallOverrides): Promise<[BigNumber]>;
+    balanceForGons(
+      gons: BigNumberish,
+      overrides?: CallOverrides
+    ): Promise<[BigNumber]>;
 
     balanceOf(who: string, overrides?: CallOverrides): Promise<[BigNumber]>;
 
@@ -220,22 +354,25 @@ export interface SOhmv2 extends BaseContract {
     decreaseAllowance(
       spender: string,
       subtractedValue: BigNumberish,
-      overrides?: Overrides & { from?: string | Promise<string> },
+      overrides?: Overrides & { from?: string | Promise<string> }
     ): Promise<ContractTransaction>;
 
-    gonsForBalance(amount: BigNumberish, overrides?: CallOverrides): Promise<[BigNumber]>;
+    gonsForBalance(
+      amount: BigNumberish,
+      overrides?: CallOverrides
+    ): Promise<[BigNumber]>;
 
     increaseAllowance(
       spender: string,
       addedValue: BigNumberish,
-      overrides?: Overrides & { from?: string | Promise<string> },
+      overrides?: Overrides & { from?: string | Promise<string> }
     ): Promise<ContractTransaction>;
 
     index(overrides?: CallOverrides): Promise<[BigNumber]>;
 
     initialize(
       stakingContract_: string,
-      overrides?: Overrides & { from?: string | Promise<string> },
+      overrides?: Overrides & { from?: string | Promise<string> }
     ): Promise<ContractTransaction>;
 
     initializer(overrides?: CallOverrides): Promise<[string]>;
@@ -254,27 +391,37 @@ export interface SOhmv2 extends BaseContract {
       v: BigNumberish,
       r: BytesLike,
       s: BytesLike,
-      overrides?: Overrides & { from?: string | Promise<string> },
+      overrides?: Overrides & { from?: string | Promise<string> }
     ): Promise<ContractTransaction>;
 
-    pullManagement(overrides?: Overrides & { from?: string | Promise<string> }): Promise<ContractTransaction>;
+    pullManagement(
+      overrides?: Overrides & { from?: string | Promise<string> }
+    ): Promise<ContractTransaction>;
 
     pushManagement(
       newOwner_: string,
-      overrides?: Overrides & { from?: string | Promise<string> },
+      overrides?: Overrides & { from?: string | Promise<string> }
     ): Promise<ContractTransaction>;
 
     rebase(
       profit_: BigNumberish,
       epoch_: BigNumberish,
-      overrides?: Overrides & { from?: string | Promise<string> },
+      overrides?: Overrides & { from?: string | Promise<string> }
     ): Promise<ContractTransaction>;
 
     rebases(
       arg0: BigNumberish,
-      overrides?: CallOverrides,
+      overrides?: CallOverrides
     ): Promise<
-      [BigNumber, BigNumber, BigNumber, BigNumber, BigNumber, BigNumber, BigNumber] & {
+      [
+        BigNumber,
+        BigNumber,
+        BigNumber,
+        BigNumber,
+        BigNumber,
+        BigNumber,
+        BigNumber
+      ] & {
         epoch: BigNumber;
         rebase: BigNumber;
         totalStakedBefore: BigNumber;
@@ -285,11 +432,13 @@ export interface SOhmv2 extends BaseContract {
       }
     >;
 
-    renounceManagement(overrides?: Overrides & { from?: string | Promise<string> }): Promise<ContractTransaction>;
+    renounceManagement(
+      overrides?: Overrides & { from?: string | Promise<string> }
+    ): Promise<ContractTransaction>;
 
     setIndex(
       _INDEX: BigNumberish,
-      overrides?: Overrides & { from?: string | Promise<string> },
+      overrides?: Overrides & { from?: string | Promise<string> }
     ): Promise<ContractTransaction>;
 
     stakingContract(overrides?: CallOverrides): Promise<[string]>;
@@ -301,14 +450,14 @@ export interface SOhmv2 extends BaseContract {
     transfer(
       to: string,
       value: BigNumberish,
-      overrides?: Overrides & { from?: string | Promise<string> },
+      overrides?: Overrides & { from?: string | Promise<string> }
     ): Promise<ContractTransaction>;
 
     transferFrom(
       from: string,
       to: string,
       value: BigNumberish,
-      overrides?: Overrides & { from?: string | Promise<string> },
+      overrides?: Overrides & { from?: string | Promise<string> }
     ): Promise<ContractTransaction>;
   };
 
@@ -318,15 +467,22 @@ export interface SOhmv2 extends BaseContract {
 
   PERMIT_TYPEHASH(overrides?: CallOverrides): Promise<string>;
 
-  allowance(owner_: string, spender: string, overrides?: CallOverrides): Promise<BigNumber>;
+  allowance(
+    owner_: string,
+    spender: string,
+    overrides?: CallOverrides
+  ): Promise<BigNumber>;
 
   approve(
     spender: string,
     value: BigNumberish,
-    overrides?: Overrides & { from?: string | Promise<string> },
+    overrides?: Overrides & { from?: string | Promise<string> }
   ): Promise<ContractTransaction>;
 
-  balanceForGons(gons: BigNumberish, overrides?: CallOverrides): Promise<BigNumber>;
+  balanceForGons(
+    gons: BigNumberish,
+    overrides?: CallOverrides
+  ): Promise<BigNumber>;
 
   balanceOf(who: string, overrides?: CallOverrides): Promise<BigNumber>;
 
@@ -337,22 +493,25 @@ export interface SOhmv2 extends BaseContract {
   decreaseAllowance(
     spender: string,
     subtractedValue: BigNumberish,
-    overrides?: Overrides & { from?: string | Promise<string> },
+    overrides?: Overrides & { from?: string | Promise<string> }
   ): Promise<ContractTransaction>;
 
-  gonsForBalance(amount: BigNumberish, overrides?: CallOverrides): Promise<BigNumber>;
+  gonsForBalance(
+    amount: BigNumberish,
+    overrides?: CallOverrides
+  ): Promise<BigNumber>;
 
   increaseAllowance(
     spender: string,
     addedValue: BigNumberish,
-    overrides?: Overrides & { from?: string | Promise<string> },
+    overrides?: Overrides & { from?: string | Promise<string> }
   ): Promise<ContractTransaction>;
 
   index(overrides?: CallOverrides): Promise<BigNumber>;
 
   initialize(
     stakingContract_: string,
-    overrides?: Overrides & { from?: string | Promise<string> },
+    overrides?: Overrides & { from?: string | Promise<string> }
   ): Promise<ContractTransaction>;
 
   initializer(overrides?: CallOverrides): Promise<string>;
@@ -371,27 +530,37 @@ export interface SOhmv2 extends BaseContract {
     v: BigNumberish,
     r: BytesLike,
     s: BytesLike,
-    overrides?: Overrides & { from?: string | Promise<string> },
+    overrides?: Overrides & { from?: string | Promise<string> }
   ): Promise<ContractTransaction>;
 
-  pullManagement(overrides?: Overrides & { from?: string | Promise<string> }): Promise<ContractTransaction>;
+  pullManagement(
+    overrides?: Overrides & { from?: string | Promise<string> }
+  ): Promise<ContractTransaction>;
 
   pushManagement(
     newOwner_: string,
-    overrides?: Overrides & { from?: string | Promise<string> },
+    overrides?: Overrides & { from?: string | Promise<string> }
   ): Promise<ContractTransaction>;
 
   rebase(
     profit_: BigNumberish,
     epoch_: BigNumberish,
-    overrides?: Overrides & { from?: string | Promise<string> },
+    overrides?: Overrides & { from?: string | Promise<string> }
   ): Promise<ContractTransaction>;
 
   rebases(
     arg0: BigNumberish,
-    overrides?: CallOverrides,
+    overrides?: CallOverrides
   ): Promise<
-    [BigNumber, BigNumber, BigNumber, BigNumber, BigNumber, BigNumber, BigNumber] & {
+    [
+      BigNumber,
+      BigNumber,
+      BigNumber,
+      BigNumber,
+      BigNumber,
+      BigNumber,
+      BigNumber
+    ] & {
       epoch: BigNumber;
       rebase: BigNumber;
       totalStakedBefore: BigNumber;
@@ -402,11 +571,13 @@ export interface SOhmv2 extends BaseContract {
     }
   >;
 
-  renounceManagement(overrides?: Overrides & { from?: string | Promise<string> }): Promise<ContractTransaction>;
+  renounceManagement(
+    overrides?: Overrides & { from?: string | Promise<string> }
+  ): Promise<ContractTransaction>;
 
   setIndex(
     _INDEX: BigNumberish,
-    overrides?: Overrides & { from?: string | Promise<string> },
+    overrides?: Overrides & { from?: string | Promise<string> }
   ): Promise<ContractTransaction>;
 
   stakingContract(overrides?: CallOverrides): Promise<string>;
@@ -418,14 +589,14 @@ export interface SOhmv2 extends BaseContract {
   transfer(
     to: string,
     value: BigNumberish,
-    overrides?: Overrides & { from?: string | Promise<string> },
+    overrides?: Overrides & { from?: string | Promise<string> }
   ): Promise<ContractTransaction>;
 
   transferFrom(
     from: string,
     to: string,
     value: BigNumberish,
-    overrides?: Overrides & { from?: string | Promise<string> },
+    overrides?: Overrides & { from?: string | Promise<string> }
   ): Promise<ContractTransaction>;
 
   callStatic: {
@@ -435,11 +606,22 @@ export interface SOhmv2 extends BaseContract {
 
     PERMIT_TYPEHASH(overrides?: CallOverrides): Promise<string>;
 
-    allowance(owner_: string, spender: string, overrides?: CallOverrides): Promise<BigNumber>;
+    allowance(
+      owner_: string,
+      spender: string,
+      overrides?: CallOverrides
+    ): Promise<BigNumber>;
 
-    approve(spender: string, value: BigNumberish, overrides?: CallOverrides): Promise<boolean>;
+    approve(
+      spender: string,
+      value: BigNumberish,
+      overrides?: CallOverrides
+    ): Promise<boolean>;
 
-    balanceForGons(gons: BigNumberish, overrides?: CallOverrides): Promise<BigNumber>;
+    balanceForGons(
+      gons: BigNumberish,
+      overrides?: CallOverrides
+    ): Promise<BigNumber>;
 
     balanceOf(who: string, overrides?: CallOverrides): Promise<BigNumber>;
 
@@ -447,15 +629,29 @@ export interface SOhmv2 extends BaseContract {
 
     decimals(overrides?: CallOverrides): Promise<number>;
 
-    decreaseAllowance(spender: string, subtractedValue: BigNumberish, overrides?: CallOverrides): Promise<boolean>;
+    decreaseAllowance(
+      spender: string,
+      subtractedValue: BigNumberish,
+      overrides?: CallOverrides
+    ): Promise<boolean>;
 
-    gonsForBalance(amount: BigNumberish, overrides?: CallOverrides): Promise<BigNumber>;
+    gonsForBalance(
+      amount: BigNumberish,
+      overrides?: CallOverrides
+    ): Promise<BigNumber>;
 
-    increaseAllowance(spender: string, addedValue: BigNumberish, overrides?: CallOverrides): Promise<boolean>;
+    increaseAllowance(
+      spender: string,
+      addedValue: BigNumberish,
+      overrides?: CallOverrides
+    ): Promise<boolean>;
 
     index(overrides?: CallOverrides): Promise<BigNumber>;
 
-    initialize(stakingContract_: string, overrides?: CallOverrides): Promise<boolean>;
+    initialize(
+      stakingContract_: string,
+      overrides?: CallOverrides
+    ): Promise<boolean>;
 
     initializer(overrides?: CallOverrides): Promise<string>;
 
@@ -473,20 +669,32 @@ export interface SOhmv2 extends BaseContract {
       v: BigNumberish,
       r: BytesLike,
       s: BytesLike,
-      overrides?: CallOverrides,
+      overrides?: CallOverrides
     ): Promise<void>;
 
     pullManagement(overrides?: CallOverrides): Promise<void>;
 
     pushManagement(newOwner_: string, overrides?: CallOverrides): Promise<void>;
 
-    rebase(profit_: BigNumberish, epoch_: BigNumberish, overrides?: CallOverrides): Promise<BigNumber>;
+    rebase(
+      profit_: BigNumberish,
+      epoch_: BigNumberish,
+      overrides?: CallOverrides
+    ): Promise<BigNumber>;
 
     rebases(
       arg0: BigNumberish,
-      overrides?: CallOverrides,
+      overrides?: CallOverrides
     ): Promise<
-      [BigNumber, BigNumber, BigNumber, BigNumber, BigNumber, BigNumber, BigNumber] & {
+      [
+        BigNumber,
+        BigNumber,
+        BigNumber,
+        BigNumber,
+        BigNumber,
+        BigNumber,
+        BigNumber
+      ] & {
         epoch: BigNumber;
         rebase: BigNumber;
         totalStakedBefore: BigNumber;
@@ -507,50 +715,89 @@ export interface SOhmv2 extends BaseContract {
 
     totalSupply(overrides?: CallOverrides): Promise<BigNumber>;
 
-    transfer(to: string, value: BigNumberish, overrides?: CallOverrides): Promise<boolean>;
+    transfer(
+      to: string,
+      value: BigNumberish,
+      overrides?: CallOverrides
+    ): Promise<boolean>;
 
-    transferFrom(from: string, to: string, value: BigNumberish, overrides?: CallOverrides): Promise<boolean>;
+    transferFrom(
+      from: string,
+      to: string,
+      value: BigNumberish,
+      overrides?: CallOverrides
+    ): Promise<boolean>;
   };
 
   filters: {
     "Approval(address,address,uint256)"(
       owner?: string | null,
       spender?: string | null,
-      value?: null,
+      value?: null
     ): ApprovalEventFilter;
-    Approval(owner?: string | null, spender?: string | null, value?: null): ApprovalEventFilter;
+    Approval(
+      owner?: string | null,
+      spender?: string | null,
+      value?: null
+    ): ApprovalEventFilter;
 
     "LogRebase(uint256,uint256,uint256)"(
       epoch?: BigNumberish | null,
       rebase?: null,
-      index?: null,
+      index?: null
     ): LogRebaseEventFilter;
-    LogRebase(epoch?: BigNumberish | null, rebase?: null, index?: null): LogRebaseEventFilter;
+    LogRebase(
+      epoch?: BigNumberish | null,
+      rebase?: null,
+      index?: null
+    ): LogRebaseEventFilter;
 
-    "LogStakingContractUpdated(address)"(stakingContract?: null): LogStakingContractUpdatedEventFilter;
-    LogStakingContractUpdated(stakingContract?: null): LogStakingContractUpdatedEventFilter;
+    "LogStakingContractUpdated(address)"(
+      stakingContract?: null
+    ): LogStakingContractUpdatedEventFilter;
+    LogStakingContractUpdated(
+      stakingContract?: null
+    ): LogStakingContractUpdatedEventFilter;
 
     "LogSupply(uint256,uint256,uint256)"(
       epoch?: BigNumberish | null,
       timestamp?: null,
-      totalSupply?: null,
+      totalSupply?: null
     ): LogSupplyEventFilter;
-    LogSupply(epoch?: BigNumberish | null, timestamp?: null, totalSupply?: null): LogSupplyEventFilter;
+    LogSupply(
+      epoch?: BigNumberish | null,
+      timestamp?: null,
+      totalSupply?: null
+    ): LogSupplyEventFilter;
 
     "OwnershipPulled(address,address)"(
       previousOwner?: string | null,
-      newOwner?: string | null,
+      newOwner?: string | null
     ): OwnershipPulledEventFilter;
-    OwnershipPulled(previousOwner?: string | null, newOwner?: string | null): OwnershipPulledEventFilter;
+    OwnershipPulled(
+      previousOwner?: string | null,
+      newOwner?: string | null
+    ): OwnershipPulledEventFilter;
 
     "OwnershipPushed(address,address)"(
       previousOwner?: string | null,
-      newOwner?: string | null,
+      newOwner?: string | null
     ): OwnershipPushedEventFilter;
-    OwnershipPushed(previousOwner?: string | null, newOwner?: string | null): OwnershipPushedEventFilter;
+    OwnershipPushed(
+      previousOwner?: string | null,
+      newOwner?: string | null
+    ): OwnershipPushedEventFilter;
 
-    "Transfer(address,address,uint256)"(from?: string | null, to?: string | null, value?: null): TransferEventFilter;
-    Transfer(from?: string | null, to?: string | null, value?: null): TransferEventFilter;
+    "Transfer(address,address,uint256)"(
+      from?: string | null,
+      to?: string | null,
+      value?: null
+    ): TransferEventFilter;
+    Transfer(
+      from?: string | null,
+      to?: string | null,
+      value?: null
+    ): TransferEventFilter;
   };
 
   estimateGas: {
@@ -560,15 +807,22 @@ export interface SOhmv2 extends BaseContract {
 
     PERMIT_TYPEHASH(overrides?: CallOverrides): Promise<BigNumber>;
 
-    allowance(owner_: string, spender: string, overrides?: CallOverrides): Promise<BigNumber>;
+    allowance(
+      owner_: string,
+      spender: string,
+      overrides?: CallOverrides
+    ): Promise<BigNumber>;
 
     approve(
       spender: string,
       value: BigNumberish,
-      overrides?: Overrides & { from?: string | Promise<string> },
+      overrides?: Overrides & { from?: string | Promise<string> }
     ): Promise<BigNumber>;
 
-    balanceForGons(gons: BigNumberish, overrides?: CallOverrides): Promise<BigNumber>;
+    balanceForGons(
+      gons: BigNumberish,
+      overrides?: CallOverrides
+    ): Promise<BigNumber>;
 
     balanceOf(who: string, overrides?: CallOverrides): Promise<BigNumber>;
 
@@ -579,22 +833,25 @@ export interface SOhmv2 extends BaseContract {
     decreaseAllowance(
       spender: string,
       subtractedValue: BigNumberish,
-      overrides?: Overrides & { from?: string | Promise<string> },
+      overrides?: Overrides & { from?: string | Promise<string> }
     ): Promise<BigNumber>;
 
-    gonsForBalance(amount: BigNumberish, overrides?: CallOverrides): Promise<BigNumber>;
+    gonsForBalance(
+      amount: BigNumberish,
+      overrides?: CallOverrides
+    ): Promise<BigNumber>;
 
     increaseAllowance(
       spender: string,
       addedValue: BigNumberish,
-      overrides?: Overrides & { from?: string | Promise<string> },
+      overrides?: Overrides & { from?: string | Promise<string> }
     ): Promise<BigNumber>;
 
     index(overrides?: CallOverrides): Promise<BigNumber>;
 
     initialize(
       stakingContract_: string,
-      overrides?: Overrides & { from?: string | Promise<string> },
+      overrides?: Overrides & { from?: string | Promise<string> }
     ): Promise<BigNumber>;
 
     initializer(overrides?: CallOverrides): Promise<BigNumber>;
@@ -613,24 +870,34 @@ export interface SOhmv2 extends BaseContract {
       v: BigNumberish,
       r: BytesLike,
       s: BytesLike,
-      overrides?: Overrides & { from?: string | Promise<string> },
+      overrides?: Overrides & { from?: string | Promise<string> }
     ): Promise<BigNumber>;
 
-    pullManagement(overrides?: Overrides & { from?: string | Promise<string> }): Promise<BigNumber>;
+    pullManagement(
+      overrides?: Overrides & { from?: string | Promise<string> }
+    ): Promise<BigNumber>;
 
-    pushManagement(newOwner_: string, overrides?: Overrides & { from?: string | Promise<string> }): Promise<BigNumber>;
+    pushManagement(
+      newOwner_: string,
+      overrides?: Overrides & { from?: string | Promise<string> }
+    ): Promise<BigNumber>;
 
     rebase(
       profit_: BigNumberish,
       epoch_: BigNumberish,
-      overrides?: Overrides & { from?: string | Promise<string> },
+      overrides?: Overrides & { from?: string | Promise<string> }
     ): Promise<BigNumber>;
 
     rebases(arg0: BigNumberish, overrides?: CallOverrides): Promise<BigNumber>;
 
-    renounceManagement(overrides?: Overrides & { from?: string | Promise<string> }): Promise<BigNumber>;
+    renounceManagement(
+      overrides?: Overrides & { from?: string | Promise<string> }
+    ): Promise<BigNumber>;
 
-    setIndex(_INDEX: BigNumberish, overrides?: Overrides & { from?: string | Promise<string> }): Promise<BigNumber>;
+    setIndex(
+      _INDEX: BigNumberish,
+      overrides?: Overrides & { from?: string | Promise<string> }
+    ): Promise<BigNumber>;
 
     stakingContract(overrides?: CallOverrides): Promise<BigNumber>;
 
@@ -641,14 +908,14 @@ export interface SOhmv2 extends BaseContract {
     transfer(
       to: string,
       value: BigNumberish,
-      overrides?: Overrides & { from?: string | Promise<string> },
+      overrides?: Overrides & { from?: string | Promise<string> }
     ): Promise<BigNumber>;
 
     transferFrom(
       from: string,
       to: string,
       value: BigNumberish,
-      overrides?: Overrides & { from?: string | Promise<string> },
+      overrides?: Overrides & { from?: string | Promise<string> }
     ): Promise<BigNumber>;
   };
 
@@ -659,17 +926,27 @@ export interface SOhmv2 extends BaseContract {
 
     PERMIT_TYPEHASH(overrides?: CallOverrides): Promise<PopulatedTransaction>;
 
-    allowance(owner_: string, spender: string, overrides?: CallOverrides): Promise<PopulatedTransaction>;
+    allowance(
+      owner_: string,
+      spender: string,
+      overrides?: CallOverrides
+    ): Promise<PopulatedTransaction>;
 
     approve(
       spender: string,
       value: BigNumberish,
-      overrides?: Overrides & { from?: string | Promise<string> },
+      overrides?: Overrides & { from?: string | Promise<string> }
     ): Promise<PopulatedTransaction>;
 
-    balanceForGons(gons: BigNumberish, overrides?: CallOverrides): Promise<PopulatedTransaction>;
+    balanceForGons(
+      gons: BigNumberish,
+      overrides?: CallOverrides
+    ): Promise<PopulatedTransaction>;
 
-    balanceOf(who: string, overrides?: CallOverrides): Promise<PopulatedTransaction>;
+    balanceOf(
+      who: string,
+      overrides?: CallOverrides
+    ): Promise<PopulatedTransaction>;
 
     circulatingSupply(overrides?: CallOverrides): Promise<PopulatedTransaction>;
 
@@ -678,22 +955,25 @@ export interface SOhmv2 extends BaseContract {
     decreaseAllowance(
       spender: string,
       subtractedValue: BigNumberish,
-      overrides?: Overrides & { from?: string | Promise<string> },
+      overrides?: Overrides & { from?: string | Promise<string> }
     ): Promise<PopulatedTransaction>;
 
-    gonsForBalance(amount: BigNumberish, overrides?: CallOverrides): Promise<PopulatedTransaction>;
+    gonsForBalance(
+      amount: BigNumberish,
+      overrides?: CallOverrides
+    ): Promise<PopulatedTransaction>;
 
     increaseAllowance(
       spender: string,
       addedValue: BigNumberish,
-      overrides?: Overrides & { from?: string | Promise<string> },
+      overrides?: Overrides & { from?: string | Promise<string> }
     ): Promise<PopulatedTransaction>;
 
     index(overrides?: CallOverrides): Promise<PopulatedTransaction>;
 
     initialize(
       stakingContract_: string,
-      overrides?: Overrides & { from?: string | Promise<string> },
+      overrides?: Overrides & { from?: string | Promise<string> }
     ): Promise<PopulatedTransaction>;
 
     initializer(overrides?: CallOverrides): Promise<PopulatedTransaction>;
@@ -702,7 +982,10 @@ export interface SOhmv2 extends BaseContract {
 
     name(overrides?: CallOverrides): Promise<PopulatedTransaction>;
 
-    nonces(owner: string, overrides?: CallOverrides): Promise<PopulatedTransaction>;
+    nonces(
+      owner: string,
+      overrides?: CallOverrides
+    ): Promise<PopulatedTransaction>;
 
     permit(
       owner: string,
@@ -712,29 +995,36 @@ export interface SOhmv2 extends BaseContract {
       v: BigNumberish,
       r: BytesLike,
       s: BytesLike,
-      overrides?: Overrides & { from?: string | Promise<string> },
+      overrides?: Overrides & { from?: string | Promise<string> }
     ): Promise<PopulatedTransaction>;
 
-    pullManagement(overrides?: Overrides & { from?: string | Promise<string> }): Promise<PopulatedTransaction>;
+    pullManagement(
+      overrides?: Overrides & { from?: string | Promise<string> }
+    ): Promise<PopulatedTransaction>;
 
     pushManagement(
       newOwner_: string,
-      overrides?: Overrides & { from?: string | Promise<string> },
+      overrides?: Overrides & { from?: string | Promise<string> }
     ): Promise<PopulatedTransaction>;
 
     rebase(
       profit_: BigNumberish,
       epoch_: BigNumberish,
-      overrides?: Overrides & { from?: string | Promise<string> },
+      overrides?: Overrides & { from?: string | Promise<string> }
     ): Promise<PopulatedTransaction>;
 
-    rebases(arg0: BigNumberish, overrides?: CallOverrides): Promise<PopulatedTransaction>;
+    rebases(
+      arg0: BigNumberish,
+      overrides?: CallOverrides
+    ): Promise<PopulatedTransaction>;
 
-    renounceManagement(overrides?: Overrides & { from?: string | Promise<string> }): Promise<PopulatedTransaction>;
+    renounceManagement(
+      overrides?: Overrides & { from?: string | Promise<string> }
+    ): Promise<PopulatedTransaction>;
 
     setIndex(
       _INDEX: BigNumberish,
-      overrides?: Overrides & { from?: string | Promise<string> },
+      overrides?: Overrides & { from?: string | Promise<string> }
     ): Promise<PopulatedTransaction>;
 
     stakingContract(overrides?: CallOverrides): Promise<PopulatedTransaction>;
@@ -746,14 +1036,14 @@ export interface SOhmv2 extends BaseContract {
     transfer(
       to: string,
       value: BigNumberish,
-      overrides?: Overrides & { from?: string | Promise<string> },
+      overrides?: Overrides & { from?: string | Promise<string> }
     ): Promise<PopulatedTransaction>;
 
     transferFrom(
       from: string,
       to: string,
       value: BigNumberish,
-      overrides?: Overrides & { from?: string | Promise<string> },
+      overrides?: Overrides & { from?: string | Promise<string> }
     ): Promise<PopulatedTransaction>;
   };
 }

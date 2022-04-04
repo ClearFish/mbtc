@@ -4,7 +4,10 @@
 
 import { Contract, Signer, utils } from "ethers";
 import { Provider } from "@ethersproject/providers";
-import type { FiatDAOContract, FiatDAOContractInterface } from "../FiatDAOContract";
+import type {
+  FiatDAOContract,
+  FiatDAOContractInterface,
+} from "../FiatDAOContract";
 
 const _abi = [
   {
@@ -384,7 +387,10 @@ export class FiatDAOContract__factory {
   static createInterface(): FiatDAOContractInterface {
     return new utils.Interface(_abi) as FiatDAOContractInterface;
   }
-  static connect(address: string, signerOrProvider: Signer | Provider): FiatDAOContract {
+  static connect(
+    address: string,
+    signerOrProvider: Signer | Provider
+  ): FiatDAOContract {
     return new Contract(address, _abi, signerOrProvider) as FiatDAOContract;
   }
 }

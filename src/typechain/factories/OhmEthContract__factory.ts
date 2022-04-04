@@ -4,7 +4,10 @@
 
 import { Contract, Signer, utils } from "ethers";
 import { Provider } from "@ethersproject/providers";
-import type { OhmEthContract, OhmEthContractInterface } from "../OhmEthContract";
+import type {
+  OhmEthContract,
+  OhmEthContractInterface,
+} from "../OhmEthContract";
 
 const _abi = [
   {
@@ -768,7 +771,10 @@ export class OhmEthContract__factory {
   static createInterface(): OhmEthContractInterface {
     return new utils.Interface(_abi) as OhmEthContractInterface;
   }
-  static connect(address: string, signerOrProvider: Signer | Provider): OhmEthContract {
+  static connect(
+    address: string,
+    signerOrProvider: Signer | Provider
+  ): OhmEthContract {
     return new Contract(address, _abi, signerOrProvider) as OhmEthContract;
   }
 }

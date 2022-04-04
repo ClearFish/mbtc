@@ -719,7 +719,10 @@ export class PairContract__factory {
   static createInterface(): PairContractInterface {
     return new utils.Interface(_abi) as PairContractInterface;
   }
-  static connect(address: string, signerOrProvider: Signer | Provider): PairContract {
+  static connect(
+    address: string,
+    signerOrProvider: Signer | Provider
+  ): PairContract {
     return new Contract(address, _abi, signerOrProvider) as PairContract;
   }
 }

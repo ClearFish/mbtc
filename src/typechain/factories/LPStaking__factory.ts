@@ -438,7 +438,10 @@ export class LPStaking__factory {
   static createInterface(): LPStakingInterface {
     return new utils.Interface(_abi) as LPStakingInterface;
   }
-  static connect(address: string, signerOrProvider: Signer | Provider): LPStaking {
+  static connect(
+    address: string,
+    signerOrProvider: Signer | Provider
+  ): LPStaking {
     return new Contract(address, _abi, signerOrProvider) as LPStaking;
   }
 }

@@ -810,7 +810,10 @@ export class DaiContract__factory {
   static createInterface(): DaiContractInterface {
     return new utils.Interface(_abi) as DaiContractInterface;
   }
-  static connect(address: string, signerOrProvider: Signer | Provider): DaiContract {
+  static connect(
+    address: string,
+    signerOrProvider: Signer | Provider
+  ): DaiContract {
     return new Contract(address, _abi, signerOrProvider) as DaiContract;
   }
 }

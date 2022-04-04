@@ -670,7 +670,10 @@ export class OhmLusd__factory {
   static createInterface(): OhmLusdInterface {
     return new utils.Interface(_abi) as OhmLusdInterface;
   }
-  static connect(address: string, signerOrProvider: Signer | Provider): OhmLusd {
+  static connect(
+    address: string,
+    signerOrProvider: Signer | Provider
+  ): OhmLusd {
     return new Contract(address, _abi, signerOrProvider) as OhmLusd;
   }
 }

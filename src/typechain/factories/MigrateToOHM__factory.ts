@@ -174,7 +174,10 @@ export class MigrateToOHM__factory {
   static createInterface(): MigrateToOHMInterface {
     return new utils.Interface(_abi) as MigrateToOHMInterface;
   }
-  static connect(address: string, signerOrProvider: Signer | Provider): MigrateToOHM {
+  static connect(
+    address: string,
+    signerOrProvider: Signer | Provider
+  ): MigrateToOHM {
     return new Contract(address, _abi, signerOrProvider) as MigrateToOHM;
   }
 }

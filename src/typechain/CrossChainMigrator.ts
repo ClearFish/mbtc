@@ -29,19 +29,40 @@ export interface CrossChainMigratorInterface extends utils.Interface {
   };
 
   encodeFunctionData(functionFragment: "clear", values?: undefined): string;
-  encodeFunctionData(functionFragment: "migrate", values: [BigNumberish]): string;
+  encodeFunctionData(
+    functionFragment: "migrate",
+    values: [BigNumberish]
+  ): string;
   encodeFunctionData(functionFragment: "owner", values?: undefined): string;
-  encodeFunctionData(functionFragment: "pullManagement", values?: undefined): string;
-  encodeFunctionData(functionFragment: "pushManagement", values: [string]): string;
-  encodeFunctionData(functionFragment: "renounceManagement", values?: undefined): string;
+  encodeFunctionData(
+    functionFragment: "pullManagement",
+    values?: undefined
+  ): string;
+  encodeFunctionData(
+    functionFragment: "pushManagement",
+    values: [string]
+  ): string;
+  encodeFunctionData(
+    functionFragment: "renounceManagement",
+    values?: undefined
+  ): string;
   encodeFunctionData(functionFragment: "replenish", values?: undefined): string;
 
   decodeFunctionResult(functionFragment: "clear", data: BytesLike): Result;
   decodeFunctionResult(functionFragment: "migrate", data: BytesLike): Result;
   decodeFunctionResult(functionFragment: "owner", data: BytesLike): Result;
-  decodeFunctionResult(functionFragment: "pullManagement", data: BytesLike): Result;
-  decodeFunctionResult(functionFragment: "pushManagement", data: BytesLike): Result;
-  decodeFunctionResult(functionFragment: "renounceManagement", data: BytesLike): Result;
+  decodeFunctionResult(
+    functionFragment: "pullManagement",
+    data: BytesLike
+  ): Result;
+  decodeFunctionResult(
+    functionFragment: "pushManagement",
+    data: BytesLike
+  ): Result;
+  decodeFunctionResult(
+    functionFragment: "renounceManagement",
+    data: BytesLike
+  ): Result;
   decodeFunctionResult(functionFragment: "replenish", data: BytesLike): Result;
 
   events: {
@@ -53,11 +74,17 @@ export interface CrossChainMigratorInterface extends utils.Interface {
   getEvent(nameOrSignatureOrTopic: "OwnershipPushed"): EventFragment;
 }
 
-export type OwnershipPulledEvent = TypedEvent<[string, string], { previousOwner: string; newOwner: string }>;
+export type OwnershipPulledEvent = TypedEvent<
+  [string, string],
+  { previousOwner: string; newOwner: string }
+>;
 
 export type OwnershipPulledEventFilter = TypedEventFilter<OwnershipPulledEvent>;
 
-export type OwnershipPushedEvent = TypedEvent<[string, string], { previousOwner: string; newOwner: string }>;
+export type OwnershipPushedEvent = TypedEvent<
+  [string, string],
+  { previousOwner: string; newOwner: string }
+>;
 
 export type OwnershipPushedEventFilter = TypedEventFilter<OwnershipPushedEvent>;
 
@@ -71,12 +98,16 @@ export interface CrossChainMigrator extends BaseContract {
   queryFilter<TEvent extends TypedEvent>(
     event: TypedEventFilter<TEvent>,
     fromBlockOrBlockhash?: string | number | undefined,
-    toBlock?: string | number | undefined,
+    toBlock?: string | number | undefined
   ): Promise<Array<TEvent>>;
 
-  listeners<TEvent extends TypedEvent>(eventFilter?: TypedEventFilter<TEvent>): Array<TypedListener<TEvent>>;
+  listeners<TEvent extends TypedEvent>(
+    eventFilter?: TypedEventFilter<TEvent>
+  ): Array<TypedListener<TEvent>>;
   listeners(eventName?: string): Array<Listener>;
-  removeAllListeners<TEvent extends TypedEvent>(eventFilter: TypedEventFilter<TEvent>): this;
+  removeAllListeners<TEvent extends TypedEvent>(
+    eventFilter: TypedEventFilter<TEvent>
+  ): this;
   removeAllListeners(eventName?: string): this;
   off: OnEvent<this>;
   on: OnEvent<this>;
@@ -84,46 +115,62 @@ export interface CrossChainMigrator extends BaseContract {
   removeListener: OnEvent<this>;
 
   functions: {
-    clear(overrides?: Overrides & { from?: string | Promise<string> }): Promise<ContractTransaction>;
+    clear(
+      overrides?: Overrides & { from?: string | Promise<string> }
+    ): Promise<ContractTransaction>;
 
     migrate(
       amount: BigNumberish,
-      overrides?: Overrides & { from?: string | Promise<string> },
+      overrides?: Overrides & { from?: string | Promise<string> }
     ): Promise<ContractTransaction>;
 
     owner(overrides?: CallOverrides): Promise<[string]>;
 
-    pullManagement(overrides?: Overrides & { from?: string | Promise<string> }): Promise<ContractTransaction>;
+    pullManagement(
+      overrides?: Overrides & { from?: string | Promise<string> }
+    ): Promise<ContractTransaction>;
 
     pushManagement(
       newOwner_: string,
-      overrides?: Overrides & { from?: string | Promise<string> },
+      overrides?: Overrides & { from?: string | Promise<string> }
     ): Promise<ContractTransaction>;
 
-    renounceManagement(overrides?: Overrides & { from?: string | Promise<string> }): Promise<ContractTransaction>;
+    renounceManagement(
+      overrides?: Overrides & { from?: string | Promise<string> }
+    ): Promise<ContractTransaction>;
 
-    replenish(overrides?: Overrides & { from?: string | Promise<string> }): Promise<ContractTransaction>;
+    replenish(
+      overrides?: Overrides & { from?: string | Promise<string> }
+    ): Promise<ContractTransaction>;
   };
 
-  clear(overrides?: Overrides & { from?: string | Promise<string> }): Promise<ContractTransaction>;
+  clear(
+    overrides?: Overrides & { from?: string | Promise<string> }
+  ): Promise<ContractTransaction>;
 
   migrate(
     amount: BigNumberish,
-    overrides?: Overrides & { from?: string | Promise<string> },
+    overrides?: Overrides & { from?: string | Promise<string> }
   ): Promise<ContractTransaction>;
 
   owner(overrides?: CallOverrides): Promise<string>;
 
-  pullManagement(overrides?: Overrides & { from?: string | Promise<string> }): Promise<ContractTransaction>;
+  pullManagement(
+    overrides?: Overrides & { from?: string | Promise<string> }
+  ): Promise<ContractTransaction>;
 
   pushManagement(
     newOwner_: string,
-    overrides?: Overrides & { from?: string | Promise<string> },
+    overrides?: Overrides & { from?: string | Promise<string> }
   ): Promise<ContractTransaction>;
 
-  renounceManagement(overrides?: Overrides & { from?: string | Promise<string> }): Promise<ContractTransaction>;
+  renounceManagement(
+    overrides?: Overrides & { from?: string | Promise<string> }
+  ): Promise<ContractTransaction>;
 
-  replenish(overrides?: Overrides & { from?: string | Promise<string> }): Promise<ContractTransaction>;
+  replenish(
+    overrides?: Overrides & { from?: string | Promise<string> }
+  ): Promise<ContractTransaction>;
 
   callStatic: {
     clear(overrides?: CallOverrides): Promise<void>;
@@ -144,52 +191,80 @@ export interface CrossChainMigrator extends BaseContract {
   filters: {
     "OwnershipPulled(address,address)"(
       previousOwner?: string | null,
-      newOwner?: string | null,
+      newOwner?: string | null
     ): OwnershipPulledEventFilter;
-    OwnershipPulled(previousOwner?: string | null, newOwner?: string | null): OwnershipPulledEventFilter;
+    OwnershipPulled(
+      previousOwner?: string | null,
+      newOwner?: string | null
+    ): OwnershipPulledEventFilter;
 
     "OwnershipPushed(address,address)"(
       previousOwner?: string | null,
-      newOwner?: string | null,
+      newOwner?: string | null
     ): OwnershipPushedEventFilter;
-    OwnershipPushed(previousOwner?: string | null, newOwner?: string | null): OwnershipPushedEventFilter;
+    OwnershipPushed(
+      previousOwner?: string | null,
+      newOwner?: string | null
+    ): OwnershipPushedEventFilter;
   };
 
   estimateGas: {
-    clear(overrides?: Overrides & { from?: string | Promise<string> }): Promise<BigNumber>;
-
-    migrate(amount: BigNumberish, overrides?: Overrides & { from?: string | Promise<string> }): Promise<BigNumber>;
-
-    owner(overrides?: CallOverrides): Promise<BigNumber>;
-
-    pullManagement(overrides?: Overrides & { from?: string | Promise<string> }): Promise<BigNumber>;
-
-    pushManagement(newOwner_: string, overrides?: Overrides & { from?: string | Promise<string> }): Promise<BigNumber>;
-
-    renounceManagement(overrides?: Overrides & { from?: string | Promise<string> }): Promise<BigNumber>;
-
-    replenish(overrides?: Overrides & { from?: string | Promise<string> }): Promise<BigNumber>;
-  };
-
-  populateTransaction: {
-    clear(overrides?: Overrides & { from?: string | Promise<string> }): Promise<PopulatedTransaction>;
+    clear(
+      overrides?: Overrides & { from?: string | Promise<string> }
+    ): Promise<BigNumber>;
 
     migrate(
       amount: BigNumberish,
-      overrides?: Overrides & { from?: string | Promise<string> },
+      overrides?: Overrides & { from?: string | Promise<string> }
+    ): Promise<BigNumber>;
+
+    owner(overrides?: CallOverrides): Promise<BigNumber>;
+
+    pullManagement(
+      overrides?: Overrides & { from?: string | Promise<string> }
+    ): Promise<BigNumber>;
+
+    pushManagement(
+      newOwner_: string,
+      overrides?: Overrides & { from?: string | Promise<string> }
+    ): Promise<BigNumber>;
+
+    renounceManagement(
+      overrides?: Overrides & { from?: string | Promise<string> }
+    ): Promise<BigNumber>;
+
+    replenish(
+      overrides?: Overrides & { from?: string | Promise<string> }
+    ): Promise<BigNumber>;
+  };
+
+  populateTransaction: {
+    clear(
+      overrides?: Overrides & { from?: string | Promise<string> }
+    ): Promise<PopulatedTransaction>;
+
+    migrate(
+      amount: BigNumberish,
+      overrides?: Overrides & { from?: string | Promise<string> }
     ): Promise<PopulatedTransaction>;
 
     owner(overrides?: CallOverrides): Promise<PopulatedTransaction>;
 
-    pullManagement(overrides?: Overrides & { from?: string | Promise<string> }): Promise<PopulatedTransaction>;
+    pullManagement(
+      overrides?: Overrides & { from?: string | Promise<string> }
+    ): Promise<PopulatedTransaction>;
 
     pushManagement(
       newOwner_: string,
-      overrides?: Overrides & { from?: string | Promise<string> },
+      overrides?: Overrides & { from?: string | Promise<string> }
     ): Promise<PopulatedTransaction>;
 
-    renounceManagement(overrides?: Overrides & { from?: string | Promise<string> }): Promise<PopulatedTransaction>;
+    renounceManagement(
+      overrides?: Overrides & { from?: string | Promise<string> }
+    ): Promise<PopulatedTransaction>;
 
-    replenish(overrides?: Overrides & { from?: string | Promise<string> }): Promise<PopulatedTransaction>;
+    replenish(
+      overrides?: Overrides & { from?: string | Promise<string> }
+    ): Promise<PopulatedTransaction>;
   };
 }

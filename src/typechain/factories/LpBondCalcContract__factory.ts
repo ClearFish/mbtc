@@ -4,7 +4,10 @@
 
 import { Contract, Signer, utils } from "ethers";
 import { Provider } from "@ethersproject/providers";
-import type { LpBondCalcContract, LpBondCalcContractInterface } from "../LpBondCalcContract";
+import type {
+  LpBondCalcContract,
+  LpBondCalcContractInterface,
+} from "../LpBondCalcContract";
 
 const _abi = [
   {
@@ -95,7 +98,10 @@ export class LpBondCalcContract__factory {
   static createInterface(): LpBondCalcContractInterface {
     return new utils.Interface(_abi) as LpBondCalcContractInterface;
   }
-  static connect(address: string, signerOrProvider: Signer | Provider): LpBondCalcContract {
+  static connect(
+    address: string,
+    signerOrProvider: Signer | Provider
+  ): LpBondCalcContract {
     return new Contract(address, _abi, signerOrProvider) as LpBondCalcContract;
   }
 }

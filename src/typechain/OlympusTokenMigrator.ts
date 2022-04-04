@@ -49,35 +49,83 @@ export interface OlympusTokenMigratorInterface extends utils.Interface {
   };
 
   encodeFunctionData(functionFragment: "authority", values?: undefined): string;
-  encodeFunctionData(functionFragment: "bridgeBack", values: [BigNumberish, BigNumberish]): string;
+  encodeFunctionData(
+    functionFragment: "bridgeBack",
+    values: [BigNumberish, BigNumberish]
+  ): string;
   encodeFunctionData(functionFragment: "defund", values: [string]): string;
   encodeFunctionData(functionFragment: "gOHM", values?: undefined): string;
-  encodeFunctionData(functionFragment: "migrate", values: [BigNumberish, BigNumberish, BigNumberish]): string;
-  encodeFunctionData(functionFragment: "migrateAll", values: [BigNumberish]): string;
-  encodeFunctionData(functionFragment: "migrateContracts", values: [string, string, string, string, string]): string;
+  encodeFunctionData(
+    functionFragment: "migrate",
+    values: [BigNumberish, BigNumberish, BigNumberish]
+  ): string;
+  encodeFunctionData(
+    functionFragment: "migrateAll",
+    values: [BigNumberish]
+  ): string;
+  encodeFunctionData(
+    functionFragment: "migrateContracts",
+    values: [string, string, string, string, string]
+  ): string;
   encodeFunctionData(
     functionFragment: "migrateLP",
-    values: [string, boolean, string, BigNumberish, BigNumberish],
+    values: [string, boolean, string, BigNumberish, BigNumberish]
   ): string;
-  encodeFunctionData(functionFragment: "migrateToken", values: [string]): string;
+  encodeFunctionData(
+    functionFragment: "migrateToken",
+    values: [string]
+  ): string;
   encodeFunctionData(functionFragment: "newOHM", values?: undefined): string;
-  encodeFunctionData(functionFragment: "newStaking", values?: undefined): string;
-  encodeFunctionData(functionFragment: "newTreasury", values?: undefined): string;
-  encodeFunctionData(functionFragment: "ohmMigrated", values?: undefined): string;
+  encodeFunctionData(
+    functionFragment: "newStaking",
+    values?: undefined
+  ): string;
+  encodeFunctionData(
+    functionFragment: "newTreasury",
+    values?: undefined
+  ): string;
+  encodeFunctionData(
+    functionFragment: "ohmMigrated",
+    values?: undefined
+  ): string;
   encodeFunctionData(functionFragment: "oldOHM", values?: undefined): string;
-  encodeFunctionData(functionFragment: "oldStaking", values?: undefined): string;
+  encodeFunctionData(
+    functionFragment: "oldStaking",
+    values?: undefined
+  ): string;
   encodeFunctionData(functionFragment: "oldSupply", values?: undefined): string;
-  encodeFunctionData(functionFragment: "oldTreasury", values?: undefined): string;
+  encodeFunctionData(
+    functionFragment: "oldTreasury",
+    values?: undefined
+  ): string;
   encodeFunctionData(functionFragment: "oldsOHM", values?: undefined): string;
   encodeFunctionData(functionFragment: "oldwsOHM", values?: undefined): string;
-  encodeFunctionData(functionFragment: "setAuthority", values: [string]): string;
+  encodeFunctionData(
+    functionFragment: "setAuthority",
+    values: [string]
+  ): string;
   encodeFunctionData(functionFragment: "setgOHM", values: [string]): string;
-  encodeFunctionData(functionFragment: "startTimelock", values?: undefined): string;
-  encodeFunctionData(functionFragment: "sushiRouter", values?: undefined): string;
-  encodeFunctionData(functionFragment: "timelockEnd", values?: undefined): string;
-  encodeFunctionData(functionFragment: "timelockLength", values?: undefined): string;
+  encodeFunctionData(
+    functionFragment: "startTimelock",
+    values?: undefined
+  ): string;
+  encodeFunctionData(
+    functionFragment: "sushiRouter",
+    values?: undefined
+  ): string;
+  encodeFunctionData(
+    functionFragment: "timelockEnd",
+    values?: undefined
+  ): string;
+  encodeFunctionData(
+    functionFragment: "timelockLength",
+    values?: undefined
+  ): string;
   encodeFunctionData(functionFragment: "uniRouter", values?: undefined): string;
-  encodeFunctionData(functionFragment: "withdrawToken", values: [string, BigNumberish, string]): string;
+  encodeFunctionData(
+    functionFragment: "withdrawToken",
+    values: [string, BigNumberish, string]
+  ): string;
 
   decodeFunctionResult(functionFragment: "authority", data: BytesLike): Result;
   decodeFunctionResult(functionFragment: "bridgeBack", data: BytesLike): Result;
@@ -85,27 +133,60 @@ export interface OlympusTokenMigratorInterface extends utils.Interface {
   decodeFunctionResult(functionFragment: "gOHM", data: BytesLike): Result;
   decodeFunctionResult(functionFragment: "migrate", data: BytesLike): Result;
   decodeFunctionResult(functionFragment: "migrateAll", data: BytesLike): Result;
-  decodeFunctionResult(functionFragment: "migrateContracts", data: BytesLike): Result;
+  decodeFunctionResult(
+    functionFragment: "migrateContracts",
+    data: BytesLike
+  ): Result;
   decodeFunctionResult(functionFragment: "migrateLP", data: BytesLike): Result;
-  decodeFunctionResult(functionFragment: "migrateToken", data: BytesLike): Result;
+  decodeFunctionResult(
+    functionFragment: "migrateToken",
+    data: BytesLike
+  ): Result;
   decodeFunctionResult(functionFragment: "newOHM", data: BytesLike): Result;
   decodeFunctionResult(functionFragment: "newStaking", data: BytesLike): Result;
-  decodeFunctionResult(functionFragment: "newTreasury", data: BytesLike): Result;
-  decodeFunctionResult(functionFragment: "ohmMigrated", data: BytesLike): Result;
+  decodeFunctionResult(
+    functionFragment: "newTreasury",
+    data: BytesLike
+  ): Result;
+  decodeFunctionResult(
+    functionFragment: "ohmMigrated",
+    data: BytesLike
+  ): Result;
   decodeFunctionResult(functionFragment: "oldOHM", data: BytesLike): Result;
   decodeFunctionResult(functionFragment: "oldStaking", data: BytesLike): Result;
   decodeFunctionResult(functionFragment: "oldSupply", data: BytesLike): Result;
-  decodeFunctionResult(functionFragment: "oldTreasury", data: BytesLike): Result;
+  decodeFunctionResult(
+    functionFragment: "oldTreasury",
+    data: BytesLike
+  ): Result;
   decodeFunctionResult(functionFragment: "oldsOHM", data: BytesLike): Result;
   decodeFunctionResult(functionFragment: "oldwsOHM", data: BytesLike): Result;
-  decodeFunctionResult(functionFragment: "setAuthority", data: BytesLike): Result;
+  decodeFunctionResult(
+    functionFragment: "setAuthority",
+    data: BytesLike
+  ): Result;
   decodeFunctionResult(functionFragment: "setgOHM", data: BytesLike): Result;
-  decodeFunctionResult(functionFragment: "startTimelock", data: BytesLike): Result;
-  decodeFunctionResult(functionFragment: "sushiRouter", data: BytesLike): Result;
-  decodeFunctionResult(functionFragment: "timelockEnd", data: BytesLike): Result;
-  decodeFunctionResult(functionFragment: "timelockLength", data: BytesLike): Result;
+  decodeFunctionResult(
+    functionFragment: "startTimelock",
+    data: BytesLike
+  ): Result;
+  decodeFunctionResult(
+    functionFragment: "sushiRouter",
+    data: BytesLike
+  ): Result;
+  decodeFunctionResult(
+    functionFragment: "timelockEnd",
+    data: BytesLike
+  ): Result;
+  decodeFunctionResult(
+    functionFragment: "timelockLength",
+    data: BytesLike
+  ): Result;
   decodeFunctionResult(functionFragment: "uniRouter", data: BytesLike): Result;
-  decodeFunctionResult(functionFragment: "withdrawToken", data: BytesLike): Result;
+  decodeFunctionResult(
+    functionFragment: "withdrawToken",
+    data: BytesLike
+  ): Result;
 
   events: {
     "AuthorityUpdated(address)": EventFragment;
@@ -124,7 +205,8 @@ export interface OlympusTokenMigratorInterface extends utils.Interface {
 
 export type AuthorityUpdatedEvent = TypedEvent<[string], { authority: string }>;
 
-export type AuthorityUpdatedEventFilter = TypedEventFilter<AuthorityUpdatedEvent>;
+export type AuthorityUpdatedEventFilter =
+  TypedEventFilter<AuthorityUpdatedEvent>;
 
 export type DefundedEvent = TypedEvent<[BigNumber], { amount: BigNumber }>;
 
@@ -134,11 +216,17 @@ export type FundedEvent = TypedEvent<[BigNumber], { amount: BigNumber }>;
 
 export type FundedEventFilter = TypedEventFilter<FundedEvent>;
 
-export type MigratedEvent = TypedEvent<[string, string], { staking: string; treasury: string }>;
+export type MigratedEvent = TypedEvent<
+  [string, string],
+  { staking: string; treasury: string }
+>;
 
 export type MigratedEventFilter = TypedEventFilter<MigratedEvent>;
 
-export type TimelockStartedEvent = TypedEvent<[BigNumber, BigNumber], { block: BigNumber; end: BigNumber }>;
+export type TimelockStartedEvent = TypedEvent<
+  [BigNumber, BigNumber],
+  { block: BigNumber; end: BigNumber }
+>;
 
 export type TimelockStartedEventFilter = TypedEventFilter<TimelockStartedEvent>;
 
@@ -152,12 +240,16 @@ export interface OlympusTokenMigrator extends BaseContract {
   queryFilter<TEvent extends TypedEvent>(
     event: TypedEventFilter<TEvent>,
     fromBlockOrBlockhash?: string | number | undefined,
-    toBlock?: string | number | undefined,
+    toBlock?: string | number | undefined
   ): Promise<Array<TEvent>>;
 
-  listeners<TEvent extends TypedEvent>(eventFilter?: TypedEventFilter<TEvent>): Array<TypedListener<TEvent>>;
+  listeners<TEvent extends TypedEvent>(
+    eventFilter?: TypedEventFilter<TEvent>
+  ): Array<TypedListener<TEvent>>;
   listeners(eventName?: string): Array<Listener>;
-  removeAllListeners<TEvent extends TypedEvent>(eventFilter: TypedEventFilter<TEvent>): this;
+  removeAllListeners<TEvent extends TypedEvent>(
+    eventFilter: TypedEventFilter<TEvent>
+  ): this;
   removeAllListeners(eventName?: string): this;
   off: OnEvent<this>;
   on: OnEvent<this>;
@@ -170,10 +262,13 @@ export interface OlympusTokenMigrator extends BaseContract {
     bridgeBack(
       _amount: BigNumberish,
       _to: BigNumberish,
-      overrides?: Overrides & { from?: string | Promise<string> },
+      overrides?: Overrides & { from?: string | Promise<string> }
     ): Promise<ContractTransaction>;
 
-    defund(reserve: string, overrides?: Overrides & { from?: string | Promise<string> }): Promise<ContractTransaction>;
+    defund(
+      reserve: string,
+      overrides?: Overrides & { from?: string | Promise<string> }
+    ): Promise<ContractTransaction>;
 
     gOHM(overrides?: CallOverrides): Promise<[string]>;
 
@@ -181,12 +276,12 @@ export interface OlympusTokenMigrator extends BaseContract {
       _amount: BigNumberish,
       _from: BigNumberish,
       _to: BigNumberish,
-      overrides?: Overrides & { from?: string | Promise<string> },
+      overrides?: Overrides & { from?: string | Promise<string> }
     ): Promise<ContractTransaction>;
 
     migrateAll(
       _to: BigNumberish,
-      overrides?: Overrides & { from?: string | Promise<string> },
+      overrides?: Overrides & { from?: string | Promise<string> }
     ): Promise<ContractTransaction>;
 
     migrateContracts(
@@ -195,7 +290,7 @@ export interface OlympusTokenMigrator extends BaseContract {
       _newOHM: string,
       _newsOHM: string,
       _reserve: string,
-      overrides?: Overrides & { from?: string | Promise<string> },
+      overrides?: Overrides & { from?: string | Promise<string> }
     ): Promise<ContractTransaction>;
 
     migrateLP(
@@ -204,12 +299,12 @@ export interface OlympusTokenMigrator extends BaseContract {
       token: string,
       _minA: BigNumberish,
       _minB: BigNumberish,
-      overrides?: Overrides & { from?: string | Promise<string> },
+      overrides?: Overrides & { from?: string | Promise<string> }
     ): Promise<ContractTransaction>;
 
     migrateToken(
       token: string,
-      overrides?: Overrides & { from?: string | Promise<string> },
+      overrides?: Overrides & { from?: string | Promise<string> }
     ): Promise<ContractTransaction>;
 
     newOHM(overrides?: CallOverrides): Promise<[string]>;
@@ -234,12 +329,17 @@ export interface OlympusTokenMigrator extends BaseContract {
 
     setAuthority(
       _newAuthority: string,
-      overrides?: Overrides & { from?: string | Promise<string> },
+      overrides?: Overrides & { from?: string | Promise<string> }
     ): Promise<ContractTransaction>;
 
-    setgOHM(_gOHM: string, overrides?: Overrides & { from?: string | Promise<string> }): Promise<ContractTransaction>;
+    setgOHM(
+      _gOHM: string,
+      overrides?: Overrides & { from?: string | Promise<string> }
+    ): Promise<ContractTransaction>;
 
-    startTimelock(overrides?: Overrides & { from?: string | Promise<string> }): Promise<ContractTransaction>;
+    startTimelock(
+      overrides?: Overrides & { from?: string | Promise<string> }
+    ): Promise<ContractTransaction>;
 
     sushiRouter(overrides?: CallOverrides): Promise<[string]>;
 
@@ -253,7 +353,7 @@ export interface OlympusTokenMigrator extends BaseContract {
       tokenAddress: string,
       amount: BigNumberish,
       recipient: string,
-      overrides?: Overrides & { from?: string | Promise<string> },
+      overrides?: Overrides & { from?: string | Promise<string> }
     ): Promise<ContractTransaction>;
   };
 
@@ -262,10 +362,13 @@ export interface OlympusTokenMigrator extends BaseContract {
   bridgeBack(
     _amount: BigNumberish,
     _to: BigNumberish,
-    overrides?: Overrides & { from?: string | Promise<string> },
+    overrides?: Overrides & { from?: string | Promise<string> }
   ): Promise<ContractTransaction>;
 
-  defund(reserve: string, overrides?: Overrides & { from?: string | Promise<string> }): Promise<ContractTransaction>;
+  defund(
+    reserve: string,
+    overrides?: Overrides & { from?: string | Promise<string> }
+  ): Promise<ContractTransaction>;
 
   gOHM(overrides?: CallOverrides): Promise<string>;
 
@@ -273,12 +376,12 @@ export interface OlympusTokenMigrator extends BaseContract {
     _amount: BigNumberish,
     _from: BigNumberish,
     _to: BigNumberish,
-    overrides?: Overrides & { from?: string | Promise<string> },
+    overrides?: Overrides & { from?: string | Promise<string> }
   ): Promise<ContractTransaction>;
 
   migrateAll(
     _to: BigNumberish,
-    overrides?: Overrides & { from?: string | Promise<string> },
+    overrides?: Overrides & { from?: string | Promise<string> }
   ): Promise<ContractTransaction>;
 
   migrateContracts(
@@ -287,7 +390,7 @@ export interface OlympusTokenMigrator extends BaseContract {
     _newOHM: string,
     _newsOHM: string,
     _reserve: string,
-    overrides?: Overrides & { from?: string | Promise<string> },
+    overrides?: Overrides & { from?: string | Promise<string> }
   ): Promise<ContractTransaction>;
 
   migrateLP(
@@ -296,12 +399,12 @@ export interface OlympusTokenMigrator extends BaseContract {
     token: string,
     _minA: BigNumberish,
     _minB: BigNumberish,
-    overrides?: Overrides & { from?: string | Promise<string> },
+    overrides?: Overrides & { from?: string | Promise<string> }
   ): Promise<ContractTransaction>;
 
   migrateToken(
     token: string,
-    overrides?: Overrides & { from?: string | Promise<string> },
+    overrides?: Overrides & { from?: string | Promise<string> }
   ): Promise<ContractTransaction>;
 
   newOHM(overrides?: CallOverrides): Promise<string>;
@@ -326,12 +429,17 @@ export interface OlympusTokenMigrator extends BaseContract {
 
   setAuthority(
     _newAuthority: string,
-    overrides?: Overrides & { from?: string | Promise<string> },
+    overrides?: Overrides & { from?: string | Promise<string> }
   ): Promise<ContractTransaction>;
 
-  setgOHM(_gOHM: string, overrides?: Overrides & { from?: string | Promise<string> }): Promise<ContractTransaction>;
+  setgOHM(
+    _gOHM: string,
+    overrides?: Overrides & { from?: string | Promise<string> }
+  ): Promise<ContractTransaction>;
 
-  startTimelock(overrides?: Overrides & { from?: string | Promise<string> }): Promise<ContractTransaction>;
+  startTimelock(
+    overrides?: Overrides & { from?: string | Promise<string> }
+  ): Promise<ContractTransaction>;
 
   sushiRouter(overrides?: CallOverrides): Promise<string>;
 
@@ -345,19 +453,28 @@ export interface OlympusTokenMigrator extends BaseContract {
     tokenAddress: string,
     amount: BigNumberish,
     recipient: string,
-    overrides?: Overrides & { from?: string | Promise<string> },
+    overrides?: Overrides & { from?: string | Promise<string> }
   ): Promise<ContractTransaction>;
 
   callStatic: {
     authority(overrides?: CallOverrides): Promise<string>;
 
-    bridgeBack(_amount: BigNumberish, _to: BigNumberish, overrides?: CallOverrides): Promise<void>;
+    bridgeBack(
+      _amount: BigNumberish,
+      _to: BigNumberish,
+      overrides?: CallOverrides
+    ): Promise<void>;
 
     defund(reserve: string, overrides?: CallOverrides): Promise<void>;
 
     gOHM(overrides?: CallOverrides): Promise<string>;
 
-    migrate(_amount: BigNumberish, _from: BigNumberish, _to: BigNumberish, overrides?: CallOverrides): Promise<void>;
+    migrate(
+      _amount: BigNumberish,
+      _from: BigNumberish,
+      _to: BigNumberish,
+      overrides?: CallOverrides
+    ): Promise<void>;
 
     migrateAll(_to: BigNumberish, overrides?: CallOverrides): Promise<void>;
 
@@ -367,7 +484,7 @@ export interface OlympusTokenMigrator extends BaseContract {
       _newOHM: string,
       _newsOHM: string,
       _reserve: string,
-      overrides?: CallOverrides,
+      overrides?: CallOverrides
     ): Promise<void>;
 
     migrateLP(
@@ -376,7 +493,7 @@ export interface OlympusTokenMigrator extends BaseContract {
       token: string,
       _minA: BigNumberish,
       _minB: BigNumberish,
-      overrides?: CallOverrides,
+      overrides?: CallOverrides
     ): Promise<void>;
 
     migrateToken(token: string, overrides?: CallOverrides): Promise<void>;
@@ -401,7 +518,10 @@ export interface OlympusTokenMigrator extends BaseContract {
 
     oldwsOHM(overrides?: CallOverrides): Promise<string>;
 
-    setAuthority(_newAuthority: string, overrides?: CallOverrides): Promise<void>;
+    setAuthority(
+      _newAuthority: string,
+      overrides?: CallOverrides
+    ): Promise<void>;
 
     setgOHM(_gOHM: string, overrides?: CallOverrides): Promise<void>;
 
@@ -419,12 +539,14 @@ export interface OlympusTokenMigrator extends BaseContract {
       tokenAddress: string,
       amount: BigNumberish,
       recipient: string,
-      overrides?: CallOverrides,
+      overrides?: CallOverrides
     ): Promise<void>;
   };
 
   filters: {
-    "AuthorityUpdated(address)"(authority?: string | null): AuthorityUpdatedEventFilter;
+    "AuthorityUpdated(address)"(
+      authority?: string | null
+    ): AuthorityUpdatedEventFilter;
     AuthorityUpdated(authority?: string | null): AuthorityUpdatedEventFilter;
 
     "Defunded(uint256)"(amount?: null): DefundedEventFilter;
@@ -433,10 +555,16 @@ export interface OlympusTokenMigrator extends BaseContract {
     "Funded(uint256)"(amount?: null): FundedEventFilter;
     Funded(amount?: null): FundedEventFilter;
 
-    "Migrated(address,address)"(staking?: null, treasury?: null): MigratedEventFilter;
+    "Migrated(address,address)"(
+      staking?: null,
+      treasury?: null
+    ): MigratedEventFilter;
     Migrated(staking?: null, treasury?: null): MigratedEventFilter;
 
-    "TimelockStarted(uint256,uint256)"(block?: null, end?: null): TimelockStartedEventFilter;
+    "TimelockStarted(uint256,uint256)"(
+      block?: null,
+      end?: null
+    ): TimelockStartedEventFilter;
     TimelockStarted(block?: null, end?: null): TimelockStartedEventFilter;
   };
 
@@ -446,10 +574,13 @@ export interface OlympusTokenMigrator extends BaseContract {
     bridgeBack(
       _amount: BigNumberish,
       _to: BigNumberish,
-      overrides?: Overrides & { from?: string | Promise<string> },
+      overrides?: Overrides & { from?: string | Promise<string> }
     ): Promise<BigNumber>;
 
-    defund(reserve: string, overrides?: Overrides & { from?: string | Promise<string> }): Promise<BigNumber>;
+    defund(
+      reserve: string,
+      overrides?: Overrides & { from?: string | Promise<string> }
+    ): Promise<BigNumber>;
 
     gOHM(overrides?: CallOverrides): Promise<BigNumber>;
 
@@ -457,10 +588,13 @@ export interface OlympusTokenMigrator extends BaseContract {
       _amount: BigNumberish,
       _from: BigNumberish,
       _to: BigNumberish,
-      overrides?: Overrides & { from?: string | Promise<string> },
+      overrides?: Overrides & { from?: string | Promise<string> }
     ): Promise<BigNumber>;
 
-    migrateAll(_to: BigNumberish, overrides?: Overrides & { from?: string | Promise<string> }): Promise<BigNumber>;
+    migrateAll(
+      _to: BigNumberish,
+      overrides?: Overrides & { from?: string | Promise<string> }
+    ): Promise<BigNumber>;
 
     migrateContracts(
       _newTreasury: string,
@@ -468,7 +602,7 @@ export interface OlympusTokenMigrator extends BaseContract {
       _newOHM: string,
       _newsOHM: string,
       _reserve: string,
-      overrides?: Overrides & { from?: string | Promise<string> },
+      overrides?: Overrides & { from?: string | Promise<string> }
     ): Promise<BigNumber>;
 
     migrateLP(
@@ -477,10 +611,13 @@ export interface OlympusTokenMigrator extends BaseContract {
       token: string,
       _minA: BigNumberish,
       _minB: BigNumberish,
-      overrides?: Overrides & { from?: string | Promise<string> },
+      overrides?: Overrides & { from?: string | Promise<string> }
     ): Promise<BigNumber>;
 
-    migrateToken(token: string, overrides?: Overrides & { from?: string | Promise<string> }): Promise<BigNumber>;
+    migrateToken(
+      token: string,
+      overrides?: Overrides & { from?: string | Promise<string> }
+    ): Promise<BigNumber>;
 
     newOHM(overrides?: CallOverrides): Promise<BigNumber>;
 
@@ -504,12 +641,17 @@ export interface OlympusTokenMigrator extends BaseContract {
 
     setAuthority(
       _newAuthority: string,
-      overrides?: Overrides & { from?: string | Promise<string> },
+      overrides?: Overrides & { from?: string | Promise<string> }
     ): Promise<BigNumber>;
 
-    setgOHM(_gOHM: string, overrides?: Overrides & { from?: string | Promise<string> }): Promise<BigNumber>;
+    setgOHM(
+      _gOHM: string,
+      overrides?: Overrides & { from?: string | Promise<string> }
+    ): Promise<BigNumber>;
 
-    startTimelock(overrides?: Overrides & { from?: string | Promise<string> }): Promise<BigNumber>;
+    startTimelock(
+      overrides?: Overrides & { from?: string | Promise<string> }
+    ): Promise<BigNumber>;
 
     sushiRouter(overrides?: CallOverrides): Promise<BigNumber>;
 
@@ -523,7 +665,7 @@ export interface OlympusTokenMigrator extends BaseContract {
       tokenAddress: string,
       amount: BigNumberish,
       recipient: string,
-      overrides?: Overrides & { from?: string | Promise<string> },
+      overrides?: Overrides & { from?: string | Promise<string> }
     ): Promise<BigNumber>;
   };
 
@@ -533,10 +675,13 @@ export interface OlympusTokenMigrator extends BaseContract {
     bridgeBack(
       _amount: BigNumberish,
       _to: BigNumberish,
-      overrides?: Overrides & { from?: string | Promise<string> },
+      overrides?: Overrides & { from?: string | Promise<string> }
     ): Promise<PopulatedTransaction>;
 
-    defund(reserve: string, overrides?: Overrides & { from?: string | Promise<string> }): Promise<PopulatedTransaction>;
+    defund(
+      reserve: string,
+      overrides?: Overrides & { from?: string | Promise<string> }
+    ): Promise<PopulatedTransaction>;
 
     gOHM(overrides?: CallOverrides): Promise<PopulatedTransaction>;
 
@@ -544,12 +689,12 @@ export interface OlympusTokenMigrator extends BaseContract {
       _amount: BigNumberish,
       _from: BigNumberish,
       _to: BigNumberish,
-      overrides?: Overrides & { from?: string | Promise<string> },
+      overrides?: Overrides & { from?: string | Promise<string> }
     ): Promise<PopulatedTransaction>;
 
     migrateAll(
       _to: BigNumberish,
-      overrides?: Overrides & { from?: string | Promise<string> },
+      overrides?: Overrides & { from?: string | Promise<string> }
     ): Promise<PopulatedTransaction>;
 
     migrateContracts(
@@ -558,7 +703,7 @@ export interface OlympusTokenMigrator extends BaseContract {
       _newOHM: string,
       _newsOHM: string,
       _reserve: string,
-      overrides?: Overrides & { from?: string | Promise<string> },
+      overrides?: Overrides & { from?: string | Promise<string> }
     ): Promise<PopulatedTransaction>;
 
     migrateLP(
@@ -567,12 +712,12 @@ export interface OlympusTokenMigrator extends BaseContract {
       token: string,
       _minA: BigNumberish,
       _minB: BigNumberish,
-      overrides?: Overrides & { from?: string | Promise<string> },
+      overrides?: Overrides & { from?: string | Promise<string> }
     ): Promise<PopulatedTransaction>;
 
     migrateToken(
       token: string,
-      overrides?: Overrides & { from?: string | Promise<string> },
+      overrides?: Overrides & { from?: string | Promise<string> }
     ): Promise<PopulatedTransaction>;
 
     newOHM(overrides?: CallOverrides): Promise<PopulatedTransaction>;
@@ -597,12 +742,17 @@ export interface OlympusTokenMigrator extends BaseContract {
 
     setAuthority(
       _newAuthority: string,
-      overrides?: Overrides & { from?: string | Promise<string> },
+      overrides?: Overrides & { from?: string | Promise<string> }
     ): Promise<PopulatedTransaction>;
 
-    setgOHM(_gOHM: string, overrides?: Overrides & { from?: string | Promise<string> }): Promise<PopulatedTransaction>;
+    setgOHM(
+      _gOHM: string,
+      overrides?: Overrides & { from?: string | Promise<string> }
+    ): Promise<PopulatedTransaction>;
 
-    startTimelock(overrides?: Overrides & { from?: string | Promise<string> }): Promise<PopulatedTransaction>;
+    startTimelock(
+      overrides?: Overrides & { from?: string | Promise<string> }
+    ): Promise<PopulatedTransaction>;
 
     sushiRouter(overrides?: CallOverrides): Promise<PopulatedTransaction>;
 
@@ -616,7 +766,7 @@ export interface OlympusTokenMigrator extends BaseContract {
       tokenAddress: string,
       amount: BigNumberish,
       recipient: string,
-      overrides?: Overrides & { from?: string | Promise<string> },
+      overrides?: Overrides & { from?: string | Promise<string> }
     ): Promise<PopulatedTransaction>;
   };
 }

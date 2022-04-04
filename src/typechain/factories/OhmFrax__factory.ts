@@ -725,7 +725,10 @@ export class OhmFrax__factory {
   static createInterface(): OhmFraxInterface {
     return new utils.Interface(_abi) as OhmFraxInterface;
   }
-  static connect(address: string, signerOrProvider: Signer | Provider): OhmFrax {
+  static connect(
+    address: string,
+    signerOrProvider: Signer | Provider
+  ): OhmFrax {
     return new Contract(address, _abi, signerOrProvider) as OhmFrax;
   }
 }
