@@ -162,7 +162,7 @@ export default function HomeLayout({ children }: { children: React.ReactNode }) 
             <Link href="https://twitter.com/MetaMBTC" target={"_blank"} underline="none">
               <img src={Twitter} alt="" />
             </Link>
-            <Link href="https://t.me/MetaMBTC" target={"_blank"} underline="none">
+            <Link href="https://t.me/MBTC_Official_Channel" target={"_blank"} underline="none">
               <img src={Telegram} alt="" />
             </Link>
             <Link href="https://github.com/meta-btc" target={"_blank"} underline="none">

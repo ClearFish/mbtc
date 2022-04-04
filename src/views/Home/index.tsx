@@ -254,7 +254,7 @@ export function Home() {
                 <Link href="https://twitter.com/MetaMBTC" target={"_blank"} underline="none">
                   <img src={Twitter} alt="" />
                 </Link>
-                <Link href="https://t.me/MetaMBTC" target={"_blank"} underline="none">
+                <Link href="https://t.me/MBTC_Official_Channel" target={"_blank"} underline="none">
                   <img src={Telegram} alt="" />
                 </Link>
                 <Link href="https://github.com/meta-btc" target={"_blank"} underline="none">
@@ -380,7 +380,7 @@ export function Home() {
                   backgroundSize: "100%",
                 }}
               >
-                <Typography className="card-title">MFT Pool</Typography>
+                <Typography className="card-title">NFT Pool</Typography>
               </Link>
             </Grid>
           </Grid>
