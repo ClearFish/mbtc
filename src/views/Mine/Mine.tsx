@@ -7,8 +7,16 @@ import { useHistory } from "react-router-dom";
 import { useWeb3Context } from "src/hooks";
 import { usePathForNetwork } from "src/hooks/usePathForNetwork";
 // import { Paper } from "@olympusdao/component-library";
-import { Container, useMediaQuery, Box, Grid, Typography } from "@material-ui/core";
-
+import { Container, useMediaQuery, Box, Grid, Typography, makeStyles } from "@material-ui/core";
+const useStyles = makeStyles({
+  // 卡片按钮 black white
+  blackCardBtnOrange: {
+    background: "#d6a241",
+  },
+  blackCardBtnBlue: {
+    background: "#6a40bb",
+  },
+});
 const Mine: React.FC = () => {
   const history = useHistory();
   const { networkId } = useWeb3Context();
@@ -16,6 +24,7 @@ const Mine: React.FC = () => {
 
   const isSmallScreen = useMediaQuery("(max-width: 650px)");
   const isVerySmallScreen = useMediaQuery("(max-width: 379px)");
+  const classes = useStyles();
 
   return (
     <div id="mine-view">
@@ -150,7 +159,9 @@ const Mine: React.FC = () => {
                       <Box className="item-title">MBTC Mined</Box>
                       <Box className="item-price">100.53</Box>
                     </Box>
-                    <div className={`btn ${true ? "orange" : "blue"}`}>Harvest</div>
+                    <div className={`btn ${true ? classes.blackCardBtnOrange : classes.blackCardBtnOrange}`}>
+                      Harvest
+                    </div>
                   </Box>
                   <Box
                     className="btc-card-item-desc-price-item"
@@ -162,7 +173,9 @@ const Mine: React.FC = () => {
                       <Box className="item-title">MBTC Mined</Box>
                       <Box className="item-price">100.53</Box>
                     </Box>
-                    <div className={`btn ${false ? "orange" : "blue"}`}>Harvest</div>
+                    <div className={`btn ${true ? classes.blackCardBtnOrange : classes.blackCardBtnOrange}`}>
+                      Harvest
+                    </div>
                   </Box>
                 </Box>
               </Box>
