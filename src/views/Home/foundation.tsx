@@ -101,17 +101,6 @@ export function Foundation() {
           <Typography variant="h4" align="left" className="gradient-text">
             BOARD
           </Typography>
-          <Typography variant="body1" align="left" className="normal-text">
-            DM
-            <a
-              style={{
-                color: "#D39B33",
-              }}
-            >
-              {` zero2onetdao@gmail.com `}
-            </a>
-            for registering to be a verified member.
-          </Typography>
           <Grid container className="board-list" justifyContent="space-between" alignItems="stretch" spacing={1}>
             {personList.map((item, index) => (
               <Grid item className={`list-item ${isLargeScreen && "lg-card"}`} xs={6} sm={3} md={2} lg={1}>
