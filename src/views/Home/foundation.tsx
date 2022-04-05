@@ -83,7 +83,7 @@ export function Foundation() {
       src: SherryD,
     },
     {
-      name: "Karn",
+      name: "Karn Dwivedi",
       info: "TheLibertyWalk",
       src: Karn,
     },
