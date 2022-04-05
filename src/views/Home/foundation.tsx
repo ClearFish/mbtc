@@ -9,6 +9,12 @@ import Haider from "../../assets/images/person/Haider.jpeg";
 import Andy from "../../assets/images/person/Andy.png";
 import Alekwe from "../../assets/images/person/Alekwe.jpg";
 
+import JZ from "../../assets/images/person/JZ.jpg";
+import Kitty from "../../assets/images/person/Kitty.png";
+import SherryD from "../../assets/images/person/sherryD.jpeg";
+import Karn from "../../assets/images/person/Karn.jpg";
+import HannaBerji from "../../assets/images/person/HannaBerji.jpg";
+
 import MetaBitcoin from "../../assets/images/meta-bitcoin.png";
 import FoundationTxt from "../../assets/images/foundation.png";
 import GoldenBitcoin from "../../assets/images/golden-bitcoin.png";
@@ -61,6 +67,31 @@ export function Foundation() {
       info: "Marketing and business analyst",
       src: Alekwe,
     },
+    {
+      name: "JZ",
+      info: "Meta Agent & Philosopher",
+      src: JZ,
+    },
+    {
+      name: "Kitty",
+      info: "The director",
+      src: Kitty,
+    },
+    {
+      name: "Sherry D",
+      info: "TheCuteDictator",
+      src: SherryD,
+    },
+    {
+      name: "Karn",
+      info: "TheLibertyWalk",
+      src: Karn,
+    },
+    {
+      name: "Hanna Berji",
+      info: "Peacemaker",
+      src: HannaBerji,
+    },
   ];
 
   return (
@@ -112,7 +143,7 @@ export function Foundation() {
             </a>
             for registering to be a verified member.
           </Typography>
-          <Grid container className="board-list" justifyContent="space-between" alignItems="stretch" spacing={1}>
+          <Grid container className="board-list" justifyContent="flex-start" alignItems="stretch" spacing={1}>
             {personList.map((item, index) => (
               <Grid item className={`list-item ${isLargeScreen && "lg-card"}`} xs={6} sm={3} md={2} lg={1}>
                 <Card className="board-card" key={index}>
