@@ -304,7 +304,7 @@ export function Home() {
                 <Typography>Meta White Paper</Typography>
               </Button>
               <div className="opt-list">
-                <Link href="" target="_blank" className="opt-audit">
+                <Link href="https://www.certik.com/projects/meta-bitcoin" target="_blank" className="opt-audit">
                   <img src={PartnerCertik} />
                 </Link>
                 <Link
