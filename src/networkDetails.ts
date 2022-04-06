@@ -19,6 +19,9 @@ export enum NetworkId {
 
   FANTOM = 250,
   FANTOM_TESTNET = 4002,
+
+  BSC = 56,
+  BSC_TESTNET = 97,
 }
 
 interface IAddresses {
@@ -186,6 +189,12 @@ export const addresses: IAddresses = {
   [NetworkId.FANTOM]: {
     GOHM_ADDRESS: "0x91fa20244fb509e8289ca630e5db3e9166233fdc",
   },
+  [NetworkId.BSC]: {
+    GOHM_ADDRESS: "0x91fa20244fb509e8289ca630e5db3e9166233fdc",
+  },
+  [NetworkId.BSC_TESTNET]: {
+    GOHM_ADDRESS: "0x91fa20244fb509e8289ca630e5db3e9166233fdc",
+  },
 };
 
 /**
@@ -330,6 +339,34 @@ export const NETWORKS: { [key: number]: INetwork } = {
     imageAltText: "Polygon Logo",
     uri: () => Providers.getProviderUrl(NetworkId.POLYGON_TESTNET),
   },
+  [NetworkId.BSC]: {
+    chainName: "Binance Smart Chain Mainnet",
+    chainId: 56,
+    nativeCurrency: {
+      name: "BSC",
+      symbol: "BNB",
+      decimals: 18,
+    },
+    rpcUrls: ["https://bsc-dataseed1.binance.org"],
+    blockExplorerUrls: ["https://bscscan.com"],
+    image: polygon,
+    imageAltText: "BSC Logo",
+    uri: () => Providers.getProviderUrl(NetworkId.BSC),
+  },
+  [NetworkId.BSC_TESTNET]: {
+    chainName: "Binance Smart Chain Testnet",
+    chainId: 97,
+    nativeCurrency: {
+      name: "BSC TEST",
+      symbol: "tBNB",
+      decimals: 18,
+    },
+    rpcUrls: ["https://data-seed-prebsc-1-s1.binance.org:8545"],
+    blockExplorerUrls: ["https://testnet.bscscan.com"],
+    image: polygon,
+    imageAltText: "BSC Logo",
+    uri: () => Providers.getProviderUrl(NetworkId.BSC_TESTNET),
+  },
 };
 
 // VIEWS FOR NETWORK is used to denote which paths should be viewable on each network
@@ -407,5 +444,25 @@ export const VIEWS_FOR_NETWORK: { [key: number]: IViewsForNetwork } = {
     bonds: false,
     network: true,
     bondsV2: false,
+  },
+  [NetworkId.BSC]: {
+    dashboard: true,
+    stake: true,
+    wrap: true,
+    zap: true,
+    threeTogether: true,
+    bonds: true,
+    network: true,
+    bondsV2: true,
+  },
+  [NetworkId.BSC_TESTNET]: {
+    dashboard: true,
+    stake: true,
+    wrap: true,
+    zap: true,
+    threeTogether: true,
+    bonds: true,
+    network: true,
+    bondsV2: true,
   },
 };
