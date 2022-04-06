@@ -19,7 +19,7 @@ import MetaBitcoin from "../../assets/images/meta-bitcoin.png";
 import FoundationTxt from "../../assets/images/foundation.png";
 import GoldenBitcoin from "../../assets/images/golden-bitcoin.png";
 
-import { Container, useMediaQuery, Typography, Card, CardMedia, CardContent, Grid } from "@material-ui/core";
+import { Container, useMediaQuery, Typography, Card, CardMedia, CardContent, Grid, Box } from "@material-ui/core";
 
 export function Foundation() {
   const isSmallScreen = useMediaQuery("(max-width: 650px)");
@@ -136,7 +136,9 @@ export function Foundation() {
             {personList.map((item, index) => (
               <Grid item className={`list-item ${isLargeScreen && "lg-card"}`} xs={6} sm={3} md={2} lg={1}>
                 <Card className="board-card" key={index}>
-                  <CardMedia component="img" image={item.src} className={item.src ? "" : "occupy-img"} />
+                  <Box className="board-img-box">
+                    <CardMedia component="img" image={item.src} className={item.src ? "" : "occupy-img"} />
+                  </Box>
                   <CardContent>
                     <Typography variant="h6" component="div">
                       {item.name}

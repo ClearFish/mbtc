@@ -743,20 +743,26 @@
             display: flex;
             flex-direction: column;
             height: 100%;
-            img {
+            .board-img-box {
                 width: 100%;
-                min-height: 200px;
+                height: 200px;
                 border-radius: 10px;
                 flex-grow: 1;
-                &.occupy-img {
-                    background: #040407;
-                    outline: none;
-                    border: none;
-                }
                 border: 1px solid #D39B33;
                 box-sizing: border-box;
                 overflow: hidden;
+                img {
+                    width: 100%;
+                    height: 100%;
+                    &.occupy-img {
+                        background: #040407;
+                        outline: none;
+                        border: none;
+                    }
+                    
+                }
             }
+            
             .MuiCardContent-root {
                 padding: 0;
                 color: #FFFFFF;
