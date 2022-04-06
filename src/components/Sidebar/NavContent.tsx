@@ -27,7 +27,7 @@ import { getAllBonds, getUserNotes } from "src/slices/BondSliceV2";
 import { DisplayBondDiscount } from "src/views/BondV2/BondV2";
 
 import { ReactComponent as OlympusIcon } from "../../assets/icons/olympus-nav-header.svg";
-import { ReactComponent as MTBCIcon } from "../../assets/icons/mtbc-logo.svg";
+import { ReactComponent as MBTCIcon } from "../../assets/icons/mbtc-logo.svg";
 import useBonds from "../../hooks/useBonds";
 import WalletAddressEns from "../TopBar/Wallet/WalletAddressEns";
 import externalUrls from "./externalUrls";
@@ -71,7 +71,7 @@ const NavContent: React.FC<NavContentProps> = ({ handleDrawerToggle }) => {
             <Link href={"/#/home"} target="_blank" style={{ marginBottom: "1rem" }}>
               <SvgIcon
                 color="primary"
-                component={MTBCIcon}
+                component={MBTCIcon}
                 viewBox="0 0 63 46"
                 style={{ minWidth: "63px", minHeight: "46px", width: "63px" }}
               />
