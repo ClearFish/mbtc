@@ -33,12 +33,12 @@ export function Foundation() {
       src: Lord,
     },
     {
-      name: "Jojo Jiang",
+      name: "Jojo",
       info: "Community Veteran, Public Relations",
       src: Jojo,
     },
     {
-      name: "Sam Lee",
+      name: "Sam",
       info: "Community Veteran, Legal & Public Media",
       src: Sam,
     },
