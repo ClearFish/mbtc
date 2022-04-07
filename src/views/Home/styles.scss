@@ -342,7 +342,7 @@
             }
             .block-todo {
                 background: #040407;
-                // outline: #040407 dashed 3px;
+                outline: #040407 dashed 3px;
                 position: relative;
                 padding-top: 0;
                 &::before {
@@ -393,7 +393,7 @@
             }
             .block-todo {
                 background: #040407;
-                // outline: #040407 dashed 3px;
+                outline: #040407 dashed 3px;
                 position: relative;
                 padding-top: 0;
                 &::before {
@@ -446,7 +446,7 @@
             }
             .block-todo {
                 background: #040407;
-                // outline: #040407 dashed 3px;
+                outline: #040407 dashed 3px;
                 position: relative;
                 border-radius: 0 50px 50px 0;
                 &::before {
@@ -499,7 +499,7 @@
             }
             .block-todo {
                 background: #040407;
-                // outline: #040407 dashed 3px;
+                outline: #040407 dashed 3px;
                 position: relative;
                 &::before {
                     content: "";
@@ -602,7 +602,7 @@
             }
             .block-todo {
                 background: #040407;
-                // outline: #040407 dashed 3px;
+                outline: #040407 dashed 3px;
                 position: relative;
                 border-radius: 50px 0 0 50px;
                 padding-left: 5rem;
@@ -656,7 +656,7 @@
             }
             .block-todo {
                 background: #040407;
-                // outline: #040407 dashed 3px;
+                outline: #040407 dashed 3px;
                 position: relative;
                 padding-left: 5rem;
                 &::before {
@@ -917,7 +917,7 @@
                 left: 2px;
                 top:  calc(2rem + 2px);
                 border-radius: 20px 0 0 0;
-                // outline: #040407 dashed 3px;
+                outline: #040407 dashed 3px;
                 background: #040407;
             }
             .block-todo {
@@ -1012,7 +1012,7 @@
                         left: 2px;
                         top: -202px;
                         border-radius: 0 0 0 20px;
-                        // outline: #040407 dashed 3px;
+                        outline: #040407 dashed 3px;
                         background: #040407;
                         z-index: 2;
                     }
