@@ -33,7 +33,7 @@ export function Foundation() {
       src: Lord,
     },
     {
-      name: "Jojo",
+      name: "JOJO",
       info: "Community Veteran, Public Relations",
       src: Jojo,
     },
@@ -83,7 +83,7 @@ export function Foundation() {
       src: SherryD,
     },
     {
-      name: "Karn Dwivedi",
+      name: "Karn Dwi",
       info: "TheLibertyWalk",
       src: Karn,
     },
