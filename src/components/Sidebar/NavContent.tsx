@@ -41,6 +41,7 @@ type CustomBond = Bond & Partial<IBondDetails>;
 
 const NavContent: React.FC<NavContentProps> = ({ handleDrawerToggle }) => {
   const { networkId, address, provider } = useWeb3Context();
+  console.log('networkId', networkId);
   // const { bonds } = useBonds(networkId);
 
   const bondsV2 = useAppSelector(state => state.bondingV2.indexes.map(index => state.bondingV2.bonds[index]));
@@ -80,103 +81,17 @@ const NavContent: React.FC<NavContentProps> = ({ handleDrawerToggle }) => {
 
           <div className="dapp-menu-links">
             <div className="dapp-nav" id="navbarNav">
-              {networkId === NetworkId.MAINNET || networkId === NetworkId.TESTNET_RINKEBY ? (
+              {networkId === NetworkId.BSC || networkId === NetworkId.BSC_TESTNET ? (
                 <>
                   <NavItem to="/dashboard" icon={"dashboard"} label={t`Dashboard`} />
-                  <NavItem to="/miner" icon={"dashboard"} label={t`Miner`} />
-                  <NavItem to="/pool" icon={"dashboard"} label={t`Pool`} />
-                  {/* <NavItem to="/bonds" icon="bond" label={t`Bond`} /> */}
-                  {/* <div className="dapp-menu-data discounts">
-                    <div className="bond-discounts">
-                      {sortedBonds.length > 0 && (
-                        <Accordion className="discounts-accordion" square defaultExpanded={true}>
-                          <AccordionSummary
-                            expandIcon={
-                              <ExpandMore className="discounts-expand" style={{ width: "18px", height: "18px" }} />
-                            }
-                          >
-                            <Typography variant="body2">
-                              <Trans>Highest Discount</Trans>
-                            </Typography>
-                          </AccordionSummary>
-                          <AccordionDetails>
-                            {sortedBonds.map((bond, i) => {
-                              return (
-                                <Link
-                                  component={NavLink}
-                                  to={`/bonds/${bond.index}`}
-                                  key={i}
-                                  className={"bond"}
-                                  onClick={handleDrawerToggle}
-                                >
-                                  <Typography variant="body2">
-                                    {bond.displayName}
-                                    <span className="bond-pair-roi">
-                                      <DisplayBondDiscount key={bond.index} bond={bond} />
-                                    </span>
-                                  </Typography>
-                                </Link>
-                              );
-                            })}
-                          </AccordionDetails>
-                        </Accordion>
-                      )}
-                      {sortedInverseBonds.length > 0 && (
-                        <Accordion className="discounts-accordion" square defaultExpanded={true}>
-                          <AccordionSummary
-                            expandIcon={
-                              <ExpandMore className="discounts-expand" style={{ width: "18px", height: "18px" }} />
-                            }
-                          >
-                            <Typography variant="body2">
-                              <Trans>Inverse Bonds</Trans>
-                            </Typography>
-                          </AccordionSummary>
-                          <AccordionDetails>
-                            {sortedInverseBonds.map((bond, i) => {
-                              return (
-                                <Link
-                                  component={NavLink}
-                                  to={`/bonds/inverse/${bond.index}`}
-                                  key={i}
-                                  className={"bond"}
-                                  onClick={handleDrawerToggle}
-                                >
-                                  <Typography variant="body2">
-                                    {bond.displayName}
-                                    <span className="bond-pair-roi">
-                                      <DisplayBondDiscount key={bond.index} bond={bond} />
-                                    </span>
-                                  </Typography>
-                                </Link>
-                              );
-                            })}
-                          </AccordionDetails>
-                        </Accordion>
-                      )}
-                    </div>
-                  </div> */}
+                  <NavItem to="/mine" icon={"zap"} label={t`Mine`} />
+                  <NavItem to="/pool" icon={"bond"} label={t`Pool`} />
                   <NavItem to="/stake" icon="stake" label={t`Stake`} />
-
-                  <NavItem to="/nftmarket" icon="stake" label={t`NFT Market`} />
-
-                  <NavItem to="/blindbox" icon="stake" label={t`Blind Box`} />
-
-                  {/* NOTE (appleseed-olyzaps): OlyZaps disabled until v2 contracts */}
-                  {/* <NavItem to="/zap" icon="zap" label={t`Zap`} /> */}
-
-                  {/* {Environment.isGiveEnabled() && <NavItem to="/give" icon="give" label={t`Give`} chip={t`New`} />}
-                  <NavItem to="/wrap" icon="wrap" label={t`Wrap`} />
-                  <NavItem
-                    href={"https://synapseprotocol.com/?inputCurrency=gOHM&outputCurrency=gOHM&outputChain=43114"}
-                    icon="bridge"
-                    label={t`Bridge`}
-                  />
+                  <NavItem to="/nftmarket" icon="grants" label={t`NFT Market`} />
+                  <NavItem to="/blindbox" icon="moon" label={t`Blind Box`} />
                   <Box className="menu-divider">
                     <Divider />
-                  </Box> */}
-                  {/* <NavItem href="https://pro.olympusdao.finance/" icon="olympus" label={t`Olympus Pro`} /> */}
-                  {/* <NavItem to="/33-together" icon="33-together" label={t`3,3 Together`} /> */}
+                  </Box>
                   {/* <Box className="menu-divider">
                     <Divider />
                   </Box> */}
