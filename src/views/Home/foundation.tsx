@@ -137,7 +137,14 @@ export function Foundation() {
               <Grid item className={`list-item ${isLargeScreen && "lg-card"}`} xs={6} sm={3} md={2} lg={1}>
                 <Card className="board-card" key={index}>
                   <Box className="board-img-box">
-                    <CardMedia component="img" image={item.src} className={item.src ? "" : "occupy-img"} />
+                    <CardMedia
+                      style={{
+                        height: item.src.indexOf("Jojo") >= 0 && (isSmallScreen || isVerySmallScreen) ? "auto" : "100%",
+                      }}
+                      component="img"
+                      image={item.src}
+                      className={item.src ? "" : "occupy-img"}
+                    />
                   </Box>
                   <CardContent>
                     <Typography variant="h6" component="div">
