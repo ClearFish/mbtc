@@ -1,10 +1,7 @@
 import "./styles.scss";
 import MetaBitcon from "../../assets/images/meta-bitcoin.png";
 import MetaBitconMobile from "../../assets/images/meta-bitcoin-mobile.png";
-import Twitter from "../../assets/icons/twitter.svg";
-import Telegram from "../../assets/icons/telegram.svg";
-import Github from "../../assets/icons/github.svg";
-import AndSoOn from "../../assets/icons/medium.svg";
+
 import HugeDiamond from "../../assets/images/huge-diamond.png";
 import CardMBTC from "../../assets/images/card-mbtc.png";
 import CardMFUEL from "../../assets/images/card-mfuel.png";
@@ -23,6 +20,8 @@ import Partner1inch from "../../assets/images/partner-1inch.png";
 import PartnerCertik from "../../assets/images/partner-certik.png";
 import PartnerShark from "../../assets/images/partner-shark.png";
 import PartnerPancake from "../../assets/images/partner-pancake.png";
+
+import Social from "../../components/Sidebar/Social";
 
 import { Container, useMediaQuery, Link, Typography, Button, Grid, Box } from "@material-ui/core";
 
@@ -250,20 +249,9 @@ export function Home() {
               <Typography variant="body1" align="left" className="tng-text">
                 The Next Generation Crypto Providing a Cross-chain Trust Standard in the Metaverse
               </Typography>
-              <div className="social-link">
-                <Link href="https://twitter.com/MetaMBTC" target={"_blank"} underline="none">
-                  <img src={Twitter} alt="" />
-                </Link>
-                <Link href="https://t.me/MBTC_Official_Channel" target={"_blank"} underline="none">
-                  <img src={Telegram} alt="" />
-                </Link>
-                <Link href="https://github.com/meta-btc" target={"_blank"} underline="none">
-                  <img src={Github} alt="" />
-                </Link>
-                <Link href="https://medium.com/@MetaBitcoin" target={"_blank"} underline="none">
-                  <img src={AndSoOn} alt="" />
-                </Link>
-              </div>
+              <Box className="social-link" display="flex" justifyContent="flex-start" flexDirection="column">
+                <Social />
+              </Box>
             </div>
           </Container>
         </Container>

@@ -5,11 +5,8 @@ import { useEffect } from "react";
 
 import Logo from "../../assets/images/logo-4.png";
 import LogoCoin from "../../assets/images/logo-3.png";
-import Twitter from "../../assets/icons/twitter.svg";
-import Telegram from "../../assets/icons/telegram.svg";
-import Github from "../../assets/icons/github.svg";
-import AndSoOn from "../../assets/icons/medium.svg";
 import MenuClose from "../../assets/icons/nav-close.svg";
+import Social from "../../components/Sidebar/Social";
 
 import {
   AppBar,
@@ -156,20 +153,9 @@ export default function HomeLayout({ children }: { children: React.ReactNode }) 
               <Typography variant="h6">Foundation</Typography>
             </Link>
           </div>
-          <div className="social-link">
-            <Link href="https://twitter.com/MetaMBTC" target={"_blank"} underline="none">
-              <img src={Twitter} alt="" />
-            </Link>
-            <Link href="https://t.me/MBTC_Official_Channel" target={"_blank"} underline="none">
-              <img src={Telegram} alt="" />
-            </Link>
-            <Link href="https://github.com/meta-btc" target={"_blank"} underline="none">
-              <img src={Github} alt="" />
-            </Link>
-            <Link href="https://medium.com/@MetaBitcoin" target={"_blank"} underline="none">
-              <img src={AndSoOn} alt="" />
-            </Link>
-          </div>
+          <Box className="social-link" display="flex" justifyContent="flex-start" flexDirection="column">
+            <Social />
+          </Box>
         </Container>
       </div>
     </div>

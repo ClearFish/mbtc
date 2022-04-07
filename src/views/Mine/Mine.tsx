@@ -5,8 +5,8 @@ import { useHistory } from "react-router-dom";
 // import { Paper } from "@olympusdao/component-library";
 import { Container, useMediaQuery, Box, Grid, makeStyles, Button, Tabs, Tab } from "@material-ui/core";
 import { ethers } from "ethers";
-import { NFTMiner_ABI, NFTMiner_ADDRESS, MBTCStaking_ADDRESS, MBTCStaking_ABI } from "src/contract";
-import { TabPanel, TabContext } from "@material-ui/lab";
+import { NFTMiner_ABI, NFTMiner_ADDRESS, MBTCStaking_ADDRESS, MBTCStaking_ABI, POOL_ID } from "src/contract";
+import { TabPanel, TabContext, Alert } from "@material-ui/lab";
 
 const useStyles = makeStyles({
   // 卡片按钮 black white
@@ -23,6 +23,7 @@ interface NftType {
   mined: string;
   cost: string;
   attributes: [];
+  id: string;
 }
 
 const Mine: React.FC = () => {
@@ -32,8 +33,8 @@ const Mine: React.FC = () => {
 
   const isSmallScreen = useMediaQuery("(max-width: 650px)");
   const isVerySmallScreen = useMediaQuery("(max-width: 379px)");
-  const classes = useStyles();
-  const [nftList, setNftList] = useState<NftType[]>();
+  const [unStakedList, setUnStakedList] = useState<NftType[]>();
+  const [stakedList, setStakedList] = useState<NftType[]>();
   const [value, setValue] = useState("1");
 
   const handleChange = (event: any, newValue: string) => {
@@ -44,8 +45,8 @@ const Mine: React.FC = () => {
   const provider = new ethers.providers.Web3Provider(window.ethereum);
   const signer = provider.getSigner();
 
-  // 获取所有的NFT信息
-  const getNFT = async () => {
+  /** 获取未质押nft **/
+  const getUnStakedList = async () => {
     const address = await signer.getAddress();
     const nftMinerContract = new ethers.Contract(NFTMiner_ADDRESS, NFTMiner_ABI, signer);
     const balance = await nftMinerContract.balanceOf(address);
@@ -53,7 +54,7 @@ const Mine: React.FC = () => {
     console.log({ tokenURI });
     const newNftList:
       | SetStateAction<NftType[] | undefined>
-      | { name: string; image: string; attributes: []; mined: string; cost: string }[] = [];
+      | { name: string; image: string; attributes: []; mined: string; cost: string; id: string }[] = [];
     for (let i = 0; i < balance; i++) {
       await window
         .fetch(tokenURI)
@@ -65,10 +66,11 @@ const Mine: React.FC = () => {
             attributes: json.attributes,
             mined: "12",
             cost: "13",
+            id: "1",
           });
         });
     }
-    setNftList(newNftList);
+    setUnStakedList(newNftList);
   };
 
   /** nft展示前缀 **/
@@ -92,11 +94,21 @@ const Mine: React.FC = () => {
     return res;
   };
 
+  /** 获取已质押nft **/
+  const getStakedList = async () => {
+    // const stakedNum = await minerAmountOf(addresses);
+  };
+
   /** 质押单个NFT **/
   const stakeMiner = async (minerId: string, poolId: string) => {
     const mbtcStakingContract = new ethers.Contract(MBTCStaking_ADDRESS, MBTCStaking_ABI, signer);
-    const res = await mbtcStakingContract.stakeMiner(minerId, poolId);
-    return res;
+    try {
+      const res = await mbtcStakingContract.stakeMiner(minerId, poolId);
+      console.log({ res });
+      return res;
+    } catch (error) {
+      console.log({ error });
+    }
   };
 
   /** 批量质押NFT **/
@@ -157,7 +169,7 @@ const Mine: React.FC = () => {
 
   useEffect(() => {
     window.ethereum.enable();
-    getNFT();
+    getUnStakedList();
   }, []);
 
   return (
@@ -220,7 +232,7 @@ const Mine: React.FC = () => {
                   paddingBottom: "1.6rem",
                 }}
               >
-                {nftList?.map(item => (
+                {stakedList?.map(item => (
                   <Box
                     className="btc-card-item"
                     style={{
@@ -285,7 +297,7 @@ const Mine: React.FC = () => {
                   paddingBottom: "1.6rem",
                 }}
               >
-                {nftList?.map(item => (
+                {unStakedList?.map(item => (
                   <Box
                     className="btc-card-item"
                     style={{
@@ -309,7 +321,14 @@ const Mine: React.FC = () => {
                             <Box className="item-title">MBTC Mined2</Box>
                             <Box className="item-price">{item.mined}</Box>
                           </Box>
-                          <div className={`btn ${false ? "orange" : "blue"}`}>Stake</div>
+                          <div
+                            className={`btn ${false ? "orange" : "blue"}`}
+                            onClick={() => {
+                              stakeMiner(item.id, POOL_ID);
+                            }}
+                          >
+                            Stake
+                          </div>
                         </Box>
                       </Box>
                     </Box>
@@ -320,6 +339,7 @@ const Mine: React.FC = () => {
           </TabPanel>
         </TabContext>
       </Box>
+      <Alert severity="error">This is an error message!</Alert>
     </div>
   );
 };
