@@ -14,6 +14,7 @@ import Kitty from "../../assets/images/person/Kitty.png";
 import SherryD from "../../assets/images/person/sherryD.jpeg";
 import Karn from "../../assets/images/person/Karn.jpg";
 import HannaBerji from "../../assets/images/person/HannaBerji.jpg";
+import Kim from "../../assets/images/person/Kim.jpg";
 
 import MetaBitcoin from "../../assets/images/meta-bitcoin.png";
 import FoundationTxt from "../../assets/images/foundation.png";
@@ -49,7 +50,7 @@ export function Foundation() {
     },
     {
       name: "Malik Atif",
-      info: "Community Captain",
+      info: "Growth Partner",
       src: Malik,
     },
     {
@@ -91,6 +92,11 @@ export function Foundation() {
       name: "Hanna Berji",
       info: "Peacemaker",
       src: HannaBerji,
+    },
+    {
+      name: "Hankook Kim",
+      info: "Community Veteran, Public K Media & marketing",
+      src: Kim,
     },
   ];
 
