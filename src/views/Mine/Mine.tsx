@@ -6,7 +6,7 @@ import { useHistory } from "react-router-dom";
 import { Container, useMediaQuery, Box, Grid, makeStyles, Button, Tabs, Tab } from "@material-ui/core";
 import { ethers } from "ethers";
 import { NFTMiner_ABI, NFTMiner_ADDRESS, MBTCStaking_ADDRESS, MBTCStaking_ABI, POOL_ID } from "src/contract";
-import { TabPanel, TabContext, Alert } from "@material-ui/lab";
+import { TabPanel, TabContext } from "@material-ui/lab";
 
 const useStyles = makeStyles({
   // 卡片按钮 black white
@@ -47,28 +47,42 @@ const Mine: React.FC = () => {
 
   /** 获取未质押nft **/
   const getUnStakedList = async () => {
-    const address = await signer.getAddress();
-    const nftMinerContract = new ethers.Contract(NFTMiner_ADDRESS, NFTMiner_ABI, signer);
-    const balance = await nftMinerContract.balanceOf(address);
-    const tokenURI = await nftMinerContract.tokenURI(1);
-    console.log({ tokenURI });
+    // const address = await signer.getAddress();
+    // const nftMinerContract = new ethers.Contract(NFTMiner_ADDRESS, NFTMiner_ABI, signer);
+    // const balance = await nftMinerContract.balanceOf(address);
+    // const tokenURI = await nftMinerContract.tokenURI(1);
+    // console.log({ tokenURI });
+    // const newNftList:
+    //   | SetStateAction<NftType[] | undefined>
+    //   | { name: string; image: string; attributes: []; mined: string; cost: string; id: string }[] = [];
+    // for (let i = 0; i < balance; i++) {
+    //   await window
+    //     .fetch(tokenURI)
+    //     .then(res => res.json())
+    //     .then(json => {
+    //       newNftList.push({
+    //         name: json.name,
+    //         image: json.image,
+    //         attributes: json.attributes,
+    //         mined: "12",
+    //         cost: "13",
+    //         id: "1",
+    //       });
+    //     });
+    // }
+    // setUnStakedList(newNftList);
     const newNftList:
       | SetStateAction<NftType[] | undefined>
       | { name: string; image: string; attributes: []; mined: string; cost: string; id: string }[] = [];
-    for (let i = 0; i < balance; i++) {
-      await window
-        .fetch(tokenURI)
-        .then(res => res.json())
-        .then(json => {
-          newNftList.push({
-            name: json.name,
-            image: json.image,
-            attributes: json.attributes,
-            mined: "12",
-            cost: "13",
-            id: "1",
-          });
-        });
+    for (let i = 12; i < 26; i++) {
+      newNftList.push({
+        name: `test${i}`,
+        image: `https://ikzttp.mypinata.cloud/ipfs/QmYDvPAXtiJg7s8JdRBSLWdgSphQdac8j1YuQNNxcGE1hg/${i}.png`,
+        attributes: [],
+        mined: "262889.78",
+        cost: "1212.12",
+        id: `${i}`,
+      });
     }
     setUnStakedList(newNftList);
   };
@@ -97,6 +111,20 @@ const Mine: React.FC = () => {
   /** 获取已质押nft **/
   const getStakedList = async () => {
     // const stakedNum = await minerAmountOf(addresses);
+    const newNftList:
+      | SetStateAction<NftType[] | undefined>
+      | { name: string; image: string; attributes: []; mined: string; cost: string; id: string }[] = [];
+    for (let i = 1; i < 12; i++) {
+      newNftList.push({
+        name: `test${i}`,
+        image: `https://ikzttp.mypinata.cloud/ipfs/QmYDvPAXtiJg7s8JdRBSLWdgSphQdac8j1YuQNNxcGE1hg/${i}.png`,
+        attributes: [],
+        mined: "262889.78",
+        cost: "1212.12",
+        id: `${i}`,
+      });
+    }
+    setStakedList(newNftList);
   };
 
   /** 质押单个NFT **/
@@ -170,6 +198,7 @@ const Mine: React.FC = () => {
   useEffect(() => {
     window.ethereum.enable();
     getUnStakedList();
+    getStakedList();
   }, []);
 
   return (
@@ -339,7 +368,6 @@ const Mine: React.FC = () => {
           </TabPanel>
         </TabContext>
       </Box>
-      <Alert severity="error">This is an error message!</Alert>
     </div>
   );
 };
