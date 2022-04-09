@@ -28,9 +28,11 @@
     }
     .btc-item-title-container {
         padding: 0 0.5rem;
-        position: absolute;
-        right: 0;
-        top: 2rem;
+        &.pc {
+            position: absolute;
+            right: 0;
+            top: 1.8rem;
+        }
         .btc-item-title {
             font-family: 'Manrope';
             font-style: normal;
@@ -43,7 +45,9 @@
            width: 100%;
            padding-top: .2rem;
            display: flex;
-           justify-content: flex-end;
+            &.pc {
+                justify-content: flex-end;
+            }
            .btc-item-right-btn {
                 padding: 0 13px;
                 height: 38px;
@@ -58,6 +62,7 @@
                 display: inline-block;
                 float: right;
                 margin-right: 1rem;
+                cursor: pointer;
            }
         }
     }
@@ -71,6 +76,20 @@
         border-radius: .6rem;
         overflow: hidden;
         position: relative;
+        .tab-mobile {
+            font-size: 18px;
+        }
+        .stake-container {
+            // display: flex;
+            // justify-content: space-between;
+            // flex-wrap: wrap;
+            // align-content: space-between;
+            &::after {
+                content: '';
+                flex: 1;    /* 或者flex: 1 */
+
+            }
+        }
         .btc-card-item {
             background: rgba(255, 255, 255, 0.07);
             border: 1px solid rgba(255, 255, 255, 0.3);
@@ -78,12 +97,11 @@
             border-radius: .2rem;
             padding: .4rem;
             width: 10.8rem;
-            box-sizing: border-box;
             float: left;
-            margin-right: 1.6rem;
-            margin-bottom: 1.6rem;
+            // margin-right: 1.6rem;
+            // margin-bottom: 1.6rem;
             .btc-card-item-img {
-                width: 10rem;
+                width: 100%;
                 height: 10rem;
                 overflow: hidden;
                 img {
@@ -114,7 +132,7 @@
                             color: #fff;
                         }
                         .btn {
-                            width: 2.5rem;
+                            width: 3.5rem;
                             height: 1rem;
                             border-radius: .4rem;
                             padding: 0 .1rem;
@@ -125,6 +143,7 @@
                             text-overflow: ellipsis;
                             white-space: nowrap;
                             color: #fff;
+                            cursor: pointer;
                             &.orange {
                                 background: #d6a241;
                             }
@@ -140,5 +159,23 @@
     }
     .MuiTabPanel-root {
         padding: 24px 0;
+    }
+}
+.mine-checklist {
+    width: 360px;
+    .mine-checklist-btn-box {
+        padding: 20px 10px;
+        display: flex;
+        justify-content: flex-end;
+        .mine-checklist-btn {
+            background-color: #d6a241;
+            width: 80px;
+            height: 30px;
+            line-height: 30px;
+            color: #fff;
+            text-align: center;
+            font-size: 16px;
+            border-radius: 13px;
+        }
     }
 }
