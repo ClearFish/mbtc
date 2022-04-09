@@ -1,8 +1,8 @@
 import "./styles.scss";
 
-// import Lord from "../../assets/images/person/Lord.jpg";
-// import Jojo from "../../assets/images/person/Jojo.jpg";
-// import Sam from "../../assets/images/person/Sam.jpg";
+import Lord from "../../assets/images/person/Lord.jpg";
+import Jojo from "../../assets/images/person/Jojo.jpg";
+import Sam from "../../assets/images/person/Sam.jpg";
 import Adrian from "../../assets/images/person/Adrian.jpg";
 import Malik from "../../assets/images/person/Malik.jpg";
 import Haider from "../../assets/images/person/Haider.jpeg";
@@ -28,21 +28,21 @@ export function Foundation() {
   const isLargeScreen = useMediaQuery("(min-width: 1280px)");
 
   const personList = [
-    // {
-    //   name: "Doctor Lord",
-    //   info: "Community Veteran, Philosopher & Reality Shaper",
-    //   src: Lord,
-    // },
-    // {
-    //   name: "JOJO",
-    //   info: "Community Veteran, Public Relations",
-    //   src: Jojo,
-    // },
-    // {
-    //   name: "Sam",
-    //   info: "Community Veteran, Legal & Public Media",
-    //   src: Sam,
-    // },
+    {
+      name: "Doctor Lord",
+      info: "Community Veteran, Philosopher & Reality Shaper",
+      src: Lord,
+    },
+    {
+      name: "JOJO",
+      info: "Community Veteran, Public Relations",
+      src: Jojo,
+    },
+    {
+      name: "Sam",
+      info: "Community Veteran, Legal & Public Media",
+      src: Sam,
+    },
     {
       name: "Adrian Aurelius",
       info: "Marketing Partner",
