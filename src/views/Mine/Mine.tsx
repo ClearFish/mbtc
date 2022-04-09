@@ -475,7 +475,7 @@ const Mine: React.FC = () => {
                     <ListItemAvatar>
                       <Avatar alt={item.name} src={item.image} />
                     </ListItemAvatar>
-                    <ListItemText id={labelId} primary={`Line item ${value + 1}`} />
+                    <ListItemText id={labelId} primary={item.name} />
                     <ListItemSecondaryAction>
                       <Checkbox
                         edge="end"
