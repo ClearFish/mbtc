@@ -1,4 +1,16 @@
 #mine-view {
+    .NoStaked-box {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        padding: 5rem 0;
+        font-size: 18px;
+        color: #868B93;
+        .icon {
+            margin-bottom: 20px;
+        }
+    }
     .ohm-card-mine {
         max-width: unset !important;
         width: unset !important;
@@ -87,6 +99,9 @@
             &::after {
                 content: '';
                 flex: 1;    /* 或者flex: 1 */
+                padding: 4px;
+                margin: 0;
+                box-sizing: border-box;
 
             }
         }
