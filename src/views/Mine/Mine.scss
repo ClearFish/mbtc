@@ -96,6 +96,9 @@
             // justify-content: space-between;
             // flex-wrap: wrap;
             // align-content: space-between;
+            display: grid;
+            grid-template-columns: repeat(auto-fill, 10.8rem);
+            justify-content: space-between;
             &::after {
                 content: '';
                 flex: 1;    /* 或者flex: 1 */

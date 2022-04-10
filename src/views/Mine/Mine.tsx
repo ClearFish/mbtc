@@ -176,7 +176,7 @@ const Mine: React.FC = () => {
     const newNftList:
       | SetStateAction<NftType[] | undefined>
       | { name: string; image: string; attributes: []; mined: string; cost: string; id: string }[] = [];
-    for (let i = 1; i < 0; i++) {
+    for (let i = 1; i < 12; i++) {
       newNftList.push({
         name: `test${i}`,
         image: `https://ikzttp.mypinata.cloud/ipfs/QmYDvPAXtiJg7s8JdRBSLWdgSphQdac8j1YuQNNxcGE1hg/${i}.png`,
@@ -335,7 +335,7 @@ const Mine: React.FC = () => {
                 }}
                 spacing={5}
               >
-                <Grid className="stake-container" container spacing={1} justifyContent="space-between">
+                <Grid className="stake-container" container>
                   {stakedList?.map(item => (
                     <Grid item>
                       <Box
