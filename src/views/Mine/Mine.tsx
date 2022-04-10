@@ -3,6 +3,7 @@ import MineBanner from "../../assets/images/mine/mine-banner.png";
 import { memo, SetStateAction, useEffect, useState, MouseEvent } from "react";
 import { useHistory } from "react-router-dom";
 // import { Paper } from "@olympusdao/component-library";
+import { ReactComponent as empty } from "./assets/images/empty.svg";
 import {
   Container,
   useMediaQuery,
@@ -19,11 +20,19 @@ import {
   ListItemAvatar,
   Checkbox,
   Avatar,
+  SvgIcon,
 } from "@material-ui/core";
 import { createStyles, makeStyles, Theme } from "@material-ui/core/styles";
 import { ethers } from "ethers";
 import { NFTMiner_ABI, NFTMiner_ADDRESS, MBTCStaking_ADDRESS, MBTCStaking_ABI, POOL_ID } from "src/contract";
 import { TabPanel, TabContext } from "@material-ui/lab";
+
+export const NoStakedList = () => (
+  <Box className="NoStaked-box">
+    <SvgIcon style={{ fontSize: 40 }} className="icon" component={empty} htmlColor="#868B93" />
+    No Staking NFT, please Stake
+  </Box>
+);
 
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
@@ -67,13 +76,13 @@ const Mine: React.FC = () => {
 
   // 下拉弹框 start
   const [minerItem, setMinerItem] = useState<NftType[]>();
-  const [anchorEl, setAnchorEl] = useState<HTMLButtonElement | null>(null);
+  const [anchorEl, setAnchorEl] = useState<HTMLElement | null>(null);
 
   const clearCheckList = () => {
     setCheckList([]);
   };
 
-  const handleClick = (event: MouseEvent<HTMLButtonElement>, value: string) => {
+  const handleClick = (event: MouseEvent<HTMLElement>, value: string) => {
     setAnchorEl(event.currentTarget);
     clearCheckList();
     if (value === "1") {
@@ -167,7 +176,7 @@ const Mine: React.FC = () => {
     const newNftList:
       | SetStateAction<NftType[] | undefined>
       | { name: string; image: string; attributes: []; mined: string; cost: string; id: string }[] = [];
-    for (let i = 1; i < 12; i++) {
+    for (let i = 1; i < 0; i++) {
       newNftList.push({
         name: `test${i}`,
         image: `https://ikzttp.mypinata.cloud/ipfs/QmYDvPAXtiJg7s8JdRBSLWdgSphQdac8j1YuQNNxcGE1hg/${i}.png`,
@@ -292,14 +301,12 @@ const Mine: React.FC = () => {
             >
               <Tab
                 className={`${isSmallScreen || isVerySmallScreen ? "tab-mobile" : ""}`}
-                onClick={e => handleClick(e, "1")}
                 aria-describedby={id}
                 label="Staked Miners"
                 value="1"
               />
               <Tab
                 className={`${isSmallScreen || isVerySmallScreen ? "tab-mobile" : ""}`}
-                onClick={e => handleClick(e, "2")}
                 label="UnStaked Miners"
                 value="2"
               />
@@ -310,7 +317,9 @@ const Mine: React.FC = () => {
               <Grid item xs={12}>
                 <Box className={`btc-item-title-container ${isSmallScreen || isVerySmallScreen ? "" : "pc"}`}>
                   <Box className={`btc-item-right-container ${isSmallScreen || isVerySmallScreen ? "" : "pc"}`}>
-                    <Box className="btc-item-right-btn">Untake Miners</Box>
+                    <Box className="btc-item-right-btn" onClick={e => handleClick(e, "1")}>
+                      Untake Miners
+                    </Box>
                     <Box className="btc-item-right-btn">Unstake All</Box>
                   </Box>
                 </Box>
@@ -371,7 +380,7 @@ const Mine: React.FC = () => {
                       </Box>
                     </Grid>
                   ))}
-                  {!stakedList || stakedList.length == 0 ? <Box>stakedList</Box> : undefined}
+                  {!stakedList || stakedList.length == 0 ? <NoStakedList /> : undefined}
                 </Grid>
               </Grid>
             </Grid>
@@ -381,7 +390,9 @@ const Mine: React.FC = () => {
               <Grid item xs={12}>
                 <Box className={`btc-item-title-container ${isSmallScreen || isVerySmallScreen ? "" : "pc"}`}>
                   <Box className={`btc-item-right-container ${isSmallScreen || isVerySmallScreen ? "" : "pc"}`}>
-                    <Box className="btc-item-right-btn">Stake Miners</Box>
+                    <Box className="btc-item-right-btn" onClick={e => handleClick(e, "2")}>
+                      Stake Miners
+                    </Box>
                     <Box className="btc-item-right-btn">Stake All</Box>
                   </Box>
                 </Box>
@@ -396,44 +407,49 @@ const Mine: React.FC = () => {
                   paddingBottom: "1.6rem",
                 }}
               >
-                {unStakedList?.map(item => (
-                  <Box
-                    className="btc-card-item"
-                    style={{
-                      marginRight: isSmallScreen || isVerySmallScreen ? ".5rem" : "1.6rem",
-                      marginBottom: isSmallScreen || isVerySmallScreen ? ".5rem" : "1.6rem",
-                    }}
-                  >
-                    <Box className="btc-card-item-img">
-                      <img src={item.image} alt="" />
-                    </Box>
-                    <Box className="btc-card-item-desc">
-                      <Box className="btc-card-item-desc-title">{item.name}</Box>
-                      <Box className="btc-card-item-desc-price-box">
-                        <Box
-                          className="btc-card-item-desc-price-item"
-                          display="flex"
-                          alignItems="center"
-                          justifyContent="space-between"
-                        >
-                          <Box display="flex" flexDirection="column">
-                            <Box className="item-title">MBTC Mined2</Box>
-                            <Box className="item-price">{item.mined}</Box>
+                <Grid className="stake-container" container spacing={1} justifyContent="space-between">
+                  {unStakedList?.map(item => (
+                    <Grid item>
+                      <Box
+                        className="btc-card-item"
+                        style={{
+                          // marginRight: isSmallScreen || isVerySmallScreen ? ".5rem" : "1.6rem",
+                          marginBottom: isSmallScreen || isVerySmallScreen ? ".5rem" : "1.6rem",
+                        }}
+                      >
+                        <Box className="btc-card-item-img">
+                          <img src={item.image} alt="" />
+                        </Box>
+                        <Box className="btc-card-item-desc">
+                          <Box className="btc-card-item-desc-title">{item.name}</Box>
+                          <Box className="btc-card-item-desc-price-box">
+                            <Box
+                              className="btc-card-item-desc-price-item"
+                              display="flex"
+                              alignItems="center"
+                              justifyContent="space-between"
+                            >
+                              <Box display="flex" flexDirection="column">
+                                <Box className="item-title">MBTC Mined2</Box>
+                                <Box className="item-price">{item.mined}</Box>
+                              </Box>
+                              <div
+                                className={`btn ${false ? "orange" : "blue"}`}
+                                onClick={() => {
+                                  stakeMiner(item.id, POOL_ID);
+                                }}
+                              >
+                                Stake
+                              </div>
+                            </Box>
                           </Box>
-                          <div
-                            className={`btn ${false ? "orange" : "blue"}`}
-                            onClick={() => {
-                              stakeMiner(item.id, POOL_ID);
-                            }}
-                          >
-                            Stake
-                          </div>
                         </Box>
                       </Box>
-                    </Box>
-                  </Box>
-                ))}
-                {!unStakedList || unStakedList.length == 0 ? <Box>stakedList</Box> : undefined}
+                    </Grid>
+                  ))}
+
+                  {!unStakedList || unStakedList.length == 0 ? <NoStakedList /> : undefined}
+                </Grid>
               </Grid>
             </Grid>
           </TabPanel>
