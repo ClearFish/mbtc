@@ -34,18 +34,18 @@ export function Foundation() {
       src: Lord,
     },
     {
-      name: "JOJO",
+      name: "Meta JOJO",
       info: "Community Veteran, Public Relations",
       src: Jojo,
     },
     {
-      name: "Sam",
+      name: "Meta Sam",
       info: "Community Veteran, Legal & Public Media",
       src: Sam,
     },
     {
       name: "Adrian Aurelius",
-      info: "Marketing Partner",
+      info: "Community Veteran, Marketing Partner",
       src: Adrian,
     },
     {
