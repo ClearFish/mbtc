@@ -479,18 +479,20 @@ const Mine: React.FC = () => {
             </Box>
             <TabPanel value="1">
               <Grid container spacing={3}>
-                <Grid item xs={12}>
-                  <Box className={`btc-item-title-container ${isSmallScreen || isVerySmallScreen ? "" : "pc"}`}>
-                    <Box className={`btc-item-right-container ${isSmallScreen || isVerySmallScreen ? "" : "pc"}`}>
-                      <Box className="btc-item-right-btn" onClick={handleClick}>
-                        Untake Miners
-                      </Box>
-                      <Box className="btc-item-right-btn" onClick={withdrawAllMiners}>
-                        Unstake All
+                {stakedList && stakedList.length > 0 && (
+                  <Grid item xs={12}>
+                    <Box className={`btc-item-title-container ${isSmallScreen || isVerySmallScreen ? "" : "pc"}`}>
+                      <Box className={`btc-item-right-container ${isSmallScreen || isVerySmallScreen ? "" : "pc"}`}>
+                        <Box className="btc-item-right-btn" onClick={handleClick}>
+                          Untake Miners
+                        </Box>
+                        <Box className="btc-item-right-btn" onClick={withdrawAllMiners}>
+                          Unstake All
+                        </Box>
                       </Box>
                     </Box>
-                  </Box>
-                </Grid>
+                  </Grid>
+                )}
                 <Grid
                   item
                   xs={12}
@@ -571,27 +573,29 @@ const Mine: React.FC = () => {
             </TabPanel>
             <TabPanel value="2">
               <Grid container spacing={3}>
-                <Grid item xs={12}>
-                  <Box className={`btc-item-title-container ${isSmallScreen || isVerySmallScreen ? "" : "pc"}`}>
-                    <Box className={`btc-item-right-container ${isSmallScreen || isVerySmallScreen ? "" : "pc"}`}>
-                      <Box className="btc-item-right-btn" onClick={handleClick}>
-                        Stake Miners
-                      </Box>
-                      <Box
-                        className="btc-item-right-btn"
-                        onClick={() => {
-                          stakedList &&
-                            batchStakeMiners(
-                              stakedList?.map(item => item.id),
-                              POOL_ID,
-                            );
-                        }}
-                      >
-                        Stake All
+                {unStakedList && unStakedList.length > 0 && (
+                  <Grid item xs={12}>
+                    <Box className={`btc-item-title-container ${isSmallScreen || isVerySmallScreen ? "" : "pc"}`}>
+                      <Box className={`btc-item-right-container ${isSmallScreen || isVerySmallScreen ? "" : "pc"}`}>
+                        <Box className="btc-item-right-btn" onClick={handleClick}>
+                          Stake Miners
+                        </Box>
+                        <Box
+                          className="btc-item-right-btn"
+                          onClick={() => {
+                            stakedList &&
+                              batchStakeMiners(
+                                stakedList?.map(item => item.id),
+                                POOL_ID,
+                              );
+                          }}
+                        >
+                          Stake All
+                        </Box>
                       </Box>
                     </Box>
-                  </Box>
-                </Grid>
+                  </Grid>
+                )}
                 <Grid
                   item
                   xs={12}
