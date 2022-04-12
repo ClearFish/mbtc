@@ -504,9 +504,9 @@ const Mine: React.FC = () => {
                   }}
                   spacing={5}
                 >
-                  <Grid className="stake-container" container>
-                    {stakedList && stakedList.length > 0 ? (
-                      stakedList.map(item => (
+                  {stakedList && stakedList.length > 0 ? (
+                    <Grid className="stake-container" container>
+                      {stakedList.map(item => (
                         <Grid item>
                           <Box
                             className="btc-card-item"
@@ -563,11 +563,11 @@ const Mine: React.FC = () => {
                             </Box>
                           </Box>
                         </Grid>
-                      ))
-                    ) : (
-                      <NoStakedList message="No staked miner, please Stake" />
-                    )}
-                  </Grid>
+                      ))}
+                    </Grid>
+                  ) : (
+                    <NoStakedList message="No staked miner, please Stake" />
+                  )}
                 </Grid>
               </Grid>
             </TabPanel>
@@ -646,10 +646,8 @@ const Mine: React.FC = () => {
                         </Box>
                       </Grid>
                     ))}
-                    {!unStakedList || unStakedList.length == 0 ? (
-                      <NoStakedList message="No unstaked miner" />
-                    ) : undefined}
                   </Grid>
+                  {!unStakedList || unStakedList.length == 0 ? <NoStakedList message="No unstaked miner" /> : undefined}
                 </Grid>
               </Grid>
             </TabPanel>
