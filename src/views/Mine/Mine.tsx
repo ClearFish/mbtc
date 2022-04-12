@@ -69,7 +69,7 @@ const Mine: React.FC = () => {
   // const { address, connect, provider, connected, networkId, providerInitialized } = useWeb3Context();
   // usePathForNetwork({ pathName: "mine", networkID: networkId, history });
   const classes = useStyles();
-  const { networkId } = useWeb3Context();
+  const { networkId, address } = useWeb3Context();
   const dispatch = useDispatch();
   const isSmallScreen = useMediaQuery("(max-width: 650px)");
   const isVerySmallScreen = useMediaQuery("(max-width: 379px)");
@@ -352,15 +352,15 @@ const Mine: React.FC = () => {
       if (res && res.data) {
         await getStakedList();
         setLoading(false);
-        dispatch(info(`Success to withdraw`));
+        dispatch(info(`Success to harvest`));
       } else {
         setLoading(false);
-        dispatch(error(`Fail to withdraw`));
+        dispatch(error(`Fail to harvest`));
       }
     } catch (err) {
       console.log({ err });
       setLoading(false);
-      dispatch(error(`Fail to withdraw`));
+      dispatch(error(`Fail to harvest`));
     }
   };
 
@@ -413,9 +413,19 @@ const Mine: React.FC = () => {
     return res;
   };
 
+  // 合约授权
+  const approve = async () => {
+    // const mFuelContract = new ethers.Contract(mFuel_ADDRESS, MFuel_ABI, signer);
+    // const nftMinerContract = new ethers.Contract(NFTMiner_ADDRESS, NFTMiner_ABI, signer);
+    // const res1 = await mFuelContract.approve(MBTCStaking_ADDRESS, ethers.constants.MaxUint256);
+    // const res2 = await nftMinerContract.setApprovalForAll(MBTCStaking_ADDRESS, true);
+    // console.log({ res1 });
+  };
+
   useEffect(() => {
     if (networkId === 97) {
       window.ethereum.enable();
+      approve();
       getUnStakedList();
       getStakedList();
     }

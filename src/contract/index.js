@@ -4,6 +4,7 @@ import NFTMiner from "./NFTMiner.json";
 import NFTPool from "./NFTPool.json";
 import NFTRepository from "./NFTRepository.json";
 import NFTStore from "./NFTStore.json";
+import MFuel from "./MFuel.json";
 
 export const ERC721Pausable_ABI = ERC721Pausable.abi;
 export const MBTCStaking_ABI = MBTCStaking.abi;
@@ -11,6 +12,7 @@ export const NFTMiner_ABI = NFTMiner.abi;
 export const NFTPool_ABI = NFTPool.abi;
 export const NFTRepository_ABI = NFTRepository.abi;
 export const NFTStore_ABI = NFTStore.abi;
+export const MFuel_ABI = MFuel.abi;
 
 export const MBTCStaking_ADDRESS = "0x8b33A946d647F13fD27514EF81d2d605b11Ae7CD";
 export const NFTMiner_ADDRESS = "0x8a4041F0d99c2C928F95b0b84558E65d7489b67b";
