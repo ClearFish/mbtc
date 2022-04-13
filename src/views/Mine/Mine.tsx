@@ -27,7 +27,15 @@ import {
 } from "@material-ui/core";
 import { createStyles, makeStyles, Theme } from "@material-ui/core/styles";
 import { ethers } from "ethers";
-import { NFTMiner_ABI, NFTMiner_ADDRESS, MBTCStaking_ADDRESS, MBTCStaking_ABI, POOL_ID } from "src/contract";
+import {
+  NFTMiner_ABI,
+  NFTMiner_ADDRESS,
+  MBTCStaking_ADDRESS,
+  MBTCStaking_ABI,
+  POOL_ID,
+  MFuel_ABI,
+  mFuel_ADDRESS,
+} from "src/contract";
 import { TabPanel, TabContext } from "@material-ui/lab";
 import { error, info } from "../../slices/MessagesSlice";
 import { useWeb3Context } from "src/hooks/web3Context";
@@ -168,7 +176,7 @@ const Mine: React.FC = () => {
       | SetStateAction<NftType[] | undefined>
       | { name: string; url: string; attributes: []; mined: string; cost: string; id: string }[] = [];
     for (let i = 1; i < 11; i++) {
-      if ([5, 8, 9, 10].indexOf(i) > -1) {
+      if ([1, 5, 6, 7, 8, 9, 10].indexOf(i) > -1) {
         newNftList.push({
           name: `#${i}`,
           url: `https://ikzttp.mypinata.cloud/ipfs/QmYDvPAXtiJg7s8JdRBSLWdgSphQdac8j1YuQNNxcGE1hg/${i}.png`,
@@ -238,6 +246,7 @@ const Mine: React.FC = () => {
   /** 质押单个NFT **/
   const stakeMiner = async (minerId: string, poolId: string) => {
     setLoading(true);
+    checkApproved();
     const mbtcStakingContract = new ethers.Contract(MBTCStaking_ADDRESS, MBTCStaking_ABI, signer);
     try {
       const res = await mbtcStakingContract.stakeMiner(minerId, poolId);
@@ -260,6 +269,7 @@ const Mine: React.FC = () => {
   /** 批量质押NFT **/
   const batchStakeMiners = async (minerIds: string[], poolId: string) => {
     setLoading(true);
+    checkApproved();
     const infoType = minerIds.length === stakedList?.length ? "stake all" : "batch stake";
     const mbtcStakingContract = new ethers.Contract(MBTCStaking_ADDRESS, MBTCStaking_ABI, signer);
     try {
@@ -286,8 +296,9 @@ const Mine: React.FC = () => {
     try {
       const res = await mbtcStakingContract.withdrawMiner(minerId);
       if (res && res.data) {
-        await getStakedList();
-        await getUnStakedList();
+        setTimeout(() => {
+          getStakedList();
+        }, 1000);
         setLoading(false);
         dispatch(info(`Success to unstake`));
       } else {
@@ -414,18 +425,24 @@ const Mine: React.FC = () => {
   };
 
   // 合约授权
-  const approve = async () => {
-    // const mFuelContract = new ethers.Contract(mFuel_ADDRESS, MFuel_ABI, signer);
-    // const nftMinerContract = new ethers.Contract(NFTMiner_ADDRESS, NFTMiner_ABI, signer);
-    // const res1 = await mFuelContract.approve(MBTCStaking_ADDRESS, ethers.constants.MaxUint256);
-    // const res2 = await nftMinerContract.setApprovalForAll(MBTCStaking_ADDRESS, true);
-    // console.log({ res1 });
+  const checkApproved = async () => {
+    const mFuelContract = new ethers.Contract(mFuel_ADDRESS, MFuel_ABI, signer);
+    const nftMinerContract = new ethers.Contract(NFTMiner_ADDRESS, NFTMiner_ABI, signer);
+    // 检查NFT（ERC 721）是否授权
+    const isApprovedForAll = await nftMinerContract.isApprovedForAll(address, MBTCStaking_ADDRESS);
+    if (!isApprovedForAll) {
+      await nftMinerContract.setApprovalForAll(MBTCStaking_ADDRESS, true);
+    }
+    // 检查代币（ERC20）是否授权
+    const allowance = await mFuelContract.allowance(address, MBTCStaking_ADDRESS);
+    if (allowance.toString() === "0" || allowance.toString().length < 1) {
+      await mFuelContract.approve(MBTCStaking_ADDRESS, ethers.constants.MaxUint256);
+    }
   };
 
   useEffect(() => {
     if (networkId === 97) {
       window.ethereum.enable();
-      approve();
       getUnStakedList();
       getStakedList();
     }
@@ -639,7 +656,7 @@ const Mine: React.FC = () => {
                                 justifyContent="space-between"
                               >
                                 <Box display="flex" flexDirection="column">
-                                  <Box className="item-title">MBTC Mined2</Box>
+                                  <Box className="item-title">MBTC Mined</Box>
                                   <Box className="item-price">{item.earned}</Box>
                                 </Box>
                                 <div
