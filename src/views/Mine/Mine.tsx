@@ -52,6 +52,12 @@ const useStyles = makeStyles((theme: Theme) =>
     blackCardBtnBlue: {
       background: "#6a40bb",
     },
+    popover: {
+      pointerEvents: "none",
+    },
+    paper: {
+      padding: theme.spacing(1),
+    },
   }),
 );
 
@@ -117,7 +123,24 @@ const Mine: React.FC = () => {
 
   const open = Boolean(anchorEl);
   const id = open ? "simple-popover" : undefined;
+
   // 下拉弹框 end
+
+  // over提示 start
+  const [mouseHoverEl, setMouseHoverEl] = useState<HTMLElement | null>(null);
+  const [mouseValue, setMouseValue] = useState<string>("");
+  const mouseHover = Boolean(mouseHoverEl);
+  const handlePopoverOpen = (event: MouseEvent<HTMLElement>) => {
+    const el = event.target as HTMLElement;
+    setMouseValue(el.innerText);
+    setMouseHoverEl(event.currentTarget);
+  };
+
+  const handlePopoverClose = () => {
+    setMouseValue("");
+    setMouseHoverEl(null);
+  };
+  // over提示 end
 
   // 多选 start
 
@@ -557,8 +580,24 @@ const Mine: React.FC = () => {
                                   justifyContent="space-between"
                                 >
                                   <Box display="flex" flexDirection="column">
-                                    <Box className="item-title">MFuel Cost</Box>
-                                    <Box className="item-price">{item.cost}</Box>
+                                    <Box
+                                      className="item-title"
+                                      aria-owns={mouseHover ? "mouse-over-popover" : undefined}
+                                      aria-haspopup="true"
+                                      onMouseEnter={handlePopoverOpen}
+                                      onMouseLeave={handlePopoverClose}
+                                    >
+                                      MFuel Cost
+                                    </Box>
+                                    <Box
+                                      className="item-price"
+                                      aria-owns={mouseHover ? "mouse-over-popover" : undefined}
+                                      aria-haspopup="true"
+                                      onMouseEnter={handlePopoverOpen}
+                                      onMouseLeave={handlePopoverClose}
+                                    >
+                                      {item.cost}
+                                    </Box>
                                   </Box>
                                   <div
                                     className={`btn ${false ? "orange" : "blue"}`}
@@ -639,8 +678,24 @@ const Mine: React.FC = () => {
                                 justifyContent="space-between"
                               >
                                 <Box display="flex" flexDirection="column">
-                                  <Box className="text-more item-title">MBTC Mined2</Box>
-                                  <Box className="text-more item-price">{item.earned}</Box>
+                                  <Box
+                                    className="text-more item-title"
+                                    aria-owns={mouseHover ? "mouse-over-popover" : undefined}
+                                    aria-haspopup="true"
+                                    onMouseEnter={handlePopoverOpen}
+                                    onMouseLeave={handlePopoverClose}
+                                  >
+                                    MBTC Mined2
+                                  </Box>
+                                  <Box
+                                    className="text-more item-price"
+                                    aria-owns={mouseHover ? "mouse-over-popover" : undefined}
+                                    aria-haspopup="true"
+                                    onMouseEnter={handlePopoverOpen}
+                                    onMouseLeave={handlePopoverClose}
+                                  >
+                                    {item.earned}
+                                  </Box>
                                 </Box>
                                 <div
                                   className={`btn ${false ? "orange" : "blue"}`}
@@ -663,6 +718,7 @@ const Mine: React.FC = () => {
             </TabPanel>
           </TabContext>
         )}
+        {/* 列表菜单 */}
         <Popover
           id="simple-popover"
           open={open}
@@ -707,6 +763,28 @@ const Mine: React.FC = () => {
           </Box>
         </Popover>
       </Box>
+      {/* tip提示 */}
+      <Popover
+        id="mouse-over-popover"
+        className={classes.popover}
+        classes={{
+          paper: classes.paper,
+        }}
+        open={mouseHover}
+        anchorEl={mouseHoverEl}
+        anchorOrigin={{
+          vertical: "bottom",
+          horizontal: "left",
+        }}
+        transformOrigin={{
+          vertical: "top",
+          horizontal: "left",
+        }}
+        onClose={handlePopoverClose}
+        disableRestoreFocus
+      >
+        <Box>{mouseValue}</Box>
+      </Popover>
       <Backdrop open={loading}>
         <CircularProgress color="inherit" />
       </Backdrop>
