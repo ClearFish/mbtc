@@ -538,8 +538,8 @@ const Mine: React.FC = () => {
                                   justifyContent="space-between"
                                 >
                                   <Box display="flex" flexDirection="column">
-                                    <Box className="item-title">MBTC Mined</Box>
-                                    <Box className="item-price">{item.earned}</Box>
+                                    <Box className="text-more item-title">MBTC Mined</Box>
+                                    <Box className="text-more item-price">{item.earned}</Box>
                                   </Box>
                                   <div
                                     className={`btn ${true ? "orange" : "blue"}`}
@@ -639,8 +639,8 @@ const Mine: React.FC = () => {
                                 justifyContent="space-between"
                               >
                                 <Box display="flex" flexDirection="column">
-                                  <Box className="item-title">MBTC Mined2</Box>
-                                  <Box className="item-price">{item.earned}</Box>
+                                  <Box className="text-more item-title">MBTC Mined2</Box>
+                                  <Box className="text-more item-price">{item.earned}</Box>
                                 </Box>
                                 <div
                                   className={`btn ${false ? "orange" : "blue"}`}
