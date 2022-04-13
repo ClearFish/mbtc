@@ -168,9 +168,9 @@ const Mine: React.FC = () => {
       | SetStateAction<NftType[] | undefined>
       | { name: string; url: string; attributes: []; mined: string; cost: string; id: string }[] = [];
     for (let i = 1; i < 11; i++) {
-      if ([12].indexOf(i) > -1) {
+      if ([5, 8, 9, 10].indexOf(i) > -1) {
         newNftList.push({
-          name: `test${i}`,
+          name: `#${i}`,
           url: `https://ikzttp.mypinata.cloud/ipfs/QmYDvPAXtiJg7s8JdRBSLWdgSphQdac8j1YuQNNxcGE1hg/${i}.png`,
           attributes: [],
           mined: "262889.78",
