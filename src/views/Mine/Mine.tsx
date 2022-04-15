@@ -1,6 +1,6 @@
 import "./Mine.scss";
 import MineBanner from "../../assets/images/mine/mine-banner.png";
-import { memo, SetStateAction, useEffect, useState, MouseEvent } from "react";
+import { memo, useEffect, useState, MouseEvent } from "react";
 import { useDispatch } from "react-redux";
 import { useHistory } from "react-router-dom";
 // import { Paper } from "@olympusdao/component-library";
@@ -59,6 +59,12 @@ const useStyles = makeStyles((theme: Theme) =>
     },
     blackCardBtnBlue: {
       background: "#6a40bb",
+    },
+    popover: {
+      pointerEvents: "none",
+    },
+    paper: {
+      padding: theme.spacing(1),
     },
   }),
 );
@@ -125,7 +131,24 @@ const Mine: React.FC = () => {
 
   const open = Boolean(anchorEl);
   const id = open ? "simple-popover" : undefined;
+
   // 下拉弹框 end
+
+  // over提示 start
+  const [mouseHoverEl, setMouseHoverEl] = useState<HTMLElement | null>(null);
+  const [mouseValue, setMouseValue] = useState<string>("");
+  const mouseHover = Boolean(mouseHoverEl);
+  const handlePopoverOpen = (event: MouseEvent<HTMLElement>) => {
+    const el = event.target as HTMLElement;
+    setMouseValue(el.innerText);
+    setMouseHoverEl(event.currentTarget);
+  };
+
+  const handlePopoverClose = () => {
+    setMouseValue("");
+    setMouseHoverEl(null);
+  };
+  // over提示 end
 
   // 多选 start
 
@@ -149,46 +172,28 @@ const Mine: React.FC = () => {
   const getUnStakedList = async () => {
     setListLoading(true);
     const address = await signer.getAddress();
-    const nftMinerContract = new ethers.Contract(NFTMiner_ADDRESS, NFTMiner_ABI, signer);
-    const balance = await nftMinerContract.balanceOf(address);
-    const tokenURI = await nftMinerContract.tokenURI(1);
-    console.log({ balance });
-    // const newNftList:
-    //   | SetStateAction<NftType[] | undefined>
-    //   | { name: string; image: string; attributes: []; mined: string; cost: string; id: string }[] = [];
-    // for (let i = 0; i < balance; i++) {
-    //   await window
-    //     .fetch(tokenURI)
-    //     .then(res => res.json())
-    //     .then(json => {
-    //       newNftList.push({
-    //         name: json.name,
-    //         image: json.image,
-    //         attributes: json.attributes,
-    //         mined: "12",
-    //         cost: "13",
-    //         id: "1",
-    //       });
-    //     });
-    // }
-    // setUnStakedList(newNftList);
-    const newNftList:
-      | SetStateAction<NftType[] | undefined>
-      | { name: string; url: string; attributes: []; mined: string; cost: string; id: string }[] = [];
-    for (let i = 1; i < 11; i++) {
-      if ([1, 5, 6, 7, 8, 9, 10].indexOf(i) > -1) {
-        newNftList.push({
-          name: `#${i}`,
-          url: `https://ikzttp.mypinata.cloud/ipfs/QmYDvPAXtiJg7s8JdRBSLWdgSphQdac8j1YuQNNxcGE1hg/${i}.png`,
-          attributes: [],
-          mined: "262889.78",
-          cost: "1212.12",
-          id: `${i}`,
-        });
-      }
+    const { list = [] } = await fetch(`https://nobodyhere.xyz/miner/nftlist?address=${address}`).then(res =>
+      res.json(),
+    );
+    const requestBox = [];
+    for (let i = 0; i < list?.length || 0; i++) {
+      requestBox.push(
+        (async () => {
+          const tokenURI = await getTokenURI(list[i].token_id);
+          const tokenURL = await fetch(tokenURI)
+            .then(res => res.json())
+            .then(json => json.image);
+          return {
+            id: list[i].token_id,
+            url: tokenURL,
+          };
+        })(),
+      );
     }
-    setUnStakedList(newNftList);
-    setListLoading(false);
+    Promise.all(requestBox).then(res => {
+      setUnStakedList(res);
+      setListLoading(false);
+    });
   };
 
   /** nft展示前缀 **/
@@ -555,8 +560,8 @@ const Mine: React.FC = () => {
                                   justifyContent="space-between"
                                 >
                                   <Box display="flex" flexDirection="column">
-                                    <Box className="item-title">MBTC Mined</Box>
-                                    <Box className="item-price">{item.earned}</Box>
+                                    <Box className="text-more item-title">MBTC Mined</Box>
+                                    <Box className="text-more item-price">{item.earned}</Box>
                                   </Box>
                                   <div
                                     className={`btn ${true ? "orange" : "blue"}`}
@@ -574,8 +579,24 @@ const Mine: React.FC = () => {
                                   justifyContent="space-between"
                                 >
                                   <Box display="flex" flexDirection="column">
-                                    <Box className="item-title">MFuel Cost</Box>
-                                    <Box className="item-price">{item.cost}</Box>
+                                    <Box
+                                      className="item-title"
+                                      aria-owns={mouseHover ? "mouse-over-popover" : undefined}
+                                      aria-haspopup="true"
+                                      onMouseEnter={handlePopoverOpen}
+                                      onMouseLeave={handlePopoverClose}
+                                    >
+                                      MFuel Cost
+                                    </Box>
+                                    <Box
+                                      className="item-price"
+                                      aria-owns={mouseHover ? "mouse-over-popover" : undefined}
+                                      aria-haspopup="true"
+                                      onMouseEnter={handlePopoverOpen}
+                                      onMouseLeave={handlePopoverClose}
+                                    >
+                                      {item.cost}
+                                    </Box>
                                   </Box>
                                   <div
                                     className={`btn ${false ? "orange" : "blue"}`}
@@ -647,7 +668,7 @@ const Mine: React.FC = () => {
                             <img src={item.url} alt="" />
                           </Box>
                           <Box className="btc-card-item-desc">
-                            <Box className="btc-card-item-desc-title">{item.name}</Box>
+                            <Box className="btc-card-item-desc-title">#{item.id}</Box>
                             <Box className="btc-card-item-desc-price-box">
                               <Box
                                 className="btc-card-item-desc-price-item"
@@ -656,8 +677,24 @@ const Mine: React.FC = () => {
                                 justifyContent="space-between"
                               >
                                 <Box display="flex" flexDirection="column">
-                                  <Box className="item-title">MBTC Mined</Box>
-                                  <Box className="item-price">{item.earned}</Box>
+                                  <Box
+                                    className="text-more item-title"
+                                    aria-owns={mouseHover ? "mouse-over-popover" : undefined}
+                                    aria-haspopup="true"
+                                    onMouseEnter={handlePopoverOpen}
+                                    onMouseLeave={handlePopoverClose}
+                                  >
+                                    MBTC Cost
+                                  </Box>
+                                  <Box
+                                    className="text-more item-price"
+                                    aria-owns={mouseHover ? "mouse-over-popover" : undefined}
+                                    aria-haspopup="true"
+                                    onMouseEnter={handlePopoverOpen}
+                                    onMouseLeave={handlePopoverClose}
+                                  >
+                                    {item.earned}
+                                  </Box>
                                 </Box>
                                 <div
                                   className={`btn ${false ? "orange" : "blue"}`}
@@ -680,6 +717,7 @@ const Mine: React.FC = () => {
             </TabPanel>
           </TabContext>
         )}
+        {/* 列表菜单 */}
         <Popover
           id="simple-popover"
           open={open}
@@ -724,6 +762,28 @@ const Mine: React.FC = () => {
           </Box>
         </Popover>
       </Box>
+      {/* tip提示 */}
+      <Popover
+        id="mouse-over-popover"
+        className={classes.popover}
+        classes={{
+          paper: classes.paper,
+        }}
+        open={mouseHover}
+        anchorEl={mouseHoverEl}
+        anchorOrigin={{
+          vertical: "bottom",
+          horizontal: "left",
+        }}
+        transformOrigin={{
+          vertical: "top",
+          horizontal: "left",
+        }}
+        onClose={handlePopoverClose}
+        disableRestoreFocus
+      >
+        <Box>{mouseValue}</Box>
+      </Popover>
       <Backdrop open={loading}>
         <CircularProgress color="inherit" />
       </Backdrop>
