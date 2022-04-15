@@ -1,6 +1,6 @@
 import "./Mine.scss";
 import MineBanner from "../../assets/images/mine/mine-banner.png";
-import { memo, SetStateAction, useEffect, useState, MouseEvent } from "react";
+import { memo, useEffect, useState, MouseEvent } from "react";
 import { useDispatch } from "react-redux";
 import { useHistory } from "react-router-dom";
 // import { Paper } from "@olympusdao/component-library";
@@ -164,46 +164,28 @@ const Mine: React.FC = () => {
   const getUnStakedList = async () => {
     setListLoading(true);
     const address = await signer.getAddress();
-    const nftMinerContract = new ethers.Contract(NFTMiner_ADDRESS, NFTMiner_ABI, signer);
-    const balance = await nftMinerContract.balanceOf(address);
-    const tokenURI = await nftMinerContract.tokenURI(1);
-    console.log({ balance });
-    // const newNftList:
-    //   | SetStateAction<NftType[] | undefined>
-    //   | { name: string; image: string; attributes: []; mined: string; cost: string; id: string }[] = [];
-    // for (let i = 0; i < balance; i++) {
-    //   await window
-    //     .fetch(tokenURI)
-    //     .then(res => res.json())
-    //     .then(json => {
-    //       newNftList.push({
-    //         name: json.name,
-    //         image: json.image,
-    //         attributes: json.attributes,
-    //         mined: "12",
-    //         cost: "13",
-    //         id: "1",
-    //       });
-    //     });
-    // }
-    // setUnStakedList(newNftList);
-    const newNftList:
-      | SetStateAction<NftType[] | undefined>
-      | { name: string; url: string; attributes: []; mined: string; cost: string; id: string }[] = [];
-    for (let i = 1; i < 11; i++) {
-      if ([5, 8, 9, 10].indexOf(i) > -1) {
-        newNftList.push({
-          name: `#${i}`,
-          url: `https://ikzttp.mypinata.cloud/ipfs/QmYDvPAXtiJg7s8JdRBSLWdgSphQdac8j1YuQNNxcGE1hg/${i}.png`,
-          attributes: [],
-          mined: "262889.78",
-          cost: "1212.12",
-          id: `${i}`,
-        });
-      }
+    const { list = [] } = await fetch(`https://nobodyhere.xyz/miner/nftlist?address=${address}`).then(res =>
+      res.json(),
+    );
+    const requestBox = [];
+    for (let i = 0; i < list?.length || 0; i++) {
+      requestBox.push(
+        (async () => {
+          const tokenURI = await getTokenURI(list[i].token_id);
+          const tokenURL = await fetch(tokenURI)
+            .then(res => res.json())
+            .then(json => json.image);
+          return {
+            id: list[i].token_id,
+            url: tokenURL,
+          };
+        })(),
+      );
     }
-    setUnStakedList(newNftList);
-    setListLoading(false);
+    Promise.all(requestBox).then(res => {
+      setUnStakedList(res);
+      setListLoading(false);
+    });
   };
 
   /** nft展示前缀 **/
@@ -669,7 +651,7 @@ const Mine: React.FC = () => {
                             <img src={item.url} alt="" />
                           </Box>
                           <Box className="btc-card-item-desc">
-                            <Box className="btc-card-item-desc-title">{item.name}</Box>
+                            <Box className="btc-card-item-desc-title">#{item.id}</Box>
                             <Box className="btc-card-item-desc-price-box">
                               <Box
                                 className="btc-card-item-desc-price-item"
@@ -685,7 +667,7 @@ const Mine: React.FC = () => {
                                     onMouseEnter={handlePopoverOpen}
                                     onMouseLeave={handlePopoverClose}
                                   >
-                                    MBTC Mined2
+                                    MBTC Cost
                                   </Box>
                                   <Box
                                     className="text-more item-price"
