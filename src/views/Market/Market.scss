@@ -1,0 +1,33 @@
+#market-view {
+    .banner-view {
+        width: 100%;
+        background: url('./assets/images/market-bg.png') no-repeat;
+        background-size: 80% auto;
+        background-position: right bottom;
+        height: 28rem;
+        position: relative;
+        .banner-icon {
+            width: 330px;
+            height: 280px;
+            position: absolute;
+            right: 4rem;
+            bottom: 10rem;
+            img {
+                width: 100%;
+            }
+        }
+        .market-desc {
+            border: 0.81px solid;
+            border-image-source: linear-gradient(168.82deg, #A737FF 1.7%, rgba(155, 111, 238, 0) 27.12%, rgba(123, 127, 234, 0) 61.28%, #DEBF1B 99.52%);
+            position: absolute;
+            width: 687px;
+            height: 281px;
+            left: 405px;
+            top: 213px;
+            background: rgba(198, 198, 198, 0.08);
+            backdrop-filter: blur(20px);
+            /* Note: backdrop-filter has minimal browser support */
+            border-radius: 32.3434px;
+        }
+    }
+}
