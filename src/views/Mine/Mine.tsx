@@ -39,6 +39,7 @@ import {
 import { TabPanel, TabContext } from "@material-ui/lab";
 import { error, info } from "../../slices/MessagesSlice";
 import { useWeb3Context } from "src/hooks/web3Context";
+import CryptoJS from "crypto-js";
 
 export const NoStakedList = ({ message }: { message: string }) => (
   <Box className="NoStaked-box">
@@ -98,6 +99,32 @@ const Mine: React.FC = () => {
     setValue(newValue);
   };
 
+  /**
+   * 加密方法
+   * @param data
+   * @returns {string}
+   */
+  const encrypt = (data: any) => {
+    if (typeof data == "object") {
+      try {
+        data = JSON.stringify(data);
+      } catch (error) {
+        console.log("encrypt error:", error);
+      }
+    }
+    const SECRET_IV = CryptoJS.enc.Utf8.parse("Vuvsh8AWIxUIR1RQ");
+    const SECRET_KEY = CryptoJS.enc.Utf8.parse("522olDHkcxLq8K6Y");
+    const dataHex = CryptoJS.enc.Utf8.parse(data);
+
+    const encrypted = CryptoJS.AES.encrypt(dataHex, SECRET_KEY, {
+      iv: SECRET_IV,
+      mode: CryptoJS.mode.CBC,
+      padding: CryptoJS.pad.Pkcs7,
+    });
+
+    return CryptoJS.enc.Base64.stringify(encrypted.ciphertext);
+  };
+
   // 下拉弹框 start
   const [minerItem, setMinerItem] = useState<NftType[]>();
   const [anchorEl, setAnchorEl] = useState<HTMLElement | null>(null);
@@ -110,7 +137,6 @@ const Mine: React.FC = () => {
     setAnchorEl(event.currentTarget);
     clearCheckList();
     if (value === "1") {
-      // console.log("stakedList", stakedList);
       setMinerItem(stakedList);
     } else {
       setMinerItem(unStakedList);
@@ -172,19 +198,34 @@ const Mine: React.FC = () => {
   const getUnStakedList = async () => {
     setListLoading(true);
     const address = await signer.getAddress();
-    const { list = [] } = await fetch(`https://nobodyhere.xyz/miner/nftlist?address=${address}`).then(res =>
-      res.json(),
-    );
+    const centralApi = "https://admin.meta-backend.org/system/open/api/nft/owner/detail";
+    const {
+      data: { tokenIds },
+    } = await fetch(centralApi, {
+      method: "post",
+      body: JSON.stringify({
+        sign: "",
+        data: encrypt({
+          contract: NFTMiner_ADDRESS,
+          address: address,
+        }),
+      }),
+      headers: {
+        "content-type": "application/json",
+      },
+    }).then(res => {
+      return res.json();
+    });
     const requestBox = [];
-    for (let i = 0; i < list?.length || 0; i++) {
+    for (let i = 0; i < tokenIds?.length || 0; i++) {
       requestBox.push(
         (async () => {
-          const tokenURI = await getTokenURI(list[i].token_id);
+          const tokenURI = await getTokenURI(tokenIds[i]);
           const tokenURL = await fetch(tokenURI)
             .then(res => res.json())
             .then(json => json.image);
           return {
-            id: list[i].token_id,
+            id: tokenIds[i],
             url: tokenURL,
           };
         })(),
