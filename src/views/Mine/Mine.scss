@@ -1,3 +1,9 @@
+.text-more {
+    white-space:nowrap;/* 不换行 */
+    overflow:hidden;
+    text-overflow:ellipsis;
+    width: 6rem;
+}
 #mine-view {
     .NoStaked-box {
         width: 100%;
