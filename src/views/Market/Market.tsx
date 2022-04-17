@@ -1,11 +1,15 @@
 import "./Market.scss";
-import { memo } from "react";
+import { memo, useState, useEffect } from "react";
 import MarketLogo from "./assets/images/market-logo.png";
 import MarketDemoIcon from "./assets/images/demo.png";
 import { useMediaQuery, Grid } from "@material-ui/core";
 const Market: React.FC = () => {
   const isSmallScreen = useMediaQuery("(max-width: 650px)");
   const isVerySmallScreen = useMediaQuery("(max-width: 379px)");
+  const [cardArr, setCardArr] = useState<number[]>([]);
+  useEffect(() => {
+    setCardArr([1, 2, 3, 4, 5, 6, 7, 8, 9, 10]);
+  });
   return (
     <div id="market-view">
       <div
@@ -75,69 +79,17 @@ const Market: React.FC = () => {
             </Grid>
           </Grid>
           <div className="btc-card-box">
-            <div className="btc-card-item">
-              <div className="btc-card-item-img">
-                <img src={MarketDemoIcon} alt="" />
-              </div>
-              <div className="btc-card-item-title">Meta Bitcoin NFT</div>
-              <div className="btc-card-item-desc">Asking price</div>
-            </div>
-            <div className="btc-card-item">
-              <div className="btc-card-item-img">
-                <img src={MarketDemoIcon} alt="" />
-              </div>
-              <div className="btc-card-item-title">Meta Bitcoin NFT</div>
-              <div className="btc-card-item-desc">Asking price</div>
-            </div>
-            <div className="btc-card-item">
-              <div className="btc-card-item-img">
-                <img src={MarketDemoIcon} alt="" />
-              </div>
-              <div className="btc-card-item-title">Meta Bitcoin NFT</div>
-              <div className="btc-card-item-desc">Asking price</div>
-            </div>
-            <div className="btc-card-item">
-              <div className="btc-card-item-img">
-                <img src={MarketDemoIcon} alt="" />
-              </div>
-              <div className="btc-card-item-title">Meta Bitcoin NFT</div>
-              <div className="btc-card-item-desc">Asking price</div>
-            </div>
-            <div className="btc-card-item">
-              <div className="btc-card-item-img">
-                <img src={MarketDemoIcon} alt="" />
-              </div>
-              <div className="btc-card-item-title">Meta Bitcoin NFT</div>
-              <div className="btc-card-item-desc">Asking price</div>
-            </div>
-            <div className="btc-card-item">
-              <div className="btc-card-item-img">
-                <img src={MarketDemoIcon} alt="" />
-              </div>
-              <div className="btc-card-item-title">Meta Bitcoin NFT</div>
-              <div className="btc-card-item-desc">Asking price</div>
-            </div>
-            <div className="btc-card-item">
-              <div className="btc-card-item-img">
-                <img src={MarketDemoIcon} alt="" />
-              </div>
-              <div className="btc-card-item-title">Meta Bitcoin NFT</div>
-              <div className="btc-card-item-desc">Asking price</div>
-            </div>
-            <div className="btc-card-item">
-              <div className="btc-card-item-img">
-                <img src={MarketDemoIcon} alt="" />
-              </div>
-              <div className="btc-card-item-title">Meta Bitcoin NFT</div>
-              <div className="btc-card-item-desc">Asking price</div>
-            </div>
-            <div className="btc-card-item">
-              <div className="btc-card-item-img">
-                <img src={MarketDemoIcon} alt="" />
-              </div>
-              <div className="btc-card-item-title">Meta Bitcoin NFT</div>
-              <div className="btc-card-item-desc">Asking price</div>
-            </div>
+            {cardArr.map(el => {
+              return (
+                <div className="btc-card-item" key={el}>
+                  <div className="btc-card-item-img">
+                    <img src={MarketDemoIcon} alt="" />
+                  </div>
+                  <div className="btc-card-item-title">Meta Bitcoin NFT</div>
+                  <div className="btc-card-item-desc">Asking price</div>
+                </div>
+              );
+            })}
           </div>
         </div>
       </div>
