@@ -16,10 +16,14 @@ import { formatCurrency, trim } from "../../helpers";
 import { switchNetwork } from "../../helpers/NetworkHelper";
 import { changeApproval, changeWrapV2 } from "../../slices/WrapThunk";
 import WrapCrossChain from "./WrapCrossChain";
+import { useHistory } from "react-router-dom";
+import { usePathForNetwork } from "src/hooks/usePathForNetwork";
 
 const Wrap: FC = () => {
-  const dispatch = useDispatch();
   const { provider, address, connect, networkId } = useWeb3Context();
+  const history = useHistory();
+  usePathForNetwork({ pathName: "wrap", networkID: networkId, history });
+  const dispatch = useDispatch();
 
   const [, setZoomed] = useState<boolean>(false);
   const [assetFrom, setAssetFrom] = useState<string>("sOHM");

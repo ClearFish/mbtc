@@ -19,6 +19,27 @@ export function usePathForNetwork({
     // if (networkID === -1) return;
 
     switch (pathName) {
+      case "dashboard":
+        if (VIEWS_FOR_NETWORK[networkID] && VIEWS_FOR_NETWORK[networkID].dashboard) {
+          break;
+        } else {
+          history.push("/wrap");
+          break;
+        }
+      case "mine":
+        if (VIEWS_FOR_NETWORK[networkID] && VIEWS_FOR_NETWORK[networkID].mine) {
+          break;
+        } else {
+          history.push("/wrap");
+          break;
+        }
+      case "pool":
+        if (VIEWS_FOR_NETWORK[networkID] && VIEWS_FOR_NETWORK[networkID].pool) {
+          break;
+        } else {
+          history.push("/wrap");
+          break;
+        }
       case "stake":
         if (VIEWS_FOR_NETWORK[networkID] && VIEWS_FOR_NETWORK[networkID].stake) {
           break;
@@ -26,32 +47,25 @@ export function usePathForNetwork({
           history.push("/wrap");
           break;
         }
-      case "bonds-v1":
-        if (VIEWS_FOR_NETWORK[networkID] && VIEWS_FOR_NETWORK[networkID].bonds) {
+      case "nftmarket":
+        if (VIEWS_FOR_NETWORK[networkID] && VIEWS_FOR_NETWORK[networkID].nftmarket) {
           break;
         } else {
           history.push("/wrap");
           break;
         }
-      case "bonds":
-        if (VIEWS_FOR_NETWORK[networkID] && VIEWS_FOR_NETWORK[networkID].bonds) {
+      case "blindbox":
+        if (VIEWS_FOR_NETWORK[networkID] && VIEWS_FOR_NETWORK[networkID].blindbox) {
           break;
         } else {
           history.push("/wrap");
           break;
         }
-      case "33-t":
-        if (VIEWS_FOR_NETWORK[networkID] && VIEWS_FOR_NETWORK[networkID].threeTogether) {
+      case "wrap":
+        if (VIEWS_FOR_NETWORK[networkID]) {
+          history.push("/dashboard");
           break;
         } else {
-          history.push("/wrap");
-          break;
-        }
-      case "zap":
-        if (VIEWS_FOR_NETWORK[networkID] && VIEWS_FOR_NETWORK[networkID].zap) {
-          break;
-        } else {
-          history.push("/wrap");
           break;
         }
       default:

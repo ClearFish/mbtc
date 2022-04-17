@@ -39,6 +39,7 @@ import {
 import { TabPanel, TabContext } from "@material-ui/lab";
 import { error, info } from "../../slices/MessagesSlice";
 import { useWeb3Context } from "src/hooks/web3Context";
+import { usePathForNetwork } from "src/hooks/usePathForNetwork";
 import CryptoJS from "crypto-js";
 
 export const NoStakedList = ({ message }: { message: string }) => (
@@ -85,6 +86,8 @@ const Mine: React.FC = () => {
   // usePathForNetwork({ pathName: "mine", networkID: networkId, history });
   const classes = useStyles();
   const { networkId, address } = useWeb3Context();
+  usePathForNetwork({ pathName: "mine", networkID: networkId, history });
+
   const dispatch = useDispatch();
   const isSmallScreen = useMediaQuery("(max-width: 650px)");
   const isVerySmallScreen = useMediaQuery("(max-width: 379px)");

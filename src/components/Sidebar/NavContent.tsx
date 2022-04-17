@@ -2,64 +2,29 @@
 import "./Sidebar.scss";
 
 import { t, Trans } from "@lingui/macro";
-import {
-  Accordion,
-  AccordionDetails,
-  AccordionSummary,
-  Box,
-  Divider,
-  Link,
-  Paper,
-  SvgIcon,
-  Typography,
-} from "@material-ui/core";
-import { ExpandMore } from "@material-ui/icons";
+import { Box, Divider, Link, Paper, SvgIcon } from "@material-ui/core";
 import { NavItem } from "@olympusdao/component-library";
 import React from "react";
-import { NavLink } from "react-router-dom";
 import { NetworkId } from "src/constants";
-import { Environment } from "src/helpers/environment/Environment/Environment";
-import { useAppSelector } from "src/hooks";
 import { useWeb3Context } from "src/hooks/web3Context";
 import { Bond } from "src/lib/Bond";
 import { IBondDetails } from "src/slices/BondSlice";
 
-import { ReactComponent as OlympusIcon } from "../../assets/icons/olympus-nav-header.svg";
 import { ReactComponent as MBTCIcon } from "../../assets/icons/mbtc-logo.svg";
-import useBonds from "../../hooks/useBonds";
 import WalletAddressEns from "../TopBar/Wallet/WalletAddressEns";
-import externalUrls from "./externalUrls";
 import Social from "./Social";
 
 type NavContentProps = {
   handleDrawerToggle?: () => void;
 };
 
-type CustomBond = Bond & Partial<IBondDetails>;
-
 const NavContent: React.FC<NavContentProps> = ({ handleDrawerToggle }) => {
   const { networkId, address, provider } = useWeb3Context();
   console.log("networkId", networkId);
-  // const { bonds } = useBonds(networkId);
 
-  const bondsV2 = useAppSelector(state => state.bondingV2.indexes.map(index => state.bondingV2.bonds[index]));
-  const inverseBonds = useAppSelector(state =>
-    state.inverseBonds.indexes.map(index => state.inverseBonds.bonds[index]),
-  );
-
-  const sortedBonds = bondsV2
-    .filter(bond => bond.soldOut === false)
-    .sort((a, b) => {
-      return a.discount > b.discount ? -1 : b.discount > a.discount ? 1 : 0;
-    });
-
-  const sortedInverseBonds = inverseBonds
-    .filter(bond => bond.soldOut === false)
-    .sort((a, b) => {
-      return a.discount > b.discount ? -1 : b.discount > a.discount ? 1 : 0;
-    });
-
-  // bonds.sort((a: CustomBond, b: CustomBond) => b.bondDiscount! - a.bondDiscount!);
+  // if(!(networkId === NetworkId.BSC || networkId === NetworkId.BSC_TESTNET)) {
+  //   history.push("/wrap");
+  // }
 
   return (
     <Paper className="dapp-sidebar">
@@ -90,29 +55,13 @@ const NavContent: React.FC<NavContentProps> = ({ handleDrawerToggle }) => {
                   <Box className="menu-divider">
                     <Divider />
                   </Box>
-                  {/* <Box className="menu-divider">
-                    <Divider />
-                  </Box> */}
                 </>
               ) : (
                 <>
                   <NavItem to="/wrap" icon="wrap" label={t`Wrap`} />
-                  <NavItem
-                    href="https://synapseprotocol.com/?inputCurrency=gOHM&outputCurrency=gOHM&outputChain=43114"
-                    icon="bridge"
-                    label={t`Bridge`}
-                  />
                 </>
               )}
               {}
-              {/* {Object.keys(externalUrls).map((link: any, i: number) => (
-                <NavItem
-                  key={i}
-                  href={`${externalUrls[link].url}`}
-                  icon={externalUrls[link].icon as any}
-                  label={externalUrls[link].title as any}
-                />
-              ))} */}
             </div>
           </div>
         </div>

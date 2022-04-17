@@ -375,94 +375,28 @@ export const NETWORKS: { [key: number]: INetwork } = {
 
 interface IViewsForNetwork {
   dashboard: boolean;
+  mine: boolean;
+  pool: boolean;
   stake: boolean;
-  wrap: boolean;
-  zap: boolean;
-  threeTogether: boolean;
-  bonds: boolean;
-  network: boolean;
-  bondsV2: boolean;
+  nftmarket: boolean;
+  blindbox: boolean;
 }
 
 export const VIEWS_FOR_NETWORK: { [key: number]: IViewsForNetwork } = {
-  [NetworkId.MAINNET]: {
-    dashboard: true,
-    stake: true,
-    wrap: true,
-    zap: true,
-    threeTogether: true,
-    bonds: true,
-    network: true,
-    bondsV2: true,
-  },
-  [NetworkId.TESTNET_RINKEBY]: {
-    dashboard: true,
-    stake: true,
-    wrap: true,
-    zap: true,
-    threeTogether: true,
-    bonds: true,
-    network: true,
-    bondsV2: true,
-  },
-  [NetworkId.ARBITRUM]: {
-    dashboard: true,
-    stake: false,
-    wrap: true,
-    zap: false,
-    threeTogether: false,
-    bonds: false,
-    network: true,
-    bondsV2: false,
-  },
-  [NetworkId.ARBITRUM_TESTNET]: {
-    dashboard: true,
-    stake: false,
-    wrap: true,
-    zap: false,
-    threeTogether: false,
-    bonds: false,
-    network: true,
-    bondsV2: false,
-  },
-  [NetworkId.AVALANCHE]: {
-    dashboard: true,
-    stake: false,
-    wrap: true,
-    zap: false,
-    threeTogether: false,
-    bonds: false,
-    network: true,
-    bondsV2: false,
-  },
-  [NetworkId.AVALANCHE_TESTNET]: {
-    dashboard: true,
-    stake: false,
-    wrap: true,
-    zap: false,
-    threeTogether: false,
-    bonds: false,
-    network: true,
-    bondsV2: false,
-  },
   [NetworkId.BSC]: {
     dashboard: true,
+    mine: true,
+    pool: true,
     stake: true,
-    wrap: true,
-    zap: true,
-    threeTogether: true,
-    bonds: true,
-    network: true,
-    bondsV2: true,
+    nftmarket: true,
+    blindbox: true,
   },
   [NetworkId.BSC_TESTNET]: {
     dashboard: true,
+    mine: true,
+    pool: true,
     stake: true,
-    wrap: true,
-    zap: true,
-    threeTogether: true,
-    bonds: true,
-    network: true,
-    bondsV2: true,
+    nftmarket: true,
+    blindbox: true,
   },
 };

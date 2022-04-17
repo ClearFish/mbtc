@@ -8,6 +8,8 @@ import Web3Modal from "web3modal";
 
 import { NetworkId, NETWORKS } from "../constants";
 
+import BianceWalletLogo from "../assets/images/binance-wallet.png";
+
 /**
  * determine if in IFrame for Ledger Live
  */
@@ -76,7 +78,31 @@ const initModal = new Web3Modal({
           421611: NETWORKS[421611].uri(),
           43113: NETWORKS[43113].uri(),
           43114: NETWORKS[43114].uri(),
+          56: NETWORKS[56].uri(),
+          97: NETWORKS[97].uri(),
         },
+      },
+    },
+    "custom-binancechainwallet": {
+      display: {
+        logo: BianceWalletLogo,
+        name: "Binance Chain Wallet",
+        description: "Connect to your Binance Chain Wallet",
+      },
+      package: true,
+      connector: async () => {
+        let provider = null;
+        if (typeof window.BinanceChain !== "undefined") {
+          provider = window.BinanceChain;
+          try {
+            await provider.request({ method: "eth_requestAccounts" });
+          } catch (error) {
+            throw new Error("User Rejected");
+          }
+        } else {
+          throw new Error("No Binance Chain Wallet found");
+        }
+        return provider;
       },
     },
   },
