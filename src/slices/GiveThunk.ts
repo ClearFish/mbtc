@@ -8,7 +8,6 @@ import { abi as OlympusGiving } from "../abi/OlympusGiving.json";
 import { abi as OlympusMockGiving } from "../abi/OlympusMockGiving.json";
 import { addresses, NetworkId } from "../constants";
 import { trackGAEvent } from "../helpers/analytics";
-import { getGiveProjectName } from "../helpers/GiveProjectNameHelper";
 import { fetchAccountSuccess, getBalances, getDonationBalances, getMockDonationBalances } from "./AccountSlice";
 import {
   IActionValueRecipientAsyncThunk,
@@ -41,7 +40,7 @@ const trackGiveEvent = (uaData: IUAData, eventAction?: string) => {
   trackGAEvent({
     category: "Olympus Give",
     action: eventAction ? eventAction : uaData.type ? uaData.type : "unknown",
-    label: getGiveProjectName(uaData.recipient) ?? "unknown",
+    label: "unknown",
     value: Math.round(parseFloat(uaData.value)),
     metric1: parseFloat(uaData.value),
     dimension1: uaData.txHash ?? "unknown",

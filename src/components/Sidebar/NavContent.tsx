@@ -23,8 +23,6 @@ import { useAppSelector } from "src/hooks";
 import { useWeb3Context } from "src/hooks/web3Context";
 import { Bond } from "src/lib/Bond";
 import { IBondDetails } from "src/slices/BondSlice";
-import { getAllBonds, getUserNotes } from "src/slices/BondSliceV2";
-import { DisplayBondDiscount } from "src/views/BondV2/BondV2";
 
 import { ReactComponent as OlympusIcon } from "../../assets/icons/olympus-nav-header.svg";
 import { ReactComponent as MBTCIcon } from "../../assets/icons/mbtc-logo.svg";
@@ -41,7 +39,7 @@ type CustomBond = Bond & Partial<IBondDetails>;
 
 const NavContent: React.FC<NavContentProps> = ({ handleDrawerToggle }) => {
   const { networkId, address, provider } = useWeb3Context();
-  console.log('networkId', networkId);
+  console.log("networkId", networkId);
   // const { bonds } = useBonds(networkId);
 
   const bondsV2 = useAppSelector(state => state.bondingV2.indexes.map(index => state.bondingV2.bonds[index]));

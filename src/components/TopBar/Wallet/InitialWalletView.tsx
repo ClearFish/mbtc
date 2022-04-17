@@ -21,7 +21,7 @@ import { dai, frax } from "src/helpers/AllBonds";
 import { useAppSelector, useWeb3Context } from "src/hooks";
 import useCurrentTheme from "src/hooks/useTheme";
 
-import { Tokens, useWallet } from "./Token";
+import { useWallet } from "./Token";
 import WalletAddressEns from "./WalletAddressEns";
 const Borrow = ({
   Icon1,
@@ -158,10 +158,6 @@ function InitialWalletView({ onClose }: { onClose: () => void }) {
           <CloseButton size="small" onClick={onClose} aria-label="close wallet">
             <Icon name="x" />
           </CloseButton>
-        </Box>
-
-        <Box sx={{ display: "flex", flexDirection: "column" }} style={{ gap: theme.spacing(1) }}>
-          <Tokens />
         </Box>
 
         <Box sx={{ margin: theme.spacing(2, -3) }}>
