@@ -83,9 +83,8 @@ interface NftType {
 const Mine: React.FC = () => {
   const history = useHistory();
   // const { address, connect, provider, connected, networkId, providerInitialized } = useWeb3Context();
-  // usePathForNetwork({ pathName: "mine", networkID: networkId, history });
-  const classes = useStyles();
-  const { networkId, address } = useWeb3Context();
+  const { networkId, address, provider } = useWeb3Context();
+  const signer = provider.getSigner();
   usePathForNetwork({ pathName: "mine", networkID: networkId, history });
 
   const dispatch = useDispatch();
@@ -97,6 +96,9 @@ const Mine: React.FC = () => {
   const [value, setValue] = useState("1");
   const [loading, setLoading] = useState(false);
   const [listLoading, setListLoading] = useState(false);
+  const classes = useStyles();
+
+  // 获取合约签名
 
   const handleChange = (event: any, newValue: string) => {
     setValue(newValue);
@@ -192,10 +194,6 @@ const Mine: React.FC = () => {
     setCheckList(newChecked);
   };
   // 多选 end
-
-  // 获取合约签名
-  const provider = new ethers.providers.Web3Provider(window.ethereum);
-  const signer = provider.getSigner();
 
   /** 获取未质押nft **/
   const getUnStakedList = async () => {
