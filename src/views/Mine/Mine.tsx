@@ -83,7 +83,7 @@ interface NftType {
 const Mine: React.FC = () => {
   const history = useHistory();
   // const { address, connect, provider, connected, networkId, providerInitialized } = useWeb3Context();
-  const { networkId, address, provider } = useWeb3Context();
+  const { networkId, address, provider, connected } = useWeb3Context();
   const signer = provider.getSigner();
   usePathForNetwork({ pathName: "mine", networkID: networkId, history });
 
@@ -198,7 +198,6 @@ const Mine: React.FC = () => {
   /** 获取未质押nft **/
   const getUnStakedList = async () => {
     setListLoading(true);
-    const address = await signer.getAddress();
     const centralApi = "https://admin.meta-backend.org/system/open/api/nft/owner/detail";
     const {
       data: { tokenIds },
@@ -262,7 +261,6 @@ const Mine: React.FC = () => {
   /** 获取已质押nft **/
   const getStakedList = async () => {
     setListLoading(true);
-    const address = await signer.getAddress();
     const stakedNum = await minerAmountOf(address);
     console.log({ stakedNum });
     const requestBox = [];
@@ -488,12 +486,11 @@ const Mine: React.FC = () => {
   };
 
   useEffect(() => {
-    if (networkId === 97) {
-      window.ethereum.enable();
+    if (provider && address && networkId === 97) {
       getUnStakedList();
       getStakedList();
     }
-  }, [networkId]);
+  }, [networkId, connected]);
 
   return (
     <div id="mine-view">
