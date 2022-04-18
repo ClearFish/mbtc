@@ -40,7 +40,7 @@ import { TabPanel, TabContext } from "@material-ui/lab";
 import { error, info } from "../../slices/MessagesSlice";
 import { useWeb3Context } from "src/hooks/web3Context";
 import { usePathForNetwork } from "src/hooks/usePathForNetwork";
-import CryptoJS from "crypto-js";
+// import CryptoJS from "crypto-js";
 
 export const NoStakedList = ({ message }: { message: string }) => (
   <Box className="NoStaked-box">
@@ -102,31 +102,31 @@ const Mine: React.FC = () => {
     setValue(newValue);
   };
 
-  /**
-   * 加密方法
-   * @param data
-   * @returns {string}
-   */
-  const encrypt = (data: any) => {
-    if (typeof data == "object") {
-      try {
-        data = JSON.stringify(data);
-      } catch (error) {
-        console.log("encrypt error:", error);
-      }
-    }
-    const SECRET_IV = CryptoJS.enc.Utf8.parse("Vuvsh8AWIxUIR1RQ");
-    const SECRET_KEY = CryptoJS.enc.Utf8.parse("522olDHkcxLq8K6Y");
-    const dataHex = CryptoJS.enc.Utf8.parse(data);
+  // /**
+  //  * 加密方法
+  //  * @param data
+  //  * @returns {string}
+  //  */
+  // const encrypt = (data: any) => {
+  //   if (typeof data == "object") {
+  //     try {
+  //       data = JSON.stringify(data);
+  //     } catch (error) {
+  //       console.log("encrypt error:", error);
+  //     }
+  //   }
+  //   const SECRET_IV = CryptoJS.enc.Utf8.parse("Vuvsh8AWIxUIR1RQ");
+  //   const SECRET_KEY = CryptoJS.enc.Utf8.parse("522olDHkcxLq8K6Y");
+  //   const dataHex = CryptoJS.enc.Utf8.parse(data);
 
-    const encrypted = CryptoJS.AES.encrypt(dataHex, SECRET_KEY, {
-      iv: SECRET_IV,
-      mode: CryptoJS.mode.CBC,
-      padding: CryptoJS.pad.Pkcs7,
-    });
+  //   const encrypted = CryptoJS.AES.encrypt(dataHex, SECRET_KEY, {
+  //     iv: SECRET_IV,
+  //     mode: CryptoJS.mode.CBC,
+  //     padding: CryptoJS.pad.Pkcs7,
+  //   });
 
-    return CryptoJS.enc.Base64.stringify(encrypted.ciphertext);
-  };
+  //   return CryptoJS.enc.Base64.stringify(encrypted.ciphertext);
+  // };
 
   // 下拉弹框 start
   const [minerItem, setMinerItem] = useState<NftType[]>();
@@ -208,10 +208,10 @@ const Mine: React.FC = () => {
       method: "post",
       body: JSON.stringify({
         sign: "",
-        data: encrypt({
+        data: {
           contract: NFTMiner_ADDRESS,
           address: address,
-        }),
+        },
       }),
       headers: {
         "content-type": "application/json",
