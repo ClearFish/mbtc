@@ -177,7 +177,7 @@ function App() {
       setWalletChecked(true);
     }
     if (shouldTriggerSafetyCheck()) {
-      dispatch(info("Safety Check: Always verify you're on app.olympusdao.finance!"));
+      dispatch(info("Safety Check: Always verify you're on mbtc!"));
     }
   }, []);
 
@@ -268,15 +268,11 @@ function App() {
             </Route>
 
             <Route path="/wrap">
-              <Route exact path={`/wrap`}>
-                <Wrap />
-              </Route>
+              <Wrap />
             </Route>
 
             <Route path="/zap">
-              <Route exact path={`/zap`}>
-                <Zap />
-              </Route>
+              <Zap />
             </Route>
 
             <Route component={NotFound} />
