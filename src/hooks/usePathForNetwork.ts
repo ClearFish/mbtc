@@ -40,22 +40,8 @@ export function usePathForNetwork({
           history.push("/wrap");
           break;
         }
-      case "stake":
-        if (VIEWS_FOR_NETWORK[networkID] && VIEWS_FOR_NETWORK[networkID].stake) {
-          break;
-        } else {
-          history.push("/wrap");
-          break;
-        }
-      case "nftmarket":
-        if (VIEWS_FOR_NETWORK[networkID] && VIEWS_FOR_NETWORK[networkID].nftmarket) {
-          break;
-        } else {
-          history.push("/wrap");
-          break;
-        }
-      case "blindbox":
-        if (VIEWS_FOR_NETWORK[networkID] && VIEWS_FOR_NETWORK[networkID].blindbox) {
+      case "market":
+        if (VIEWS_FOR_NETWORK[networkID] && VIEWS_FOR_NETWORK[networkID].market) {
           break;
         } else {
           history.push("/wrap");

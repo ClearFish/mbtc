@@ -3,10 +3,16 @@ import { memo, useState, useEffect } from "react";
 import MarketLogo from "./assets/images/market-logo.png";
 import MarketDemoIcon from "./assets/images/demo.png";
 import { useMediaQuery, Grid } from "@material-ui/core";
+import { usePathForNetwork } from "src/hooks/usePathForNetwork";
+import { useWeb3Context } from "src/hooks";
+import { useHistory } from "react-router-dom";
 const Market: React.FC = () => {
+  const history = useHistory();
   const isSmallScreen = useMediaQuery("(max-width: 650px)");
   const isVerySmallScreen = useMediaQuery("(max-width: 379px)");
   const [cardArr, setCardArr] = useState<number[]>([]);
+  const { networkId, address, provider, connected } = useWeb3Context();
+  usePathForNetwork({ pathName: "market", networkID: networkId, history });
   useEffect(() => {
     setCardArr([1, 2, 3, 4, 5, 6, 7, 8, 9, 10]);
   });

@@ -8,6 +8,7 @@ import { LocaleSwitcher } from "@olympusdao/component-library";
 
 import { ReactComponent as MenuIcon } from "../../assets/icons/hamburger.svg";
 import { locales, selectLocale } from "../../locales";
+import MyNft from "./MyNft";
 import ThemeSwitcher from "./ThemeSwitch";
 import Wallet from "./Wallet";
 
@@ -55,6 +56,7 @@ function TopBar({ theme, toggleTheme, handleDrawerToggle }: TopBarProps) {
           <SvgIcon component={MenuIcon} />
         </Button>
         <Box display="flex">
+          <MyNft />
           <Wallet />
           <ThemeSwitcher theme={theme} toggleTheme={toggleTheme} />
           <LocaleSwitcher

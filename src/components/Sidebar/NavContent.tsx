@@ -22,10 +22,6 @@ const NavContent: React.FC<NavContentProps> = ({ handleDrawerToggle }) => {
   const { networkId, address, provider } = useWeb3Context();
   console.log("networkId", networkId);
 
-  // if(!(networkId === NetworkId.BSC || networkId === NetworkId.BSC_TESTNET)) {
-  //   history.push("/wrap");
-  // }
-
   return (
     <Paper className="dapp-sidebar">
       <Box className="dapp-sidebar-inner" display="flex" justifyContent="space-between" flexDirection="column">
@@ -44,24 +40,13 @@ const NavContent: React.FC<NavContentProps> = ({ handleDrawerToggle }) => {
 
           <div className="dapp-menu-links">
             <div className="dapp-nav" id="navbarNav">
-              {networkId === NetworkId.BSC || networkId === NetworkId.BSC_TESTNET ? (
-                <>
-                  <NavItem to="/dashboard" icon={"dashboard"} label={t`Dashboard`} />
-                  <NavItem to="/mine" icon={"zap"} label={t`Mine`} />
-                  <NavItem to="/pool" icon={"bond"} label={t`Pool`} />
-                  <NavItem to="/stake" icon="stake" label={t`Stake`} />
-                  <NavItem to="/nftmarket" icon="grants" label={t`NFT Market`} />
-                  <NavItem to="/blindbox" icon="moon" label={t`Blind Box`} />
-                  <Box className="menu-divider">
-                    <Divider />
-                  </Box>
-                </>
-              ) : (
-                <>
-                  <NavItem to="/wrap" icon="wrap" label={t`Wrap`} />
-                </>
-              )}
-              {}
+              <NavItem to="/dashboard" icon={"dashboard"} label={t`Dashboard`} />
+              <NavItem to="/mine" icon={"zap"} label={t`Mine`} />
+              <NavItem to="/pool" icon={"bond"} label={t`Pool`} />
+              <NavItem to="/market" icon="grants" label={t`NFT Market`} />
+              <Box className="menu-divider">
+                <Divider />
+              </Box>
             </div>
           </div>
         </div>

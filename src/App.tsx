@@ -16,7 +16,7 @@ import { loadAccountDetails, calculateUserBondDetails } from "./slices/AccountSl
 import { getZapTokenBalances } from "./slices/ZapSlice";
 import { error, info } from "./slices/MessagesSlice";
 
-import { Stake, TreasuryDashboard, Zap, Wrap, Mine, Pool, Market } from "./views";
+import { TreasuryDashboard, Zap, Wrap, Mine, Pool, Market } from "./views";
 import NotFound from "./views/404/NotFound";
 import { dark as darkTheme } from "./themes/dark.js";
 import { light as lightTheme } from "./themes/light.js";
@@ -263,11 +263,7 @@ function App() {
               <Pool />
             </Route>
 
-            <Route path="/stake">
-              <Stake />
-            </Route>
-
-            <Route exact path="/nftmarket">
+            <Route exact path="/market">
               <Market />
             </Route>
 

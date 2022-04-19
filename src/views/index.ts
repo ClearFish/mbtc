@@ -1,4 +1,3 @@
-export { default as Stake } from "./Stake/Stake";
 export { default as Mine } from "./Mine/Mine";
 export { default as Pool } from "./Pool/Pool";
 export { default as Market } from "./Market/Market";

@@ -377,9 +377,7 @@ interface IViewsForNetwork {
   dashboard: boolean;
   mine: boolean;
   pool: boolean;
-  stake: boolean;
-  nftmarket: boolean;
-  blindbox: boolean;
+  market: boolean;
 }
 
 export const VIEWS_FOR_NETWORK: { [key: number]: IViewsForNetwork } = {
@@ -387,16 +385,12 @@ export const VIEWS_FOR_NETWORK: { [key: number]: IViewsForNetwork } = {
     dashboard: true,
     mine: true,
     pool: true,
-    stake: true,
-    nftmarket: true,
-    blindbox: true,
+    market: true,
   },
   [NetworkId.BSC_TESTNET]: {
     dashboard: true,
     mine: true,
     pool: true,
-    stake: true,
-    nftmarket: true,
-    blindbox: true,
+    market: true,
   },
 };
