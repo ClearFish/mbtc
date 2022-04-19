@@ -16,7 +16,19 @@ import { loadAccountDetails, calculateUserBondDetails, getMigrationAllowances } 
 import { getZapTokenBalances } from "./slices/ZapSlice";
 import { error, info } from "./slices/MessagesSlice";
 
-import { Stake, TreasuryDashboard, Zap, Wrap, V1Stake, Give, BondV2, ChooseBondV2, Mine, Market } from "./views";
+import {
+  Stake,
+  TreasuryDashboard,
+  Zap,
+  Wrap,
+  V1Stake,
+  Give,
+  BondV2,
+  ChooseBondV2,
+  Mine,
+  Market,
+  MarketDetail,
+} from "./views";
 import NotFound from "./views/404/NotFound";
 import { dark as darkTheme } from "./themes/dark.js";
 import { light as lightTheme } from "./themes/light.js";
@@ -329,6 +341,10 @@ function App() {
 
             <Route exact path="/nftmarket">
               <Market />
+            </Route>
+
+            <Route exact path="/marketDetail/:id">
+              <MarketDetail />
             </Route>
 
             <Route path="/stake">

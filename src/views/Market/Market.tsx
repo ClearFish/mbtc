@@ -2,7 +2,7 @@ import "./Market.scss";
 import { memo, useState, useEffect } from "react";
 import MarketLogo from "./assets/images/market-logo.png";
 import MarketDemoIcon from "./assets/images/demo.png";
-import { useMediaQuery, Grid } from "@material-ui/core";
+import { useMediaQuery, Grid, Link } from "@material-ui/core";
 const Market: React.FC = () => {
   const isSmallScreen = useMediaQuery("(max-width: 650px)");
   const isVerySmallScreen = useMediaQuery("(max-width: 379px)");
@@ -81,13 +81,15 @@ const Market: React.FC = () => {
           <div className="btc-card-box">
             {cardArr.map(el => {
               return (
-                <div className="btc-card-item" key={el}>
-                  <div className="btc-card-item-img">
-                    <img src={MarketDemoIcon} alt="" />
+                <Link href={`#/marketDetail/${el}`} underline="none">
+                  <div className="btc-card-item" key={el}>
+                    <div className="btc-card-item-img">
+                      <img src={MarketDemoIcon} alt="" />
+                    </div>
+                    <div className="btc-card-item-title">Meta Bitcoin NFT</div>
+                    <div className="btc-card-item-desc">Asking price</div>
                   </div>
-                  <div className="btc-card-item-title">Meta Bitcoin NFT</div>
-                  <div className="btc-card-item-desc">Asking price</div>
-                </div>
+                </Link>
               );
             })}
           </div>

@@ -3,6 +3,7 @@ export { default as ChooseBond } from "./ChooseBond/ChooseBond";
 export { default as Stake } from "./Stake/Stake";
 export { default as Mine } from "./Mine/Mine";
 export { default as Market } from "./Market/Market";
+export { default as MarketDetail } from "./MarketDetail/MarketDetail";
 export { default as V1Stake } from "./V1-Stake/V1-Stake";
 export { default as PoolTogether } from "./33Together/33together";
 export { default as Wrap } from "./Wrap/Wrap";
