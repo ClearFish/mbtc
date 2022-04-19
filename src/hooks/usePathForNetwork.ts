@@ -23,28 +23,28 @@ export function usePathForNetwork({
         if (VIEWS_FOR_NETWORK[networkID] && VIEWS_FOR_NETWORK[networkID].dashboard) {
           break;
         } else {
-          history.push("/wrap");
+          history.push("/error");
           break;
         }
       case "mine":
         if (VIEWS_FOR_NETWORK[networkID] && VIEWS_FOR_NETWORK[networkID].mine) {
           break;
         } else {
-          history.push("/wrap");
+          history.push("/error");
           break;
         }
       case "pool":
         if (VIEWS_FOR_NETWORK[networkID] && VIEWS_FOR_NETWORK[networkID].pool) {
           break;
         } else {
-          history.push("/wrap");
+          history.push("/error");
           break;
         }
       case "market":
         if (VIEWS_FOR_NETWORK[networkID] && VIEWS_FOR_NETWORK[networkID].market) {
           break;
         } else {
-          history.push("/wrap");
+          history.push("/error");
           break;
         }
       case "wrap":

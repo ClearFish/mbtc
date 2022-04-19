@@ -271,7 +271,7 @@ function App() {
               <MarketDetail />
             </Route>
 
-            <Route path="/wrap">
+            <Route path="/error">
               <Wrap />
             </Route>
 
