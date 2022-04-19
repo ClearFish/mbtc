@@ -50,5 +50,5 @@ cache
 # src/typechain
 
 # We use Yarn - prevent this file from being committed to avoid confusion
-package-lock.json
-yarn.lock
+# package-lock.json
+# yarn.lock

@@ -39,6 +39,8 @@ import {
 import { TabPanel, TabContext } from "@material-ui/lab";
 import { error, info } from "../../slices/MessagesSlice";
 import { useWeb3Context } from "src/hooks/web3Context";
+import { usePathForNetwork } from "src/hooks/usePathForNetwork";
+// import CryptoJS from "crypto-js";
 
 export const NoStakedList = ({ message }: { message: string }) => (
   <Box className="NoStaked-box">
@@ -81,9 +83,10 @@ interface NftType {
 const Mine: React.FC = () => {
   const history = useHistory();
   // const { address, connect, provider, connected, networkId, providerInitialized } = useWeb3Context();
-  // usePathForNetwork({ pathName: "mine", networkID: networkId, history });
-  const classes = useStyles();
-  const { networkId, address } = useWeb3Context();
+  const { networkId, address, provider, connected } = useWeb3Context();
+  const signer = provider.getSigner();
+  usePathForNetwork({ pathName: "mine", networkID: networkId, history });
+
   const dispatch = useDispatch();
   const isSmallScreen = useMediaQuery("(max-width: 650px)");
   const isVerySmallScreen = useMediaQuery("(max-width: 379px)");
@@ -93,10 +96,39 @@ const Mine: React.FC = () => {
   const [value, setValue] = useState("1");
   const [loading, setLoading] = useState(false);
   const [listLoading, setListLoading] = useState(false);
+  const classes = useStyles();
+
+  // 获取合约签名
 
   const handleChange = (event: any, newValue: string) => {
     setValue(newValue);
   };
+
+  // /**
+  //  * 加密方法
+  //  * @param data
+  //  * @returns {string}
+  //  */
+  // const encrypt = (data: any) => {
+  //   if (typeof data == "object") {
+  //     try {
+  //       data = JSON.stringify(data);
+  //     } catch (error) {
+  //       console.log("encrypt error:", error);
+  //     }
+  //   }
+  //   const SECRET_IV = CryptoJS.enc.Utf8.parse("Vuvsh8AWIxUIR1RQ");
+  //   const SECRET_KEY = CryptoJS.enc.Utf8.parse("522olDHkcxLq8K6Y");
+  //   const dataHex = CryptoJS.enc.Utf8.parse(data);
+
+  //   const encrypted = CryptoJS.AES.encrypt(dataHex, SECRET_KEY, {
+  //     iv: SECRET_IV,
+  //     mode: CryptoJS.mode.CBC,
+  //     padding: CryptoJS.pad.Pkcs7,
+  //   });
+
+  //   return CryptoJS.enc.Base64.stringify(encrypted.ciphertext);
+  // };
 
   // 下拉弹框 start
   const [minerItem, setMinerItem] = useState<NftType[]>();
@@ -110,7 +142,6 @@ const Mine: React.FC = () => {
     setAnchorEl(event.currentTarget);
     clearCheckList();
     if (value === "1") {
-      // console.log("stakedList", stakedList);
       setMinerItem(stakedList);
     } else {
       setMinerItem(unStakedList);
@@ -164,27 +195,37 @@ const Mine: React.FC = () => {
   };
   // 多选 end
 
-  // 获取合约签名
-  const provider = new ethers.providers.Web3Provider(window.ethereum);
-  const signer = provider.getSigner();
-
   /** 获取未质押nft **/
   const getUnStakedList = async () => {
     setListLoading(true);
-    const address = await signer.getAddress();
-    const { list = [] } = await fetch(`https://nobodyhere.xyz/miner/nftlist?address=${address}`).then(res =>
-      res.json(),
-    );
+    const centralApi = "https://admin.meta-backend.org/system/open/api/nft/owner/detail";
+    const {
+      data: { tokenIds },
+    } = await fetch(centralApi, {
+      method: "post",
+      body: JSON.stringify({
+        sign: "",
+        data: {
+          contract: NFTMiner_ADDRESS,
+          address: address,
+        },
+      }),
+      headers: {
+        "content-type": "application/json",
+      },
+    }).then(res => {
+      return res.json();
+    });
     const requestBox = [];
-    for (let i = 0; i < list?.length || 0; i++) {
+    for (let i = 0; i < tokenIds?.length || 0; i++) {
       requestBox.push(
         (async () => {
-          const tokenURI = await getTokenURI(list[i].token_id);
+          const tokenURI = await getTokenURI(tokenIds[i]);
           const tokenURL = await fetch(tokenURI)
             .then(res => res.json())
             .then(json => json.image);
           return {
-            id: list[i].token_id,
+            id: tokenIds[i],
             url: tokenURL,
           };
         })(),
@@ -220,7 +261,6 @@ const Mine: React.FC = () => {
   /** 获取已质押nft **/
   const getStakedList = async () => {
     setListLoading(true);
-    const address = await signer.getAddress();
     const stakedNum = await minerAmountOf(address);
     console.log({ stakedNum });
     const requestBox = [];
@@ -446,12 +486,11 @@ const Mine: React.FC = () => {
   };
 
   useEffect(() => {
-    if (networkId === 97) {
-      window.ethereum.enable();
+    if (provider && address && networkId === 97) {
       getUnStakedList();
       getStakedList();
     }
-  }, [networkId]);
+  }, [networkId, connected]);
 
   return (
     <div id="mine-view">

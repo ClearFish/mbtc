@@ -14,11 +14,18 @@ import {
 } from "./components/Graph/Graph";
 import { BackingPerOHM, CircSupply, CurrentIndex, GOHMPrice, MarketCap, OHMPrice } from "./components/Metric/Metric";
 
+import { useHistory } from "react-router-dom";
+import { useWeb3Context } from "src/hooks";
+import { usePathForNetwork } from "src/hooks/usePathForNetwork";
+
 const sharedMetricProps: PropsOf<typeof Metric> = { labelVariant: "h6", metricVariant: "h5" };
 
 const TreasuryDashboard = memo(() => {
   const isSmallScreen = useMediaQuery("(max-width: 650px)");
   const isVerySmallScreen = useMediaQuery("(max-width: 379px)");
+  const history = useHistory();
+  const { networkId } = useWeb3Context();
+  usePathForNetwork({ pathName: "dashboard", networkID: networkId, history });
 
   return (
     <div id="treasury-dashboard-view" className={`${isSmallScreen && "smaller"} ${isVerySmallScreen && "very-small"}`}>

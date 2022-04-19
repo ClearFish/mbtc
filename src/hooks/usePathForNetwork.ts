@@ -19,39 +19,39 @@ export function usePathForNetwork({
     // if (networkID === -1) return;
 
     switch (pathName) {
-      case "stake":
-        if (VIEWS_FOR_NETWORK[networkID] && VIEWS_FOR_NETWORK[networkID].stake) {
+      case "dashboard":
+        if (VIEWS_FOR_NETWORK[networkID] && VIEWS_FOR_NETWORK[networkID].dashboard) {
           break;
         } else {
           history.push("/wrap");
           break;
         }
-      case "bonds-v1":
-        if (VIEWS_FOR_NETWORK[networkID] && VIEWS_FOR_NETWORK[networkID].bonds) {
+      case "mine":
+        if (VIEWS_FOR_NETWORK[networkID] && VIEWS_FOR_NETWORK[networkID].mine) {
           break;
         } else {
           history.push("/wrap");
           break;
         }
-      case "bonds":
-        if (VIEWS_FOR_NETWORK[networkID] && VIEWS_FOR_NETWORK[networkID].bonds) {
+      case "pool":
+        if (VIEWS_FOR_NETWORK[networkID] && VIEWS_FOR_NETWORK[networkID].pool) {
           break;
         } else {
           history.push("/wrap");
           break;
         }
-      case "33-t":
-        if (VIEWS_FOR_NETWORK[networkID] && VIEWS_FOR_NETWORK[networkID].threeTogether) {
+      case "market":
+        if (VIEWS_FOR_NETWORK[networkID] && VIEWS_FOR_NETWORK[networkID].market) {
           break;
         } else {
           history.push("/wrap");
           break;
         }
-      case "zap":
-        if (VIEWS_FOR_NETWORK[networkID] && VIEWS_FOR_NETWORK[networkID].zap) {
+      case "wrap":
+        if (VIEWS_FOR_NETWORK[networkID]) {
+          history.push("/dashboard");
           break;
         } else {
-          history.push("/wrap");
           break;
         }
       default:

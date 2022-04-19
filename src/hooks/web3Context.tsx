@@ -8,6 +8,8 @@ import Web3Modal from "web3modal";
 
 import { NetworkId, NETWORKS } from "../constants";
 
+import BianceWalletLogo from "../assets/images/binance-wallet.png";
+
 /**
  * determine if in IFrame for Ledger Live
  */
@@ -76,7 +78,31 @@ const initModal = new Web3Modal({
           421611: NETWORKS[421611].uri(),
           43113: NETWORKS[43113].uri(),
           43114: NETWORKS[43114].uri(),
+          56: NETWORKS[56].uri(),
+          97: NETWORKS[97].uri(),
         },
+      },
+    },
+    "custom-binancechainwallet": {
+      display: {
+        logo: BianceWalletLogo,
+        name: "Binance Chain Wallet",
+        description: "Connect to your Binance Chain Wallet",
+      },
+      package: true,
+      connector: async () => {
+        let provider = null;
+        if (typeof window.BinanceChain !== "undefined") {
+          provider = window.BinanceChain;
+          try {
+            await provider.request({ method: "eth_requestAccounts" });
+          } catch (error) {
+            throw new Error("User Rejected");
+          }
+        } else {
+          throw new Error("No Binance Chain Wallet found");
+        }
+        return provider;
       },
     },
   },
@@ -94,8 +120,8 @@ export const Web3ContextProvider: React.FC<{ children: ReactElement }> = ({ chil
   const [connectionError, setConnectionError] = useState<IConnectionError | null>(null);
   const [address, setAddress] = useState("");
   // NOTE (appleseed): loading eth mainnet as default rpc provider for a non-connected wallet
-  const [provider, setProvider] = useState<JsonRpcProvider>(Providers.getStaticProvider(NetworkId.MAINNET));
-  const [networkId, setNetworkId] = useState(1);
+  const [provider, setProvider] = useState<JsonRpcProvider>(Providers.getStaticProvider(NetworkId.BSC_TESTNET));
+  const [networkId, setNetworkId] = useState(97);
   const [networkName, setNetworkName] = useState("");
   const [providerUri, setProviderUri] = useState("");
   const [providerInitialized, setProviderInitialized] = useState(false);
