@@ -517,7 +517,7 @@ const Mine: React.FC = () => {
                 />
                 <Tab
                   className={`${isSmallScreen || isVerySmallScreen ? "tab-mobile" : ""}`}
-                  label="UnStaked Miners"
+                  label="Miners in wallet"
                   value="2"
                 />
               </Tabs>
