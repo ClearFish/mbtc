@@ -1,7 +1,7 @@
 import "./Market.scss";
 import { memo, useState, useEffect } from "react";
 import MarketLogo from "./assets/images/market-logo.png";
-import { useMediaQuery } from "@material-ui/core";
+import { Box, CircularProgress, useMediaQuery } from "@material-ui/core";
 import { usePathForNetwork } from "src/hooks/usePathForNetwork";
 import { useWeb3Context } from "src/hooks";
 import { useHistory } from "react-router-dom";
@@ -37,48 +37,52 @@ const Market: React.FC = () => {
   };
 
   const getList = async () => {
-    setListLoading(true);
-    const centralApi = "https://admin.meta-backend.org/system/open/api/nft/order/pending";
-    await fetch(centralApi, {
-      method: "post",
-      body: JSON.stringify({
-        contract: NFTMiner_ADDRESS,
-        pageNum: 1,
-        pageSize: 10,
-      }),
-      headers: {
-        "content-type": "application/json",
-      },
-    })
-      .then(res => {
-        return res.json();
+    try {
+      setListLoading(true);
+      const centralApi = "https://admin.meta-backend.org/system/open/api/nft/order/pending";
+      fetch(centralApi, {
+        method: "post",
+        body: JSON.stringify({
+          contract: NFTMiner_ADDRESS,
+          pageNum: 1,
+          pageSize: 10,
+        }),
+        headers: {
+          "content-type": "application/json",
+        },
       })
-      .then(res => {
-        const { nftlist, total } = res.data;
-        if (nftlist && nftlist.length > 0) {
-          const requestBox = [];
-          for (let i = 0; i < nftlist?.length || 0; i++) {
-            requestBox.push(
-              (async () => {
-                console.log({ nnn: nftlist[i] });
-                const tokenURI = await getTokenURI(nftlist[i].tokenId);
-                const tokenURL = await fetch(tokenURI)
-                  .then(res => res.json())
-                  .then(json => json.image);
-                return {
-                  ...nftlist[i],
-                  url: tokenURL,
-                };
-              })(),
-            );
+        .then(res => {
+          return res.json();
+        })
+        .then(res => {
+          const { nftlist, total } = res.data;
+          if (nftlist && nftlist.length > 0) {
+            const requestBox = [];
+            for (let i = 0; i < nftlist?.length || 0; i++) {
+              requestBox.push(
+                (async () => {
+                  console.log({ nnn: nftlist[i] });
+                  const tokenURI = await getTokenURI(nftlist[i].tokenId);
+                  const tokenURL = await fetch(tokenURI)
+                    .then(res => res.json())
+                    .then(json => json.image);
+                  return {
+                    ...nftlist[i],
+                    url: tokenURL,
+                  };
+                })(),
+              );
+            }
+            Promise.all(requestBox).then(res => {
+              setNftList(res);
+              setTotal(total);
+              setListLoading(false);
+            });
           }
-          Promise.all(requestBox).then(res => {
-            setNftList(res);
-            setTotal(total);
-            setListLoading(false);
-          });
-        }
-      });
+        });
+    } catch (error) {
+      console.log(error);
+    }
   };
 
   const goToDetail = (info: NFT) => {
@@ -89,7 +93,7 @@ const Market: React.FC = () => {
     if (provider && address && networkId === 97) {
       getList();
     }
-  }, [networkId]);
+  }, [networkId, connected]);
 
   return (
     <div id="market-view">
@@ -135,25 +139,31 @@ const Market: React.FC = () => {
             paddingTop: isSmallScreen || isVerySmallScreen ? "1rem" : "1.4rem",
           }}
         >
-          <div className="btc-card-box">
-            {nftList.map(item => {
-              return (
-                <div
-                  onClick={() => {
-                    goToDetail(item);
-                  }}
-                >
-                  <div className="btc-card-item" key={item.tokenId}>
-                    <div className="btc-card-item-img">
-                      <img src={item.url} alt="" />
+          {listLoading ? (
+            <Box style={{ display: "flex", alignItems: "center", justifyContent: "center", marginTop: "50px" }}>
+              <CircularProgress />
+            </Box>
+          ) : (
+            <div className="btc-card-box">
+              {nftList.map(item => {
+                return (
+                  <div
+                    onClick={() => {
+                      goToDetail(item);
+                    }}
+                  >
+                    <div className="btc-card-item" key={item.tokenId}>
+                      <div className="btc-card-item-img">
+                        <img src={item.url} alt="" />
+                      </div>
+                      <div className="btc-card-item-title">Meta Bitcoin NFT -- {item.tokenId}</div>
+                      <div className="btc-card-item-desc">Asking price: {item.price}</div>
                     </div>
-                    <div className="btc-card-item-title">Meta Bitcoin NFT -- {item.tokenId}</div>
-                    <div className="btc-card-item-desc">Asking price: {item.price}</div>
                   </div>
-                </div>
-              );
-            })}
-          </div>
+                );
+              })}
+            </div>
+          )}
         </div>
       </div>
     </div>
