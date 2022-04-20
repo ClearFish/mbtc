@@ -41,6 +41,7 @@ import { error, info } from "../../slices/MessagesSlice";
 import { useWeb3Context } from "src/hooks/web3Context";
 import { usePathForNetwork } from "src/hooks/usePathForNetwork";
 // import CryptoJS from "crypto-js";
+import { formatNumber } from "../../helpers";
 
 export const NoStakedList = ({ message }: { message: string }) => (
   <Box className="NoStaked-box">
@@ -235,7 +236,6 @@ const Mine: React.FC = () => {
   const getStakedList = async () => {
     setListLoading(true);
     const stakedNum = await minerAmountOf(address);
-    console.log({ stakedNum });
     const requestBox = [];
     for (let i = 0; i < stakedNum; i++) {
       requestBox.push(
@@ -249,7 +249,8 @@ const Mine: React.FC = () => {
             .then(json => json.image);
           return {
             id: tokenId,
-            earned: info.mBTCEarned.toString(),
+            earned: formatNumber(Number(ethers.utils.formatEther(info.mBTCEarned)), 2),
+            cost: info.consumption.toString(),
             url: tokenURL,
           };
         })(),
