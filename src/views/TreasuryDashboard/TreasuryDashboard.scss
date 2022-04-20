@@ -15,6 +15,7 @@
   }
 
   .ohm-card {
+    background: rgba(62, 15, 121, 0.65);
     max-width: unset !important;
     width: 100%;
     margin: auto;
@@ -27,6 +28,44 @@
         min-width: 300px;
       }
       height: 355px;
+    }
+    .card-pannel {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      width: 100%;
+      .card-pannel-logo {
+        width: 40px;
+        height: 40px;
+        object-fit: contain;
+      }
+      .transfer-pannel {
+        .transfer-title {
+          display: flex;
+          align-items: center;
+          color: #A3A3A3;
+          font-family: Square;
+          .transfer-logo {
+            width: 20px;
+            height: 10px;
+            object-fit: contain;
+            margin: 0 0.5rem;
+          }
+        }
+        .transfer-content {
+          font-family: Square;
+        }
+      }
+      .card-pannel-btn {
+        font-family: Square;
+        color: #dfdfdf;
+        background: #723FD8 !important;
+        transition: all 250ms cubic-bezier(0.4, 0, 0.2, 1);
+        &:hover {
+          background-color: #9169e1;
+          color: #fff;
+        }
+      }
     }
   }
   .hero-metrics {
@@ -46,6 +85,16 @@
   .data-grid {
     overflow: hidden;
   }
+  .custom-layout {
+    @media (min-width: 600px) {
+      .MuiGrid-grid-sm-4 {
+        flex-grow: 0;
+        max-width: 20%;
+        flex-basis: 20%;
+      }
+    }
+  }
+
 }
 
 .smaller {
