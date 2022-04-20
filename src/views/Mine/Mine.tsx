@@ -652,9 +652,9 @@ const Mine: React.FC = () => {
                         <Box
                           className="btc-item-right-btn"
                           onClick={() => {
-                            stakedList &&
+                            unStakedList &&
                               batchStakeMiners(
-                                stakedList?.map(item => item.id),
+                                unStakedList?.map(item => item.id),
                                 POOL_ID,
                               );
                           }}
