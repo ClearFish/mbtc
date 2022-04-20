@@ -171,44 +171,48 @@ const Mine: React.FC = () => {
 
   /** 获取未质押nft **/
   const getUnStakedList = async () => {
-    setListLoading(true);
-    const centralApi = "https://admin.meta-backend.org/system/open/api/nft/owner/detail";
-    const {
-      data: { tokenIds },
-    } = await fetch(centralApi, {
-      method: "post",
-      body: JSON.stringify({
-        sign: "",
-        data: {
-          contract: NFTMiner_ADDRESS,
-          address: address,
+    try {
+      setListLoading(true);
+      const centralApi = "https://admin.meta-backend.org/system/open/api/nft/owner/detail";
+      const {
+        data: { tokenIds },
+      } = await fetch(centralApi, {
+        method: "post",
+        body: JSON.stringify({
+          sign: "",
+          data: {
+            contract: NFTMiner_ADDRESS,
+            address: address,
+          },
+        }),
+        headers: {
+          "content-type": "application/json",
         },
-      }),
-      headers: {
-        "content-type": "application/json",
-      },
-    }).then(res => {
-      return res.json();
-    });
-    const requestBox = [];
-    for (let i = 0; i < tokenIds?.length || 0; i++) {
-      requestBox.push(
-        (async () => {
-          const tokenURI = await getTokenURI(tokenIds[i]);
-          const tokenURL = await fetch(tokenURI)
-            .then(res => res.json())
-            .then(json => json.image);
-          return {
-            id: tokenIds[i],
-            url: tokenURL,
-          };
-        })(),
-      );
+      }).then(res => {
+        return res.json();
+      });
+      const requestBox = [];
+      for (let i = 0; i < tokenIds?.length || 0; i++) {
+        requestBox.push(
+          (async () => {
+            const tokenURI = await getTokenURI(tokenIds[i]);
+            const tokenURL = await fetch(tokenURI)
+              .then(res => res.json())
+              .then(json => json.image);
+            return {
+              id: tokenIds[i],
+              url: tokenURL,
+            };
+          })(),
+        );
+      }
+      Promise.all(requestBox).then(res => {
+        setUnStakedList(res);
+        setListLoading(false);
+      });
+    } catch (error) {
+      console.log(error);
     }
-    Promise.all(requestBox).then(res => {
-      setUnStakedList(res);
-      setListLoading(false);
-    });
   };
 
   /** nft展示前缀 **/
@@ -234,32 +238,36 @@ const Mine: React.FC = () => {
 
   /** 获取已质押nft **/
   const getStakedList = async () => {
-    setListLoading(true);
-    const stakedNum = await minerAmountOf(address);
-    const requestBox = [];
-    for (let i = 0; i < stakedNum; i++) {
-      requestBox.push(
-        (async () => {
-          const tokenId = await minerOfOwnerByIndex(address, `${i}`);
-          const info = await stakingInformation(tokenId);
-          const tokenURI = await getTokenURI(tokenId);
-          const tokenURL = await window
-            .fetch(tokenURI)
-            .then(res => res.json())
-            .then(json => json.image);
-          return {
-            id: tokenId,
-            earned: formatNumber(Number(ethers.utils.formatEther(info.mBTCEarned)), 2),
-            cost: info.consumption.toString(),
-            url: tokenURL,
-          };
-        })(),
-      );
+    try {
+      setListLoading(true);
+      const stakedNum = await minerAmountOf(address);
+      const requestBox = [];
+      for (let i = 0; i < stakedNum; i++) {
+        requestBox.push(
+          (async () => {
+            const tokenId = await minerOfOwnerByIndex(address, `${i}`);
+            const info = await stakingInformation(tokenId);
+            const tokenURI = await getTokenURI(tokenId);
+            const tokenURL = await window
+              .fetch(tokenURI)
+              .then(res => res.json())
+              .then(json => json.image);
+            return {
+              id: tokenId,
+              earned: formatNumber(Number(ethers.utils.formatEther(info.mBTCEarned)), 2),
+              cost: info.consumption.toString(),
+              url: tokenURL,
+            };
+          })(),
+        );
+      }
+      Promise.all(requestBox).then(res => {
+        setStakedList(res);
+        setListLoading(false);
+      });
+    } catch (error) {
+      console.log(error);
     }
-    Promise.all(requestBox).then(res => {
-      setStakedList(res);
-      setListLoading(false);
-    });
   };
 
   /** 质押单个NFT **/

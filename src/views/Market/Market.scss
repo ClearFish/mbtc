@@ -53,41 +53,7 @@
     .btc-container {
         background: rgba(62, 15, 121, 0.65);
         border-radius: 20px;
-        .title-container {
-            display: flex;
-            justify-content: space-between;
-            padding: 1.4rem 0;
-            .select-box {
-                height: 3rem;
-                background: #3E0F79;
-                border-radius: 50px;
-                color: #FFFFFF;
-                font-weight: 400;
-                font-size: 1.2rem;
-                cursor: pointer;
-                overflow: hidden;
-                display: flex;
-                align-items: center;
-                justify-content: center;
-                width: 25rem;
-                .select-item {
-                    width: 12.5rem;
-                    text-align: center;
-                }
-            }
-            .view-box {
-                width: 8rem;
-                height: 3rem;
-                display: flex;
-                align-items: center;
-                justify-content: center;
-                background: rgba(114, 63, 216, 0.73);
-                border-radius: 50px;
-                font-weight: 400;
-                font-size: 1.2rem;
-                cursor: pointer;
-            }
-        }
+        min-height: 260px;
         .btc-card-box {
             display: grid;
             justify-content: space-between;
