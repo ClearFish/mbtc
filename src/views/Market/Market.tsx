@@ -6,16 +6,60 @@ import { useMediaQuery, Grid, Link } from "@material-ui/core";
 import { usePathForNetwork } from "src/hooks/usePathForNetwork";
 import { useWeb3Context } from "src/hooks";
 import { useHistory } from "react-router-dom";
+import { NFTMiner_ADDRESS } from "src/contract";
+interface NFT {
+  id: string;
+  owner: string;
+  price?: string;
+  status?: string;
+  createAt?: string;
+}
+
 const Market: React.FC = () => {
   const history = useHistory();
   const isSmallScreen = useMediaQuery("(max-width: 650px)");
   const isVerySmallScreen = useMediaQuery("(max-width: 379px)");
-  const [cardArr, setCardArr] = useState<number[]>([]);
+
   const { networkId, address, provider, connected } = useWeb3Context();
   usePathForNetwork({ pathName: "market", networkID: networkId, history });
+
+  const [nftList, setNftList] = useState<NFT[]>([]);
+  const [listLoading, setListLoading] = useState(false);
+  console.log({ listLoading });
+
+  const getList = async () => {
+    setListLoading(true);
+    const centralApi = "https://admin.meta-backend.org/system/open/api/nft/order/pending";
+    const { data } = await fetch(centralApi, {
+      method: "post",
+      body: JSON.stringify({
+        contract: NFTMiner_ADDRESS,
+        pageNum: 1,
+        pageSize: 10,
+      }),
+      headers: {
+        "content-type": "application/json",
+      },
+    }).then(res => {
+      return res.json();
+    });
+    setNftList(
+      data
+        .map((item: any) => item.nftlist)
+        .flat()
+        .map((item: any) => {
+          return {
+            ...item,
+            id: 1,
+          };
+        }),
+    );
+    setListLoading(false);
+  };
+
   useEffect(() => {
-    setCardArr([1, 2, 3, 4, 5, 6, 7, 8, 9, 10]);
-  });
+    getList();
+  }, [networkId]);
   return (
     <div id="market-view">
       <div
@@ -85,10 +129,10 @@ const Market: React.FC = () => {
             </Grid>
           </Grid>
           <div className="btc-card-box">
-            {cardArr.map(el => {
+            {nftList.map(item => {
               return (
-                <Link href={`#/marketDetail/${el}`} underline="none">
-                  <div className="btc-card-item" key={el}>
+                <Link href={`#/marketDetail/${item.id}`} underline="none">
+                  <div className="btc-card-item" key={item.id}>
                     <div className="btc-card-item-img">
                       <img src={MarketDemoIcon} alt="" />
                     </div>

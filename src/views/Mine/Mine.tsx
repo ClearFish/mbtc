@@ -104,32 +104,6 @@ const Mine: React.FC = () => {
     setValue(newValue);
   };
 
-  // /**
-  //  * 加密方法
-  //  * @param data
-  //  * @returns {string}
-  //  */
-  // const encrypt = (data: any) => {
-  //   if (typeof data == "object") {
-  //     try {
-  //       data = JSON.stringify(data);
-  //     } catch (error) {
-  //       console.log("encrypt error:", error);
-  //     }
-  //   }
-  //   const SECRET_IV = CryptoJS.enc.Utf8.parse("Vuvsh8AWIxUIR1RQ");
-  //   const SECRET_KEY = CryptoJS.enc.Utf8.parse("522olDHkcxLq8K6Y");
-  //   const dataHex = CryptoJS.enc.Utf8.parse(data);
-
-  //   const encrypted = CryptoJS.AES.encrypt(dataHex, SECRET_KEY, {
-  //     iv: SECRET_IV,
-  //     mode: CryptoJS.mode.CBC,
-  //     padding: CryptoJS.pad.Pkcs7,
-  //   });
-
-  //   return CryptoJS.enc.Base64.stringify(encrypted.ciphertext);
-  // };
-
   // 下拉弹框 start
   const [minerItem, setMinerItem] = useState<NftType[]>();
   const [anchorEl, setAnchorEl] = useState<HTMLElement | null>(null);
@@ -182,7 +156,6 @@ const Mine: React.FC = () => {
   // over提示 end
 
   // 多选 start
-
   const handleToggle = (value: string) => () => {
     const currentIndex = checkList.indexOf(value);
     const newChecked = [...checkList];
