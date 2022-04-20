@@ -16,7 +16,7 @@ import { loadAccountDetails, calculateUserBondDetails } from "./slices/AccountSl
 import { getZapTokenBalances } from "./slices/ZapSlice";
 import { error, info } from "./slices/MessagesSlice";
 
-import { TreasuryDashboard, Zap, Wrap, Mine, Pool, Market, MarketDetail } from "./views";
+import { TreasuryDashboard, Zap, Wrap, Mine, Pool, Market, MarketDetail, MyNft } from "./views";
 import NotFound from "./views/404/NotFound";
 import { dark as darkTheme } from "./themes/dark.js";
 import { light as lightTheme } from "./themes/light.js";
@@ -273,6 +273,9 @@ function App() {
 
             <Route path="/error">
               <Wrap />
+            </Route>
+            <Route exact path="/mynft">
+              <MyNft />
             </Route>
 
             <Route path="/zap">
