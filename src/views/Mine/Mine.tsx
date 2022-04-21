@@ -56,6 +56,8 @@ const useStyles = makeStyles((theme: Theme) =>
       width: "100%",
       maxWidth: 360,
       backgroundColor: theme.palette.background.paper,
+      overflow: "auto",
+      maxHeight: 400,
     },
     blackCardBtnOrange: {
       background: "#d6a241",
@@ -121,6 +123,19 @@ const Mine: React.FC = () => {
     } else {
       setMinerItem(unStakedList);
     }
+  };
+
+  const handleSelectItem = () => {
+    console.log("checkList", checkList);
+
+    // 选中的stakedID
+    // if (checkList && checkList.length > 0) {
+    //   if (value === "1") {
+    //     batchWithdrawMiners(checkList);
+    //   } else {
+    //     batchStakeMiners(checkList, POOL_ID);
+    //   }
+    // }
   };
 
   const handleClose = () => {
@@ -488,7 +503,7 @@ const Mine: React.FC = () => {
             <Box className="ohm-card-mine">
               <img className="card-banner" src={MineBanner} />
               <Button className={`batch-btn ${isSmallScreen && "isMobile"}`} onClick={getAllRewards}>
-                Batch Harvest MBTC
+                Harvest MBTC
               </Button>
             </Box>
           </Grid>
@@ -779,7 +794,10 @@ const Mine: React.FC = () => {
             </List>
             <Box className="mine-checklist-btn-box">
               <Button color="secondary" onClick={handleClose} className="mine-checklist-btn">
-                Choice
+                Select All
+              </Button>
+              <Button color="secondary" onClick={handleClose} className="mine-checklist-btn">
+                Confirm
               </Button>
             </Box>
           </Box>
