@@ -732,7 +732,9 @@ const Mine: React.FC = () => {
                       </Grid>
                     ))}
                   </Grid>
-                  {!unStakedList || unStakedList.length == 0 ? <NoStakedList message="No unstaked miner" /> : undefined}
+                  {!unStakedList || unStakedList.length == 0 ? (
+                    <NoStakedList message="No Miners in the Wallet" />
+                  ) : undefined}
                 </Grid>
               </Grid>
             </TabPanel>
