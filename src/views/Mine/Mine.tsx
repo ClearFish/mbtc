@@ -566,9 +566,9 @@ const Mine: React.FC = () => {
                         <Box className="btc-item-right-btn" onClick={handleClick}>
                           Untake Miners
                         </Box>
-                        <Box className="btc-item-right-btn" onClick={withdrawAllMiners}>
+                        {/* <Box className="btc-item-right-btn" onClick={withdrawAllMiners}>
                           Unstake All
-                        </Box>
+                        </Box> */}
                       </Box>
                     </Box>
                   </Grid>
@@ -676,7 +676,7 @@ const Mine: React.FC = () => {
                         <Box className="btc-item-right-btn" onClick={handleClick}>
                           Stake Miners
                         </Box>
-                        <Box
+                        {/* <Box
                           className="btc-item-right-btn"
                           onClick={() => {
                             unStakedList &&
@@ -687,7 +687,7 @@ const Mine: React.FC = () => {
                           }}
                         >
                           Stake All
-                        </Box>
+                        </Box> */}
                       </Box>
                     </Box>
                   </Grid>
