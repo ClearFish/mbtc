@@ -69,7 +69,7 @@ const Market: React.FC = props => {
         <div className="market-item-banner">
           <img src={url} alt="" />
         </div>
-        <div className="market-item-title overflow-more">Meta Bitcoin NFT -- {tokenId}</div>
+        <div className="market-item-title overflow-more">Meta-Intel Pentium 4 #{tokenId}</div>
         <div className="market-item-desc overflow-more">Asking price: {price}</div>
       </div>
       <div className="market-empty "></div>

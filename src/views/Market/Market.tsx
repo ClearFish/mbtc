@@ -7,6 +7,8 @@ import { useWeb3Context } from "src/hooks";
 import { useHistory } from "react-router-dom";
 import { NFTMiner_ABI, NFTMiner_ADDRESS } from "src/contract";
 import { ethers } from "ethers";
+import metaintelp4 from "../MyNft/assets/metaintelp4.png";
+
 interface NFT {
   tokenId: string;
   owner: string;
@@ -36,7 +38,8 @@ const Market: React.FC = () => {
     return res;
   };
 
-  const getList = async () => {
+  /** 原正常请求 **/
+  const getList2 = async () => {
     try {
       setListLoading(true);
       const centralApi = "https://admin.meta-backend.org/system/open/api/nft/order/pending";
@@ -61,7 +64,6 @@ const Market: React.FC = () => {
             for (let i = 0; i < nftlist?.length || 0; i++) {
               requestBox.push(
                 (async () => {
-                  console.log({ nnn: nftlist[i] });
                   const tokenURI = await getTokenURI(nftlist[i].tokenId);
                   const tokenURL = await fetch(tokenURI)
                     .then(res => res.json())
@@ -79,6 +81,42 @@ const Market: React.FC = () => {
               setListLoading(false);
             });
           }
+        });
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
+  const getList = async () => {
+    try {
+      setListLoading(true);
+      const centralApi = "https://admin.meta-backend.org/system/open/api/nft/order/pending";
+      fetch(centralApi, {
+        method: "post",
+        body: JSON.stringify({
+          contract: NFTMiner_ADDRESS,
+          pageNum: 1,
+          pageSize: 10,
+        }),
+        headers: {
+          "content-type": "application/json",
+        },
+      })
+        .then(res => {
+          return res.json();
+        })
+        .then(res => {
+          const { nftlist, total } = res.data;
+          setNftList(
+            nftlist.map((item: any) => {
+              return {
+                ...item,
+                url: metaintelp4,
+              };
+            }),
+          );
+          setTotal(total);
+          setListLoading(false);
         });
     } catch (error) {
       console.log(error);
@@ -156,7 +194,7 @@ const Market: React.FC = () => {
                       <div className="btc-card-item-img">
                         <img src={item.url} alt="" />
                       </div>
-                      <div className="btc-card-item-title">Meta Bitcoin NFT -- {item.tokenId}</div>
+                      <div className="btc-card-item-title">Meta-Intel Pentium 4 #{item.tokenId}</div>
                       <div className="btc-card-item-desc">Asking price: {item.price}</div>
                     </div>
                   </div>

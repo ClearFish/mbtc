@@ -165,21 +165,26 @@ const Market: React.FC = () => {
       await fetch(centralApi, {
         method: "post",
         body: JSON.stringify({
-          owner: address,
-          contract: NFTMiner_ADDRESS,
-          tokenId: tokenId,
-          price: formatPrice,
-          status: 0,
-          createdAt: Date.now(),
+          sign: "",
+          data: {
+            owner: address,
+            contract: NFTMiner_ADDRESS,
+            tokenId: tokenId,
+            price: formatPrice,
+            status: 0,
+            createdAt: Date.now(),
+          },
         }),
         headers: {
           "content-type": "application/json",
         },
       });
 
-      await getUnStakedList();
-      setListLoading(false);
-      dispatch(info(`Success to sell`));
+      setTimeout(async () => {
+        await getUnStakedList();
+        setListLoading(false);
+        dispatch(info(`Success to sell`));
+      }, 100);
     } catch (err) {
       setListLoading(false);
     }

@@ -42,6 +42,7 @@ import { useWeb3Context } from "src/hooks/web3Context";
 import { usePathForNetwork } from "src/hooks/usePathForNetwork";
 // import CryptoJS from "crypto-js";
 import { formatNumber } from "../../helpers";
+import metaintelp4 from "../MyNft/assets/metaintelp4.png";
 
 export const NoStakedList = ({ message }: { message: string }) => (
   <Box className="NoStaked-box">
@@ -191,25 +192,34 @@ const Mine: React.FC = () => {
       }).then(res => {
         return res.json();
       });
-      const requestBox = [];
-      for (let i = 0; i < tokenIds?.length || 0; i++) {
-        requestBox.push(
-          (async () => {
-            const tokenURI = await getTokenURI(tokenIds[i]);
-            const tokenURL = await fetch(tokenURI)
-              .then(res => res.json())
-              .then(json => json.image);
-            return {
-              id: tokenIds[i],
-              url: tokenURL,
-            };
-          })(),
-        );
-      }
-      Promise.all(requestBox).then(res => {
-        setUnStakedList(res);
-        setListLoading(false);
-      });
+      setUnStakedList(
+        tokenIds.map((item: any) => {
+          return {
+            id: item,
+            url: metaintelp4,
+          };
+        }),
+      );
+      setListLoading(false);
+      // const requestBox = [];
+      // for (let i = 0; i < tokenIds?.length || 0; i++) {
+      //   requestBox.push(
+      //     (async () => {
+      //       const tokenURI = await getTokenURI(tokenIds[i]);
+      //       const tokenURL = await fetch(tokenURI)
+      //         .then(res => res.json())
+      //         .then(json => json.image);
+      //       return {
+      //         id: tokenIds[i],
+      //         url: tokenURL,
+      //       };
+      //     })(),
+      //   );
+      // }
+      // Promise.all(requestBox).then(res => {
+      //   setUnStakedList(res);
+      //   setListLoading(false);
+      // });
     } catch (error) {
       console.log(error);
     }
@@ -247,16 +257,16 @@ const Mine: React.FC = () => {
           (async () => {
             const tokenId = await minerOfOwnerByIndex(address, `${i}`);
             const info = await stakingInformation(tokenId);
-            const tokenURI = await getTokenURI(tokenId);
-            const tokenURL = await window
-              .fetch(tokenURI)
-              .then(res => res.json())
-              .then(json => json.image);
+            // const tokenURI = await getTokenURI(tokenId);
+            // const tokenURL = await window
+            //   .fetch(tokenURI)
+            //   .then(res => res.json())
+            //   .then(json => json.image);
             return {
               id: tokenId,
               earned: formatNumber(Number(ethers.utils.formatEther(info.mBTCEarned)), 2),
               cost: info.consumption.toString(),
-              url: tokenURL,
+              url: metaintelp4,
             };
           })(),
         );
@@ -572,7 +582,7 @@ const Mine: React.FC = () => {
                               <img src={item.url} alt="" />
                             </Box>
                             <Box className="btc-card-item-desc">
-                              <Box className="btc-card-item-desc-title">#{item.id}</Box>
+                              <Box className="btc-card-item-desc-title">Meta-Intel Pentium 4 #{item.id}</Box>
                               <Box className="btc-card-item-desc-price-box">
                                 <Box
                                   className="btc-card-item-desc-price-item"
@@ -689,7 +699,7 @@ const Mine: React.FC = () => {
                             <img src={item.url} alt="" />
                           </Box>
                           <Box className="btc-card-item-desc">
-                            <Box className="btc-card-item-desc-title">#{item.id}</Box>
+                            <Box className="btc-card-item-desc-title">Meta-Intel Pentium 4 #{item.id}</Box>
                             <Box className="btc-card-item-desc-price-box">
                               <Box
                                 className="btc-card-item-desc-price-item"
