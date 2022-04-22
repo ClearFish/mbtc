@@ -170,7 +170,7 @@ const Market: React.FC = () => {
           tokenId: tokenId,
           price: price,
           status: 0,
-          createdAt: 10,
+          createdAt: Date.now(),
         }),
         headers: {
           "content-type": "application/json",
