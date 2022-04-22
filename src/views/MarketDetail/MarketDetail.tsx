@@ -1,5 +1,5 @@
 import "./style.scss";
-import { memo } from "react";
+import { memo, MouseEvent, useEffect } from "react";
 import { useHistory, useParams } from "react-router-dom";
 import { useMediaQuery } from "@material-ui/core";
 type ntcParams = {
@@ -11,6 +11,22 @@ const Market: React.FC = props => {
   const history = useHistory();
   const { id } = useParams<ntcParams>();
   const { price, tokenId, status, contract, owner, url } = history.location.state;
+  const onBuy = (event: MouseEvent<HTMLElement>) => {
+    // 阻止click冒泡
+    event.nativeEvent.stopImmediatePropagation();
+    // BUY
+  };
+  const stopDefaultEvent = (event: MouseEvent<HTMLElement>) => {
+    // 阻止click冒泡
+    event.nativeEvent.stopImmediatePropagation();
+  };
+  useEffect(() => {
+    // 点击其他地方隐藏输入框
+    document.addEventListener("click", () => {
+      history.push("/market");
+    });
+  }, []);
+
   return (
     <div
       id="marketDetail-view"
@@ -24,6 +40,7 @@ const Market: React.FC = props => {
           width: isSmallScreen || isVerySmallScreen ? "100%" : "500px",
           marginBottom: isSmallScreen || isVerySmallScreen ? ".5rem" : "0",
         }}
+        onClick={stopDefaultEvent}
       >
         <div className="market-item-banner">
           <img src={url} alt="" />
@@ -32,7 +49,9 @@ const Market: React.FC = props => {
         <div className="market-item-desc overflow-more">Asking price: {price}</div>
       </div>
       <div className="market-empty "></div>
-      <div className={`${isSmallScreen || isVerySmallScreen ? "Mobile" : "market-buy-btn"}`}>BUY</div>
+      <div className={`${isSmallScreen || isVerySmallScreen ? "Mobile" : "market-buy-btn"}`} onClick={onBuy}>
+        BUY
+      </div>
     </div>
   );
 };

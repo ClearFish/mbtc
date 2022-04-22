@@ -81,6 +81,7 @@ interface NftType {
   cost?: string;
   attributes?: [];
   id: string;
+  checked: boolean;
 }
 
 const Mine: React.FC = () => {
@@ -125,17 +126,26 @@ const Mine: React.FC = () => {
     }
   };
 
-  const handleSelectItem = () => {
-    console.log("checkList", checkList);
-
+  const handleSelectAll = () => {
+    const newStakedCheck: string[] = [];
+    const newStakedList = stakedList?.map((el, index) => {
+      if (index < 20) {
+        el.checked = true;
+        newStakedCheck.push(el.id);
+      }
+      return el;
+    });
+    setMinerItem(newStakedList);
+    const targetCheckList = Array.from(new Set([...checkList, ...newStakedCheck])); //去重
+    setCheckList(targetCheckList);
     // 选中的stakedID
-    // if (checkList && checkList.length > 0) {
-    //   if (value === "1") {
-    //     batchWithdrawMiners(checkList);
-    //   } else {
-    //     batchStakeMiners(checkList, POOL_ID);
-    //   }
-    // }
+    if (checkList && checkList.length > 0) {
+      if (value === "1") {
+        batchWithdrawMiners(targetCheckList);
+      } else {
+        batchStakeMiners(targetCheckList, POOL_ID);
+      }
+    }
   };
 
   const handleClose = () => {
@@ -217,6 +227,7 @@ const Mine: React.FC = () => {
             return {
               id: tokenIds[i],
               url: tokenURL,
+              checked: false,
             };
           })(),
         );
@@ -272,6 +283,7 @@ const Mine: React.FC = () => {
               earned: formatNumber(Number(ethers.utils.formatEther(info.mBTCEarned)), 2),
               cost: info.consumption.toString(),
               url: tokenURL,
+              checked: false,
             };
           })(),
         );
@@ -782,6 +794,7 @@ const Mine: React.FC = () => {
                     <ListItemText id={labelId} primary={item.name} />
                     <ListItemSecondaryAction>
                       <Checkbox
+                        checked={item.checked}
                         edge="end"
                         onChange={handleToggle(item.id)}
                         // checked={checked.indexOf(item.id) !== -1}
@@ -793,7 +806,7 @@ const Mine: React.FC = () => {
               })}
             </List>
             <Box className="mine-checklist-btn-box">
-              <Button color="secondary" onClick={handleClose} className="mine-checklist-btn">
+              <Button color="secondary" onClick={handleSelectAll} className="mine-checklist-btn">
                 Select All
               </Button>
               <Button color="secondary" onClick={handleClose} className="mine-checklist-btn">
