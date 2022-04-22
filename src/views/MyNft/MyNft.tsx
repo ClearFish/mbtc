@@ -18,6 +18,7 @@ import { Input, PrimaryButton } from "@olympusdao/component-library";
 import { useDispatch } from "react-redux";
 import { error, info } from "../../slices/MessagesSlice";
 import BigNumber from "bignumber.js";
+import metaintelp4 from "./assets/metaintelp4.png";
 
 interface NftType {
   name?: string;
@@ -52,6 +53,44 @@ const Market: React.FC = () => {
 
   /** 获取未质押nft **/
   const getUnStakedList = async () => {
+    try {
+      setListLoading(true);
+      const centralApi = "https://admin.meta-backend.org/system/open/api/nft/owner/detail";
+      const {
+        data: { tokenIds },
+      } = await fetch(centralApi, {
+        method: "post",
+        body: JSON.stringify({
+          sign: "",
+          data: {
+            contract: NFTMiner_ADDRESS,
+            address: address,
+          },
+        }),
+        headers: {
+          "content-type": "application/json",
+        },
+      }).then(res => {
+        return res.json();
+      });
+      setUnStakedList(
+        tokenIds.map((item: string) => {
+          return {
+            tokenId: item,
+            url: metaintelp4,
+          };
+        }),
+      );
+      setListLoading(false);
+    } catch (err) {
+      console.log({ err });
+      setListLoading(false);
+      dispatch(error(`Fail to get list`));
+    }
+  };
+
+  /** 获取未质押nft 原正常请求逻辑 **/
+  const getUnStakedListNormal = async () => {
     try {
       setListLoading(true);
       const centralApi = "https://admin.meta-backend.org/system/open/api/nft/owner/detail";
@@ -119,11 +158,27 @@ const Market: React.FC = () => {
       const formatPrice = new BigNumber(price).multipliedBy(Math.pow(10, decimals)).toString();
 
       const sell_tx = await storeContract.sell(tokenId, mBTC_ADDRESS, 0, formatPrice);
-      await sell_tx.wait();
-      console.log("sell list");
+      // await sell_tx.wait();
+
+      // 中心化入库
+      const centralApi = "https://admin.meta-backend.org/system/open/api/nft/order/sell";
+      await fetch(centralApi, {
+        method: "post",
+        body: JSON.stringify({
+          owner: address,
+          contract: NFTMiner_ADDRESS,
+          tokenId: tokenId,
+          price: formatPrice,
+          status: 0,
+          createdAt: Date.now(),
+        }),
+        headers: {
+          "content-type": "application/json",
+        },
+      });
+
       await getUnStakedList();
       setListLoading(false);
-
       dispatch(info(`Success to sell`));
     } catch (err) {
       setListLoading(false);
@@ -198,8 +253,7 @@ const Market: React.FC = () => {
                       <div className="btc-card-item-img">
                         <img src={el.url} alt="" />
                       </div>
-                      <div className="btc-card-item-title overflow-more">Meta Bitcoin NFT —— {el.tokenId}</div>
-                      {/* <div className="btc-card-item-desc overflow-more">Asking price</div> */}
+                      <div className="btc-card-item-title overflow-more">Meta-Intel Pentium 4 #{el.tokenId}</div>
                     </div>
                   </div>
                   <div className="btc-card-item-footer">
