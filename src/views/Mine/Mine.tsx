@@ -57,6 +57,8 @@ const useStyles = makeStyles((theme: Theme) =>
       width: "100%",
       maxWidth: 360,
       backgroundColor: theme.palette.background.paper,
+      overflow: "auto",
+      maxHeight: 400,
     },
     blackCardBtnOrange: {
       background: "#d6a241",
@@ -80,6 +82,7 @@ interface NftType {
   cost?: string;
   attributes?: [];
   id: string;
+  checked: boolean;
 }
 
 const Mine: React.FC = () => {
@@ -121,6 +124,28 @@ const Mine: React.FC = () => {
       setMinerItem(stakedList);
     } else {
       setMinerItem(unStakedList);
+    }
+  };
+
+  const handleSelectAll = () => {
+    const newStakedCheck: string[] = [];
+    const newStakedList = stakedList?.map((el, index) => {
+      if (index < 20) {
+        el.checked = true;
+        newStakedCheck.push(el.id);
+      }
+      return el;
+    });
+    setMinerItem(newStakedList);
+    const targetCheckList = Array.from(new Set([...checkList, ...newStakedCheck])); //去重
+    setCheckList(targetCheckList);
+    // 选中的stakedID
+    if (checkList && checkList.length > 0) {
+      if (value === "1") {
+        batchWithdrawMiners(targetCheckList);
+      } else {
+        batchStakeMiners(targetCheckList, POOL_ID);
+      }
     }
   };
 
@@ -197,6 +222,7 @@ const Mine: React.FC = () => {
           return {
             id: item,
             url: metaintelp4,
+            checked: false,
           };
         }),
       );
@@ -267,6 +293,7 @@ const Mine: React.FC = () => {
               earned: formatNumber(Number(ethers.utils.formatEther(info.mBTCEarned)), 2),
               cost: info.consumption.toString(),
               url: metaintelp4,
+              checked: false,
             };
           })(),
         );
@@ -498,7 +525,7 @@ const Mine: React.FC = () => {
             <Box className="ohm-card-mine">
               <img className="card-banner" src={MineBanner} />
               <Button className={`batch-btn ${isSmallScreen && "isMobile"}`} onClick={getAllRewards}>
-                Batch Harvest MBTC
+                Harvest MBTC
               </Button>
             </Box>
           </Grid>
@@ -549,9 +576,9 @@ const Mine: React.FC = () => {
                         <Box className="btc-item-right-btn" onClick={handleClick}>
                           Untake Miners
                         </Box>
-                        <Box className="btc-item-right-btn" onClick={withdrawAllMiners}>
+                        {/* <Box className="btc-item-right-btn" onClick={withdrawAllMiners}>
                           Unstake All
-                        </Box>
+                        </Box> */}
                       </Box>
                     </Box>
                   </Grid>
@@ -659,7 +686,7 @@ const Mine: React.FC = () => {
                         <Box className="btc-item-right-btn" onClick={handleClick}>
                           Stake Miners
                         </Box>
-                        <Box
+                        {/* <Box
                           className="btc-item-right-btn"
                           onClick={() => {
                             unStakedList &&
@@ -670,7 +697,7 @@ const Mine: React.FC = () => {
                           }}
                         >
                           Stake All
-                        </Box>
+                        </Box> */}
                       </Box>
                     </Box>
                   </Grid>
@@ -777,6 +804,7 @@ const Mine: React.FC = () => {
                     <ListItemText id={labelId} primary={item.name} />
                     <ListItemSecondaryAction>
                       <Checkbox
+                        checked={item.checked}
                         edge="end"
                         onChange={handleToggle(item.id)}
                         // checked={checked.indexOf(item.id) !== -1}
@@ -788,8 +816,11 @@ const Mine: React.FC = () => {
               })}
             </List>
             <Box className="mine-checklist-btn-box">
+              <Button color="secondary" onClick={handleSelectAll} className="mine-checklist-btn">
+                Select All
+              </Button>
               <Button color="secondary" onClick={handleClose} className="mine-checklist-btn">
-                Choice
+                Confirm
               </Button>
             </Box>
           </Box>
