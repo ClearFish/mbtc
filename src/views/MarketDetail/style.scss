@@ -3,6 +3,13 @@
     align-items: center;
     justify-content: center;
     height: 100%;
+    position: relative;
+    .back-view {
+        position: absolute;
+        top: 0;
+        left: 0;
+        cursor: pointer;
+    }
     .overflow-more {
         overflow: hidden;
         text-overflow: ellipsis;
