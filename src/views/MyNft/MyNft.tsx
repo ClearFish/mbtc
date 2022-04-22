@@ -168,7 +168,7 @@ const Market: React.FC = () => {
           owner: address,
           contract: NFTMiner_ADDRESS,
           tokenId: tokenId,
-          price: price,
+          price: formatPrice,
           status: 0,
           createdAt: Date.now(),
         }),
