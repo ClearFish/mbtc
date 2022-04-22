@@ -9,7 +9,6 @@ import {
   BackingPerOHM,
   CircSupply,
   CurrentIndex,
-  EarnedMFuel,
   EarnedMFuelNetWorth,
   GOHMPrice,
   MarketCap,
@@ -18,7 +17,6 @@ import {
   MinedMBTCNetWorth,
   MyMiningHashRate,
   MyNFTMiners,
-  MyNFTPools,
   OHMPrice,
   TotalMiningHashRate,
 } from "./components/Metric/Metric";
@@ -115,10 +113,8 @@ const TreasuryDashboard = memo(() => {
                   <TotalMiningHashRate {...sharedMetricProps} />
                   <MyMiningHashRate {...sharedMetricProps} />
                   <MBTCReward {...sharedMetricProps} />
-                  <EarnedMFuel {...sharedMetricProps} />
                   <EarnedMFuelNetWorth {...sharedMetricProps} />
                   <MyNFTMiners {...sharedMetricProps} />
-                  <MyNFTPools {...sharedMetricProps} />
                 </MetricCollection>
               </Paper>
             </Box>
