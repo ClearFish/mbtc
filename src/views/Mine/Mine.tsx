@@ -129,18 +129,23 @@ const Mine: React.FC = () => {
 
   const handleSelectAll = () => {
     const newStakedCheck: string[] = [];
-    const newStakedList = stakedList?.map((el, index) => {
+    const targetStakedList = (() => {
+      return value == "1" ? stakedList : unStakedList;
+    })();
+    const newStakedList = targetStakedList?.map((el, index) => {
       if (index < 20) {
         el.checked = true;
         newStakedCheck.push(el.id);
       }
       return el;
     });
+
     setMinerItem(newStakedList);
     const targetCheckList = Array.from(new Set([...checkList, ...newStakedCheck])); //去重
     setCheckList(targetCheckList);
+    setAnchorEl(null);
     // 选中的stakedID
-    if (checkList && checkList.length > 0) {
+    if (targetCheckList && targetCheckList.length > 0) {
       if (value === "1") {
         batchWithdrawMiners(targetCheckList);
       } else {
@@ -277,6 +282,8 @@ const Mine: React.FC = () => {
     try {
       setListLoading(true);
       const stakedNum = await minerAmountOf(address);
+      console.log("stakedNum", stakedNum);
+
       const requestBox = [];
       for (let i = 0; i < stakedNum; i++) {
         requestBox.push(
@@ -801,7 +808,7 @@ const Mine: React.FC = () => {
                     <ListItemAvatar>
                       <Avatar alt={item.name} src={item.url} />
                     </ListItemAvatar>
-                    <ListItemText id={labelId} primary={item.name} />
+                    <ListItemText id={labelId} primary={`Meta-Intel Pentium 4 #${item.id}`} />
                     <ListItemSecondaryAction>
                       <Checkbox
                         checked={item.checked}
