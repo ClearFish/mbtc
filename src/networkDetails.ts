@@ -378,6 +378,7 @@ interface IViewsForNetwork {
   mine: boolean;
   pool: boolean;
   market: boolean;
+  mynft: boolean;
 }
 
 export const VIEWS_FOR_NETWORK: { [key: number]: IViewsForNetwork } = {
@@ -386,11 +387,13 @@ export const VIEWS_FOR_NETWORK: { [key: number]: IViewsForNetwork } = {
     mine: true,
     pool: true,
     market: true,
+    mynft: true,
   },
   [NetworkId.BSC_TESTNET]: {
     dashboard: true,
     mine: true,
     pool: true,
     market: true,
+    mynft: true,
   },
 };
