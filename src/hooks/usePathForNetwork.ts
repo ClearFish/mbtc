@@ -47,6 +47,13 @@ export function usePathForNetwork({
           history.push("/error");
           break;
         }
+      case "mynft":
+        if (VIEWS_FOR_NETWORK[networkID] && VIEWS_FOR_NETWORK[networkID].market) {
+          break;
+        } else {
+          history.push("/error");
+          break;
+        }
       case "wrap":
         if (VIEWS_FOR_NETWORK[networkID]) {
           history.push("/dashboard");
