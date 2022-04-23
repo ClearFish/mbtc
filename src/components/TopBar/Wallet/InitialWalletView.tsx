@@ -15,9 +15,7 @@ import { Skeleton } from "@material-ui/lab";
 import { Icon, OHMTokenProps, OHMTokenStackProps, Token, TokenStack } from "@olympusdao/component-library";
 import { ReactElement, useState } from "react";
 import { ReactComponent as ArrowUpIcon } from "src/assets/icons/arrow-up.svg";
-import { addresses } from "src/constants";
 import { formatCurrency } from "src/helpers";
-import { dai, frax } from "src/helpers/AllBonds";
 import { useAppSelector, useWeb3Context } from "src/hooks";
 import useCurrentTheme from "src/hooks/useTheme";
 
@@ -164,7 +162,7 @@ function InitialWalletView({ onClose }: { onClose: () => void }) {
           <Divider color="secondary" />
         </Box>
 
-        <Box
+        {/* <Box
           sx={{
             ...(isSmallScreen
               ? { display: "flex", flexDirection: "column" }
@@ -205,7 +203,7 @@ function InitialWalletView({ onClose }: { onClose: () => void }) {
               <Typography>Shadow's dashboard</Typography>
             </ExternalLink>
           </Box>
-        </Box>
+        </Box> */}
 
         <Box sx={{ marginTop: "auto", marginX: "auto", padding: theme.spacing(2) }}>
           <DisconnectButton />
