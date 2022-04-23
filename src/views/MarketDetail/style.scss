@@ -1,10 +1,12 @@
 #marketDetail-view {
-  display: flex;
+  .marketDetail-container {
+    display: flex;
+    justify-content: center;
+  }
   .back-view {
-    position: absolute;
-    top: 0;
-    left: 0;
     cursor: pointer;
+    width: 100%;
+    margin-bottom: 10px;
   }
   .overflow-more {
     overflow: hidden;
@@ -59,12 +61,26 @@
           color: #ffffff;
           width: 300px;
         }
-        .desc {
-          font-size: 18px;
-          color: #cdcdcd;
-          width: 180px;
-          text-align: right;
+        .desc-box {
+            width: 180px;
+            display: flex;
+            align-items: center;
+            .desc {
+                width: 160px;
+                font-size: 16px;
+                color: #cdcdcd;
+                text-align: right;
+            }
+            .small-icon {
+                width: 14px;
+                height: 14px;
+                cursor: pointer;
+                img {
+                    width: 100%;
+                }
+            }
         }
+        
       }
     }
   }
@@ -75,6 +91,19 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
+    position: relative;
+    .bg {
+        background-image: url('./assets/images/market-person.png');
+        background-repeat: no-repeat;
+        background-origin: content-box;
+        background-size: 70% auto;
+        background-position: left bottom;
+        width: 50px;
+        height: 80px;
+        position: absolute;
+        bottom: 0;
+        left: 0;
+    }
     .ower-item-title {
       font-weight: 400;
       font-size: 30px;
@@ -120,6 +149,18 @@
         font-size: 27px;
         color: #ffffff;
         padding: 10px 0;
+        padding-left: 38px;
+        position: relative;
+        &::before {
+            content: '';
+            width: 30px;
+            height: 30px;
+            background: url('./assets/images/market-price.png');
+            background-size: 100% 100%;
+            position: absolute;
+            top: 10px;
+            left: 0;
+        }
         span {
           font-size: 18px;
           color: #c8c8c8;
