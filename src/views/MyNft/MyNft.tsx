@@ -298,8 +298,7 @@ const Market: React.FC = () => {
                 <div className="btc-card-item-box">
                   <div className="btc-card-item" key={el.tokenId}>
                     <img className="card-image" src={el.url} alt="" />
-                    <div className="card-info">Meta Bitcoin NFT</div>
-                    <div className="card-detail">Asking price</div>
+                    <div className="card-info">Meta-Intel Pentium 4 #{el.tokenId}</div>
                   </div>
                   <div className="btc-card-item-footer">
                     <div
