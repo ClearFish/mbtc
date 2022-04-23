@@ -85,7 +85,7 @@ const TreasuryDashboard = memo(() => {
                     <img className="card-pannel-logo" src={MFUEL_LOGO} alt="" />
                     <div className="transfer-pannel">
                       <div className="transfer-title">
-                        <Typography variant="h6"> MBTC</Typography>
+                        <Typography variant="h6"> MFUEL</Typography>
                         <img className="transfer-logo" src={TRANSFER}></img>
                         <Typography variant="h6"> USD</Typography>
                       </div>
