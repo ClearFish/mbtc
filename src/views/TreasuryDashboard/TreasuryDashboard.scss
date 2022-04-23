@@ -163,7 +163,7 @@
     line-height: 47px;
     position: fixed;
     z-index: 9000;
-    top: 56px;
+    top: 15px;
     left: 304px;
   }
 
@@ -174,8 +174,9 @@
   }
 }
 
-@media (min-width: 1900px) {
-  .MuiContainer-maxWidthLg.MuiContainer-maxWidthLg {
-    max-width: 1574px;
-  }
-}
+// @media (min-width: 750px) {
+//   .MuiContainer-maxWidthLg.MuiContainer-maxWidthLg {
+//     width: calc(100% - 50px);
+//     margin: 0 auto;
+//   }
+// }
