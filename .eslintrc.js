@@ -53,6 +53,5 @@ module.exports = {
         "no-undef": "error",
       },
     },
-  ],
-  "endOfLine":"auto"
+  ]
 };

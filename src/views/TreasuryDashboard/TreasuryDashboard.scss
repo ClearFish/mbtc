@@ -168,9 +168,10 @@
   }
 
   .MuiContainer-maxWidthLg {
-    margin-left: 16px;
     padding: 0;
-    margin-top: 87px;
+    width: calc(100% - 50px);
+    margin: 0 auto;
+    max-width: none;
   }
 }
 
