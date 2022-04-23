@@ -10,7 +10,7 @@ import {
   CircSupply,
   CurrentIndex,
   EarnedMFuelNetWorth,
-  GOHMPrice,
+  Volume24,
   MarketCap,
   MBTCReward,
   MinedMBTC,
@@ -56,7 +56,7 @@ const TreasuryDashboard = memo(() => {
                   <CircSupply {...sharedMetricProps} />
                   <BackingPerOHM {...sharedMetricProps} />
                   <CurrentIndex {...sharedMetricProps} />
-                  <GOHMPrice {...sharedMetricProps} className="wsoprice" />
+                  <Volume24 {...sharedMetricProps} className="wsoprice" />
                 </MetricCollection>
               </Paper>
             </Box>
