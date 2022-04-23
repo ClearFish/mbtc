@@ -1,13 +1,14 @@
 import "./Market.scss";
 import { memo, useState, useEffect } from "react";
 import MarketLogo from "./assets/images/market-logo.png";
-import { Box, CircularProgress, useMediaQuery } from "@material-ui/core";
+import { Box, CircularProgress, useMediaQuery, SvgIcon } from "@material-ui/core";
 import { usePathForNetwork } from "src/hooks/usePathForNetwork";
 import { useWeb3Context } from "src/hooks";
 import { useHistory } from "react-router-dom";
 import { NFTMiner_ABI, NFTMiner_ADDRESS } from "src/contract";
 import { ethers } from "ethers";
 import metaintelp4 from "../MyNft/assets/metaintelp4.png";
+import { ReactComponent as empty } from "../Mine/assets/images/empty.svg";
 
 interface NFT {
   tokenId: string;
@@ -17,6 +18,13 @@ interface NFT {
   createAt?: string;
   url?: string;
 }
+
+export const NoStakedList = ({ message }: { message: string }) => (
+  <Box className="NoStaked-box">
+    <SvgIcon style={{ fontSize: 40 }} className="icon" component={empty} htmlColor="#868B93" />
+    {message}
+  </Box>
+);
 
 const Market: React.FC = () => {
   const history = useHistory();
@@ -169,6 +177,7 @@ const Market: React.FC = () => {
           paddingRight: isSmallScreen || isVerySmallScreen ? "0" : "1.4rem",
         }}
       >
+        {}
         <div
           className="btc-container"
           style={{
@@ -182,24 +191,30 @@ const Market: React.FC = () => {
               <CircularProgress />
             </Box>
           ) : (
-            <div className="btc-card-box">
-              {nftList.map(item => {
-                return (
-                  <div
-                    onClick={() => {
-                      goToDetail(item);
-                    }}
-                  >
-                    <div className="btc-card-item" key={item.tokenId}>
-                      <div className="btc-card-item-img">
-                        <img src={item.url} alt="" />
+            <div className="btc-card-con">
+              {nftList && nftList.length > 0 ? (
+                <div className="btc-card-box">
+                  {nftList?.map(item => {
+                    return (
+                      <div
+                        onClick={() => {
+                          goToDetail(item);
+                        }}
+                      >
+                        <div className="btc-card-item" key={item.tokenId}>
+                          <div className="btc-card-item-img">
+                            <img src={item.url} alt="" />
+                          </div>
+                          <div className="btc-card-item-title">Meta-Intel Pentium 4 #{item.tokenId}</div>
+                          <div className="btc-card-item-desc">Asking price: {item.price}</div>
+                        </div>
                       </div>
-                      <div className="btc-card-item-title">Meta-Intel Pentium 4 #{item.tokenId}</div>
-                      <div className="btc-card-item-desc">Asking price: {item.price}</div>
-                    </div>
-                  </div>
-                );
-              })}
+                    );
+                  })}
+                </div>
+              ) : (
+                <NoStakedList message="No nft，please Sell some" />
+              )}
             </div>
           )}
         </div>

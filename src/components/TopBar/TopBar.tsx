@@ -2,12 +2,14 @@ import "./TopBar.scss";
 
 // import { i18n } from "@lingui/core";
 // import { t } from "@lingui/macro";
-import { AppBar, Box, Button, SvgIcon, Toolbar } from "@material-ui/core";
+import { AppBar, Box, Button, SvgIcon, Toolbar, useMediaQuery } from "@material-ui/core";
 import { makeStyles } from "@material-ui/core/styles";
 // import { LocaleSwitcher } from "@olympusdao/component-library";
 
 import { ReactComponent as MenuIcon } from "../../assets/icons/hamburger.svg";
+import ArrowBackIosRoundedIcon from "@material-ui/icons/ArrowBackIosRounded";
 // import { locales, selectLocale } from "../../locales";
+import { useLocation, useHistory } from "react-router-dom";
 import MyNft from "./MyNft";
 // import ThemeSwitcher from "./ThemeSwitch";
 import Wallet from "./Wallet";
@@ -40,10 +42,24 @@ interface TopBarProps {
 
 function TopBar({ theme, toggleTheme, handleDrawerToggle }: TopBarProps) {
   const classes = useStyles();
+  const isSmallScreen = useMediaQuery("(max-width: 650px)");
+  const isVerySmallScreen = useMediaQuery("(max-width: 379px)");
+  const location = useLocation();
+  const history = useHistory();
+  const isDetail = location.pathname.indexOf("marketDetail") >= 0;
+  const onBackList = () => {
+    history.go(-1);
+  };
 
   return (
     <AppBar position="sticky" className={classes.appBar} elevation={0}>
-      <Toolbar disableGutters className="dapp-topbar">
+      <Toolbar
+        disableGutters
+        className="dapp-topbar"
+        style={{
+          justifyContent: isDetail ? "space-between" : "flex-end",
+        }}
+      >
         <Button
           id="hamburger"
           aria-label="open drawer"
@@ -55,6 +71,15 @@ function TopBar({ theme, toggleTheme, handleDrawerToggle }: TopBarProps) {
         >
           <SvgIcon component={MenuIcon} />
         </Button>
+        <Box
+          className="left-back"
+          onClick={onBackList}
+          style={{
+            display: isSmallScreen || isVerySmallScreen || !isDetail ? "none" : "block",
+          }}
+        >
+          <SvgIcon fontSize="large" style={{ color: "#FFFFFF" }} component={ArrowBackIosRoundedIcon} />
+        </Box>
         <Box display="flex">
           <MyNft />
           <Wallet />

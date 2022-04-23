@@ -43,7 +43,7 @@ export const MBTCPrice: React.FC<AbstractedMetricProps> = props => {
     label: t`MBTC Price`,
   };
 
-  if (data) _props.metric = data;
+  if (data) _props.metric = formatMBTC(data, 2);
   else _props.isLoading = true;
 
   return <Metric {..._props} />;
@@ -153,14 +153,16 @@ export const MinedMBTC: React.FC<AbstractedMetricProps> = props => {
 };
 
 export const MinedMBTCNetWorth: React.FC<AbstractedMetricProps> = props => {
-  const { data: totalValueDeposited } = useTotalValueDeposited();
+  const minedMbtcRes = useMinedMBTC();
+  const mbtcPriceRes = useMBTCPrice();
 
   const _props: MetricProps = {
     ...props,
     label: t`Mined MBTC Net Worth`,
   };
 
-  if (totalValueDeposited) _props.metric = formatCurrency(totalValueDeposited, 0);
+  if (typeof minedMbtcRes.data !== "undefined" && typeof mbtcPriceRes.data !== "undefined")
+    _props.metric = formatMBTC(Number(formatMBTC(minedMbtcRes.data, 2)) * Number(formatMBTC(mbtcPriceRes.data, 2)), 2);
   else _props.isLoading = true;
 
   return <Metric {..._props} />;
@@ -196,15 +198,12 @@ export const MyMiningHashRate: React.FC<AbstractedMetricProps> = props => {
   return <Metric {..._props} />;
 };
 export const MBTCReward: React.FC<AbstractedMetricProps> = props => {
-  const { data: totalValueDeposited } = useTotalValueDeposited();
-
   const _props: MetricProps = {
     ...props,
     label: t`MBTC Reward`,
   };
 
-  if (totalValueDeposited) _props.metric = formatCurrency(totalValueDeposited, 0);
-  else _props.isLoading = true;
+  _props.metric = "50 MBTC/10 min";
 
   return <Metric {..._props} />;
 };

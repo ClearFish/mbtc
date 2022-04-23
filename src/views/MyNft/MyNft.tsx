@@ -298,8 +298,7 @@ const Market: React.FC = () => {
                 <div className="btc-card-item-box">
                   <div className="btc-card-item" key={el.tokenId}>
                     <img className="card-image" src={el.url} alt="" />
-                    <div className="card-info">Meta Bitcoin NFT</div>
-                    <div className="card-detail">Asking price</div>
+                    <div className="card-info">Meta-Intel Pentium 4 #{el.tokenId}</div>
                   </div>
                   <div className="btc-card-item-footer">
                     <div
@@ -330,7 +329,7 @@ const Market: React.FC = () => {
             <Input
               id="price"
               type="number"
-              label={`Sell NFT-${tokenId}`}
+              label={`Sell Meta-Intel Pentium 4 #${tokenId}`}
               value={price}
               onChange={e => handleChangePrice(e)}
             />
@@ -359,7 +358,7 @@ const Market: React.FC = () => {
             <Input
               id="address2"
               type="string"
-              label={`Transfer NFT-${tokenId}`}
+              label={`Transfer Meta-Intel Pentium 4 #${tokenId}`}
               value={address2}
               onChange={e => handleChangeAddress(e)}
             />
