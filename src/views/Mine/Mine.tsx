@@ -97,7 +97,6 @@ const Mine: React.FC = () => {
   const isVerySmallScreen = useMediaQuery("(max-width: 379px)");
   const [unStakedList, setUnStakedList] = useState<NftType[]>();
   const [stakedList, setStakedList] = useState<NftType[]>();
-  const [checkList, setCheckList] = useState<string[]>([]); //选项checklist
   const [value, setValue] = useState("1");
   const [loading, setLoading] = useState(false);
   const [listLoading, setListLoading] = useState(false);
@@ -114,7 +113,16 @@ const Mine: React.FC = () => {
   const [anchorEl, setAnchorEl] = useState<HTMLElement | null>(null);
 
   const clearCheckList = () => {
-    setCheckList([]);
+    setMinerItem(
+      minerItem
+        ? minerItem.map(item => {
+            return {
+              ...item,
+              checked: false,
+            };
+          })
+        : [],
+    );
   };
 
   const handleClick = (event: MouseEvent<HTMLElement>) => {
@@ -141,27 +149,22 @@ const Mine: React.FC = () => {
     });
 
     setMinerItem(newStakedList);
-    const targetCheckList = Array.from(new Set([...checkList, ...newStakedCheck])); //去重
-    setCheckList(targetCheckList);
-    setAnchorEl(null);
-    // 选中的stakedID
-    if (targetCheckList && targetCheckList.length > 0) {
-      if (value === "1") {
-        batchWithdrawMiners(targetCheckList);
-      } else {
-        batchStakeMiners(targetCheckList, POOL_ID);
-      }
-    }
   };
 
   const handleClose = () => {
     setAnchorEl(null);
+  };
+
+  const handleConfirm = () => {
+    setAnchorEl(null);
     // 选中的stakedID
-    if (checkList && checkList.length > 0) {
+    const checkedList = minerItem?.filter(item => item.checked).map(item => item.id);
+    console.log({ checkedList });
+    if (checkedList && checkedList.length > 0) {
       if (value === "1") {
-        batchWithdrawMiners(checkList);
+        batchWithdrawMiners(checkedList);
       } else {
-        batchStakeMiners(checkList, POOL_ID);
+        batchStakeMiners(checkedList, POOL_ID);
       }
     }
   };
@@ -189,14 +192,22 @@ const Mine: React.FC = () => {
 
   // 多选 start
   const handleToggle = (value: string) => () => {
-    const currentIndex = checkList.indexOf(value);
-    const newChecked = [...checkList];
-    if (currentIndex === -1) {
-      newChecked.push(value);
-    } else {
-      newChecked.splice(currentIndex, 1);
-    }
-    setCheckList(newChecked);
+    const hasChecked = minerItem ? minerItem.filter(item => item.checked).length : 0;
+    const newMinerItem = minerItem?.map(item => {
+      if (item.id === value) {
+        if (item.checked || hasChecked < 20) {
+          return {
+            ...item,
+            checked: !item.checked,
+          };
+        } else {
+          return item;
+        }
+      } else {
+        return item;
+      }
+    });
+    setMinerItem(newMinerItem);
   };
   // 多选 end
 
@@ -581,7 +592,7 @@ const Mine: React.FC = () => {
                     <Box className={`btc-item-title-container ${isSmallScreen || isVerySmallScreen ? "" : "pc"}`}>
                       <Box className={`btc-item-right-container ${isSmallScreen || isVerySmallScreen ? "" : "pc"}`}>
                         <Box className="btc-item-right-btn" onClick={handleClick}>
-                          Untake Miners
+                          Unstake Miners
                         </Box>
                         {/* <Box className="btc-item-right-btn" onClick={withdrawAllMiners}>
                           Unstake All
@@ -826,7 +837,7 @@ const Mine: React.FC = () => {
               <Button color="secondary" onClick={handleSelectAll} className="mine-checklist-btn">
                 Select All
               </Button>
-              <Button color="secondary" onClick={handleClose} className="mine-checklist-btn">
+              <Button color="secondary" onClick={handleConfirm} className="mine-checklist-btn">
                 Confirm
               </Button>
             </Box>

@@ -42,6 +42,8 @@ const Market: React.FC = props => {
 
       const buy_tx = await storeContract.buy(tokenId, 0);
       await buy_tx.wait();
+      history.push("/mynft");
+
       // if (res && res.data) {
       //   setLoading(false);
       //   dispatch(info(`Success to buy`));
