@@ -25,6 +25,7 @@ import {
   Backdrop,
   CircularProgress,
   Typography,
+  Tooltip,
 } from "@material-ui/core";
 import { createStyles, makeStyles, Theme } from "@material-ui/core/styles";
 import { ethers } from "ethers";
@@ -44,6 +45,7 @@ import { usePathForNetwork } from "src/hooks/usePathForNetwork";
 // import CryptoJS from "crypto-js";
 import { formatNumber } from "../../helpers";
 import metaintelp4 from "../MyNft/assets/metaintelp4.png";
+import { formatMBTC } from "src/helpers";
 
 export const NoStakedList = ({ message }: { message: string }) => (
   <Box className="NoStaked-box">
@@ -102,8 +104,8 @@ const Mine: React.FC = () => {
   const [value, setValue] = useState("1");
   const [loading, setLoading] = useState(false);
   const [listLoading, setListLoading] = useState(false);
-  const [mbtcMined, setMbtcMined] = useState(0);
-  const [mfuelCost, setMfuelCost] = useState(0);
+  const [mbtcMined, setMbtcMined] = useState("0");
+  const [mfuelCost, setMfuelCost] = useState("0");
   const classes = useStyles();
 
   // 获取 MBTC mined
@@ -117,7 +119,8 @@ const Mine: React.FC = () => {
     }).then(res => {
       return res.json();
     });
-    setMbtcMined(data);
+
+    setMbtcMined(formatMBTC(data, 2));
   };
 
   // 获取 MFuel cost
@@ -131,7 +134,7 @@ const Mine: React.FC = () => {
     }).then(res => {
       return res.json();
     });
-    setMfuelCost(data);
+    setMfuelCost(formatMBTC(data, 2));
   };
 
   // 获取合约签名
@@ -596,12 +599,16 @@ const Mine: React.FC = () => {
               </Button>
               <div className={`card-box ${isSmallScreen && "isMobile"}`}>
                 <div className="card-info">
-                  <Typography>MBTC mined </Typography>
-                  <Typography className="card-info-content">{mbtcMined}</Typography>
+                  <Typography className="card-info-title">MBTC mined </Typography>
+                  <Tooltip title={mbtcMined}>
+                    <Typography className="card-info-content">{mbtcMined}</Typography>
+                  </Tooltip>
                 </div>
                 <div className="card-info">
-                  <Typography>MFuel cost</Typography>
-                  <Typography className="card-info-content">{mfuelCost}</Typography>
+                  <Typography className="card-info-title">MFuel cost</Typography>
+                  <Tooltip title={mfuelCost}>
+                    <Typography className="card-info-content">{mfuelCost}</Typography>
+                  </Tooltip>
                 </div>
               </div>
             </Box>

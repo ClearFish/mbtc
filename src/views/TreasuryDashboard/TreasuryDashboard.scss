@@ -8,8 +8,11 @@
   justify-content: flex-start;
   align-items: center;
   overflow-y: auto;
-  -ms-overflow-style: none !important; /* IE and Edge */
-  scrollbar-width: none !important; /* Firefox */
+  -ms-overflow-style: none !important;
+  /* IE and Edge */
+  scrollbar-width: none !important;
+
+  /* Firefox */
   &::-webkit-scrollbar {
     display: none !important;
   }
@@ -19,32 +22,39 @@
     max-width: unset !important;
     width: 100%;
     margin: auto;
+
     .card-header {
       margin-bottom: 1rem;
     }
+
     &.ohm-chart-card {
       .chart-card-header {
         padding: 0px 20px !important;
         min-width: 300px;
       }
+
       height: 355px;
     }
+
     .card-pannel {
       display: flex;
       align-items: center;
       justify-content: space-between;
       width: 100%;
+
       .card-pannel-logo {
         width: 40px;
         height: 40px;
         object-fit: contain;
       }
+
       .transfer-pannel {
         .transfer-title {
           display: flex;
           align-items: center;
           color: #A3A3A3;
           font-family: Square;
+
           .transfer-logo {
             width: 20px;
             height: 10px;
@@ -52,15 +62,18 @@
             margin: 0 0.5rem;
           }
         }
+
         .transfer-content {
           font-family: Square;
         }
       }
+
       .card-pannel-btn {
         font-family: Square;
         color: #dfdfdf;
         background: #723FD8 !important;
         transition: all 250ms cubic-bezier(0.4, 0, 0.2, 1);
+
         &:hover {
           background-color: #9169e1;
           color: #fff;
@@ -68,20 +81,24 @@
       }
     }
   }
+
   .hero-metrics {
     width: 100%;
     margin-bottom: 23px;
     text-align: center;
+
     .ohm-card {
       max-width: unset !important;
       flex-direction: row;
       flex-wrap: wrap;
       justify-content: space-evenly;
+
       h5 {
         font-weight: bold;
       }
     }
   }
+
   .data-grid {
     overflow: hidden;
   }
@@ -91,12 +108,14 @@
   .ohm-card {
     width: 97%;
   }
+
   .hero-metrics .ohm-card {
-    > .MuiBox-root {
+    >.MuiBox-root {
       flex-direction: column;
       align-items: flex-start;
       flex-wrap: wrap;
     }
+
     div.metric {
       text-align: left !important;
     }
@@ -109,6 +128,7 @@
     min-width: 30% !important;
     max-width: 60%;
     text-align: left !important;
+
     &.market,
     &.price,
     &.wsoprice,
@@ -123,9 +143,39 @@
 
 .very-small {
   .hero-metrics .ohm-card {
-    > .MuiBox-root {
+    >.MuiBox-root {
       flex-direction: column;
       justify-content: center;
     }
+  }
+}
+
+#treasury-dashboard-view {
+  position: relative;
+
+  .dashboard-title {
+    width: 214px;
+    height: 55px;
+    font-size: 40px;
+    font-family: Manrope-ExtraBold, Manrope;
+    font-weight: 800;
+    color: #FFFFFF;
+    line-height: 47px;
+    position: fixed;
+    z-index: 9000;
+    top: 56px;
+    left: 304px;
+  }
+
+  .MuiContainer-maxWidthLg {
+    margin-left: 16px;
+    padding: 0;
+    margin-top: 87px;
+  }
+}
+
+@media (min-width: 1900px) {
+  .MuiContainer-maxWidthLg.MuiContainer-maxWidthLg {
+    max-width: 1574px;
   }
 }
