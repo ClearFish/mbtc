@@ -30,15 +30,8 @@
     overflow: hidden;
     backdrop-filter: blur(10px);
     -webkit-backdrop-filter: blur(10px);
-    background: linear-gradient(180deg, #23094B 0%,
-        #2C2058 50%,
-        #1F2043 70%,
-        #1B213B 80%,
-        #1F2940 90%,
-        rgba(70, 144, 212, 0) 100%);
-    background-color: transparent;
-    border: 2px solid;
-    border-image: radial-gradient(circle at top, rgba(234, 191, 255, 1), #677C8A) 2 2;
+    background: url(../../assets/images/side-bg.png) no-repeat center;
+    background-size: calc(100% - 4px) calc(100% - 4px);
   }
 
 
