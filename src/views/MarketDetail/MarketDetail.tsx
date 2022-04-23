@@ -65,30 +65,71 @@ const Market: React.FC = props => {
         display: isSmallScreen || isVerySmallScreen ? "block" : "flex",
       }}
     >
-      <div className="back-view" onClick={onBackList}>
+      <div
+        className="back-view"
+        onClick={onBackList}
+        style={{
+          display: isSmallScreen || isVerySmallScreen ? "none" : "block",
+        }}
+      >
         <SvgIcon fontSize="large" htmlColor="#FFFFFF" component={ArrowBackIosRoundedIcon} />
       </div>
       <div
         className="market-item"
         style={{
           width: isSmallScreen || isVerySmallScreen ? "100%" : "500px",
-          marginBottom: isSmallScreen || isVerySmallScreen ? ".5rem" : "0",
+          marginBottom: isSmallScreen || isVerySmallScreen ? "30px" : "0",
         }}
       >
         <div className="market-item-banner">
           <img src={url} alt="" />
         </div>
         <div className="market-item-title overflow-more">Meta-Intel Pentium 4 #{tokenId}</div>
-        <div className="market-item-desc overflow-more">Asking price: {price}</div>
+        <div className="market-detail-desc">
+          <div className="item">
+            <div className="title overflow-more">CONTRACT ADDRESS</div>
+            <div className="desc overflow-more">12312314353453</div>
+          </div>
+          <div className="item">
+            <div className="title overflow-more">CONTRACT ADDRESS</div>
+            <div className="desc overflow-more">4353453</div>
+          </div>
+          <div className="item">
+            <div className="title overflow-more">CONTRACT ADDRESS</div>
+            <div className="desc overflow-more">12312314353453</div>
+          </div>
+        </div>
       </div>
-      <div className="market-empty "></div>
+      <div className="market-empty"></div>
       <div
-        className={`${isSmallScreen || isVerySmallScreen ? "Mobile" : "market-buy-btn"}`}
-        onClick={e => {
-          buyNft(tokenId, e);
+        className="market-box-right"
+        // onClick={e => {
+        //   buyNft(tokenId, e);
+        // }}
+        style={{
+          width: isSmallScreen || isVerySmallScreen ? "100%" : "500px",
         }}
       >
-        BUY
+        <div className="market-box-right-item top-item">
+          <div className="market-right-detail-title overflow-more">Meta-Intel Pentium 4 #{tokenId}</div>
+          <div className="market-right-detail-desc">
+            <p className="tng-text">The Next Generation Crypto</p>
+            <p className="tng-text">The Next Generation Crypto</p>
+            <p className="tng-text">The Next Generation Crypto</p>
+          </div>
+          <div className="market-right-detail-price">
+            <div className="market-right-detail-price-title">Price</div>
+            <div className="market-right-detail-price-desc">
+              1.0
+              <span>(~420.96 USD）</span>
+            </div>
+          </div>
+          <div className="market-right-detail-buy">BUY</div>
+        </div>
+        <div className="market-box-right-item top-item ower-item">
+          <div className="ower-item-title">Owner</div>
+          <div className="ower-item-number overflow-more">452453546sgfsgsshgss</div>
+        </div>
       </div>
     </div>
   );
