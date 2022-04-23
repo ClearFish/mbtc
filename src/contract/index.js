@@ -14,14 +14,13 @@ export const NFTRepository_ABI = NFTRepository.abi;
 export const NFTStore_ABI = NFTStore.abi;
 export const MFuel_ABI = MFuel.abi;
 
-export const MBTCStaking_ADDRESS = "0x8b33A946d647F13fD27514EF81d2d605b11Ae7CD";
-export const NFTMiner_ADDRESS = "0x8a4041F0d99c2C928F95b0b84558E65d7489b67b";
-export const NFTPool_ADDRESS = "0x7c257bf81Af419900ec49aa7fACf41800d20966C";
-export const NFTRepository_ADDRESS = "0x9B81dFB685606cDb32747eB491Db9f0292a86F2F";
-export const NFTStore_ADDRESS = "0x39a6ABf857c95084960CCcfc285C09D4B9e6a063";
+export const MBTCStaking_ADDRESS = "0x89e5f05d9E8aA0F164c32bd0d264cE6ff8294D82";
+export const NFTMiner_ADDRESS = "0xA81A2A7556CB0DbA3FdB3e573848ad5377E3DDa1";
+export const NFTPool_ADDRESS = "0x9ea664B0f6B889eb41e97cD178038435ff58F955";
+export const NFTRepository_ADDRESS = "0x0d8918a778449e88e1480320EDDe88C8036FA259";
+export const NFTStore_ADDRESS = "0xeeE2691E417460756f47064b2150424Eb0Bad387";
+export const mBTC_ADDRESS = "0xB83a288c277a244cf5b5965157ffA318b5986ccA";
+export const mFuel_ADDRESS = "0x2f5c5C6FcF1f85CD9aa53f2B7A851956e4Ba5477";
+export const factory_ADDRESS = "0x987D7716A6EbaccC38cc2d85d894b588D1e0BEca";
 
-export const mBTC_ADDRESS = "0xD98a7396eC1E53039ED4293559320CE16D792c3d";
-export const mFuel_ADDRESS = "0x0b523c1F1118d3082d6A22BC6FB26AA59a4D60fC";
-export const factory_ADDRESS = "0xF9A22Fd7ff944fA95aEf4bf805dE7F915851fc42";
-
-export const POOL_ID = "3";
+export const POOL_ID = "2";
