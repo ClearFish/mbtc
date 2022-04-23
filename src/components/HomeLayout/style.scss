@@ -54,13 +54,17 @@
 
 }
 .social-link {
-    img {
-        width: 2.2rem;
-        object-fit: cover;
-        margin-right: 2.2rem;
+    .social-row {
+        padding: 0;
+        justify-content: flex-start;
     }
-    a:last-child img{
-        margin-right: 0;
+    .MuiTypography-root {
+        color: #FCFCFC;
+        margin-left: 3rem;
+        transition: .2s ease-in-out;
+        &:hover {
+            color: #F4D092;
+        }
     }
 }
 .bottom {

@@ -47,3 +47,8 @@
     transition: all 0.33s ease-out;
   }
 }
+.topbar-link-btn {
+  &.MuiLink-underlineNone {
+    margin: 0 !important;
+  }
+}

@@ -294,7 +294,7 @@ const commonSettings = {
       underline: "none",
     },
     MuiSvgIcon: {
-      viewBox: "0 0 20 20",
+      viewBox: "0 0 24 24",
       fontSize: "small",
     },
     MuiBackdrop: {

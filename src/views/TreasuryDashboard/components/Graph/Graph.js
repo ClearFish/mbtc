@@ -19,7 +19,7 @@ export const TotalValueDepositedGraph = () => {
       itemType={itemType.dollar}
       itemNames={tooltipItems.tvl}
       dataKey={["totalValueLocked"]}
-      headerText={t`Total Value Deposited`}
+      headerText={t`MBTC Total Market Cap`}
       stopColor={[["#768299", "#98B3E9"]]}
       bulletpointColors={bulletpoints.tvl}
       infoTooltipMessage={tooltipInfoMessages().tvl}
@@ -55,7 +55,7 @@ export const MarketValueGraph = () => {
         ["#4E1F71", "#4E1F71"],
         ["#8AECCD", "#8AECCD"],
       ]}
-      headerText={t`Market Value of Treasury Assets`}
+      headerText={t`Total Mining Hashrate`}
       headerSubText={`${data && formatCurrency(data[0].treasuryMarketValue)}`}
       bulletpointColors={bulletpoints.coin}
       itemNames={tooltipItems.coin}

@@ -25,6 +25,24 @@
         background-clip: text;
         margin-bottom: 4rem;
     }
+    .social-link {
+        width: 50%;
+        .social-row {
+            padding: 0;
+            justify-content: flex-start;
+        }
+        .MuiTypography-root {
+            color: #FCFCFC;
+            margin-right: 3rem;
+            transition: .2s ease-in-out;
+            &:hover {
+                color: #F4D092;
+            }
+        }
+        .MuiSvgIcon-root {
+            font-size: 2rem;
+        }
+    }
     .bitcoin-img {
         width: 560px;
         object-fit: contain;

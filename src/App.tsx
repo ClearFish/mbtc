@@ -12,20 +12,18 @@ import { shouldTriggerSafetyCheck } from "./helpers";
 
 import { calcBondDetails } from "./slices/BondSlice";
 import { loadAppDetails } from "./slices/AppSlice";
-import { loadAccountDetails, calculateUserBondDetails, getMigrationAllowances } from "./slices/AccountSlice";
+import { loadAccountDetails, calculateUserBondDetails } from "./slices/AccountSlice";
 import { getZapTokenBalances } from "./slices/ZapSlice";
 import { error, info } from "./slices/MessagesSlice";
 
-import { Stake, TreasuryDashboard, Zap, Wrap, V1Stake, Give, BondV2, ChooseBondV2 } from "./views";
+import { TreasuryDashboard, Zap, Wrap, Mine, Pool, Market, MarketDetail, MyNft } from "./views";
 import NotFound from "./views/404/NotFound";
 import { dark as darkTheme } from "./themes/dark.js";
 import { light as lightTheme } from "./themes/light.js";
 import { girth as gTheme } from "./themes/girth.js";
 import { useGoogleAnalytics } from "./hooks/useGoogleAnalytics";
-import projectData from "src/views/Give/projects.json";
 import { getAllBonds, getUserNotes } from "./slices/BondSliceV2";
 import { NetworkId } from "./constants";
-import ProjectInfo from "./views/Give/ProjectInfo";
 import { trackGAEvent } from "./helpers/analytics";
 import { getAllInverseBonds } from "./slices/InverseBondSlice";
 import { Home } from "./views/Home";
@@ -34,13 +32,11 @@ import HomeLayout from "./components/HomeLayout";
 import { Economy } from "./views/Home/economy";
 import { Foundation } from "./views/Home/foundation";
 
-// 😬 Sorry for all the console logging
 const DEBUG = false;
 
 // 🛰 providers
 if (DEBUG) console.log("📡 Connecting to Mainnet Ethereum");
 // 🔭 block explorer URL
-// const blockExplorer = targetNetwork.blockExplorer;
 
 const drawerWidth = 280;
 const transitionDuration = 969;
@@ -91,18 +87,14 @@ function App() {
   const { address, connect, connectionError, hasCachedProvider, provider, connected, networkId, providerInitialized } =
     useWeb3Context();
 
-  const [migrationModalOpen, setMigrationModalOpen] = useState(false);
   const migModalClose = () => {
     dispatch(loadAccountDetails({ networkID: networkId, address, provider }));
-    setMigrationModalOpen(false);
   };
 
   const isSmallerScreen = useMediaQuery("(max-width: 980px)");
   const isSmallScreen = useMediaQuery("(max-width: 600px)");
 
   const [walletChecked, setWalletChecked] = useState(false);
-
-  const { projects } = projectData;
 
   // TODO (appleseed-expiredBonds): there may be a smarter way to refactor this
   const { bonds, expiredBonds } = useBonds(networkId);
@@ -154,7 +146,6 @@ function App() {
       }
       dispatch(getUserNotes({ networkID: networkId, address, provider: loadProvider }));
       dispatch(loadAccountDetails({ networkID: networkId, address, provider: loadProvider }));
-      dispatch(getMigrationAllowances({ address, provider: loadProvider, networkID: networkId }));
       bonds.map(bond => {
         // NOTE: get any Claimable bonds, they may not be bondable
         if (bond.getClaimability(networkId)) {
@@ -171,65 +162,6 @@ function App() {
     [networkId, address, providerInitialized],
   );
 
-  const oldAssetsDetected = useAppSelector(state => {
-    if (networkId && (networkId === NetworkId.MAINNET || networkId === NetworkId.TESTNET_RINKEBY)) {
-      return (
-        state.account.balances &&
-        (Number(state.account.balances.sohmV1) ||
-        Number(state.account.balances.ohmV1) ||
-        Number(state.account.balances.wsohm)
-          ? true
-          : false)
-      );
-    } else {
-      return false;
-    }
-  });
-
-  const oldAssetsEnoughToMigrate = useAppSelector(state => {
-    if (!state.app.currentIndex || !state.app.marketPrice) {
-      return true;
-    }
-    const wrappedBalance = Number(state.account.balances.wsohm) * Number(state.app.currentIndex!);
-    const allAssetsBalance =
-      Number(state.account.balances.sohmV1) + Number(state.account.balances.ohmV1) + wrappedBalance;
-    return state.app.marketPrice * allAssetsBalance >= 10;
-  });
-
-  const hasDust = useAppSelector(state => {
-    if (!state.app.currentIndex || !state.app.marketPrice) {
-      return true;
-    }
-    const wrappedBalance = Number(state.account.balances.wsohm) * Number(state.app.currentIndex!);
-    const ohmBalance = Number(state.account.balances.ohmV1);
-    const sOhmbalance = Number(state.account.balances.sohmV1);
-    if (ohmBalance > 0 && ohmBalance * state.app.marketPrice < 10) {
-      return true;
-    }
-    if (sOhmbalance > 0 && sOhmbalance * state.app.marketPrice < 10) {
-      return true;
-    }
-    if (wrappedBalance > 0 && wrappedBalance * state.app.marketPrice < 10) {
-      return true;
-    }
-    return false;
-  });
-
-  const newAssetsDetected = useAppSelector(state => {
-    return (
-      state.account.balances &&
-      (Number(state.account.balances.gohm) || Number(state.account.balances.sohm) || Number(state.account.balances.ohm)
-        ? true
-        : false)
-    );
-  });
-
-  // The next 3 useEffects handle initializing API Loads AFTER wallet is checked
-  //
-  // this useEffect checks Wallet Connection & then sets State for reload...
-  // ... we don't try to fire Api Calls on initial load because web3Context is not set yet
-  // ... if we don't wait we'll ALWAYS fire API calls via JsonRpc because provider has not
-  // ... been reloaded within App.
   useEffect(() => {
     if (hasCachedProvider()) {
       // then user DOES have a wallet
@@ -245,7 +177,7 @@ function App() {
       setWalletChecked(true);
     }
     if (shouldTriggerSafetyCheck()) {
-      dispatch(info("Safety Check: Always verify you're on app.olympusdao.finance!"));
+      dispatch(info("Safety Check: Always verify you're on mbtc!"));
     }
   }, []);
 
@@ -323,89 +255,33 @@ function App() {
               <Redirect to="/home" />
             </Route>
 
-            <Route path="/stake">
-              {/* if newAssets or 0 assets */}
-              {newAssetsDetected || (!newAssetsDetected && !oldAssetsDetected) || !oldAssetsEnoughToMigrate ? (
-                <Stake />
-              ) : (
-                <V1Stake
-                  hasActiveV1Bonds={hasActiveV1Bonds}
-                  oldAssetsDetected={oldAssetsDetected}
-                  setMigrationModalOpen={setMigrationModalOpen}
-                />
-              )}
+            <Route exact path="/mine">
+              <Mine />
             </Route>
 
-            <Route path="/v1-stake">
-              <V1Stake
-                hasActiveV1Bonds={hasActiveV1Bonds}
-                oldAssetsDetected={oldAssetsDetected}
-                setMigrationModalOpen={setMigrationModalOpen}
-              />
+            <Route exact path="/pool">
+              <Pool />
             </Route>
 
-            <Route exact path="/give">
-              <Give />
-            </Route>
-            <Redirect from="/olympusgive" to="/give" />
-            <Redirect from="/tyche" to="/give" />
-            <Redirect from="/olygive" to="/give" />
-            <Redirect from="/olympusdaogive" to="/give" />
-            <Redirect from="/ohmgive" to="/give" />
-
-            <Route path="/give/projects">
-              {projects.map(project => {
-                return (
-                  <Route exact key={project.slug} path={`/give/projects/${project.slug}`}>
-                    <ProjectInfo project={project} />
-                  </Route>
-                );
-              })}
+            <Route exact path="/market">
+              <Market />
             </Route>
 
-            <Route exact path="/give/donations">
-              <Give selectedIndex={1} />
+            <Route exact path="/marketDetail/:id">
+              <MarketDetail />
             </Route>
 
-            <Route exact path="/give/redeem">
-              <Give selectedIndex={2} />
+            <Route path="/error">
+              <Wrap />
             </Route>
-
-            <Route path="/wrap">
-              <Route exact path={`/wrap`}>
-                <Wrap />
-              </Route>
+            <Route exact path="/mynft">
+              <MyNft />
             </Route>
 
             <Route path="/zap">
-              <Route exact path={`/zap`}>
-                <Zap />
-              </Route>
+              <Zap />
             </Route>
 
-            {/* <Route path="/33-together">
-              <PoolTogether />
-            </Route> */}
-
-            <Redirect from="/bonds-v1" to="/bonds" />
-
-            <Route path="/bonds">
-              {bondIndexes.map(index => {
-                return (
-                  <Route exact key={index} path={`/bonds/${index}`}>
-                    <BondV2 index={index} inverseBond={false} />
-                  </Route>
-                );
-              })}
-              {inverseBondIndexes.map(index => {
-                return (
-                  <Route exact key={index} path={`/bonds/inverse/${index}`}>
-                    <BondV2 index={index} inverseBond={true} />
-                  </Route>
-                );
-              })}
-              <ChooseBondV2 />
-            </Route>
             <Route component={NotFound} />
           </Switch>
         </AppLayout>
