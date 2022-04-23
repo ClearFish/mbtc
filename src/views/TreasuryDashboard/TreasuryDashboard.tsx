@@ -17,7 +17,7 @@ import {
   MinedMBTCNetWorth,
   MyMiningHashRate,
   MyNFTMiners,
-  OHMPrice,
+  MBTCPrice,
   TotalMiningHashRate,
 } from "./components/Metric/Metric";
 
@@ -35,7 +35,7 @@ const TreasuryDashboard = memo(() => {
   const isSmallScreen = useMediaQuery("(max-width: 650px)");
   const isVerySmallScreen = useMediaQuery("(max-width: 379px)");
   const history = useHistory();
-  const { networkId } = useWeb3Context();
+  const { networkId, address, connected, provider } = useWeb3Context();
   usePathForNetwork({ pathName: "dashboard", networkID: networkId, history });
 
   return (
@@ -52,7 +52,7 @@ const TreasuryDashboard = memo(() => {
               <Paper className="ohm-card">
                 <MetricCollection>
                   <MarketCap {...sharedMetricProps} />
-                  <OHMPrice {...sharedMetricProps} />
+                  <MBTCPrice {...sharedMetricProps} />
                   <CircSupply {...sharedMetricProps} />
                   <BackingPerOHM {...sharedMetricProps} />
                   <CurrentIndex {...sharedMetricProps} />

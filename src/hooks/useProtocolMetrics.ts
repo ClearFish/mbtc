@@ -1,5 +1,6 @@
 import { useQuery } from "react-query";
 import apollo from "src/lib/apolloClient";
+import { useWeb3Context } from "./web3Context";
 
 const query = `
   query ProtcolMetrics {
@@ -109,3 +110,45 @@ export const useTotalValueDeposited = () => useProtocolMetrics(metrics => metric
 export const useTreasuryMarketValue = () => useProtocolMetrics(metrics => metrics[0].treasuryMarketValue);
 export const useTreasuryTotalBacking = () => useProtocolMetrics(metrics => metrics[0].treasuryTotalBacking);
 export const useOhmCirculatingSupply = () => useProtocolMetrics(metrics => metrics[0].ohmCirculatingSupply);
+
+const TotalMiningHashRate = "https://admin.meta-backend.org/system/open/api/totalHashRate";
+const MyNFTMiners = "https://admin.meta-backend.org/system/open/api/myNftMiners"; // hasOwner
+const MyNFTPools = "https://admin.meta-backend.org/system/open/api/myNftPools"; // hasOwner
+const MBTCPrice = "https://admin.meta-backend.org/system/open/api/price/mbtc";
+const MyMiningHashRate = "https://admin.meta-backend.org/system/open/api/myHashRate"; // hasOwner
+const MinedMBTC = "https://admin.meta-backend.org/system/open/api/minedMBTC"; // hasOwner
+const MFuelcost = "https://admin.meta-backend.org/system/open/api/mFuel/cost"; // hasOwner
+const Volume24 = "https://admin.meta-backend.org/system/open/api/volume";
+const MFuelprice = "https://admin.meta-backend.org/system/open/api/price/mFuel";
+
+export const useMbtcMetrics = (requestUrl: string, hasOwner?: boolean) => {
+  const { address } = useWeb3Context();
+  if (hasOwner) {
+    requestUrl = requestUrl + "/" + address;
+  }
+  return useQuery(`KEY-${requestUrl}`, async () => {
+    const response = await fetch(requestUrl, {
+      method: "post",
+      body: JSON.stringify({}),
+      headers: {
+        "content-type": "application/json",
+      },
+    }).then(res => {
+      return res.json();
+    });
+
+    if (!response) throw new Error("No response from MBTC");
+
+    return response.data;
+  });
+};
+
+export const useTotalMiningHashRate = () => useMbtcMetrics(TotalMiningHashRate);
+export const useMyNFTMiners = () => useMbtcMetrics(MyNFTMiners, true);
+export const useMyNFTPools = () => useMbtcMetrics(MyNFTPools, true);
+export const useMBTCPrice = () => useMbtcMetrics(MBTCPrice);
+export const useMyMiningHashRate = () => useMbtcMetrics(MyMiningHashRate, true);
+export const useMinedMBTC = () => useMbtcMetrics(MinedMBTC, true);
+export const useMFuelcost = () => useMbtcMetrics(MFuelcost, true);
+export const useVolume24 = () => useMbtcMetrics(Volume24);
+export const useMFuelprice = () => useMbtcMetrics(MFuelprice);
