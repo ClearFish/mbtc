@@ -84,6 +84,7 @@ interface NftType {
   attributes?: [];
   id: string;
   checked: boolean;
+  disabled: boolean;
 }
 
 const Mine: React.FC = () => {
@@ -150,6 +151,7 @@ const Mine: React.FC = () => {
             return {
               ...item,
               checked: false,
+              disabled: false,
             };
           })
         : [],
@@ -167,14 +169,16 @@ const Mine: React.FC = () => {
   };
 
   const handleSelectAll = () => {
-    const newStakedCheck: string[] = [];
     const targetStakedList = (() => {
       return value == "1" ? stakedList : unStakedList;
     })();
     const newStakedList = targetStakedList?.map((el, index) => {
       if (index < 20) {
         el.checked = true;
-        newStakedCheck.push(el.id);
+        el.disabled = false;
+      } else {
+        el.disabled = true;
+        el.checked = false;
       }
       return el;
     });
@@ -190,7 +194,6 @@ const Mine: React.FC = () => {
     setAnchorEl(null);
     // 选中的stakedID
     const checkedList = minerItem?.filter(item => item.checked).map(item => item.id);
-    console.log({ checkedList });
     if (checkedList && checkedList.length > 0) {
       if (value === "1") {
         batchWithdrawMiners(checkedList);
@@ -222,23 +225,34 @@ const Mine: React.FC = () => {
   // over提示 end
 
   // 多选 start
+  const formatMinerItem = (newMinerItem: NftType[] | undefined) => {
+    const hasChecked = newMinerItem ? newMinerItem.filter(item => item.checked).length : 0;
+    if (hasChecked >= 20) {
+      const checkItem = newMinerItem?.map(item => {
+        if (!item.checked) {
+          item.disabled = true;
+        }
+        return item;
+      });
+      return checkItem;
+    }
+    if (hasChecked < 20) {
+      const checkItem = newMinerItem?.map(item => {
+        item.disabled = false;
+        return item;
+      });
+      return checkItem;
+    }
+  };
   const handleToggle = (value: string) => () => {
-    const hasChecked = minerItem ? minerItem.filter(item => item.checked).length : 0;
     const newMinerItem = minerItem?.map(item => {
       if (item.id === value) {
-        if (item.checked || hasChecked < 20) {
-          return {
-            ...item,
-            checked: !item.checked,
-          };
-        } else {
-          return item;
-        }
-      } else {
-        return item;
+        item.checked = !item.checked;
       }
+      return item;
     });
-    setMinerItem(newMinerItem);
+    const targetMinerItem = formatMinerItem(newMinerItem);
+    setMinerItem(targetMinerItem);
   };
   // 多选 end
 
@@ -270,6 +284,7 @@ const Mine: React.FC = () => {
             id: item,
             url: metaintelp4,
             checked: false,
+            disabled: false,
           };
         }),
       );
@@ -343,6 +358,7 @@ const Mine: React.FC = () => {
               cost: info.consumption.toString(),
               url: metaintelp4,
               checked: false,
+              disabled: false,
             };
           })(),
         );
@@ -772,6 +788,7 @@ const Mine: React.FC = () => {
                     paddingTop: "1.6rem",
                     paddingBottom: "1.6rem",
                   }}
+                  spacing={5}
                 >
                   <Grid className="stake-container" container spacing={1} justifyContent="space-between">
                     {unStakedList?.map(item => (
@@ -868,6 +885,7 @@ const Mine: React.FC = () => {
                         checked={item.checked}
                         edge="end"
                         onChange={handleToggle(item.id)}
+                        disabled={item.disabled}
                         // checked={checked.indexOf(item.id) !== -1}
                         inputProps={{ "aria-labelledby": labelId }}
                       />
