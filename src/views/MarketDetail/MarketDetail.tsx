@@ -170,7 +170,9 @@ const Market: React.FC = props => {
                 <span>(~420.96 USD）</span>
               </div>
             </div>
-            <div className="market-right-detail-buy">BUY</div>
+            <div className="market-right-detail-buy" onClick={buyNft}>
+              BUY
+            </div>
           </div>
           <div className="market-box-right-item top-item ower-item">
             <div className="bg"></div>
