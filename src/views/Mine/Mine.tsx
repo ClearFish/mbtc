@@ -590,6 +590,7 @@ const Mine: React.FC = () => {
           paddingRight: isSmallScreen || isVerySmallScreen ? "0" : "4.3rem",
         }}
       >
+        <div className="global-title">Mine</div>
         <Box className="hero-metrics">
           <Grid xs={12} md={12}>
             <Box className="ohm-card-mine">
