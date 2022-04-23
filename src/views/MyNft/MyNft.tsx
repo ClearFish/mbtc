@@ -154,6 +154,7 @@ const Market: React.FC = () => {
           price: price,
           status: 0,
           createdAt: Date.now(),
+          baseToken: "mbtc",
         }),
       }),
       headers: {

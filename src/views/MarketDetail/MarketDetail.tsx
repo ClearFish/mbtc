@@ -6,7 +6,7 @@ import { useMediaQuery } from "@material-ui/core";
 import { ethers } from "ethers";
 import { useWeb3Context } from "src/hooks";
 import { useDispatch } from "react-redux";
-import { NFTStore_ABI, NFTStore_ADDRESS, mFuel_ADDRESS, MFuel_ABI } from "src/contract";
+import { NFTStore_ABI, NFTStore_ADDRESS, MFuel_ABI, mBTC_ADDRESS } from "src/contract";
 import { error, info } from "../../slices/MessagesSlice";
 import CopyIcon from "./assets/images/Copy.png";
 import Vector from "./assets/images/Vector.png";
@@ -57,13 +57,13 @@ const Market: React.FC = props => {
   const buyNft = async () => {
     setLoading(true);
     try {
-      const mFuelContract = new ethers.Contract(mFuel_ADDRESS, MFuel_ABI, signer);
+      const mbtcContract = new ethers.Contract(mBTC_ADDRESS, MFuel_ABI, signer);
       const storeContract = new ethers.Contract(NFTStore_ADDRESS, NFTStore_ABI, signer);
 
-      const allowance = await mFuelContract.allowance(address, NFTStore_ADDRESS);
+      const allowance = await mbtcContract.allowance(address, NFTStore_ADDRESS);
 
       if (allowance.toString() === "0") {
-        const approve_tx = await mFuelContract.approve(NFTStore_ADDRESS, ethers.constants.MaxUint256);
+        const approve_tx = await mbtcContract.approve(NFTStore_ADDRESS, ethers.constants.MaxUint256);
         await approve_tx.wait();
       }
 
