@@ -292,7 +292,7 @@ const Market: React.FC = () => {
           <CircularProgress />
         </Box>
       ) : (
-        <div className="btc-card-box clearfix">
+        <div className="btc-card-box">
           {unStakedList &&
             unStakedList.map(el => {
               return (

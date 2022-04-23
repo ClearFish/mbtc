@@ -40,10 +40,10 @@ const NavContent: React.FC<NavContentProps> = ({ handleDrawerToggle }) => {
 
           <div className="dapp-menu-links">
             <div className="dapp-nav" id="navbarNav">
-              <NavItem to="/dashboard" icon={"dashboard"} label={t`Dashboard`} />
-              <NavItem to="/mine" icon={"zap"} label={t`Mine`} />
-              <NavItem to="/pool" icon={"bond"} label={t`Pool`} />
-              <NavItem to="/market" icon="grants" label={t`NFT Market`} />
+              <NavItem to="/dashboard" icon="dashboard" label={t`Dashboard`} />
+              <NavItem to="/mine" icon="dashboard" label={t`Mine`} />
+              <NavItem to="/pool" icon="dashboard" label={t`Pool`} />
+              <NavItem to="/market" icon="dashboard" label={t`NFT Market`} />
               <Box className="menu-divider">
                 <Divider />
               </Box>
