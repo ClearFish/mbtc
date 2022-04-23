@@ -43,6 +43,26 @@
                 font-size: 1rem;
             }
         }
+        .card-box {
+            position: absolute;
+            top: 7rem;
+            right: 5rem;
+            min-width: 9rem;
+            .card-info {
+                display: flex;
+                justify-content: space-between;
+                margin-bottom: 0.5rem;
+                .card-info-content {
+                    color: #D39B33;
+                }
+            }
+            &.isMobile {
+                margin: auto;
+                top: 1rem;
+                right: 1rem;
+            }
+
+        }
     }
     .btc-item-title-container {
         padding: 0 0.5rem;
