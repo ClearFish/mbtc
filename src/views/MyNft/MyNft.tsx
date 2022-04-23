@@ -277,7 +277,7 @@ const Market: React.FC = () => {
 
   return (
     <div id="mynft-view">
-      <div className="mynft-title">My NFTs</div>
+      <div className="global-title mynft-title">My NFTs</div>
       {listLoading ? (
         <Box
           style={{
@@ -291,31 +291,15 @@ const Market: React.FC = () => {
           <CircularProgress />
         </Box>
       ) : (
-        <div
-          className="btc-card-box"
-          style={{
-            paddingLeft: isSmallScreen || isVerySmallScreen ? "0" : "25px",
-            paddingRight: isSmallScreen || isVerySmallScreen ? "0" : "25px",
-            display: isSmallScreen || isVerySmallScreen ? "block" : "grid",
-          }}
-        >
+        <div className="btc-card-box clearfix">
           {unStakedList &&
             unStakedList.map(el => {
               return (
                 <div className="btc-card-item-box">
-                  <div>
-                    <div
-                      className="btc-card-item"
-                      key={el.tokenId}
-                      style={{
-                        width: isSmallScreen || isVerySmallScreen ? "100%" : "15rem",
-                      }}
-                    >
-                      <div className="btc-card-item-img">
-                        <img src={el.url} alt="" />
-                      </div>
-                      <div className="btc-card-item-title overflow-more">Meta-Intel Pentium 4 #{el.tokenId}</div>
-                    </div>
+                  <div className="btc-card-item" key={el.tokenId}>
+                    <img className="card-image" src={el.url} alt="" />
+                    <div className="card-info">Meta Bitcoin NFT</div>
+                    <div className="card-detail">Asking price</div>
                   </div>
                   <div className="btc-card-item-footer">
                     <div

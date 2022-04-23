@@ -1,7 +1,10 @@
 * {
   outline: none;
-  -ms-overflow-style: none !important; /* IE and Edge */
-  scrollbar-width: none !important; /* Firefox */
+  -ms-overflow-style: none !important;
+  /* IE and Edge */
+  scrollbar-width: none !important;
+
+  /* Firefox */
   &::-webkit-scrollbar {
     display: none !important;
   }
@@ -15,12 +18,39 @@ body,
   -moz-osx-font-smoothing: grayscale;
   // overflow: hidden;
   // background: #040407;
-  background: linear-gradient(180deg, #23094B 0%,
-        #2C2058 50%,
-        #1F2043 70%,
-        #1B213B 80%,
-        #1F2940 90%,
-        rgba(70, 144, 212, 0) 100%);
+  // background: linear-gradient(180deg, #23094B 0%,
+  //     #2C2058 50%,
+  //     #1F2043 70%,
+  //     #1B213B 80%,
+  //     #1F2940 90%,
+  //     rgba(70, 144, 212, 0) 100%);
+  background-image: radial-gradient(circle at right bottom, 
+  #292311, 
+  #292311, 
+  #282311,
+  #272312,
+  #252212,
+  #232013,
+  #221F12,
+  #211F13,
+  #1D1C13,
+  #1A1A14,
+  #181915,
+  #141617,
+  #0C1019,
+  #0B1119,
+  #090D1D,
+  #0C0C21,
+  #0C0C22,
+  #0F0B27,
+  #190638,
+  #1B053D,
+  #1C053D,
+  #210347,
+  #23024A,
+  #230249,#230249,#230249
+  
+  );
 }
 
 body {
@@ -53,12 +83,13 @@ body {
       flex-direction: row;
       margin: 12px 0px;
     }
-  
+
     .data-row-centered {
       display: flex;
       justify-content: center;
       flex-flow: row wrap;
       margin: 12px 0px;
+
       .marginedBtn {
         margin: 0.3rem;
       }
@@ -68,10 +99,12 @@ body {
 
 .ohm-card {
   max-width: 833px;
+
   .card-header {
     width: 100%;
     min-height: 33px;
     margin-bottom: 10px;
+
     h5 {
       font-weight: 600 !important;
     }
@@ -93,6 +126,7 @@ body {
     justify-content: center;
     flex-flow: row wrap;
     margin: 12px 0px;
+
     .marginedBtn {
       margin: 0.3rem;
     }
@@ -123,4 +157,31 @@ a:hover svg {
 
 .makeStyles-content-7 {
   z-index: 1;
+}
+
+@media (min-width: 750px) {
+  .global-title {
+    width: 314px;
+    height: 55px;
+    font-size: 40px;
+    font-family: Manrope-ExtraBold, Manrope;
+    font-weight: 800;
+    color: #FFFFFF;
+    line-height: 47px;
+    position: fixed;
+    z-index: 9000;
+    top: 15px;
+    left: 304px;
+  }
+}
+
+.clearfix::after {
+  display: block;
+  /* 使其成为块级元素后*/
+  content: "";
+  /*为伪元素加入空内容，以便伪元素中不会有内容显示在页面中*/
+  height: 0;
+  /* 为使伪元素不影响页面布局，将伪元素高度设置为0*/
+  clear: both;
+  /* 清除浮动*/
 }
