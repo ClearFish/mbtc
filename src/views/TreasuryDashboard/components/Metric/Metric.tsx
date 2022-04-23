@@ -1,6 +1,6 @@
 import { t } from "@lingui/macro";
 import { Metric } from "@olympusdao/component-library";
-import { formatCurrency, formatNumber } from "src/helpers";
+import { formatCurrency, formatNumber, formatMBTC } from "src/helpers";
 import { useCurrentIndex } from "src/hooks/useCurrentIndex";
 import {
   useMarketCap,
@@ -146,7 +146,7 @@ export const MinedMBTC: React.FC<AbstractedMetricProps> = props => {
     label: t`Mined MBTC`,
   };
 
-  if (data || data === 0) _props.metric = data;
+  if (data || data === 0) _props.metric = formatMBTC(data, 2);
   else _props.isLoading = true;
 
   return <Metric {..._props} />;
@@ -173,7 +173,7 @@ export const TotalMiningHashRate: React.FC<AbstractedMetricProps> = props => {
     label: t`Total Mining HashRate`,
   };
 
-  if (data) _props.metric = data;
+  if (data || data === 0) _props.metric = data;
   else _props.isLoading = true;
 
   return <Metric {..._props} />;

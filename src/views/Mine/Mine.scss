@@ -46,14 +46,18 @@
         .card-box {
             position: absolute;
             top: 7rem;
-            right: 5rem;
-            min-width: 9rem;
+            right: 4rem;
+            width: 11rem;
             .card-info {
                 display: flex;
                 justify-content: space-between;
                 margin-bottom: 0.5rem;
                 .card-info-content {
+                    text-align: right;
+                    max-width: 50%;
                     color: #D39B33;
+                    text-overflow: ellipsis;
+                    overflow: hidden;
                 }
             }
             &.isMobile {

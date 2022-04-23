@@ -16,6 +16,7 @@ import { PairContract, RedeemHelper } from "../typechain";
 import { ohm_dai, ohm_daiOld, ohm_weth } from "./AllBonds";
 import { Environment } from "./environment/Environment/Environment";
 import { Providers } from "./providers/Providers/Providers";
+import { BigNumber as BigNumberEther } from "bignumber.js";
 
 /**
  * gets marketPrice from Ohm-DAI v2
@@ -255,4 +256,12 @@ export const getGohmBalFromSohm = async ({ provider, networkID, sOHMbalance }: I
   const gOhmContract = GOHM__factory.connect(addresses[networkID].GOHM_ADDRESS, provider);
   const formattedGohmBal = await gOhmContract.balanceTo(ethers.utils.parseUnits(sOHMbalance, "gwei").toString());
   return ethers.utils.formatEther(formattedGohmBal);
+};
+
+/**
+ * Formats a number
+ */
+export const formatMBTC = (number: number, precision = 0) => {
+  const a = new BigNumberEther(number).dividedBy(Math.pow(10, 18));
+  return a.toFixed(precision);
 };
