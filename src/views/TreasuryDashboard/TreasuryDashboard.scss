@@ -85,16 +85,6 @@
   .data-grid {
     overflow: hidden;
   }
-  .custom-layout {
-    @media (min-width: 600px) {
-      .MuiGrid-grid-sm-4 {
-        flex-grow: 0;
-        max-width: 20%;
-        flex-basis: 20%;
-      }
-    }
-  }
-
 }
 
 .smaller {

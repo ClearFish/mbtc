@@ -9,7 +9,6 @@ import {
   BackingPerOHM,
   CircSupply,
   CurrentIndex,
-  EarnedMFuelNetWorth,
   Volume24,
   MarketCap,
   MBTCReward,
@@ -24,6 +23,7 @@ import {
 import { useHistory } from "react-router-dom";
 import { useWeb3Context } from "src/hooks";
 import { usePathForNetwork } from "src/hooks/usePathForNetwork";
+import { useMBTCPrice, useMFuelprice } from "src/hooks/useProtocolMetrics";
 
 import MBTC_LOGO from "./assets/mbtc-logo.png";
 import MFUEL_LOGO from "./assets/mfuel-logo.png";
@@ -37,6 +37,8 @@ const TreasuryDashboard = memo(() => {
   const history = useHistory();
   const { networkId, address, connected, provider } = useWeb3Context();
   usePathForNetwork({ pathName: "dashboard", networkID: networkId, history });
+  const MBTCPriceData = useMBTCPrice().data || 0;
+  const MFuelpriceData = useMFuelprice().data || 0;
 
   return (
     <div id="treasury-dashboard-view" className={`${isSmallScreen && "smaller"} ${isVerySmallScreen && "very-small"}`}>
@@ -74,10 +76,15 @@ const TreasuryDashboard = memo(() => {
                         <Typography variant="h6"> USD</Typography>
                       </div>
                       <Typography variant="h5" className="transfer-content">
-                        $100.00
+                        {MBTCPriceData}
                       </Typography>
                     </div>
-                    <Button className="card-pannel-btn" variant="contained">
+                    <Button
+                      className="card-pannel-btn"
+                      variant="contained"
+                      href="https://pancake.kiemtienonline360.com/#/swap?outputCurrency=0xD98a7396eC1E53039ED4293559320CE16D792c3d"
+                      target="_blank"
+                    >
                       Buy
                     </Button>
                   </Grid>
@@ -90,10 +97,15 @@ const TreasuryDashboard = memo(() => {
                         <Typography variant="h6"> USD</Typography>
                       </div>
                       <Typography variant="h5" className="transfer-content">
-                        $100.00
+                        {MFuelpriceData}
                       </Typography>
                     </div>
-                    <Button className="card-pannel-btn" variant="contained">
+                    <Button
+                      className="card-pannel-btn"
+                      variant="contained"
+                      href="https://pancake.kiemtienonline360.com/#/swap?outputCurrency=0x0b523c1F1118d3082d6A22BC6FB26AA59a4D60fC"
+                      target="_blank"
+                    >
                       Buy
                     </Button>
                   </Grid>
@@ -113,7 +125,6 @@ const TreasuryDashboard = memo(() => {
                   <TotalMiningHashRate {...sharedMetricProps} />
                   <MyMiningHashRate {...sharedMetricProps} />
                   <MBTCReward {...sharedMetricProps} />
-                  <EarnedMFuelNetWorth {...sharedMetricProps} />
                   <MyNFTMiners {...sharedMetricProps} />
                 </MetricCollection>
               </Paper>
