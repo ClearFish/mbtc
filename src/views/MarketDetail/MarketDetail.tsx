@@ -1,5 +1,5 @@
 import "./style.scss";
-import { memo, MouseEvent, useState } from "react";
+import { memo, useState } from "react";
 import { useHistory, useParams } from "react-router-dom";
 import { useMediaQuery } from "@material-ui/core";
 // import ArrowBackIosRoundedIcon from "@material-ui/icons/ArrowBackIosRounded";
@@ -54,7 +54,7 @@ const Market: React.FC = props => {
   };
 
   /** 购买NFT **/
-  const buyNft = async (tokenId: string, event: MouseEvent<HTMLElement>) => {
+  const buyNft = async () => {
     setLoading(true);
     try {
       const mFuelContract = new ethers.Contract(mFuel_ADDRESS, MFuel_ABI, signer);
@@ -152,9 +152,6 @@ const Market: React.FC = props => {
         <div className="market-empty"></div>
         <div
           className="market-box-right"
-          // onClick={e => {
-          //   buyNft(tokenId, e);
-          // }}
           style={{
             width: isSmallScreen || isVerySmallScreen ? "100%" : "500px",
           }}
