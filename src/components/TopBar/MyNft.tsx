@@ -1,4 +1,4 @@
-import { Button, Typography, Link } from "@material-ui/core";
+import { Link } from "@material-ui/core";
 import { useEffect, useState } from "react";
 import { NFTMiner_ADDRESS } from "src/contract";
 import { useWeb3Context } from "src/hooks";
@@ -43,9 +43,7 @@ function MyNft() {
 
   return (
     <Link href="#/mynft" underline="none" className="topbar-link-btn">
-      <Button id="ohm-menu-button" variant="contained" color="secondary">
-        <Typography>My NFT: {num}</Typography>
-      </Button>
+      <div className="my-ntf">My NFT: {num}</div>
     </Link>
   );
 }
