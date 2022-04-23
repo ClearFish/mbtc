@@ -64,7 +64,7 @@ export function Foundation() {
       src: Andy,
     },
     {
-      name: "Alekwe Kingsley",
+      name: "Meta Kay",
       info: "Marketing and business analyst",
       src: Alekwe,
     },

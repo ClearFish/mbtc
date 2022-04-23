@@ -24,6 +24,7 @@ import {
   SvgIcon,
   Backdrop,
   CircularProgress,
+  Typography,
 } from "@material-ui/core";
 import { createStyles, makeStyles, Theme } from "@material-ui/core/styles";
 import { ethers } from "ethers";
@@ -101,7 +102,37 @@ const Mine: React.FC = () => {
   const [value, setValue] = useState("1");
   const [loading, setLoading] = useState(false);
   const [listLoading, setListLoading] = useState(false);
+  const [mbtcMined, setMbtcMined] = useState(0);
+  const [mfuelCost, setMfuelCost] = useState(0);
   const classes = useStyles();
+
+  // 获取 MBTC mined
+  const getMbtcMined = async () => {
+    const { data } = await fetch(`https://admin.meta-backend.org/system/open/api/minedMBTC/${address}`, {
+      method: "post",
+      body: JSON.stringify({}),
+      headers: {
+        "content-type": "application/json",
+      },
+    }).then(res => {
+      return res.json();
+    });
+    setMbtcMined(data);
+  };
+
+  // 获取 MFuel cost
+  const getMfuelCost = async () => {
+    const { data } = await fetch(`https://admin.meta-backend.org/system/open/api/mFuel/cost/${address}`, {
+      method: "post",
+      body: JSON.stringify({}),
+      headers: {
+        "content-type": "application/json",
+      },
+    }).then(res => {
+      return res.json();
+    });
+    setMfuelCost(data);
+  };
 
   // 获取合约签名
 
@@ -542,6 +573,8 @@ const Mine: React.FC = () => {
     if (provider && address && networkId === 97) {
       getUnStakedList();
       getStakedList();
+      getMbtcMined();
+      getMfuelCost();
     }
   }, [networkId, connected]);
 
@@ -561,6 +594,16 @@ const Mine: React.FC = () => {
               <Button className={`batch-btn ${isSmallScreen && "isMobile"}`} onClick={getAllRewards}>
                 Harvest MBTC
               </Button>
+              <div className={`card-box ${isSmallScreen && "isMobile"}`}>
+                <div className="card-info">
+                  <Typography>MBTC mined </Typography>
+                  <Typography className="card-info-content">{mbtcMined}</Typography>
+                </div>
+                <div className="card-info">
+                  <Typography>MFuel cost</Typography>
+                  <Typography className="card-info-content">{mfuelCost}</Typography>
+                </div>
+              </div>
             </Box>
           </Grid>
         </Box>

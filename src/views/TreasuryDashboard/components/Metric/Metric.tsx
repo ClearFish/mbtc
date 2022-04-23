@@ -2,10 +2,15 @@ import { t } from "@lingui/macro";
 import { Metric } from "@olympusdao/component-library";
 import { formatCurrency, formatNumber } from "src/helpers";
 import { useCurrentIndex } from "src/hooks/useCurrentIndex";
-import { useGohmPrice, useOhmPrice } from "src/hooks/usePrices";
+import { useGohmPrice } from "src/hooks/usePrices";
 import {
   useMarketCap,
+  useMBTCPrice,
+  useMyMiningHashRate,
+  useMyNFTMiners,
+  useMyNFTPools,
   useOhmCirculatingSupply,
+  useTotalMiningHashRate,
   useTotalSupply,
   useTotalValueDeposited,
   useTreasuryTotalBacking,
@@ -29,15 +34,15 @@ export const MarketCap: React.FC<AbstractedMetricProps> = props => {
   return <Metric {..._props} />;
 };
 
-export const OHMPrice: React.FC<AbstractedMetricProps> = props => {
-  const { data: ohmPrice } = useOhmPrice();
+export const MBTCPrice: React.FC<AbstractedMetricProps> = props => {
+  const { data } = useMBTCPrice();
 
   const _props: MetricProps = {
     ...props,
     label: t`MBTC Price`,
   };
 
-  if (ohmPrice) _props.metric = formatCurrency(ohmPrice, 2);
+  if (data) _props.metric = data;
   else _props.isLoading = true;
 
   return <Metric {..._props} />;
@@ -161,27 +166,27 @@ export const MinedMBTCNetWorth: React.FC<AbstractedMetricProps> = props => {
   return <Metric {..._props} />;
 };
 export const TotalMiningHashRate: React.FC<AbstractedMetricProps> = props => {
-  const { data: totalValueDeposited } = useTotalValueDeposited();
+  const { data } = useTotalMiningHashRate();
 
   const _props: MetricProps = {
     ...props,
     label: t`Total Mining HashRate`,
   };
 
-  if (totalValueDeposited) _props.metric = formatCurrency(totalValueDeposited, 0);
+  if (data) _props.metric = data;
   else _props.isLoading = true;
 
   return <Metric {..._props} />;
 };
 export const MyMiningHashRate: React.FC<AbstractedMetricProps> = props => {
-  const { data: totalValueDeposited } = useTotalValueDeposited();
+  const { data } = useMyMiningHashRate();
 
   const _props: MetricProps = {
     ...props,
     label: t`My Mining HashRate`,
   };
 
-  if (totalValueDeposited) _props.metric = formatCurrency(totalValueDeposited, 0);
+  if (data) _props.metric = data;
   else _props.isLoading = true;
 
   return <Metric {..._props} />;
@@ -227,28 +232,28 @@ export const EarnedMFuelNetWorth: React.FC<AbstractedMetricProps> = props => {
 };
 
 export const MyNFTMiners: React.FC<AbstractedMetricProps> = props => {
-  const { data: totalValueDeposited } = useTotalValueDeposited();
+  const { data } = useMyNFTMiners();
 
   const _props: MetricProps = {
     ...props,
     label: t`My NFT Miners`,
   };
 
-  if (totalValueDeposited) _props.metric = formatCurrency(totalValueDeposited, 0);
+  if (data) _props.metric = data;
   else _props.isLoading = true;
 
   return <Metric {..._props} />;
 };
 
 export const MyNFTPools: React.FC<AbstractedMetricProps> = props => {
-  const { data: totalValueDeposited } = useTotalValueDeposited();
+  const { data } = useMyNFTPools();
 
   const _props: MetricProps = {
     ...props,
     label: t`My NFT Pools`,
   };
 
-  if (totalValueDeposited) _props.metric = formatCurrency(totalValueDeposited, 0);
+  if (data) _props.metric = data;
   else _props.isLoading = true;
 
   return <Metric {..._props} />;

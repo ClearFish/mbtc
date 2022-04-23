@@ -23,7 +23,7 @@ import TopBar from "./components/TopBar/TopBar";
 import NavDrawer from "./components/Sidebar/NavDrawer";
 import Messages from "./components/Messages/Messages";
 import { dark as darkTheme } from "./themes/dark.js";
-import { light as lightTheme } from "./themes/light.js";
+import { dark as lightTheme } from "./themes/dark.js";
 import { girth as gTheme } from "./themes/girth.js";
 import { useGoogleAnalytics } from "./hooks/useGoogleAnalytics";
 import { getAllBonds, getUserNotes } from "./slices/BondSliceV2";

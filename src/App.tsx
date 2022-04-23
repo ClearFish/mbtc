@@ -19,7 +19,7 @@ import { error, info } from "./slices/MessagesSlice";
 import { TreasuryDashboard, Zap, Wrap, Mine, Pool, Market, MarketDetail, MyNft } from "./views";
 import NotFound from "./views/404/NotFound";
 import { dark as darkTheme } from "./themes/dark.js";
-import { light as lightTheme } from "./themes/light.js";
+import { dark as lightTheme } from "./themes/dark.js";
 import { girth as gTheme } from "./themes/girth.js";
 import { useGoogleAnalytics } from "./hooks/useGoogleAnalytics";
 import { getAllBonds, getUserNotes } from "./slices/BondSliceV2";
