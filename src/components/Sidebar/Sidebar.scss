@@ -23,6 +23,7 @@
   .MuiDrawer-root {
     width: 257px;
   }
+
   .dapp-sidebar {
     width: 257px;
     height: 100%;
@@ -36,38 +37,11 @@
         #1F2940 90%,
         rgba(70, 144, 212, 0) 100%);
     background-color: transparent;
-    border: 4px solid;
+    border: 2px solid;
     border-image: radial-gradient(circle at top, rgba(234, 191, 255, 1), #677C8A) 2 2;
   }
 
-  .dapp-nav {
-    .menu-divider {
-      display: none;
-    }
 
-    .nav-item-container {
-      margin-left: 38px;
-      height: 24px;
-      line-height: 24px;
-      margin-bottom: 40px;
-      box-sizing: border-box;
-      vertical-align: middle;
-
-      &.makeStyles-root-18 svg {
-        margin-right: 24px;
-        width: 24px;
-        height: 24px;
-        line-height: 24px;
-        font-size: 24px;
-        vertical-align: middle;
-      }
-
-      .MuiTypography-h6 {
-        font-size: 20px;
-        line-height: 24px;
-      }
-    }
-  }
   // .dapp-menu-social {
   //   width: 34px;
   //   height: 274px;
@@ -283,6 +257,143 @@
 
       .bond-discounts {
         display: none;
+      }
+    }
+  }
+}
+
+@media (min-width: 750px) {
+  .dapp-nav {
+    .menu-divider {
+      display: none;
+    }
+    .nav-item-container {
+      margin-left: 38px;
+      height: 24px;
+      line-height: 24px;
+      margin-bottom: 40px;
+      box-sizing: border-box;
+      vertical-align: middle;
+      position: relative;
+      svg {
+        opacity: 0;
+      }
+      &::after {
+        content: '';
+        width: 24px;
+        height: 24px;
+        line-height: 24px;
+        font-size: 24px;
+        vertical-align: middle;
+        margin-right: 24px;
+        display: block;
+        position: absolute;
+        left: 0;
+        top: 13px;
+        background: no-repeat center;
+        background-size: 24px 24px;
+      }
+
+      &:nth-child(1)::after {
+        background-image: url(../../assets/icons/dashboard.svg);
+      }
+
+      &:nth-child(2)::after {
+        background-image: url(../../assets/icons/mine.svg);
+      }
+
+      &:nth-child(3)::after {
+        background-image: url(../../assets/icons/pool.svg);
+      }
+
+      &:nth-child(4)::after {
+        background-image: url(../../assets/icons/market.svg);
+      }
+
+      &:nth-child(5)::after {
+        background-image: url(../../assets/icons/dashboard.svg);
+      }
+
+      &.makeStyles-root-18 svg {
+        margin-right: 24px;
+        width: 24px;
+        height: 24px;
+        line-height: 24px;
+        font-size: 24px;
+        vertical-align: middle;
+      }
+
+      .MuiTypography-h6 {
+        font-size: 20px;
+        line-height: 24px;
+      }
+    }
+  }
+}
+@media (max-width: 750px) {
+  .dapp-nav {
+    .menu-divider {
+      display: none;
+    }
+    .nav-item-container {
+      margin-left: 38px;
+      height: 24px;
+      line-height: 24px;
+      margin-bottom: 40px;
+      box-sizing: border-box;
+      vertical-align: middle;
+      position: relative;
+      svg {
+        opacity: 0;
+      }
+      &::after {
+        content: '';
+        width: 24px;
+        height: 24px;
+        line-height: 24px;
+        font-size: 24px;
+        vertical-align: middle;
+        margin-right: 24px;
+        display: block;
+        position: absolute;
+        left: 0;
+        top: 13px;
+        background: no-repeat center;
+        background-size: 24px 24px;
+      }
+
+      &:nth-child(1)::after {
+        background-image: url(../../assets/icons/dashboard.svg);
+      }
+
+      &:nth-child(2)::after {
+        background-image: url(../../assets/icons/mine.svg);
+      }
+
+      &:nth-child(3)::after {
+        background-image: url(../../assets/icons/pool.svg);
+      }
+
+      &:nth-child(4)::after {
+        background-image: url(../../assets/icons/market.svg);
+      }
+
+      &:nth-child(5)::after {
+        background-image: url(../../assets/icons/dashboard.svg);
+      }
+
+      &.makeStyles-root-18 svg {
+        margin-right: 24px;
+        width: 24px;
+        height: 24px;
+        line-height: 24px;
+        font-size: 24px;
+        vertical-align: middle;
+      }
+
+      .MuiTypography-h6 {
+        font-size: 20px;
+        line-height: 24px;
       }
     }
   }
