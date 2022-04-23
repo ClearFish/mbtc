@@ -38,6 +38,14 @@ export const initNetworkFunc = async ({ provider }: IGetCurrentNetwork) => {
         networkName = "Avalanche";
         uri = Providers.getProviderUrl(NetworkId.AVALANCHE);
         break;
+      case 56:
+        networkName = "Binance Smart Chain Mainnet";
+        uri = Providers.getProviderUrl(id);
+        break;
+      case 97:
+        networkName = "Binance Smart Chain Testnet";
+        uri = Providers.getProviderUrl(id);
+        break;
       default:
         supported = false;
         networkName = "Unsupported Network";

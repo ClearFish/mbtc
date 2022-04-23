@@ -14,24 +14,20 @@ import { shouldTriggerSafetyCheck } from "./helpers";
 
 import { calcBondDetails } from "./slices/BondSlice";
 import { loadAppDetails } from "./slices/AppSlice";
-import { loadAccountDetails, calculateUserBondDetails, getMigrationAllowances } from "./slices/AccountSlice";
+import { loadAccountDetails, calculateUserBondDetails } from "./slices/AccountSlice";
 import { getZapTokenBalances } from "./slices/ZapSlice";
 import { error, info } from "./slices/MessagesSlice";
 
 import Sidebar from "./components/Sidebar/Sidebar";
 import TopBar from "./components/TopBar/TopBar";
-import CallToAction from "./components/CallToAction/CallToAction";
 import NavDrawer from "./components/Sidebar/NavDrawer";
 import Messages from "./components/Messages/Messages";
-import MigrationModal from "src/components/Migration/MigrationModal";
 import { dark as darkTheme } from "./themes/dark.js";
-import { light as lightTheme } from "./themes/light.js";
+import { dark as lightTheme } from "./themes/dark.js";
 import { girth as gTheme } from "./themes/girth.js";
 import { useGoogleAnalytics } from "./hooks/useGoogleAnalytics";
-import projectData from "src/views/Give/projects.json";
 import { getAllBonds, getUserNotes } from "./slices/BondSliceV2";
 import { NetworkId } from "./constants";
-import MigrationModalSingle from "./components/Migration/MigrationModalSingle";
 import { trackGAEvent } from "./helpers/analytics";
 import { getAllInverseBonds } from "./slices/InverseBondSlice";
 
@@ -43,7 +39,7 @@ if (DEBUG) console.log("📡 Connecting to Mainnet Ethereum");
 // 🔭 block explorer URL
 // const blockExplorer = targetNetwork.blockExplorer;
 
-const drawerWidth = 280;
+const drawerWidth = 257;
 const transitionDuration = 969;
 
 const useStyles = makeStyles(theme => ({
@@ -92,10 +88,8 @@ export default function AppLayout({ children }: { children: React.ReactNode }) {
   const { address, connect, connectionError, hasCachedProvider, provider, connected, networkId, providerInitialized } =
     useWeb3Context();
 
-  const [migrationModalOpen, setMigrationModalOpen] = useState(false);
   const migModalClose = () => {
     dispatch(loadAccountDetails({ networkID: networkId, address, provider }));
-    setMigrationModalOpen(false);
   };
 
   const isSmallerScreen = useMediaQuery("(max-width: 980px)");
@@ -103,13 +97,8 @@ export default function AppLayout({ children }: { children: React.ReactNode }) {
 
   const [walletChecked, setWalletChecked] = useState(false);
 
-  const { projects } = projectData;
-
   // TODO (appleseed-expiredBonds): there may be a smarter way to refactor this
   const { bonds, expiredBonds } = useBonds(networkId);
-
-  const bondIndexes = useAppSelector(state => state.bondingV2.indexes);
-  const inverseBondIndexes = useAppSelector(state => state.inverseBonds.indexes);
 
   async function loadDetails(whichDetails: string) {
     // NOTE (unbanksy): If you encounter the following error:
@@ -155,7 +144,6 @@ export default function AppLayout({ children }: { children: React.ReactNode }) {
       }
       dispatch(getUserNotes({ networkID: networkId, address, provider: loadProvider }));
       dispatch(loadAccountDetails({ networkID: networkId, address, provider: loadProvider }));
-      dispatch(getMigrationAllowances({ address, provider: loadProvider, networkID: networkId }));
       bonds.map(bond => {
         // NOTE: get any Claimable bonds, they may not be bondable
         if (bond.getClaimability(networkId)) {
@@ -172,65 +160,6 @@ export default function AppLayout({ children }: { children: React.ReactNode }) {
     [networkId, address, providerInitialized],
   );
 
-  const oldAssetsDetected = useAppSelector(state => {
-    if (networkId && (networkId === NetworkId.MAINNET || networkId === NetworkId.TESTNET_RINKEBY)) {
-      return (
-        state.account.balances &&
-        (Number(state.account.balances.sohmV1) ||
-        Number(state.account.balances.ohmV1) ||
-        Number(state.account.balances.wsohm)
-          ? true
-          : false)
-      );
-    } else {
-      return false;
-    }
-  });
-
-  const oldAssetsEnoughToMigrate = useAppSelector(state => {
-    if (!state.app.currentIndex || !state.app.marketPrice) {
-      return true;
-    }
-    const wrappedBalance = Number(state.account.balances.wsohm) * Number(state.app.currentIndex!);
-    const allAssetsBalance =
-      Number(state.account.balances.sohmV1) + Number(state.account.balances.ohmV1) + wrappedBalance;
-    return state.app.marketPrice * allAssetsBalance >= 10;
-  });
-
-  const hasDust = useAppSelector(state => {
-    if (!state.app.currentIndex || !state.app.marketPrice) {
-      return true;
-    }
-    const wrappedBalance = Number(state.account.balances.wsohm) * Number(state.app.currentIndex!);
-    const ohmBalance = Number(state.account.balances.ohmV1);
-    const sOhmbalance = Number(state.account.balances.sohmV1);
-    if (ohmBalance > 0 && ohmBalance * state.app.marketPrice < 10) {
-      return true;
-    }
-    if (sOhmbalance > 0 && sOhmbalance * state.app.marketPrice < 10) {
-      return true;
-    }
-    if (wrappedBalance > 0 && wrappedBalance * state.app.marketPrice < 10) {
-      return true;
-    }
-    return false;
-  });
-
-  const newAssetsDetected = useAppSelector(state => {
-    return (
-      state.account.balances &&
-      (Number(state.account.balances.gohm) || Number(state.account.balances.sohm) || Number(state.account.balances.ohm)
-        ? true
-        : false)
-    );
-  });
-
-  // The next 3 useEffects handle initializing API Loads AFTER wallet is checked
-  //
-  // this useEffect checks Wallet Connection & then sets State for reload...
-  // ... we don't try to fire Api Calls on initial load because web3Context is not set yet
-  // ... if we don't wait we'll ALWAYS fire API calls via JsonRpc because provider has not
-  // ... been reloaded within App.
   useEffect(() => {
     if (hasCachedProvider()) {
       // then user DOES have a wallet
@@ -246,7 +175,7 @@ export default function AppLayout({ children }: { children: React.ReactNode }) {
       setWalletChecked(true);
     }
     if (shouldTriggerSafetyCheck()) {
-      dispatch(info("Safety Check: Always verify you're on app.olympusdao.finance!"));
+      dispatch(info("Safety Check: Always verify you're on mbtc!"));
     }
   }, []);
 
@@ -300,8 +229,6 @@ export default function AppLayout({ children }: { children: React.ReactNode }) {
     }
     return withInterestDue;
   });
-  const hasActiveV1Bonds = accountBonds.length > 0;
-
   return (
     <ThemeProvider theme={themeMode}>
       <CssBaseline />
@@ -316,19 +243,7 @@ export default function AppLayout({ children }: { children: React.ReactNode }) {
           )}
         </nav>
 
-        <div className={`${classes.content} ${isSmallerScreen && classes.contentShift}`}>
-          {oldAssetsDetected &&
-            !hasActiveV1Bonds &&
-            trimmedPath.indexOf("dashboard") === -1 &&
-            oldAssetsEnoughToMigrate && <CallToAction setMigrationModalOpen={setMigrationModalOpen} />}
-
-          {children}
-        </div>
-        {hasDust ? (
-          <MigrationModalSingle open={migrationModalOpen} handleClose={migModalClose} />
-        ) : (
-          <MigrationModal open={migrationModalOpen} handleClose={migModalClose} />
-        )}
+        <div className={`${classes.content} ${isSmallerScreen && classes.contentShift}`}>{children}</div>
       </div>
     </ThemeProvider>
   );

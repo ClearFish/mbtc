@@ -169,7 +169,7 @@ const commonSettings = {
     },
     MuiDrawer: {
       root: {
-        width: "280px",
+        width: "257px",
         flexShrink: 0,
       },
       paper: {
@@ -294,7 +294,7 @@ const commonSettings = {
       underline: "none",
     },
     MuiSvgIcon: {
-      viewBox: "0 0 20 20",
+      viewBox: "0 0 24 24",
       fontSize: "small",
     },
     MuiBackdrop: {

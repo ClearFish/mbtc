@@ -3,7 +3,6 @@ import { Button, SvgIcon, SwipeableDrawer, Typography, useTheme, withStyles } fr
 import { useState } from "react";
 import { ReactComponent as WalletIcon } from "src/assets/icons/wallet.svg";
 import { useWeb3Context } from "src/hooks/web3Context";
-
 import InitialWalletView from "./InitialWalletView";
 
 const WalletButton = ({ openWallet }: { openWallet: () => void }) => {
