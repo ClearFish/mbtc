@@ -37,15 +37,10 @@ const TreasuryDashboard = memo(() => {
   const history = useHistory();
   const { networkId, address, connected, provider } = useWeb3Context();
   usePathForNetwork({ pathName: "dashboard", networkID: networkId, history });
-
   return (
     <div id="treasury-dashboard-view" className={`${isSmallScreen && "smaller"} ${isVerySmallScreen && "very-small"}`}>
-      <Container
-        style={{
-          paddingLeft: isSmallScreen || isVerySmallScreen ? "0" : "3.3rem",
-          paddingRight: isSmallScreen || isVerySmallScreen ? "0" : "3.3rem",
-        }}
-      >
+      <div className="dashboard-title">Dashboard</div>
+      <Container>
         <Grid container spacing={2} className="data-grid">
           <Grid item lg={8} md={12} sm={12} xs={12}>
             <Box className="hero-metrics">
