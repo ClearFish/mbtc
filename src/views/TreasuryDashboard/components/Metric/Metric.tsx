@@ -173,7 +173,7 @@ export const TotalMiningHashRate: React.FC<AbstractedMetricProps> = props => {
     label: t`Total Mining HashRate`,
   };
 
-  if (data) _props.metric = data;
+  if (data || data === 0) _props.metric = data;
   else _props.isLoading = true;
 
   return <Metric {..._props} />;
