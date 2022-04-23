@@ -23,4 +23,4 @@ export const mBTC_ADDRESS = "0xD69191d4AB509322Db68691CEE335A102ce84f75";
 export const mFuel_ADDRESS = "0x77CD35239fc8D4E623BBcBb817E0467Bc7199496";
 export const factory_ADDRESS = "0xAb1B398631D5747caA752889fcAd3bCe5F2EB6E1";
 
-export const POOL_ID = "2";
+export const POOL_ID = "1";
