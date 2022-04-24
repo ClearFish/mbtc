@@ -621,8 +621,6 @@ const Mine: React.FC = () => {
         style={{
           paddingLeft: isSmallScreen || isVerySmallScreen ? ".6rem" : "1.4rem",
           paddingRight: isSmallScreen || isVerySmallScreen ? ".6rem" : "1.4rem",
-          marginLeft: isSmallScreen || isVerySmallScreen ? "0" : "1.6rem",
-          marginRight: isSmallScreen || isVerySmallScreen ? "0" : "1.6rem",
         }}
       >
         {listLoading ? (
