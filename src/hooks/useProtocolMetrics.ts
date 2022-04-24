@@ -104,7 +104,6 @@ export const useProtocolMetrics = <TSelectData = unknown>(select: (data: Protoco
   );
 };
 
-export const useMarketCap = () => useProtocolMetrics(metrics => metrics[0].marketCap);
 export const useTotalSupply = () => useProtocolMetrics(metrics => metrics[0].totalSupply);
 export const useTotalValueDeposited = () => useProtocolMetrics(metrics => metrics[0].totalValueLocked);
 export const useTreasuryMarketValue = () => useProtocolMetrics(metrics => metrics[0].treasuryMarketValue);
@@ -120,6 +119,7 @@ const MinedMBTC = "https://admin.meta-backend.org/system/open/api/minedMBTC"; //
 const MFuelcost = "https://admin.meta-backend.org/system/open/api/mFuel/cost"; // hasOwner
 const Volume24 = "https://admin.meta-backend.org/system/open/api/volume";
 const MFuelprice = "https://admin.meta-backend.org/system/open/api/price/mFuel";
+const MBTCConstant = "https://admin.meta-backend.org/system/open/api/constant";
 
 export const useMbtcMetrics = (requestUrl: string, hasOwner?: boolean) => {
   const { address } = useWeb3Context();
@@ -152,3 +152,4 @@ export const useMinedMBTC = () => useMbtcMetrics(MinedMBTC, true);
 export const useMFuelcost = () => useMbtcMetrics(MFuelcost, true);
 export const useVolume24 = () => useMbtcMetrics(Volume24);
 export const useMFuelprice = () => useMbtcMetrics(MFuelprice);
+export const useMBTCConstant = () => useMbtcMetrics(MBTCConstant);

@@ -6,9 +6,9 @@ import { memo } from "react";
 
 import { MarketValueGraph, TotalValueDepositedGraph } from "./components/Graph/Graph";
 import {
-  BackingPerOHM,
+  CirculatingSupply,
   CircSupply,
-  CurrentIndex,
+  NextHavlingCountdown,
   Volume24,
   MarketCap,
   MBTCReward,
@@ -52,8 +52,8 @@ const TreasuryDashboard = memo(() => {
                   <MarketCap {...sharedMetricProps} />
                   <MBTCPrice {...sharedMetricProps} />
                   <CircSupply {...sharedMetricProps} />
-                  <BackingPerOHM {...sharedMetricProps} />
-                  <CurrentIndex {...sharedMetricProps} />
+                  <CirculatingSupply {...sharedMetricProps} />
+                  <NextHavlingCountdown {...sharedMetricProps} />
                   <Volume24 {...sharedMetricProps} className="wsoprice" />
                 </MetricCollection>
               </Paper>
