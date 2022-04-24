@@ -172,15 +172,14 @@ const Mine: React.FC = () => {
   };
 
   const handleSelectAll = () => {
-    const targetStakedList = (() => {
-      return value == "1" ? stakedList : unStakedList;
-    })();
-    const hasChecked = targetStakedList ? targetStakedList.filter(item => item.checked).length : 0;
+    const hasChecked = minerItem ? minerItem.filter(item => item.checked).length : 0;
+    console.log("hasChecked", hasChecked);
+
     if (hasChecked > 1) {
       clearCheckList();
       return;
     }
-    const newStakedList = targetStakedList?.map((el, index) => {
+    const newStakedList = minerItem?.map((el, index) => {
       if (index < 20) {
         el.checked = true;
         el.disabled = false;
