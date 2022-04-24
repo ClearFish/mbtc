@@ -16,7 +16,7 @@ import { Icon, OHMTokenProps, OHMTokenStackProps, Token, TokenStack } from "@oly
 import { ethers } from "ethers";
 import { ReactElement, useEffect, useState } from "react";
 import { ReactComponent as ArrowUpIcon } from "src/assets/icons/arrow-up.svg";
-import { mBTC_ADDRESS, MFuel_ABI } from "src/contract";
+import { mBTC_ADDRESS, MFuel_ABI, NFTMiner_ADDRESS } from "src/contract";
 import { formatCurrency } from "src/helpers";
 import { useAppSelector, useWeb3Context } from "src/hooks";
 import useCurrentTheme from "src/hooks/useTheme";
@@ -125,6 +125,7 @@ const WalletTotalValue = () => {
   const marketPrice = useAppSelector(s => s.app.marketPrice || 0);
   const [currency, setCurrency] = useState<"USD" | "OHM">("USD");
   const [mbtcBalance, setMbtcBalance] = useState<string>("");
+  const [num, setNum] = useState<number>(0);
 
   const isSmallScreen = useMediaQuery("(max-width: 650px)");
   const isVerySmallScreen = useMediaQuery("(max-width: 379px)");
@@ -145,10 +146,37 @@ const WalletTotalValue = () => {
     setMbtcBalance(mbtcBalance);
   };
 
+  const getNftNum = async () => {
+    try {
+      const centralApi = "https://admin.meta-backend.org/system/open/api/nft/owner/detail";
+      const {
+        data: { tokenIds },
+      } = await fetch(centralApi, {
+        method: "post",
+        body: JSON.stringify({
+          sign: "",
+          data: {
+            contract: NFTMiner_ADDRESS,
+            address: userAddress,
+          },
+        }),
+        headers: {
+          "content-type": "application/json",
+        },
+      }).then(res => {
+        return res.json();
+      });
+      setNum(tokenIds.length);
+    } catch (err) {
+      console.log({ err });
+    }
+  };
+
   useEffect(() => {
     try {
       if (provider && userAddress && networkId === 97) {
         getMBTCToken();
+        getNftNum();
       }
     } catch (err) {
       console.log(err);
@@ -171,7 +199,7 @@ const WalletTotalValue = () => {
         <div className="address-list-item">
           <img src={NtfIcon} className="icon" />
           <div className="name">NFT Miner</div>
-          <div className="count-only">4</div>
+          <div className="count-only">{num}</div>
         </div>
       </div>
     </Box>
