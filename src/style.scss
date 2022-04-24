@@ -174,7 +174,11 @@ a:hover svg {
     left: 304px;
   }
 }
-
+@media (max-width: 750px) {
+  .global-title {
+    display: none;
+  }
+}
 .clearfix::after {
   display: block;
   /* 使其成为块级元素后*/
