@@ -258,9 +258,9 @@ const Market: React.FC = props => {
       const buy_tx = await storeContract.buy(Number(nftDetail.tokenId), 0);
       await afterBuy(nftDetail.tokenId, nftDetail.owner);
       await buy_tx.wait();
+      setLoading(false);
 
       history.push("/mynft");
-      setLoading(false);
       dispatch(info(`Success to buy`));
     } catch (err) {
       console.log({ err });
