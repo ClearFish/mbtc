@@ -247,6 +247,22 @@
 }
 @media (min-width: 750px) {    
     #mine-view {
+        .batch-btn {
+            position: absolute;
+            background-color: #D39B33;
+            right: 4rem;
+            top: 4rem;
+            border-radius: 50px;
+            padding: 0 1rem;
+            font-family: 'Manrope';
+            font-weight: 800;
+        }
+        .card-box.card-box.card-box {
+            position: absolute;
+            top: 7rem;
+            right: 4rem;
+            width: 11rem;
+        }
         .card-banner.pc {
             display: block;
         }
