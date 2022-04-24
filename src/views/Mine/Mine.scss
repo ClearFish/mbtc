@@ -307,10 +307,13 @@
 
         }
 
-        .btc-item-container .stake-container {
-            display: flex;
-            flex-wrap: wrap;
-            ;
+        .btc-item-container  {            
+            width: calc(100% - 50px);
+            margin: 0 auto;
+            .stake-container {
+                display: flex;
+                flex-wrap: wrap;
+            }
         }
 
         .btc-card-item-desc-title.btc-card-item-desc-title.btc-card-item-desc-title.btc-card-item-desc-title.btc-card-item-desc-title {
