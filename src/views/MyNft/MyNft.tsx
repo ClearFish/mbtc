@@ -207,11 +207,9 @@ const Market: React.FC = () => {
       // 中心化入库
       await afterSell(tokenId, price, baseToken);
 
-      setTimeout(async () => {
-        await getUnStakedList();
-        setListLoading(false);
-        dispatch(info(`Success to sell`));
-      }, 100);
+      await getUnStakedList();
+      setListLoading(false);
+      dispatch(info(`Success to sell`));
     } catch (err) {
       setListLoading(false);
     }
