@@ -1,9 +1,7 @@
 import { t } from "@lingui/macro";
 import { Metric } from "@olympusdao/component-library";
 import { formatCurrency, formatNumber, formatMBTC } from "src/helpers";
-import { useCurrentIndex } from "src/hooks/useCurrentIndex";
 import {
-  useMarketCap,
   useMBTCPrice,
   useMinedMBTC,
   useMyMiningHashRate,
@@ -13,8 +11,8 @@ import {
   useTotalMiningHashRate,
   useTotalSupply,
   useTotalValueDeposited,
-  useTreasuryTotalBacking,
   useVolume24,
+  useMBTCConstant,
 } from "src/hooks/useProtocolMetrics";
 import { useStakingRebaseRate } from "src/hooks/useStakingRebaseRate";
 
@@ -22,14 +20,14 @@ type MetricProps = PropsOf<typeof Metric>;
 type AbstractedMetricProps = Omit<MetricProps, "metric" | "label" | "tooltip" | "isLoading">;
 
 export const MarketCap: React.FC<AbstractedMetricProps> = props => {
-  const { data: marketCap } = useMarketCap();
+  const { data } = useMBTCConstant();
 
   const _props: MetricProps = {
     ...props,
     label: t`Total Market Cap`,
   };
 
-  if (marketCap) _props.metric = formatCurrency(marketCap, 0);
+  if (data) _props.metric = String(data.totalMarketCap);
   else _props.isLoading = true;
 
   return <Metric {..._props} />;
@@ -43,7 +41,7 @@ export const MBTCPrice: React.FC<AbstractedMetricProps> = props => {
     label: t`MBTC Price`,
   };
 
-  if (data) _props.metric = formatMBTC(data, 2);
+  if (data || data === 0) _props.metric = formatMBTC(data, 2);
   else _props.isLoading = true;
 
   return <Metric {..._props} />;
@@ -64,30 +62,29 @@ export const CircSupply: React.FC<AbstractedMetricProps> = props => {
   return <Metric {..._props} />;
 };
 
-export const BackingPerOHM: React.FC<AbstractedMetricProps> = props => {
-  const { data: circSupply } = useOhmCirculatingSupply();
-  const { data: treasuryBacking } = useTreasuryTotalBacking();
+export const CirculatingSupply: React.FC<AbstractedMetricProps> = props => {
+  const { data } = useMBTCConstant();
 
   const _props: MetricProps = {
     ...props,
     label: t`Circulating Supply`,
   };
 
-  if (circSupply && treasuryBacking) _props.metric = `${formatCurrency(treasuryBacking / circSupply, 2)}`;
+  if (data) _props.metric = data.cicrulatingSupply;
   else _props.isLoading = true;
 
   return <Metric {..._props} />;
 };
 
-export const CurrentIndex: React.FC<AbstractedMetricProps> = props => {
-  const { data: currentIndex } = useCurrentIndex();
+export const NextHavlingCountdown: React.FC<AbstractedMetricProps> = props => {
+  const { data } = useMBTCConstant();
 
   const _props: MetricProps = {
     ...props,
     label: t`Next Havling Countdown`,
   };
 
-  if (currentIndex) _props.metric = `${currentIndex.toFormattedString(2)} sOHM`;
+  if (data) _props.metric = data.nextHavlingCountdown;
   else _props.isLoading = true;
 
   return <Metric {..._props} />;
@@ -188,22 +185,21 @@ export const MyMiningHashRate: React.FC<AbstractedMetricProps> = props => {
     label: t`My Mining HashRate`,
   };
 
-  console.log({
-    data,
-  });
-
   if (data || data === 0) _props.metric = data;
   else _props.isLoading = true;
 
   return <Metric {..._props} />;
 };
 export const MBTCReward: React.FC<AbstractedMetricProps> = props => {
+  const { data } = useMBTCConstant();
+
   const _props: MetricProps = {
     ...props,
     label: t`MBTC Reward`,
   };
 
-  _props.metric = "50 MBTC/10 min";
+  if (data || data === 0) _props.metric = data.mbtcReward;
+  else _props.isLoading = true;
 
   return <Metric {..._props} />;
 };
@@ -250,6 +246,20 @@ export const MyNFTMiners: React.FC<AbstractedMetricProps> = props => {
 
 export const MyNFTPools: React.FC<AbstractedMetricProps> = props => {
   const { data } = useMyNFTPools();
+
+  const _props: MetricProps = {
+    ...props,
+    label: t`My NFT Pools`,
+  };
+
+  if (data || data === 0) _props.metric = data;
+  else _props.isLoading = true;
+
+  return <Metric {..._props} />;
+};
+
+export const MBTCConstant: React.FC<AbstractedMetricProps> = props => {
+  const { data } = useMBTCConstant();
 
   const _props: MetricProps = {
     ...props,
