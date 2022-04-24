@@ -532,7 +532,7 @@ const Mine: React.FC = () => {
     const isApprovedForAll = await nftMinerContract.isApprovedForAll(address, MBTCStaking_ADDRESS);
     if (!isApprovedForAll) {
       const approveTx = await nftMinerContract.setApprovalForAll(MBTCStaking_ADDRESS, true);
-      approveTx.wait();
+      await approveTx.wait();
     }
   };
 

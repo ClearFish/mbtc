@@ -382,7 +382,7 @@ const Market: React.FC = props => {
                 <div className="market-right-detail-price-title">Price</div>
                 <div className="market-right-detail-price-desc">
                   {nftDetail.price}
-                  <span>{` ( ～ ${nftDetail.busd} BUSD ) `}</span>
+                  <span>{` ( ～ ${nftDetail.price} BUSD ) `}</span>
                 </div>
               </div>
               <div className="market-right-detail-buy" onClick={buyNft}>

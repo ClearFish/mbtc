@@ -35,7 +35,7 @@ const NavContent: React.FC<NavContentProps> = ({ handleDrawerToggle }) => {
                 style={{ minWidth: "63px", minHeight: "46px", width: "63px" }}
               />
             </Link>
-            <WalletAddressEns />
+            {/* <WalletAddressEns /> */}
           </Box>
 
           <div className="dapp-menu-links">

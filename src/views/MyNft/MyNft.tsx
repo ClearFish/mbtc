@@ -51,7 +51,7 @@ const Market: React.FC = () => {
   const [tokenId, setTokenId] = useState<string>("");
   const [listLoading, setListLoading] = useState(false);
   const [unStakedList, setUnStakedList] = useState<NftType[]>();
-  const [baseToken, setBaseToken] = useState<string>("mbtc");
+  const [baseToken, setBaseToken] = useState<string>("busd");
 
   const history = useHistory();
   const { networkId, address, provider, connected } = useWeb3Context();
@@ -362,8 +362,9 @@ const Market: React.FC = () => {
           </FormControl>
           <FormControl className="slippage-input base-token-form" variant="outlined" color="primary" size="small">
             <Select id="asset-select" value={baseToken} label="BaseToken" onChange={handleBaseToken} disableUnderline>
-              <MenuItem value={"mbtc"}>MBTC</MenuItem>
-              <MenuItem value={"mfuel"}>MFUEL</MenuItem>
+              <MenuItem value={"busd"}>BUSD</MenuItem>
+              {/* <MenuItem value={"mbtc"}>MBTC</MenuItem> */}
+              {/* <MenuItem value={"mfuel"}>MFUEL</MenuItem> */}
             </Select>
           </FormControl>
           <Box display="flex" justifyContent={"flex-end"}>
