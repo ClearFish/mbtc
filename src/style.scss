@@ -173,14 +173,19 @@ a:hover svg {
     top: 15px;
     left: 304px;
   }
+  .toolBar-title {
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    padding: 20px!important;
+  }
   .MuiDrawer-paper {
     width: 461px;
     position: relative;
     .MuiBox-root {
       padding: 0;
     }
-    .MuiTypography-colorTextSecondary {
-      position: absolute;
+    .toolBar-close {
       width: 300px;
       height: 40px;
       font-size: 40px!important;
@@ -188,8 +193,6 @@ a:hover svg {
       font-weight: 800;
       color: #FFFFFF;
       line-height: 40px!important;
-      left:54px;
-      top:43px;
     }
     .MuiDivider-root {
       display: none;

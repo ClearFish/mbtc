@@ -1,8 +1,9 @@
 import { t } from "@lingui/macro";
-import { Button, SwipeableDrawer, Typography, useTheme, withStyles } from "@material-ui/core";
+import { Button, SwipeableDrawer, Typography, useTheme, withStyles, useMediaQuery } from "@material-ui/core";
 import { useState } from "react";
 import { useWeb3Context } from "src/hooks/web3Context";
 import InitialWalletView from "./InitialWalletView";
+import "./style.scss";
 
 const WalletButton = ({ openWallet }: { openWallet: () => void }) => {
   const { connect, connected, address } = useWeb3Context();
@@ -35,6 +36,8 @@ export function Wallet() {
   // because we can assume IOS is hosted on hight-end devices and will not drop frames
   // also disable discovery on IOS, because of it's 'swipe to go back' feat
   const isIOS = /iPad|iPhone|iPod/.test(navigator.userAgent);
+  const isSmallScreen = useMediaQuery("(max-width: 650px)");
+  const isVerySmallScreen = useMediaQuery("(max-width: 379px)");
 
   return (
     <>
@@ -42,7 +45,7 @@ export function Wallet() {
       <StyledSwipeableDrawer
         disableBackdropTransition={!isIOS}
         disableDiscovery={isIOS}
-        anchor="right"
+        anchor={isSmallScreen || isVerySmallScreen ? "top" : "right"}
         open={isWalletOpen}
         onOpen={openWallet}
         onClose={closeWallet}

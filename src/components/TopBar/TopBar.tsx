@@ -2,11 +2,13 @@ import "./TopBar.scss";
 
 // import { i18n } from "@lingui/core";
 // import { t } from "@lingui/macro";
-import { AppBar, Box, Button, SvgIcon, Toolbar, useMediaQuery } from "@material-ui/core";
+import { AppBar, Box, SvgIcon, Toolbar, useMediaQuery } from "@material-ui/core";
 import { makeStyles } from "@material-ui/core/styles";
 // import { LocaleSwitcher } from "@olympusdao/component-library";
 
-import { ReactComponent as MenuIcon } from "../../assets/icons/hamburger.svg";
+import { ReactComponent as MenuIcon } from "../../assets/icons/menu.svg";
+// import { ReactComponent as NftMine } from "../../assets/icons/NftMine.svg";
+// import { ReactComponent as NftMarket } from "../../assets/icons/NftMarket.svg";
 import ArrowBackIosRoundedIcon from "@material-ui/icons/ArrowBackIosRounded";
 // import { locales, selectLocale } from "../../locales";
 import { useLocation, useHistory } from "react-router-dom";
@@ -57,20 +59,19 @@ function TopBar({ theme, toggleTheme, handleDrawerToggle }: TopBarProps) {
         disableGutters
         className="dapp-topbar"
         style={{
-          justifyContent: isDetail ? "space-between" : "flex-end",
+          justifyContent: isDetail || isSmallScreen || isVerySmallScreen ? "space-between" : "flex-end",
         }}
       >
-        <Button
+        <Box
           id="hamburger"
-          aria-label="open drawer"
-          size="large"
-          variant="contained"
-          color="secondary"
           onClick={handleDrawerToggle}
-          className={classes.menuButton}
+          className="toolBar-menu"
+          style={{
+            display: isSmallScreen || isVerySmallScreen ? "block" : "none",
+          }}
         >
-          <SvgIcon component={MenuIcon} />
-        </Button>
+          <SvgIcon component={MenuIcon} htmlColor="#FFF" style={{ fontSize: 30 }} />
+        </Box>
         <Box
           className="left-back"
           onClick={onBackList}

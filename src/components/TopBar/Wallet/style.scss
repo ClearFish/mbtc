@@ -1,0 +1,64 @@
+.tooBar-container {
+  width: 100%;
+  .tooBar-price {
+    padding: 20px 0;
+    display: flex;
+    justify-content: center;
+  }
+}
+.address-list {
+  width: 100%;
+  box-sizing: border-box;
+  min-height: 60px;
+  .address-list-item {
+    height: 60px;
+    width: 100%;
+    margin-bottom: 33px;
+    line-height: 60px;
+    position: relative;
+    .icon {
+      float: left;
+      height: 60px;
+      width: 60px;
+      margin-right: 14px;
+    }
+    .name {
+      height: 60px;
+      float: left;
+      font-size: 22px;
+      font-family: Manrope-SemiBold, Manrope;
+      font-weight: 600;
+      color: #ffffff;
+    }
+    .count {
+      font-size: 20px;
+      font-family: Manrope-SemiBold, Manrope;
+      font-weight: 600;
+      color: #ffffff;
+      position: absolute;
+      top: 7px;
+      right: 0;
+      line-height: 20px;
+    }
+    .value {
+      font-size: 14px;
+      font-family: Manrope-Regular, Manrope;
+      font-weight: 400;
+      color: #ffffff;
+      position: absolute;
+      bottom: 10px;
+      right: 0;
+      line-height: 14px;
+    }
+    .count-only {
+      font-size: 20px;
+      font-family: Manrope-SemiBold, Manrope;
+      font-weight: 600;
+      color: #ffffff;
+      position: absolute;
+      top: 0;
+      right: 0;
+      line-height: 60px;
+    }
+  }
+}
