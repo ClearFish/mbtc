@@ -409,6 +409,7 @@ const Mine: React.FC = () => {
   /** 质押NFT提取 **/
   const withdrawMiner = async (minerId: string) => {
     setLoading(true);
+    await checkMfuelApproved();
     const mbtcStakingContract = new ethers.Contract(MBTCStaking_ADDRESS, MBTCStaking_ABI, signer);
     try {
       const tx = await mbtcStakingContract.withdrawMiner(minerId);
@@ -426,6 +427,7 @@ const Mine: React.FC = () => {
   /** 批量质押NFT提取 **/
   const batchWithdrawMiners = async (minerIds: string[]) => {
     setLoading(true);
+    await checkMfuelApproved();
     const mbtcStakingContract = new ethers.Contract(MBTCStaking_ADDRESS, MBTCStaking_ABI, signer);
     try {
       const tx = await mbtcStakingContract.batchWithdrawMiners(minerIds);
@@ -443,6 +445,7 @@ const Mine: React.FC = () => {
   /** 全部提取质押NFT **/
   const withdrawAllMiners = async () => {
     setLoading(true);
+    await checkMfuelApproved();
     const mbtcStakingContract = new ethers.Contract(MBTCStaking_ADDRESS, MBTCStaking_ABI, signer);
     try {
       const res = await mbtcStakingContract.withdrawAllMiners();
@@ -532,7 +535,7 @@ const Mine: React.FC = () => {
     const isApprovedForAll = await nftMinerContract.isApprovedForAll(address, MBTCStaking_ADDRESS);
     if (!isApprovedForAll) {
       const approveTx = await nftMinerContract.setApprovalForAll(MBTCStaking_ADDRESS, true);
-      approveTx.wait();
+      await approveTx.wait();
     }
   };
 
