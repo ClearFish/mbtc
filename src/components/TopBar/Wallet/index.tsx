@@ -5,9 +5,9 @@ import { useWeb3Context } from "src/hooks/web3Context";
 import InitialWalletView from "./InitialWalletView";
 
 const WalletButton = ({ openWallet }: { openWallet: () => void }) => {
-  const { connect, connected } = useWeb3Context();
+  const { connect, connected, address } = useWeb3Context();
   const onClick = connected ? openWallet : connect;
-  const label = connected ? t`Wallet` : t`Connect Wallet`;
+  const label = connected ? address.slice(0, 6) + "..." + address.slice(-6) : t`Connect Wallet`;
   const theme = useTheme();
   return (
     <Button id="ohm-menu-button" variant="contained" color="secondary" onClick={onClick}>
