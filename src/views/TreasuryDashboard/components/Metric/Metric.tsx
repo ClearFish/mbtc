@@ -41,7 +41,7 @@ export const MBTCPrice: React.FC<AbstractedMetricProps> = props => {
     label: t`MBTC Price`,
   };
 
-  if (data || data === 0) _props.metric = formatMBTC(data, 2);
+  if (data || data === 0) _props.metric = data;
   else _props.isLoading = true;
 
   return <Metric {..._props} />;
