@@ -18,6 +18,9 @@ import { ReactComponent as ArrowUpIcon } from "src/assets/icons/arrow-up.svg";
 import { formatCurrency } from "src/helpers";
 import { useAppSelector, useWeb3Context } from "src/hooks";
 import useCurrentTheme from "src/hooks/useTheme";
+import "./style.scss";
+import { ReactComponent as NftMine } from "../../../assets/icons/NftMine.svg";
+import { ReactComponent as NftMarket } from "../../../assets/icons/NftMarket.svg";
 
 import { useWallet } from "./Token";
 import WalletAddressEns from "./WalletAddressEns";
@@ -130,12 +133,30 @@ const WalletTotalValue = () => {
     OHM: walletTotalValueUSD / marketPrice,
   };
   return (
-    <Box onClick={() => setCurrency(currency === "USD" ? "OHM" : "USD")}>
-      <Typography color="textSecondary">My Wallet</Typography>
-      <Typography style={{ fontWeight: 700, cursor: "pointer" }} variant="h3">
-        {!isLoading ? formatCurrency(walletValue[currency], 2, currency) : <Skeleton variant="text" width={100} />}
-      </Typography>
+    <Box className="tooBar-container" onClick={() => setCurrency(currency === "USD" ? "OHM" : "USD")}>
       <WalletAddressEns />
+      <Typography variant="h1" style={{ fontWeight: 700, cursor: "pointer" }} className="tooBar-price">
+        {!isLoading ? formatCurrency(walletValue[currency], 2, currency) : <Skeleton variant="text" width={"100%"} />}
+      </Typography>
+      <Box className="tooBar-item">
+        <Box className="tooBar-item-left">
+          <SvgIcon component={NftMine} />
+          MBTC
+        </Box>
+        <Box className="tooBar-item-right">
+          <div>100.00</div>
+          <div>≈$10000</div>
+        </Box>
+      </Box>
+      <Box className="tooBar-item">
+        <Box className="tooBar-item-left">
+          <SvgIcon component={NftMarket} />
+          NFT Miner
+        </Box>
+        <Box className="tooBar-item-right">
+          <div>4</div>
+        </Box>
+      </Box>
     </Box>
   );
 };
@@ -150,16 +171,17 @@ function InitialWalletView({ onClose }: { onClose: () => void }) {
     <Paper>
       <Box sx={{ padding: theme.spacing(0, 3), display: "flex", flexDirection: "column", minHeight: "100vh" }}>
         <Box sx={{ display: "flex", justifyContent: "space-between", padding: theme.spacing(3, 0) }}>
-          <WalletTotalValue />
+          <Typography variant="h1" component="div" style={{ color: "#FFF", fontWeight: "400" }}>
+            My Wallet
+          </Typography>
           <CloseButton size="small" onClick={onClose} aria-label="close wallet">
             <Icon name="x" />
           </CloseButton>
         </Box>
-
+        <WalletTotalValue />
         <Box sx={{ margin: theme.spacing(2, -3) }}>
           <Divider color="secondary" />
         </Box>
-
         {/* <Box
           sx={{
             ...(isSmallScreen
@@ -202,7 +224,6 @@ function InitialWalletView({ onClose }: { onClose: () => void }) {
             </ExternalLink>
           </Box>
         </Box> */}
-
         <Box sx={{ marginTop: "auto", marginX: "auto", padding: theme.spacing(2) }}>
           <DisconnectButton />
         </Box>
