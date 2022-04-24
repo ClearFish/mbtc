@@ -1,4 +1,4 @@
-import { Link } from "@material-ui/core";
+import { Link, useMediaQuery } from "@material-ui/core";
 import { shorten } from "src/helpers";
 import { useWeb3Context } from "src/hooks";
 import { useEns } from "src/hooks/useENS";
@@ -6,6 +6,8 @@ import { useEns } from "src/hooks/useENS";
 export default function WalletAddressEns() {
   const { data: ens } = useEns();
   const { address } = useWeb3Context();
+  const isSmallScreen = useMediaQuery("(max-width: 650px)");
+  const isVerySmallScreen = useMediaQuery("(max-width: 379px)");
 
   if (!address) return null;
 

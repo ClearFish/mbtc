@@ -173,14 +173,19 @@ a:hover svg {
     top: 15px;
     left: 304px;
   }
+  .toolBar-title {
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    padding: 20px!important;
+  }
   .MuiDrawer-paper {
     width: 461px;
     position: relative;
     .MuiBox-root {
       padding: 0;
     }
-    .MuiTypography-colorTextSecondary {
-      position: absolute;
+    .toolBar-close {
       width: 300px;
       height: 40px;
       font-size: 40px!important;
@@ -188,8 +193,6 @@ a:hover svg {
       font-weight: 800;
       color: #FFFFFF;
       line-height: 40px!important;
-      left:54px;
-      top:43px;
     }
     .MuiDivider-root {
       display: none;
@@ -240,6 +243,65 @@ a:hover svg {
       }
       .MuiSvgIcon-fontSizeSmall {
         font-size: 50px;
+      }
+    }
+    .address-list {
+      width: 355px;
+      box-sizing: border-box;
+      position: absolute;
+      left:57px;
+      min-height: 60px;
+      top:275px;
+      .address-list-item {
+        height: 60px;
+        width: 100%;        
+        margin-bottom: 33px;
+        line-height: 60px;
+        position: relative;
+        .icon {
+          float: left;
+          height: 60px;
+          width: 60px;
+          margin-right: 14px;
+        }
+        .name {
+          height: 60px;
+          float: left;
+          font-size: 22px;
+          font-family: Manrope-SemiBold, Manrope;
+          font-weight: 600;
+          color: #FFFFFF;
+        }
+        .count {
+          font-size: 20px;
+          font-family: Manrope-SemiBold, Manrope;
+          font-weight: 600;
+          color: #FFFFFF;
+          position: absolute;
+          top:7px;
+          right:0;
+          line-height: 20px;
+        }
+        .value {
+          font-size: 14px;
+          font-family: Manrope-Regular, Manrope;
+          font-weight: 400;
+          color: #FFFFFF;
+          position: absolute;
+          bottom:10px;
+          right:0;
+          line-height: 14px;
+        }
+        .count-only {
+          font-size: 20px;
+          font-family: Manrope-SemiBold, Manrope;
+          font-weight: 600;
+          color: #FFFFFF;
+          position: absolute;
+          top:0;
+          right:0;
+          line-height: 60px;
+        }
       }
     }
   }
