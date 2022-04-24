@@ -42,7 +42,7 @@ export function Wallet() {
       <StyledSwipeableDrawer
         disableBackdropTransition={!isIOS}
         disableDiscovery={isIOS}
-        anchor="right"
+        anchor="top"
         open={isWalletOpen}
         onOpen={openWallet}
         onClose={closeWallet}
