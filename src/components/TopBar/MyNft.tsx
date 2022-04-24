@@ -35,6 +35,10 @@ function MyNft() {
     }
   };
 
+  setInterval(() => {
+    getNftNum();
+  }, 5000);
+
   useEffect(() => {
     if (provider && address && networkId === 97) {
       getNftNum();
