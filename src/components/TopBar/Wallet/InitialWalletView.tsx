@@ -18,9 +18,10 @@ import { ReactComponent as ArrowUpIcon } from "src/assets/icons/arrow-up.svg";
 import { formatCurrency } from "src/helpers";
 import { useAppSelector, useWeb3Context } from "src/hooks";
 import useCurrentTheme from "src/hooks/useTheme";
-
+import MbtcIcon from "../../../assets/icons/mbtc.svg";
+import NtfIcon from "../../../assets/icons/nft.svg";
 import { useWallet } from "./Token";
-import WalletAddressEns from "./WalletAddressEns";
+// import WalletAddressEns from "./WalletAddressEns";
 const Borrow = ({
   Icon1,
   borrowableTokensIcons,
@@ -135,7 +136,20 @@ const WalletTotalValue = () => {
       <Typography style={{ fontWeight: 700, cursor: "pointer" }} variant="h3">
         {!isLoading ? formatCurrency(walletValue[currency], 2, currency) : <Skeleton variant="text" width={100} />}
       </Typography>
-      <WalletAddressEns />
+      {/* <WalletAddressEns /> */}
+      <div className="address-list">
+        <div className="address-list-item">
+          <img src={MbtcIcon} className="icon" />
+          <div className="name">BTC</div>
+          <div className="count">100.0000</div>
+          <div className="value">≈$10000</div>
+        </div>
+        <div className="address-list-item">
+          <img src={NtfIcon} className="icon" />
+          <div className="name">NFT Miner</div>
+          <div className="count-only">4</div>
+        </div>
+      </div>
     </Box>
   );
 };
