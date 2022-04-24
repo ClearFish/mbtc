@@ -1,5 +1,6 @@
 import "./Mine.scss";
 import MineBanner from "../../assets/images/mine/mine-banner.png";
+import MineBannerH5 from "../../assets/images/mine/mine-banner-h5.png";
 import { memo, useEffect, useState, MouseEvent } from "react";
 import { useDispatch } from "react-redux";
 import { useHistory } from "react-router-dom";
@@ -594,7 +595,8 @@ const Mine: React.FC = () => {
         <Box className="hero-metrics">
           <Grid xs={12} md={12}>
             <Box className="ohm-card-mine">
-              <img className="card-banner" src={MineBanner} />
+              <img className="card-banner pc" src={MineBanner} />
+              <img className="card-banner h5" src={MineBannerH5} />
               <Button className={`batch-btn ${isSmallScreen && "isMobile"}`} onClick={getAllRewards}>
                 Harvest MBTC
               </Button>

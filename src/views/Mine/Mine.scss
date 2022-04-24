@@ -22,8 +22,6 @@
     }
 
     .ohm-card-mine {
-        max-width: unset !important;
-        width: unset !important;
         padding: 0;
         background-color: unset !important;
         position: relative;
@@ -37,10 +35,6 @@
         .batch-btn {
             position: absolute;
             background-color: #D39B33;
-            right: 4rem;
-            top: 4rem;
-            border-radius: 50px;
-            padding: 0 1rem;
             font-family: 'Manrope';
             font-weight: 800;
 
@@ -53,9 +47,7 @@
 
         .card-box {
             position: absolute;
-            top: 7rem;
-            right: 4rem;
-            width: 11rem;
+            width: 8rem;
 
             .card-info {
                 display: flex;
@@ -71,12 +63,7 @@
                 }
             }
 
-            &.isMobile {
-                margin: auto;
-                top: 1rem;
-                right: 1rem;
-            }
-
+           
         }
     }
 
@@ -255,9 +242,14 @@
         }
     }
 }
-
-@media (min-width: 750px) {
+.card-banner {
+    display: none;
+}
+@media (min-width: 750px) {    
     #mine-view {
+        .card-banner.pc {
+            display: block;
+        }
         .MuiTabs-root {
             height: 54px;
         }
@@ -359,6 +351,39 @@
 
 @media (max-width: 750px) {
     #mine-view {
+        .card-banner.h5 {
+            display: block;
+        }
+        .ohm-card-mine {
+            width: 90.7vw;
+            height: 66.1vw;
+            margin: 0 auto 20.5vw;
+            position: relative;
+
+            .batch-btn.isMobile {
+                position: absolute;
+                bottom: -14.8vw;
+                left:8.9vw;
+                margin: 0;
+                width: 27.1vw;
+                height: 68vw;
+                background: #D39B33;
+                border-radius: 6.8vw;
+                font-size: 3.3vw;
+                padding: 0;
+                box-sizing: border-box;
+                text-align: center;                
+                width: 27.1vw;
+                height: 6.8vw;
+            }
+            .card-box.isMobile {
+                height: 9vw;
+                position: absolute;
+                bottom: -14.8vw;
+                right:8.4vw;
+                margin: 0;
+            }
+        }
         .MuiGrid-item {
             padding: 0;
         }
@@ -381,7 +406,7 @@
 
                 .MuiGrid-root.MuiGrid-item {
                     width: 40.5vw;
-                    height: 51.8vw;
+                    height: 52.5vw;
                     border: 1px solid rgba(255, 255, 255, 0.3);
                     border-radius: 1.1vw;
                     margin-bottom: 5vw;
@@ -404,7 +429,6 @@
 
                         .btc-card-item-desc {
                             font-size: 2.6vw;
-
                             .btc-card-item-desc-title {
                                 font-size: 2.6vw;
                             }
