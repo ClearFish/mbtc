@@ -176,7 +176,7 @@ const Mine: React.FC = () => {
       return value == "1" ? stakedList : unStakedList;
     })();
     const hasChecked = targetStakedList ? targetStakedList.filter(item => item.checked).length : 0;
-    if (hasChecked >= 20) {
+    if (hasChecked > 1) {
       clearCheckList();
       return;
     }
