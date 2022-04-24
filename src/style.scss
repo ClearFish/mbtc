@@ -173,6 +173,76 @@ a:hover svg {
     top: 15px;
     left: 304px;
   }
+  .MuiDrawer-paper {
+    width: 461px;
+    position: relative;
+    .MuiBox-root {
+      padding: 0;
+    }
+    .MuiTypography-colorTextSecondary {
+      position: absolute;
+      width: 300px;
+      height: 40px;
+      font-size: 40px!important;
+      font-family: Manrope-ExtraBold, Manrope;
+      font-weight: 800;
+      color: #FFFFFF;
+      line-height: 40px!important;
+      left:54px;
+      top:43px;
+    }
+    .MuiDivider-root {
+      display: none;
+    }
+    .wallet-link {
+      margin: 0;
+      width: 356px;
+      height: 20px;
+      font-size: 20px;
+      font-family: Manrope-SemiBold, Manrope;
+      font-weight: 600;
+      color: #FFFFFF;
+      line-height: 20px;
+      position: absolute;
+      top: 124px;
+      left: 52px;
+      border-bottom: 2px solid #D39B33;
+      padding-bottom: 19px;
+    }
+    .MuiTypography-h3 {
+      width: 319px;
+      height: 47px;
+      font-size: 40px;
+      font-family: Manrope-ExtraBold, Manrope;
+      font-weight: 800;
+      color: #FFFFFF;
+      line-height: 47px;
+      position: absolute;
+      top: 184px;
+      left: 50%;
+      transform: translateX(-50%);
+      text-align: center;
+      
+    }
+    [aria-label="close wallet"] {
+      width: 46px;
+      height: 46px;
+      line-height: 31px;
+      font-size: 31px;
+      position: absolute;
+      top: 40px;
+      right: 44px;
+      padding-left: 10px;
+      padding-top: 9px;
+      background-color: transparent;
+      &:hover {
+        background-color: transparent;
+      }
+      .MuiSvgIcon-fontSizeSmall {
+        font-size: 50px;
+      }
+    }
+  }
 }
 @media (max-width: 750px) {
   .global-title {
