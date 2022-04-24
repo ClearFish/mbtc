@@ -13,8 +13,10 @@ import {
 } from "@material-ui/core";
 import { Skeleton } from "@material-ui/lab";
 import { Icon, OHMTokenProps, OHMTokenStackProps, Token, TokenStack } from "@olympusdao/component-library";
-import { ReactElement, useState } from "react";
+import { ethers } from "ethers";
+import { ReactElement, useEffect, useState } from "react";
 import { ReactComponent as ArrowUpIcon } from "src/assets/icons/arrow-up.svg";
+import { mBTC_ADDRESS, MFuel_ABI } from "src/contract";
 import { formatCurrency } from "src/helpers";
 import { useAppSelector, useWeb3Context } from "src/hooks";
 import useCurrentTheme from "src/hooks/useTheme";
@@ -116,11 +118,14 @@ const CloseButton = withStyles(theme => ({
 }))(IconButton);
 
 const WalletTotalValue = () => {
-  const { address: userAddress, networkId, providerInitialized } = useWeb3Context();
+  const { address: userAddress, provider, networkId, providerInitialized, connected } = useWeb3Context();
+  const signer = provider.getSigner();
   const tokens = useWallet(userAddress, networkId, providerInitialized);
   const isLoading = useAppSelector(s => s.account.loading || s.app.loadingMarketPrice || s.app.loading);
   const marketPrice = useAppSelector(s => s.app.marketPrice || 0);
   const [currency, setCurrency] = useState<"USD" | "OHM">("USD");
+  const [mbtcBalance, setMbtcBalance] = useState<string>("");
+
   const isSmallScreen = useMediaQuery("(max-width: 650px)");
   const isVerySmallScreen = useMediaQuery("(max-width: 379px)");
 
@@ -132,6 +137,24 @@ const WalletTotalValue = () => {
     USD: walletTotalValueUSD,
     OHM: walletTotalValueUSD / marketPrice,
   };
+
+  const getMBTCToken = async () => {
+    const mbtcContract = new ethers.Contract(mBTC_ADDRESS, MFuel_ABI, signer);
+    const tx = await mbtcContract.balanceOf(userAddress);
+    const mbtcBalance = (tx / Math.pow(10, 18)).toFixed(0);
+    setMbtcBalance(mbtcBalance);
+  };
+
+  useEffect(() => {
+    try {
+      if (provider && userAddress && networkId === 97) {
+        getMBTCToken();
+      }
+    } catch (err) {
+      console.log(err);
+    }
+  }, [networkId, connected]);
+
   return (
     <Box className="tooBar-container" onClick={() => setCurrency(currency === "USD" ? "OHM" : "USD")}>
       <WalletAddressEns />
@@ -141,9 +164,9 @@ const WalletTotalValue = () => {
       <div className="address-list">
         <div className="address-list-item">
           <img src={MbtcIcon} className="icon" />
-          <div className="name">BTC</div>
-          <div className="count">100.0000</div>
-          <div className="value">≈$10000</div>
+          <div className="name">MBTC</div>
+          <div className="count-only">{mbtcBalance}</div>
+          {/* <div className="value">≈$10000</div> */}
         </div>
         <div className="address-list-item">
           <img src={NtfIcon} className="icon" />
