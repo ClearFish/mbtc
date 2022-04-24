@@ -1,6 +1,15 @@
 import "./style.scss";
 import { memo, useState, useEffect } from "react";
-import { useMediaQuery, Dialog, FormControl, Box, Typography, CircularProgress } from "@material-ui/core";
+import {
+  useMediaQuery,
+  Dialog,
+  FormControl,
+  Box,
+  Typography,
+  CircularProgress,
+  Select,
+  MenuItem,
+} from "@material-ui/core";
 import { useWeb3Context } from "src/hooks";
 import { usePathForNetwork } from "src/hooks/usePathForNetwork";
 import { useHistory } from "react-router-dom";
@@ -42,6 +51,8 @@ const Market: React.FC = () => {
   const [tokenId, setTokenId] = useState<string>("");
   const [listLoading, setListLoading] = useState(false);
   const [unStakedList, setUnStakedList] = useState<NftType[]>();
+  const [baseToken, setBaseToken] = useState<string>("mbtc");
+
   const history = useHistory();
   const { networkId, address, provider, connected } = useWeb3Context();
   const signer = provider.getSigner();
@@ -141,7 +152,7 @@ const Market: React.FC = () => {
   };
 
   /** 中心化入库 **/
-  const centralSell = async (tokenId: string, price: string) => {
+  const afterSell = async (tokenId: string, price: string, baseToken: string) => {
     const centralApi = "https://admin.meta-backend.org/system/open/api/nft/order/sell";
     await fetch(centralApi, {
       method: "post",
@@ -154,7 +165,7 @@ const Market: React.FC = () => {
           price: price,
           status: 0,
           createdAt: Date.now(),
-          baseToken: "mbtc",
+          baseToken: baseToken,
         }),
       }),
       headers: {
@@ -166,7 +177,7 @@ const Market: React.FC = () => {
   };
 
   /** sell nft **/
-  const sellNft = async (tokenId: string, price: string) => {
+  const sellNft = async (tokenId: string, price: string, baseToken: string) => {
     setListLoading(true);
     try {
       const nftMinerContract = new ethers.Contract(NFTMiner_ADDRESS, NFTMiner_ABI, signer);
@@ -185,11 +196,16 @@ const Market: React.FC = () => {
       const decimals = await mFuelContract.decimals();
       const formatPrice = new BigNumber(price).multipliedBy(Math.pow(10, decimals)).toString();
 
-      const sell_tx = await storeContract.sell(tokenId, mBTC_ADDRESS, 0, formatPrice);
-      // await sell_tx.wait();
+      const sell_tx = await storeContract.sell(
+        tokenId,
+        baseToken === "mbtc" ? mBTC_ADDRESS : mFuel_ADDRESS,
+        0,
+        formatPrice,
+      );
+      await sell_tx.wait();
 
       // 中心化入库
-      await centralSell(tokenId, price);
+      await afterSell(tokenId, price, baseToken);
 
       setTimeout(async () => {
         await getUnStakedList();
@@ -234,7 +250,7 @@ const Market: React.FC = () => {
 
   const handleSell = () => {
     if (!disabled) {
-      sellNft(tokenId, price);
+      sellNft(tokenId, price, baseToken);
     }
     setOpen(false);
     setPrice("");
@@ -274,6 +290,10 @@ const Market: React.FC = () => {
       setDisabled2(true);
     }
     setAddress2(e.target.value);
+  };
+
+  const handleBaseToken = (e: any) => {
+    setBaseToken(e.target.value);
   };
 
   return (
@@ -340,13 +360,19 @@ const Market: React.FC = () => {
               </Typography>
             </div>
           </FormControl>
+          <FormControl className="slippage-input base-token-form" variant="outlined" color="primary" size="small">
+            <Select id="asset-select" value={baseToken} label="BaseToken" onChange={handleBaseToken} disableUnderline>
+              <MenuItem value={"mbtc"}>MBTC</MenuItem>
+              <MenuItem value={"mfuel"}>MFUEL</MenuItem>
+            </Select>
+          </FormControl>
           <Box display="flex" justifyContent={"flex-end"}>
             <PrimaryButton
               size="small"
               color="primary"
               disabled={disabled}
               onClick={handleSell}
-              style={{ marginTop: "1rem", marginRight: 0 }}
+              style={{ marginRight: 0 }}
             >
               Sure to Sell
             </PrimaryButton>
