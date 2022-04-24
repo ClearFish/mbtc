@@ -296,7 +296,7 @@ const Market: React.FC = () => {
 
   return (
     <div id="mynft-view">
-      <div className="global-title mynft-title">My NFTs</div>
+      {isSmallScreen || isVerySmallScreen ? null : <div className="global-title mynft-title">My NFTs</div>}
       {listLoading ? (
         <Box
           style={{

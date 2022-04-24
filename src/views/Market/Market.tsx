@@ -193,21 +193,29 @@ const Market: React.FC = () => {
           ) : (
             <div className="btc-card-con">
               {nftList && nftList.length > 0 ? (
-                <div className="btc-card-box">
+                <div
+                  className="btc-card-box"
+                  style={{
+                    display: isSmallScreen || isVerySmallScreen ? "block" : "grid",
+                  }}
+                >
                   {nftList?.map(item => {
                     return (
                       <div
+                        className="btc-card-item"
+                        key={item.tokenId}
+                        style={{
+                          width: isSmallScreen || isVerySmallScreen ? "100%" : "15rem",
+                        }}
                         onClick={() => {
                           goToDetail(item);
                         }}
                       >
-                        <div className="btc-card-item" key={item.tokenId}>
-                          <div className="btc-card-item-img">
-                            <img src={item.url} alt="" />
-                          </div>
-                          <div className="btc-card-item-title">Meta-Intel Pentium 4 #{item.tokenId}</div>
-                          <div className="btc-card-item-desc">Asking price: {item.price}</div>
+                        <div className="btc-card-item-img">
+                          <img src={item.url} alt="" />
                         </div>
+                        <div className="btc-card-item-title">Meta-Intel Pentium 4 #{item.tokenId}</div>
+                        <div className="btc-card-item-desc">Asking price: {item.price}</div>
                       </div>
                     );
                   })}
