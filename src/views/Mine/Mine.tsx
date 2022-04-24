@@ -36,8 +36,8 @@ import {
   MBTCStaking_ADDRESS,
   MBTCStaking_ABI,
   POOL_ID,
-  MFuel_ABI,
   mFuel_ADDRESS,
+  MFuel_ABI,
 } from "src/contract";
 import { TabPanel, TabContext } from "@material-ui/lab";
 import { error, info } from "../../slices/MessagesSlice";
@@ -111,31 +111,38 @@ const Mine: React.FC = () => {
 
   // 获取 MBTC mined
   const getMbtcMined = async () => {
-    const { data } = await fetch(`https://admin.meta-backend.org/system/open/api/minedMBTC/${address}`, {
-      method: "post",
-      body: JSON.stringify({}),
-      headers: {
-        "content-type": "application/json",
-      },
-    }).then(res => {
-      return res.json();
-    });
-
-    setMbtcMined(formatMBTC(data, 2));
+    try {
+      const { data } = await fetch(`https://admin.meta-backend.org/system/open/api/minedMBTC/${address}`, {
+        method: "post",
+        body: JSON.stringify({}),
+        headers: {
+          "content-type": "application/json",
+        },
+      }).then(res => {
+        return res.json();
+      });
+      setMbtcMined(formatMBTC(data, 2));
+    } catch (err) {
+      console.log(err);
+    }
   };
 
   // 获取 MFuel cost
   const getMfuelCost = async () => {
-    const { data } = await fetch(`https://admin.meta-backend.org/system/open/api/mFuel/cost/${address}`, {
-      method: "post",
-      body: JSON.stringify({}),
-      headers: {
-        "content-type": "application/json",
-      },
-    }).then(res => {
-      return res.json();
-    });
-    setMfuelCost(formatMBTC(data, 2));
+    try {
+      const { data } = await fetch(`https://admin.meta-backend.org/system/open/api/mFuel/cost/${address}`, {
+        method: "post",
+        body: JSON.stringify({}),
+        headers: {
+          "content-type": "application/json",
+        },
+      }).then(res => {
+        return res.json();
+      });
+      setMfuelCost(formatMBTC(data, 2));
+    } catch (err) {
+      console.log(err);
+    }
   };
 
   // 获取合约签名
@@ -297,25 +304,6 @@ const Mine: React.FC = () => {
         }),
       );
       setListLoading(false);
-      // const requestBox = [];
-      // for (let i = 0; i < tokenIds?.length || 0; i++) {
-      //   requestBox.push(
-      //     (async () => {
-      //       const tokenURI = await getTokenURI(tokenIds[i]);
-      //       const tokenURL = await fetch(tokenURI)
-      //         .then(res => res.json())
-      //         .then(json => json.image);
-      //       return {
-      //         id: tokenIds[i],
-      //         url: tokenURL,
-      //       };
-      //     })(),
-      //   );
-      // }
-      // Promise.all(requestBox).then(res => {
-      //   setUnStakedList(res);
-      //   setListLoading(false);
-      // });
     } catch (error) {
       console.log(error);
     }
@@ -383,19 +371,15 @@ const Mine: React.FC = () => {
   /** 质押单个NFT **/
   const stakeMiner = async (minerId: string, poolId: string) => {
     setLoading(true);
-    checkApproved();
+    await checkNftApproved();
     const mbtcStakingContract = new ethers.Contract(MBTCStaking_ADDRESS, MBTCStaking_ABI, signer);
     try {
-      const res = await mbtcStakingContract.stakeMiner(minerId, poolId);
-      if (res && res.data) {
-        await getUnStakedList();
-        await getStakedList();
-        setLoading(false);
-        dispatch(info(`Success to stake`));
-      } else {
-        setLoading(false);
-        dispatch(error(`Fail to stake`));
-      }
+      const stakeTx = await mbtcStakingContract.stakeMiner(minerId, poolId);
+      await stakeTx.wait();
+      await getUnStakedList();
+      await getStakedList();
+      dispatch(info(`Success to stake`));
+      setLoading(false);
     } catch (err) {
       console.log({ err });
       setLoading(false);
@@ -406,19 +390,15 @@ const Mine: React.FC = () => {
   /** 批量质押NFT **/
   const batchStakeMiners = async (minerIds: string[], poolId: string) => {
     setLoading(true);
-    checkApproved();
+    await checkNftApproved();
     const infoType = minerIds.length === stakedList?.length ? "stake all" : "batch stake";
     const mbtcStakingContract = new ethers.Contract(MBTCStaking_ADDRESS, MBTCStaking_ABI, signer);
     try {
-      const res = await mbtcStakingContract.batchStakeMiners(minerIds, poolId);
-      if (res && res.data) {
-        await getUnStakedList();
-        setLoading(false);
-        dispatch(info(`Success to ${infoType}`));
-      } else {
-        setLoading(false);
-        dispatch(error(`Fail to ${infoType}`));
-      }
+      const tx = await mbtcStakingContract.batchStakeMiners(minerIds, poolId);
+      await tx.wait();
+      await getUnStakedList();
+      setLoading(false);
+      dispatch(info(`Success to ${infoType}`));
     } catch (err) {
       console.log({ err });
       setLoading(false);
@@ -431,17 +411,11 @@ const Mine: React.FC = () => {
     setLoading(true);
     const mbtcStakingContract = new ethers.Contract(MBTCStaking_ADDRESS, MBTCStaking_ABI, signer);
     try {
-      const res = await mbtcStakingContract.withdrawMiner(minerId);
-      if (res && res.data) {
-        setTimeout(() => {
-          getStakedList();
-        }, 1000);
-        setLoading(false);
-        dispatch(info(`Success to unstake`));
-      } else {
-        setLoading(false);
-        dispatch(error(`Fail to unstake`));
-      }
+      const tx = await mbtcStakingContract.withdrawMiner(minerId);
+      await tx.wait();
+      await getStakedList();
+      setLoading(false);
+      dispatch(info(`Success to unstake`));
     } catch (err) {
       console.log({ err });
       setLoading(false);
@@ -454,15 +428,11 @@ const Mine: React.FC = () => {
     setLoading(true);
     const mbtcStakingContract = new ethers.Contract(MBTCStaking_ADDRESS, MBTCStaking_ABI, signer);
     try {
-      const res = await mbtcStakingContract.batchWithdrawMiners(minerIds);
-      if (res && res.data) {
-        await getUnStakedList();
-        setLoading(false);
-        dispatch(info(`Success to batch withdraw`));
-      } else {
-        setLoading(false);
-        dispatch(error(`Fail to batch withdraw`));
-      }
+      const tx = await mbtcStakingContract.batchWithdrawMiners(minerIds);
+      await tx.wait();
+      await getUnStakedList();
+      setLoading(false);
+      dispatch(info(`Success to batch withdraw`));
     } catch (err) {
       console.log({ err });
       setLoading(false);
@@ -494,17 +464,14 @@ const Mine: React.FC = () => {
   /** 提取单个NFT质押收益 **/
   const getReward = async (minerId: string) => {
     setLoading(true);
+    await checkMfuelApproved();
     const mbtcStakingContract = new ethers.Contract(MBTCStaking_ADDRESS, MBTCStaking_ABI, signer);
     try {
-      const res = await mbtcStakingContract.getReward(minerId);
-      if (res && res.data) {
-        await getStakedList();
-        setLoading(false);
-        dispatch(info(`Success to harvest`));
-      } else {
-        setLoading(false);
-        dispatch(error(`Fail to harvest`));
-      }
+      const rewardTx = await mbtcStakingContract.getReward(minerId);
+      await rewardTx.wait();
+      await getStakedList();
+      setLoading(false);
+      dispatch(info(`Success to harvest`));
     } catch (err) {
       console.log({ err });
       setLoading(false);
@@ -536,17 +503,14 @@ const Mine: React.FC = () => {
   // 提取全部NFT质押收益
   const getAllRewards = async () => {
     setLoading(true);
+    await checkMfuelApproved();
     const mbtcStakingContract = new ethers.Contract(MBTCStaking_ADDRESS, MBTCStaking_ABI, signer);
     try {
-      const res = await mbtcStakingContract.getAllRewards();
-      if (res && res.data) {
-        await getStakedList();
-        setLoading(false);
-        dispatch(info(`Success to harvest all`));
-      } else {
-        setLoading(false);
-        dispatch(error(`Fail to harvest all`));
-      }
+      const rewardsTx = await mbtcStakingContract.getAllRewards();
+      await rewardsTx.wait();
+      await getStakedList();
+      setLoading(false);
+      dispatch(info(`Success to harvest all`));
     } catch (err) {
       console.log({ err });
       setLoading(false);
@@ -562,27 +526,36 @@ const Mine: React.FC = () => {
   };
 
   // 合约授权
-  const checkApproved = async () => {
-    const mFuelContract = new ethers.Contract(mFuel_ADDRESS, MFuel_ABI, signer);
+  const checkNftApproved = async () => {
     const nftMinerContract = new ethers.Contract(NFTMiner_ADDRESS, NFTMiner_ABI, signer);
     // 检查NFT（ERC 721）是否授权
     const isApprovedForAll = await nftMinerContract.isApprovedForAll(address, MBTCStaking_ADDRESS);
     if (!isApprovedForAll) {
-      await nftMinerContract.setApprovalForAll(MBTCStaking_ADDRESS, true);
+      const approveTx = await nftMinerContract.setApprovalForAll(MBTCStaking_ADDRESS, true);
+      approveTx.wait();
     }
+  };
+
+  const checkMfuelApproved = async () => {
     // 检查代币（ERC20）是否授权
+    const mFuelContract = new ethers.Contract(mFuel_ADDRESS, MFuel_ABI, signer);
     const allowance = await mFuelContract.allowance(address, MBTCStaking_ADDRESS);
     if (allowance.toString() === "0" || allowance.toString().length < 1) {
-      await mFuelContract.approve(MBTCStaking_ADDRESS, ethers.constants.MaxUint256);
+      const approveTx = await mFuelContract.approve(MBTCStaking_ADDRESS, ethers.constants.MaxUint256);
+      await approveTx.wait();
     }
   };
 
   useEffect(() => {
-    if (provider && address && networkId === 97) {
-      getUnStakedList();
-      getStakedList();
-      getMbtcMined();
-      getMfuelCost();
+    try {
+      if (provider && address && networkId === 97) {
+        getUnStakedList();
+        getStakedList();
+        getMbtcMined();
+        getMfuelCost();
+      }
+    } catch (err) {
+      console.log(err);
     }
   }, [networkId, connected]);
 
