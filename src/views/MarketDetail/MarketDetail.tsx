@@ -122,7 +122,6 @@ const Market: React.FC = props => {
     const pathTokenId = /marketDetail\/(.*)/.exec(history.location.pathname);
     let newNftDetail;
     let owner = "";
-    debugger;
     if (pathTokenId && pathTokenId[1]) {
       if (history.location.state?.owner) {
         // 从上个页面获取基础信息
