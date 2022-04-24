@@ -1,9 +1,11 @@
 .text-more {
-    white-space:nowrap;/* 不换行 */
-    overflow:hidden;
-    text-overflow:ellipsis;
+    white-space: nowrap;
+    /* 不换行 */
+    overflow: hidden;
+    text-overflow: ellipsis;
     width: 6rem;
 }
+
 #mine-view {
     .NoStaked-box {
         width: 100%;
@@ -13,45 +15,45 @@
         padding: 5rem 0;
         font-size: 18px;
         color: #868B93;
+
         .icon {
             margin-bottom: 20px;
         }
     }
+
     .ohm-card-mine {
-        max-width: unset !important;
-        width: unset !important;
         padding: 0;
         background-color: unset !important;
         position: relative;
+
         .card-banner {
             width: 100%;
             border-radius: .6rem;
             overflow: hidden;
         }
+
         .batch-btn {
             position: absolute;
             background-color: #D39B33;
-            right: 4rem;
-            top: 4rem;
-            border-radius: 50px;
-            padding: 0 1rem;
             font-family: 'Manrope';
             font-weight: 800;
+
             &.isMobile {
                 margin: auto;
                 bottom: -20px;
                 font-size: 1rem;
             }
         }
+
         .card-box {
             position: absolute;
-            top: 7rem;
-            right: 4rem;
-            width: 11rem;
+            width: 8rem;
+
             .card-info {
                 display: flex;
                 justify-content: space-between;
                 margin-bottom: 0.5rem;
+
                 .card-info-content {
                     text-align: right;
                     max-width: 50%;
@@ -60,21 +62,20 @@
                     overflow: hidden;
                 }
             }
-            &.isMobile {
-                margin: auto;
-                top: 1rem;
-                right: 1rem;
-            }
 
+           
         }
     }
+
     .btc-item-title-container {
         padding: 0 0.5rem;
+
         &.pc {
             position: absolute;
             right: 0;
             top: 1.8rem;
         }
+
         .btc-item-title {
             font-family: 'Manrope';
             font-style: normal;
@@ -82,15 +83,18 @@
             font-size: 1.2rem;
             color: #fff;
         }
+
         .btc-item-right-container {
-           overflow: hidden;
-           width: 100%;
-           padding-top: .2rem;
-           display: flex;
+            overflow: hidden;
+            width: 100%;
+            padding-top: .2rem;
+            display: flex;
+
             &.pc {
                 justify-content: flex-end;
             }
-           .btc-item-right-btn {
+
+            .btc-item-right-btn {
                 padding: 0 13px;
                 height: 38px;
                 background: rgba(114, 63, 216, 0.73);
@@ -105,12 +109,14 @@
                 float: right;
                 margin-right: 1rem;
                 cursor: pointer;
-           }
+            }
         }
     }
+
     .hero-banner-container {
         margin-bottom: 1.6rem;
     }
+
     .btc-item-container {
         padding: 1.4rem 0 1.6rem 1.6rem;
         background: rgba(62, 15, 121, 0.65);
@@ -118,9 +124,11 @@
         border-radius: .6rem;
         overflow: hidden;
         position: relative;
+
         .tab-mobile {
             font-size: 18px;
         }
+
         .stake-container {
             // display: flex;
             // justify-content: space-between;
@@ -130,6 +138,7 @@
             grid-template-columns: repeat(auto-fill, 10.8rem);
             justify-content: space-between;
         }
+
         .btc-card-item {
             background: rgba(255, 255, 255, 0.07);
             border: 1px solid rgba(255, 255, 255, 0.3);
@@ -138,16 +147,19 @@
             padding: .4rem;
             width: 10.8rem;
             float: left;
+
             // margin-right: 1.6rem;
             // margin-bottom: 1.6rem;
             .btc-card-item-img {
                 width: 100%;
                 height: 10rem;
                 overflow: hidden;
+
                 img {
                     width: 100%;
                 }
             }
+
             .btc-card-item-desc {
                 .btc-card-item-desc-title {
                     font-family: 'Manrope';
@@ -162,16 +174,20 @@
                     white-space: nowrap;
                     font-size: 20px;
                 }
+
                 .btc-card-item-desc-price-box {
                     .btc-card-item-desc-price-item {
                         padding: .2rem 0;
+
                         .item-title {
                             color: #868B93;
                             margin-right: .2rem;
                         }
+
                         .item-price {
                             color: #fff;
                         }
+
                         .btn {
                             width: 3.5rem;
                             height: 1rem;
@@ -185,9 +201,11 @@
                             white-space: nowrap;
                             color: #fff;
                             cursor: pointer;
+
                             &.orange {
                                 background: #d6a241;
                             }
+
                             &.blue {
                                 background: #6a40bb;
                             }
@@ -198,16 +216,20 @@
 
         }
     }
+
     .MuiTabPanel-root {
         padding: 24px 0;
     }
 }
+
 .mine-checklist {
     width: 360px;
+
     .mine-checklist-btn-box {
         padding: 20px 10px;
         display: flex;
         justify-content: space-between;
+
         .mine-checklist-btn {
             width: 80px;
             height: 30px;
@@ -220,24 +242,50 @@
         }
     }
 }
-@media (min-width: 750px) {
+.card-banner {
+    display: none;
+}
+@media (min-width: 750px) {    
     #mine-view {
+        .batch-btn {
+            position: absolute;
+            background-color: #D39B33;
+            right: 4rem;
+            top: 4rem;
+            border-radius: 50px;
+            padding: 0 1rem;
+            font-family: 'Manrope';
+            font-weight: 800;
+        }
+        .card-box.card-box.card-box {
+            position: absolute;
+            top: 7rem;
+            right: 4rem;
+            width: 11rem;
+        }
+        .card-banner.pc {
+            display: block;
+        }
         .MuiTabs-root {
             height: 54px;
         }
+
         .MuiTabs-indicator {
             display: none;
         }
-        [aria-label="basic tabs example"]{
+
+        [aria-label="basic tabs example"] {
             width: 394px;
             height: 54px;
             background: #3E0F79;
             border-radius: 50px 50px 50px 50px;
             opacity: 1;
-            .MuiButtonBase-root  {
+
+            .MuiButtonBase-root {
                 padding-left: 0;
                 padding-right: 0;
             }
+
             .MuiTab-textColorInherit {
                 border-radius: 50px 50px 50px 50px;
                 opacity: 1;
@@ -247,24 +295,30 @@
                 margin: 0;
                 margin-right: 10px;
                 transition: all 0.5s;
+
                 &:nth-child(2) {
                     margin-right: 0;
                 }
+
                 &.Mui-selected {
                     background: rgba(114, 63, 216, 0.73);
                 }
             }
-            
+
         }
+
         .btc-item-container .stake-container {
             display: flex;
-            flex-wrap: wrap;;
+            flex-wrap: wrap;
+            ;
         }
+
         .btc-card-item-desc-title.btc-card-item-desc-title.btc-card-item-desc-title.btc-card-item-desc-title.btc-card-item-desc-title {
             font-size: 22px;
         }
+
         .stake-container {
-            > .MuiGrid-root.MuiGrid-item {
+            >.MuiGrid-root.MuiGrid-item {
                 width: 330px;
                 height: 431px;
                 background: rgba(255, 255, 255, 0.07);
@@ -272,32 +326,37 @@
                 opacity: 1;
                 margin-bottom: 33px;
                 border: 1px solid rgba(255, 255, 255, 0.3);
+
                 .btc-card-item {
                     width: 100%;
                     height: 100%;
+
                     .btc-card-item-img {
                         width: 300px;
                         height: 299px;
                         border-radius: 10px 10px 10px 10px;
                         margin-bottom: 14px;
                     }
-                    .item-title{
+
+                    .item-title {
                         font-size: 16px;
                         width: 230px;
                     }
+
                     .btc-card-item-desc-price-box {
                         height: 42px;
                         margin-bottom: 10px;
+
                         .btn {
                             margin-top: 8px;
                             width: 76px;
                             height: 26px;
-                            line-height: 26px;                            
+                            line-height: 26px;
                             border-radius: 11px 11px 11px 11px;
                             opacity: 1;
                             font-size: 14px;
                         }
-                        
+
                     }
 
                 }
@@ -305,4 +364,142 @@
         }
     }
 }
-@media (max-width: 750px) {}
+
+@media (max-width: 750px) {
+    #mine-view {
+        .card-banner.h5 {
+            display: block;
+        }
+        .ohm-card-mine {
+            width: 90.7vw;
+            height: 66.1vw;
+            margin: 0 auto 20.5vw;
+            position: relative;
+
+            .batch-btn.isMobile {
+                position: absolute;
+                bottom: -14.8vw;
+                left:8.9vw;
+                margin: 0;
+                width: 27.1vw;
+                height: 68vw;
+                background: #D39B33;
+                border-radius: 6.8vw;
+                font-size: 3.3vw;
+                padding: 0;
+                box-sizing: border-box;
+                text-align: center;                
+                width: 27.1vw;
+                height: 6.8vw;
+            }
+            .card-box.isMobile {
+                height: 9vw;
+                position: absolute;
+                bottom: -14.8vw;
+                right:8.4vw;
+                margin: 0;
+            }
+        }
+        .MuiGrid-item {
+            padding: 0;
+        }
+
+        .MuiTabPanel-root {
+            padding: 0;
+        }
+
+        .btc-item-container {
+            padding: 0;
+            width: 90.7vw;
+            margin: 0 auto;
+            padding-top: 4.7vw;
+            position: relative;
+
+            .stake-container {
+                display: flex;
+                justify-content: space-around;
+                flex-wrap: wrap;
+
+                .MuiGrid-root.MuiGrid-item {
+                    width: 40.5vw;
+                    height: 52.5vw;
+                    border: 1px solid rgba(255, 255, 255, 0.3);
+                    border-radius: 1.1vw;
+                    margin-bottom: 5vw;
+                    overflow: hidden;
+                    padding: 0;
+
+                    .btc-card-item {
+                        width: 100%;
+                        height: 100%;
+                        padding-top: 1.2vw;
+                        padding-left: 1.9vw;
+                        padding-right: 1.9vw;
+                        border: none;
+
+                        .btc-card-item-img {
+                            width: 36.7vw;
+                            height: 36.6vw;
+                            margin-bottom: 0.9vw;
+                        }
+
+                        .btc-card-item-desc {
+                            font-size: 2.6vw;
+                            .btc-card-item-desc-title {
+                                font-size: 2.6vw;
+                            }
+                        }
+                    }
+                }
+            }
+
+            .btc-item-right-btn {
+                position: absolute;
+                right: -2.5vw;
+                top: 2.7vw;
+                width: 26.7vw;
+                height: 6.1vw;
+                background: rgba(114, 63, 216, 0.73);
+                border-radius: 5.6vw;
+                opacity: 1;
+                font-size: 2.4vw;
+            }
+
+            // padding-left: 3.2vw;
+            // padding-right: 3.2vw;
+        }
+
+        [aria-label="basic tabs example"] {
+            width: 218px;
+            height: 26px;
+            background: #3E0F79;
+            border-radius: 24px 24px 24px 24px;
+            opacity: 1;
+
+            .tab-mobile {
+                height: 26px;
+                line-height: 26px;
+                min-height: 26px;
+                padding-left: 10px;
+                padding-right: 10px;
+                margin-right: 0;
+                font-size: 12px;
+                transition: all 0.5s;
+
+                &:first-child {
+                    margin-left: 0;
+                }
+
+                &.Mui-selected {
+                    background: #723FD8;
+
+                    border-radius: 24px;
+                }
+            }
+        }
+
+        .MuiTabs-indicator {
+            display: none;
+        }
+    }
+}
