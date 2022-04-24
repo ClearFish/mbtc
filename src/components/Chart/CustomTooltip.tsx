@@ -12,8 +12,8 @@ interface TooltipPayloadItem {
 const renderDate = (index: number, payload: TooltipPayloadItem[], item: TooltipPayloadItem) => {
   return index === payload.length - 1 ? (
     <div className="tooltip-date">
-      {new Date(item.payload.timestamp * 1000).toLocaleString("default", { month: "long" }).charAt(0).toUpperCase()}
-      {new Date(item.payload.timestamp * 1000).toLocaleString("default", { month: "long" }).slice(1)}
+      {new Date(item.payload.timestamp * 1000).toLocaleString("en-US", { month: "long" }).charAt(0).toUpperCase()}
+      {new Date(item.payload.timestamp * 1000).toLocaleString("en-US", { month: "long" }).slice(1)}
       &nbsp;
       {new Date(item.payload.timestamp * 1000).getDate()}, {new Date(item.payload.timestamp * 1000).getFullYear()}
     </div>

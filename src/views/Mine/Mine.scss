@@ -140,8 +140,6 @@
         }
 
         .btc-card-item {
-            background: rgba(255, 255, 255, 0.07);
-            border: 1px solid rgba(255, 255, 255, 0.3);
             box-sizing: border-box;
             border-radius: .2rem;
             padding: .4rem;
@@ -339,6 +337,8 @@
                         height: 299px;
                         border-radius: 10px 10px 10px 10px;
                         margin-bottom: 14px;
+                        margin-left: auto;
+                        margin-right: auto;
                     }
 
                     .item-title {
@@ -444,6 +444,8 @@
                             width: 36.7vw;
                             height: 36.6vw;
                             margin-bottom: 0.9vw;
+                            margin-left: auto;
+                            margin-right: auto;
                         }
 
                         .btc-card-item-desc {
