@@ -3,7 +3,7 @@ import { useTheme } from "@material-ui/core/styles";
 import Chart from "src/components/Chart/Chart";
 import { formatCurrency, trim } from "src/helpers";
 import { useProtocolMetrics } from "src/hooks/useProtocolMetrics";
-
+import fake from "./fake.json";
 import { bulletpoints, itemType, tooltipInfoMessages, tooltipItems } from "../../treasuryData";
 
 export const Graph = ({ children }) => <>{children}</>;
@@ -19,6 +19,7 @@ export const TotalValueDepositedGraph = () => {
       itemType={itemType.dollar}
       itemNames={tooltipItems.tvl}
       dataKey={["totalValueLocked"]}
+      dataFormat="percentage"
       headerText={t`MBTC Total Market Cap`}
       stopColor={[["#768299", "#98B3E9"]]}
       bulletpointColors={bulletpoints.tvl}
@@ -31,39 +32,55 @@ export const TotalValueDepositedGraph = () => {
 
 export const MarketValueGraph = () => {
   const theme = useTheme();
-  const { data } = useProtocolMetrics();
-
   return (
     <Chart
-      type="stack"
-      data={data}
-      dataKey={[
-        "treasuryDaiMarketValue",
-        "treasuryFraxMarketValue",
-        "treasuryWETHMarketValue",
-        "treasuryLusdMarketValue",
-        "treasuryWBTCMarketValue",
-        "treasuryUstMarketValue",
-        "treasuryOtherMarketValue",
-      ]}
-      stopColor={[
-        ["#F5AC37", "#F5AC37"],
-        ["#768299", "#768299"],
-        ["#DC30EB", "#DC30EB"],
-        ["#8BFF4D", "#8BFF4D"],
-        ["#ff758f", "#ff758f"],
-        ["#4E1F71", "#4E1F71"],
-        ["#8AECCD", "#8AECCD"],
-      ]}
+      type="area"
+      data={fake}
+      itemType={itemType.percentage}
+      itemNames={tooltipItems.tvl}
+      dataKey={["totalValueLocked"]}
       headerText={t`Total Mining Hashrate`}
-      headerSubText={`${data && formatCurrency(data[0].treasuryMarketValue)}`}
-      bulletpointColors={bulletpoints.coin}
-      itemNames={tooltipItems.coin}
-      itemType={itemType.dollar}
-      infoTooltipMessage={tooltipInfoMessages().mvt}
+      stopColor={[["#768299", "#98B3E9"]]}
+      bulletpointColors={bulletpoints.tvl}
+      infoTooltipMessage={tooltipInfoMessages().tvl}
       expandedGraphStrokeColor={theme.palette.graphStrokeColor}
+      headerSubText={`${fake && formatCurrency(fake[0].totalValueLocked)}`}
     />
   );
+  // const theme = useTheme();
+  // const { data } = useProtocolMetrics();
+
+  // return (
+  //   <Chart
+  //     type="stack"
+  //     data={data}
+  //     dataKey={[
+  //       "treasuryDaiMarketValue",
+  //       "treasuryFraxMarketValue",
+  //       "treasuryWETHMarketValue",
+  //       "treasuryLusdMarketValue",
+  //       "treasuryWBTCMarketValue",
+  //       "treasuryUstMarketValue",
+  //       "treasuryOtherMarketValue",
+  //     ]}
+  //     stopColor={[
+  //       ["#F5AC37", "#F5AC37"],
+  //       ["#768299", "#768299"],
+  //       ["#DC30EB", "#DC30EB"],
+  //       ["#8BFF4D", "#8BFF4D"],
+  //       ["#ff758f", "#ff758f"],
+  //       ["#4E1F71", "#4E1F71"],
+  //       ["#8AECCD", "#8AECCD"],
+  //     ]}
+  //     headerText={t`Total Mining Hashrate`}
+  //     headerSubText={`${data && formatCurrency(data[0].treasuryMarketValue)}`}
+  //     bulletpointColors={bulletpoints.coin}
+  //     itemNames={tooltipItems.coin}
+  //     itemType={itemType.dollar}
+  //     infoTooltipMessage={tooltipInfoMessages().mvt}
+  //     expandedGraphStrokeColor={theme.palette.graphStrokeColor}
+  //   />
+  // );
 };
 
 export const RiskFreeValueGraph = () => {
