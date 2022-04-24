@@ -11,7 +11,7 @@ const Pool: React.FC = () => {
   // usePathForNetwork({ pathName: "mine", networkID: networkId, history });
   const { networkId } = useWeb3Context();
   usePathForNetwork({ pathName: "pool", networkID: networkId, history });
-  const { data } = useMBTCConstant();
+  const { data = {} } = useMBTCConstant();
 
   return (
     <div id="pool-view">
