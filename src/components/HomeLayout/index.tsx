@@ -94,7 +94,7 @@ export default function HomeLayout({ children }: { children: React.ReactNode }) 
               )}
             </Box>
             <Box sx={{ flexGrow: 1, justifyContent: "flex-end", display: { xs: "none", md: "flex" } }}>
-              <Link href="#/dashboard" underline="none" target="_blank">
+              <Link href="#/" underline="none">
                 <Button variant="contained" className="header-btn">
                   Enter App
                 </Button>
