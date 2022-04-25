@@ -29,7 +29,7 @@ export function Foundation() {
 
   const personList = [
     {
-      name: "Doctor Lord",
+      name: "Meta Alchemist",
       info: "Community Veteran, Philosopher & Reality Shaper",
       src: Lord,
     },
