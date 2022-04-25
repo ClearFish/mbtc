@@ -13,10 +13,6 @@ import Vector from "./assets/images/Vector.png";
 import copy from "copy-to-clipboard";
 import metaintelp4 from "../MyNft/assets/metaintelp4.png";
 
-type ntcParams = {
-  id: string;
-};
-
 interface NFT {
   baseToken?: string;
   contract: string;
@@ -35,6 +31,7 @@ interface NFT {
   name?: string;
   description?: string;
   busd?: string;
+  url4k?: string;
 }
 
 const Market: React.FC = props => {
@@ -144,17 +141,18 @@ const Market: React.FC = props => {
       const rightInfo = await getRight(pathTokenId[1], owner);
 
       // 获取价格信息
-      const mbtcPrice = await getMBTCPrice();
-      const mfuelPrice = await getMFUELPrice();
+      // const mbtcPrice = await getMBTCPrice();
+      // const mfuelPrice = await getMFUELPrice();
 
       setNftDetail({
         ...newNftDetail,
         attributes: rightInfo?.attributes,
-        url: rightInfo?.image4k,
+        url: rightInfo?.image,
+        url4k: rightInfo?.image,
         name: rightInfo?.name,
         contract: rightInfo?.contract,
         description: rightInfo?.description,
-        busd: rightInfo?.baseToken === "mbtc" ? mbtcPrice : mfuelPrice,
+        // busd: rightInfo?.baseToken === "mbtc" ? mbtcPrice : mfuelPrice,
       });
     } else {
       dispatch(error("Invalid tokenId"));
@@ -338,7 +336,7 @@ const Market: React.FC = props => {
                   <div className="desc overflow-more">4000 x 4000</div>
                   <div
                     className="small-icon"
-                    onClick={() => downloadCurrentImage(nftDetail.url, `MetaIntelPentium4#${nftDetail.tokenId}`)}
+                    onClick={() => downloadCurrentImage(nftDetail.url4k, `MetaIntelPentium4#${nftDetail.tokenId}`)}
                   >
                     <img src={Vector} alt="" />
                   </div>

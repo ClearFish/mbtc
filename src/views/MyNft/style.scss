@@ -21,6 +21,7 @@
             padding: 0 25px;
             .btc-card-item-box {
                 margin-bottom: 30px;
+                cursor: pointer;
             }
             .btc-card-item {
                 background: rgba(255, 255, 255, 0.07);
@@ -93,6 +94,7 @@
             opacity: 1;
             position: relative;
             border: 1px solid rgba(255, 255, 255, 0.3);
+            cursor: pointer;
             .btc-card-item {
                 width: 300px;
                 border-radius: 10px 10px 10px 10px;

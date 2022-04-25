@@ -6,3 +6,4 @@ export { default as TreasuryDashboard } from "./TreasuryDashboard/TreasuryDashbo
 export { default as Zap } from "./Zap/Zap";
 export { default as MarketDetail } from "./MarketDetail/MarketDetail";
 export { default as MyNft } from "./MyNft/MyNft";
+export { default as MyNftDetail } from "./MyNft/Detail";

@@ -14,6 +14,7 @@ import { useWeb3Context } from "src/hooks";
 import { usePathForNetwork } from "src/hooks/usePathForNetwork";
 import { useHistory } from "react-router-dom";
 import {
+  BUSD_ADDRESS,
   mBTC_ADDRESS,
   MFuel_ABI,
   mFuel_ADDRESS,
@@ -198,7 +199,7 @@ const Market: React.FC = () => {
 
       const sell_tx = await storeContract.sell(
         tokenId,
-        baseToken === "mbtc" ? mBTC_ADDRESS : mFuel_ADDRESS,
+        baseToken === "busd" ? BUSD_ADDRESS : baseToken === "mbtc" ? mBTC_ADDRESS : mFuel_ADDRESS,
         0,
         formatPrice,
       );
@@ -315,7 +316,13 @@ const Market: React.FC = () => {
             unStakedList.map(el => {
               return (
                 <div className="btc-card-item-box">
-                  <div className="btc-card-item" key={el.tokenId}>
+                  <div
+                    className="btc-card-item"
+                    key={el.tokenId}
+                    onClick={() => {
+                      history.push(`/mynft/${el.tokenId}`, el);
+                    }}
+                  >
                     <img className="card-image" src={el.url} alt="" />
                     <div className="card-info">Meta-Intel Pentium 4 #{el.tokenId}</div>
                   </div>

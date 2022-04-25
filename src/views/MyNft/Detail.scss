@@ -1,0 +1,184 @@
+#marketDetail-view {
+    .marketDetail-container {
+      display: flex;
+      justify-content: center;
+    }
+    .back-view {
+      cursor: pointer;
+      width: 100%;
+      margin-bottom: 10px;
+    }
+    .overflow-more {
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+    .market-empty {
+      width: 60px;
+      height: 100%;
+    }
+    .market-item {
+      width: 500px;
+      // height: 650px;
+      background: rgba(255, 255, 255, 0.07);
+      border: 1px solid rgba(255, 255, 255, 0.3);
+      box-sizing: border-box;
+      border-radius: 20px;
+      padding: 20px;
+      box-sizing: border-box;
+      position: relative;
+      z-index: 2;
+      .market-item-banner {
+        width: 100%;
+        // height: 854px;
+        border-radius: 20px;
+        overflow: hidden;
+        img {
+          width: 100%;
+          // height: 100%;
+        }
+      }
+      .market-item-title {
+        font-weight: 400;
+        font-size: 30px;
+        line-height: 64px;
+        letter-spacing: -0.04em;
+        color: #d39b33;
+        border-bottom: 3px solid #d39b33;
+        text-align: center;
+      }
+      .market-detail-desc {
+        list-style: none;
+        // padding-left: 0;
+        padding-top: 10px;
+        .item {
+          list-style: none;
+          display: flex;
+          justify-content: space-between;
+          padding: 10px 0;
+          .title {
+            font-size: 21px;
+            color: #ffffff;
+            width: 300px;
+          }
+          .desc-box {
+              width: 180px;
+              display: flex;
+              align-items: center;
+              .desc {
+                  width: 160px;
+                  font-size: 16px;
+                  color: #cdcdcd;
+                  text-align: right;
+              }
+              .small-icon {
+                  width: 14px;
+                  height: 14px;
+                  cursor: pointer;
+                  img {
+                      width: 100%;
+                  }
+              }
+          }
+          
+        }
+      }
+    }
+    .top-item {
+      width: 400px;
+    }
+    .ower-item {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      position: relative;
+      .bg {
+          background-image: url('./assets/images/market-person.png');
+          background-repeat: no-repeat;
+          background-origin: content-box;
+          background-size: 70% auto;
+          background-position: left bottom;
+          width: 50px;
+          height: 80px;
+          position: absolute;
+          bottom: 0;
+          left: 0;
+      }
+      .ower-item-title {
+        font-weight: 400;
+        font-size: 30px;
+        color: #d39b33;
+      }
+      .ower-item-number {
+        width: 200px;
+        text-align: right;
+        height: 100%;
+      }
+    }
+    .market-box-right-item {
+      width: 100%;
+      padding: 30px 20px;
+      box-sizing: border-box;
+      background: rgba(255, 255, 255, 0.07);
+      border-radius: 20px 20px 20px 20px;
+      border: 2px solid rgba(255, 255, 255, 0.3);
+      margin-bottom: 30px;
+      .market-right-detail-title {
+        font-weight: 400;
+        font-size: 30px;
+        line-height: 64px;
+        letter-spacing: -0.04em;
+        color: #d39b33;
+        border-bottom: 3px solid #d39b33;
+      }
+      .market-right-detail-desc {
+        padding: 20px 0;
+        .tng-text {
+          font-size: 18px;
+          font-weight: 800;
+          color: #ffffff;
+        }
+      }
+      .market-right-detail-price {
+        margin-bottom: 20px;
+        .market-right-detail-price-title {
+          font-size: 27px;
+          color: #d39b33;
+        }
+        .market-right-detail-price-desc {
+          font-size: 27px;
+          color: #ffffff;
+          padding: 10px 0;
+          padding-left: 38px;
+          position: relative;
+          &::before {
+              content: '';
+              width: 30px;
+              height: 30px;
+              background: url('./assets/images/market-price.png');
+              background-size: 100% 100%;
+              position: absolute;
+              top: 10px;
+              left: 0;
+          }
+          span {
+            font-size: 18px;
+            color: #c8c8c8;
+          }
+        }
+      }
+      .market-right-detail-buy {
+        width: 200px;
+        height: 55px;
+        background: rgba(114, 63, 216, 0.73);
+        border-radius: 50px 50px 50px 50px;
+        font-size: 35px;
+        font-weight: bold;
+        color: #ffffff;
+        text-align: center;
+        line-height: 55px;
+        cursor: pointer;
+      }
+    }
+  }
+  

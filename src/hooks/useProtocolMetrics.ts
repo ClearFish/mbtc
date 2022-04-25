@@ -139,7 +139,7 @@ export const useMbtcMetrics = (requestUrl: string, hasOwner?: boolean) => {
 
     if (!response) throw new Error("No response from MBTC");
 
-    return response.data;
+    return response.data || 0;
   });
 };
 

@@ -155,7 +155,7 @@ export const MinedMBTCNetWorth: React.FC<AbstractedMetricProps> = props => {
 
   const _props: MetricProps = {
     ...props,
-    label: t`Mined MBTC Net Worth`,
+    label: t`MBTC Price * Mined MBTC`,
   };
 
   if (typeof minedMbtcRes.data !== "undefined" && typeof mbtcPriceRes.data !== "undefined")
