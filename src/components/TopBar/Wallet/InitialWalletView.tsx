@@ -24,6 +24,7 @@ import NtfIcon from "../../../assets/icons/nft.svg";
 import { useWallet } from "./Token";
 import WalletAddressEns from "./WalletAddressEns";
 import { useMBTCPrice } from "src/hooks/useProtocolMetrics";
+import { formatNumber } from "../../../helpers";
 const Borrow = ({
   Icon1,
   borrowableTokensIcons,
@@ -121,7 +122,7 @@ const WalletTotalValue = () => {
   const { address: userAddress, provider, networkId, providerInitialized, connected } = useWeb3Context();
   const signer = provider.getSigner();
   const tokens = useWallet(userAddress, networkId, providerInitialized);
-  const isLoading = useAppSelector(s => s.account.loading || s.app.loadingMarketPrice || s.app.loading);
+  const isLoading = useAppSelector(s => s.app.loading);
   const marketPrice = useAppSelector(s => s.app.marketPrice || 0);
   const [currency, setCurrency] = useState<"USD" | "OHM">("USD");
   const [mbtcBalance, setMbtcBalance] = useState<string>("");
@@ -189,7 +190,7 @@ const WalletTotalValue = () => {
     <Box className="tooBar-container" onClick={() => setCurrency(currency === "USD" ? "OHM" : "USD")}>
       <WalletAddressEns />
       <Typography variant="h3" style={{ fontWeight: 700, cursor: "pointer" }} className="tooBar-price">
-        {!isLoading ? (mbtcPrice * Number(mbtcBalance)).toFixed(2) : <Skeleton variant="text" width={"100%"} />}
+        {!isLoading ? formatNumber(mbtcPrice * Number(mbtcBalance), 2) : <Skeleton variant="text" width={"100%"} />}
       </Typography>
       <div className="address-list">
         <div className="address-list-item">
