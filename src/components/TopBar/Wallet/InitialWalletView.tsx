@@ -17,13 +17,13 @@ import { ethers } from "ethers";
 import { ReactElement, useEffect, useState } from "react";
 import { ReactComponent as ArrowUpIcon } from "src/assets/icons/arrow-up.svg";
 import { mBTC_ADDRESS, MFuel_ABI, NFTMiner_ADDRESS } from "src/contract";
-import { formatCurrency } from "src/helpers";
 import { useAppSelector, useWeb3Context } from "src/hooks";
 import useCurrentTheme from "src/hooks/useTheme";
 import MbtcIcon from "../../../assets/icons/mbtc.svg";
 import NtfIcon from "../../../assets/icons/nft.svg";
 import { useWallet } from "./Token";
 import WalletAddressEns from "./WalletAddressEns";
+import { useMBTCPrice } from "src/hooks/useProtocolMetrics";
 const Borrow = ({
   Icon1,
   borrowableTokensIcons,
@@ -172,6 +172,8 @@ const WalletTotalValue = () => {
     }
   };
 
+  const mbtcPrice = useMBTCPrice().data || 0;
+
   useEffect(() => {
     try {
       if (provider && userAddress && networkId === 97) {
@@ -187,7 +189,7 @@ const WalletTotalValue = () => {
     <Box className="tooBar-container" onClick={() => setCurrency(currency === "USD" ? "OHM" : "USD")}>
       <WalletAddressEns />
       <Typography variant="h3" style={{ fontWeight: 700, cursor: "pointer" }} className="tooBar-price">
-        {!isLoading ? formatCurrency(walletValue[currency], 2, currency) : <Skeleton variant="text" width={"100%"} />}
+        {!isLoading ? (mbtcPrice * Number(mbtcBalance)).toFixed(2) : <Skeleton variant="text" width={"100%"} />}
       </Typography>
       <div className="address-list">
         <div className="address-list-item">

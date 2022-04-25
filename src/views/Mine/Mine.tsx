@@ -884,7 +884,9 @@ const Mine: React.FC = () => {
             </List>
             <Box className="mine-checklist-btn-box">
               <Button color="secondary" onClick={handleSelectAll} className="mine-checklist-btn">
-                Select All
+                {minerItem?.every(item => item.checked) || (minerItem || []).filter(item => item.checked).length > 19
+                  ? "Unselect All"
+                  : "Select All"}
               </Button>
               <Button color="secondary" onClick={handleConfirm} className="mine-checklist-btn">
                 Confirm
