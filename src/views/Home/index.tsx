@@ -81,23 +81,23 @@ export function Home() {
       list: [
         {
           item: "MBTC miner M-1 series release",
-          done: false,
+          done: true,
         },
         {
           item: "Web3 DApp & NFT market launch",
-          done: false,
+          done: true,
         },
         {
           item: "MBTC genesis block; first MBTC mined",
-          done: false,
+          done: true,
         },
         {
           item: "Listing on DEX",
-          done: false,
+          done: true,
         },
         {
           item: "External audits",
-          done: false,
+          done: true,
         },
       ],
       grid: 4,
@@ -105,6 +105,10 @@ export function Home() {
     {
       name: "Q4 2022",
       list: [
+        {
+          item: "Metabitcointalk.com the world's first Web3 forum for MBTC",
+          done: false,
+        },
         {
           item: "MBTC pool P-1 series release",
           done: false,
