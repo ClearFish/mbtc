@@ -255,7 +255,7 @@ export function Home() {
             </div>
           </Container>
         </Container>
-        <Typography className="mbtc-txt">MBTC Genesis Block Launch Countdown: May 3, 2022</Typography>
+        <Typography className="mbtc-txt">MBTC Genesis Block Launch: May 3, 2022</Typography>
       </div>
       <div className="block2">
         <Container
