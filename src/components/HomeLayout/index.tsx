@@ -3,8 +3,9 @@ import "./style.scss";
 import { useLocation } from "react-router-dom";
 import { useEffect } from "react";
 import { t } from "@lingui/macro";
-import Logo from "../../assets/images/logo-4.png";
+import Logo from "../../assets/images/Vector.png";
 import LogoCoin from "../../assets/images/logo-3.png";
+import companyLogo from "../../assets/images/Frame.png";
 import MenuClose from "../../assets/icons/nav-close.svg";
 import Social from "../../components/Sidebar/Social";
 
@@ -53,10 +54,10 @@ export default function HomeLayout({ children }: { children: React.ReactNode }) 
   };
 
   const links = [
-    {
-      name: t`MBTC`,
-      href: "#/home",
-    },
+    // {
+    //   name: t`MBTC`,
+    //   href: "#/home",
+    // },
     {
       name: t`Economy`,
       href: "#/economy",
@@ -81,6 +82,9 @@ export default function HomeLayout({ children }: { children: React.ReactNode }) 
               <img src={isFoundation ? LogoCoin : Logo} alt="MBTC" className="header-logo" />
             </Typography>
             <Box sx={{ flexGrow: 1, display: { xs: "none", md: "flex" } }}>
+              <Link href="#/home" underline="none" onClick={handleCloseNavMenu}>
+                <img src={companyLogo} className="header-company_logo" />
+              </Link>
               {links.map(link => (
                 <Link href={link.href} underline="none" key={link.name} onClick={handleCloseNavMenu}>
                   <Typography variant="h6">{link.name}</Typography>

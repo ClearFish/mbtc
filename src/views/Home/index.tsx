@@ -1,13 +1,19 @@
 import "./styles.scss";
 import { Trans, t } from "@lingui/macro";
-import MetaBitcon from "../../assets/images/meta-bitcoin.png";
-import MetaBitconMobile from "../../assets/images/meta-bitcoin-mobile.png";
+// import MetaBitcon from "../../assets/images/meta-bitcoin.png";
+// import MetaBitconMobile from "../../assets/images/meta-bitcoin-mobile.png";
 
-import HugeDiamond from "../../assets/images/huge-diamond.png";
-import CardMBTC from "../../assets/images/card-mbtc.png";
-import CardMFUEL from "../../assets/images/card-mfuel.png";
-import CardMINER from "../../assets/images/card-miner.png";
-import CardPOOL from "../../assets/images/card-pool.png";
+// import HugeDiamond from "../../assets/images/huge-diamond.png";
+import HugeDiamondGif from "../../assets/images/b_coins.gif";
+// import CardMBTC from "../../assets/images/card-mbtc.png";
+// import CardMFUEL from "../../assets/images/card-mfuel.png";
+// import CardMINER from "../../assets/images/card-miner.png";
+// import CardPOOL from "../../assets/images/card-pool.png";
+import BtcZ from "../../assets/images/coinn.png";
+import Fuel from "../../assets/images/fuel.png";
+import NftMiner from "../../assets/images/miner1.png";
+import NftPool from "../../assets/images/Daco.png";
+import ExplorBg from "../../assets/images/Rectangle.png";
 
 import PartnerBitcoin from "../../assets/images/partner-bitcoin.png";
 import PartnerBitmain from "../../assets/images/partner-bitmain.png";
@@ -233,7 +239,7 @@ export function Home() {
             position: "relative",
           }}
         >
-          <video
+          {/* <video
             src={window.location.origin + (isSmallScreen ? "/coin-mobile.mp4" : "/coin.mp4")}
             muted
             autoPlay
@@ -241,14 +247,14 @@ export function Home() {
             playsInline={true}
             controls={false}
             className="coin-vedio"
-          ></video>
+          ></video> */}
           <Container
             style={{
               paddingLeft: isSmallScreen || isVerySmallScreen ? "1rem" : "0",
               paddingRight: isSmallScreen || isVerySmallScreen ? "1rem" : "0",
             }}
           >
-            <div className="block-left">
+            {/* <div className="block-left">
               <img src={isSmallScreen ? MetaBitconMobile : MetaBitcon} alt="" className="meta-img" />
               <Typography variant="body1" align="left" className="tng-text">
                 <Trans>The Next Generation Crypto Providing a Cross-chain Trust Standard in the Metaverse</Trans>
@@ -256,12 +262,15 @@ export function Home() {
               <Box className="social-link" display="flex" justifyContent="flex-start" flexDirection="column">
                 <Social />
               </Box>
-            </div>
+            </div> */}
           </Container>
         </Container>
         <Typography className="mbtc-txt">
-          <Trans>MBTC Genesis Block Launch: May 3, 2022</Trans>
+          <Trans>The Next Generation Crypto Providing a Cross-chain Trust Standard in the Metaverse</Trans>
         </Typography>
+        <Box className="social-link top_socia_link" display="flex" justifyContent="flex-start" flexDirection="column">
+          <Social />
+        </Box>
       </div>
       <div className="block2">
         <Container
@@ -275,7 +284,7 @@ export function Home() {
           }}
         >
           <div className="block-left">
-            <img src={HugeDiamond} alt="" className="diamond-img" />
+            <img src={HugeDiamondGif} alt="" className="diamond-img" />
           </div>
           <div className="block-right">
             <Typography variant="body1" align="left" className="wimb-text">
@@ -310,6 +319,7 @@ export function Home() {
             </Box>
           </div>
         </Container>
+        <div className="bottom_bg"></div>
       </div>
       <div className="block3">
         <Container
@@ -326,11 +336,12 @@ export function Home() {
                 href="#/economy#mbtc"
                 underline="none"
                 style={{
-                  background: `url(${CardMBTC}) no-repeat`,
-                  backgroundSize: "100%",
+                  background: `url(${ExplorBg}) no-repeat`,
+                  backgroundSize: "cover",
                 }}
               >
-                <Typography className="card-title">{t`MBTC`}</Typography>
+                <img src={BtcZ} alt="" className="btcz-img" />
+                <Typography className="card-title">{t`BTCZ`}</Typography>
               </Link>
             </Grid>
             <Grid item xs={12} sm={12} md={6}>
@@ -339,26 +350,25 @@ export function Home() {
                 href="#/economy#mfuel"
                 underline="none"
                 style={{
-                  background: `url(${CardMFUEL}) no-repeat`,
-                  backgroundSize: "100%",
+                  background: `url(${ExplorBg}) no-repeat`,
+                  backgroundSize: "cover",
                 }}
               >
+                <img src={Fuel} alt="" className="Fuel-img" />
                 <Typography className="card-title">{t`MFuel`}</Typography>
               </Link>
             </Grid>
-            <Typography variant="h4" align="center" className="block-title explore">
-              {t`Explore for more.`}
-            </Typography>
             <Grid item xs={12} sm={12} md={6}>
               <Link
                 className="block-card"
                 href="#/economy#miner"
                 underline="none"
                 style={{
-                  background: `url(${CardMINER}) no-repeat`,
-                  backgroundSize: "100%",
+                  background: `url(${ExplorBg}) no-repeat`,
+                  backgroundSize: "cover",
                 }}
               >
+                <img src={NftMiner} alt="" className="NftMiner-img" />
                 <Typography className="card-title">{t`NFT Miner`}</Typography>
               </Link>
             </Grid>
@@ -368,13 +378,17 @@ export function Home() {
                 href="#/economy#pool"
                 underline="none"
                 style={{
-                  background: `url(${CardPOOL}) no-repeat`,
-                  backgroundSize: "100%",
+                  background: `url(${ExplorBg}) no-repeat`,
+                  backgroundSize: "cover",
                 }}
               >
+                <img src={NftPool} alt="" className="NftMiner-img" />
                 <Typography className="card-title">{t`NFT Pool`}</Typography>
               </Link>
             </Grid>
+            <Typography variant="h4" align="center" className="block-title explore">
+              {t`Explore for more.`}
+            </Typography>
           </Grid>
           <Typography variant="h4" align="center" className="block-title">
             {t`Partners`}
