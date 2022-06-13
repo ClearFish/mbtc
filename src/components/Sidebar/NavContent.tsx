@@ -5,13 +5,8 @@ import { t, Trans } from "@lingui/macro";
 import { Box, Divider, Link, Paper, SvgIcon } from "@material-ui/core";
 import { NavItem } from "@olympusdao/component-library";
 import React from "react";
-import { NetworkId } from "src/constants";
-import { useWeb3Context } from "src/hooks/web3Context";
-import { Bond } from "src/lib/Bond";
-import { IBondDetails } from "src/slices/BondSlice";
 
-import { ReactComponent as MBTCIcon } from "../../assets/icons/mbtc-logo.svg";
-import WalletAddressEns from "../TopBar/Wallet/WalletAddressEns";
+import { ReactComponent as MBTCIcon } from "../../assets/icons/mbtc-logo-gold.svg";
 import Social from "./Social";
 
 type NavContentProps = {
@@ -19,9 +14,6 @@ type NavContentProps = {
 };
 
 const NavContent: React.FC<NavContentProps> = ({ handleDrawerToggle }) => {
-  const { networkId, address, provider } = useWeb3Context();
-  console.log("networkId", networkId);
-
   return (
     <Paper className="dapp-sidebar">
       <Box className="dapp-sidebar-inner" display="flex" justifyContent="space-between" flexDirection="column">
@@ -31,7 +23,7 @@ const NavContent: React.FC<NavContentProps> = ({ handleDrawerToggle }) => {
               <SvgIcon
                 color="primary"
                 component={MBTCIcon}
-                viewBox="0 0 63 46"
+                viewBox="0 0 85 61"
                 style={{ minWidth: "63px", minHeight: "46px", width: "63px" }}
               />
             </Link>
@@ -40,10 +32,11 @@ const NavContent: React.FC<NavContentProps> = ({ handleDrawerToggle }) => {
 
           <div className="dapp-menu-links">
             <div className="dapp-nav" id="navbarNav">
-              <NavItem to="/dashboard" icon="dashboard" label={t`Dashboard`} />
-              <NavItem to="/mine" icon="dashboard" label={t`Mine`} />
-              <NavItem to="/pool" icon="dashboard" label={t`Pool`} />
-              <NavItem to="/market" icon="dashboard" label={t`NFT Market`} />
+              <NavItem to="/dashboard" icon="dashboard" label={t`Dashboard`} underline="none" />
+              <NavItem to="/mine" icon="dashboard" label={t`Mine`} underline="none" />
+              <NavItem to="/pool" icon="dashboard" label={t`Pool`} underline="none" />
+              <NavItem to="/mint" icon="dashboard" label={t`Mint`} underline="none" />
+              <NavItem to="/market" icon="dashboard" label={t`NFT Market`} underline="none" />
               <Box className="menu-divider">
                 <Divider />
               </Box>

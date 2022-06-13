@@ -9,7 +9,7 @@ tasks:
       then
         echo "var is unset";
       else
-        echo "Setting git origin push URL for OlympusDAO/olympus-frontend";
+        echo "Setting git origin push URL for MBTC/mbtc-frontend";
         git remote set-url --push origin https://${GITHUB_OHM_PERSONAL_ACCESS_TOKEN}@github.com/OlympusDAO/olympus-frontend.git;
       fi
       #  create a default .env file if none present

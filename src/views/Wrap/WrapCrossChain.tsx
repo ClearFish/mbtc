@@ -98,9 +98,10 @@ function WrapCrossChain() {
     if (!hasCorrectAllowance() && assetTo === "gOHM")
       return (
         <div className="no-input-visible">
-          First time wrapping to <b>gOHM</b>?
+          {t`First time wrapping to`}
+          <b>{t`gOHM`}</b>?
           <br />
-          Please approve Olympus to use your <b>{assetFrom}</b> for this transaction.
+          {t`Please approve Olympus to use your`} <b>{assetFrom}</b> {t`for this transaction.`}
         </div>
       );
 
@@ -153,7 +154,7 @@ function WrapCrossChain() {
               aria-label="wsohm-wut"
               target="_blank"
             >
-              <Typography>gOHM</Typography> <Icon name="arrow-up" style={{ marginLeft: "5px" }} />
+              <Typography>{t`gOHM`}</Typography> <Icon name="arrow-up" style={{ marginLeft: "5px" }} />
             </Link>
           }
         >
@@ -185,7 +186,7 @@ function WrapCrossChain() {
                   <div className="wallet-menu" id="wallet-menu">
                     <ConnectButton />
                   </div>
-                  <Typography variant="h6">Connect your wallet</Typography>
+                  <Typography variant="h6">{t`Connect your wallet`}</Typography>
                 </div>
               ) : (
                 <>
@@ -193,7 +194,7 @@ function WrapCrossChain() {
                     <Box style={{ display: "flex", flexDirection: "row", alignItems: "center" }}>
                       <Box height="32px">
                         <Typography>
-                          Transform <b>wsOHM</b> to <b>gOHM</b>
+                          {t`Transform`} <b>{t`wsOHM`}</b> {t`to`} <b>{t`gOHM`}</b>
                         </Typography>
                       </Box>
                     </Box>
@@ -218,12 +219,12 @@ function WrapCrossChain() {
                     <Divider />
                     <Box width="100%" alignItems={"center"} display="flex" flexDirection="column" p={1}>
                       <Typography variant="h6" style={{ margin: "15px 0 10px 0" }}>
-                        Back to Ethereum Mainnet
+                        {t`Back to Ethereum Mainnet`}
                       </Typography>
                       <Button onClick={handleSwitchChain(1)} variant="outlined">
                         <img height="28px" width="28px" src={String(ethereum.image)} alt={ethereum.imageAltText} />
                         <Typography variant="h6" style={{ marginLeft: "8px" }}>
-                          {ethereum.chainName}
+                          {t`ethereum.chainName`}
                         </Typography>
                       </Button>
                     </Box>

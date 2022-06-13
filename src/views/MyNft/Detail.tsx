@@ -25,15 +25,16 @@ import {
   NFTMiner_ABI,
   BUSD_ADDRESS,
   mBTC_ADDRESS,
+  NFTRepository_ADDRESS,
+  NFTRepository_ABI,
 } from "src/contract";
 import { error, info } from "../../slices/MessagesSlice";
 import CopyIcon from "./assets/Copy.png";
 import Vector from "./assets/Vector.png";
 import copy from "copy-to-clipboard";
 import metaintelp4 from "./assets/metaintelp4.png";
-import BigNumber from "bignumber.js";
 import { Input, PrimaryButton } from "@olympusdao/component-library";
-
+import { t } from "@lingui/macro";
 interface NFT {
   baseToken?: string;
   contract: string;
@@ -53,6 +54,7 @@ interface NFT {
   description?: string;
   busd?: string;
   url4k?: string;
+  minerUsdtPrice?: number;
 }
 
 const Market: React.FC = props => {
@@ -82,12 +84,13 @@ const Market: React.FC = props => {
   const [open, setOpen] = useState(false);
   const [open2, setOpen2] = useState(false);
   const [baseToken, setBaseToken] = useState<string>("busd");
+  const [decimals, setDecimals] = useState<number>(18);
 
   const goCopy = (text: string) => {
     if (copy(text)) {
-      dispatch(info("Copied!"));
+      dispatch(info(t`Copied!`));
     } else {
-      dispatch(error("Failed, please click to Copy!"));
+      dispatch(error(t`Failed, please click to Copy!`));
     }
   };
   const downloadCurrentImage = (url?: string, name?: string) => {
@@ -114,7 +117,6 @@ const Market: React.FC = props => {
     setLoading(true);
     const pathTokenId = /mynft\/(.*)/.exec(history.location.pathname);
     let newNftDetail;
-    console.log({ pathTokenId });
     if (pathTokenId && pathTokenId[1]) {
       if (history.location.state?.url) {
         // 从上个页面获取基础信息
@@ -135,6 +137,11 @@ const Market: React.FC = props => {
       // const mbtcPrice = await getMBTCPrice();
       // const mfuelPrice = await getMFUELPrice();
 
+      // 获取最低价格
+      const repositoryContract = new ethers.Contract(NFTRepository_ADDRESS, NFTRepository_ABI, signer);
+
+      const minerUsdtPrice = await repositoryContract.getMinerUsdtPrice(pathTokenId[1]);
+
       setNftDetail({
         ...newNftDetail,
         attributes: rightInfo?.attributes,
@@ -143,10 +150,15 @@ const Market: React.FC = props => {
         name: rightInfo?.name,
         contract: rightInfo?.contract,
         description: rightInfo?.description,
+        minerUsdtPrice: minerUsdtPrice.toNumber(),
         // busd: rightInfo?.baseToken === "mbtc" ? mbtcPrice : mfuelPrice,
       });
+
+      // 获取默认decimals
+      const mFuelContract = new ethers.Contract(mFuel_ADDRESS, MFuel_ABI, signer);
+      const decimals = await mFuelContract.decimals();
     } else {
-      dispatch(error("Invalid tokenId"));
+      dispatch(error(t`Invalid tokenId`));
       // history.push("/market");
     }
     setLoading(false);
@@ -177,7 +189,7 @@ const Market: React.FC = props => {
         });
     } catch (err) {
       console.log(err);
-      dispatch(error("Fail to get info"));
+      dispatch(error(t`Fail to get info`));
       return {};
     }
   };
@@ -213,10 +225,8 @@ const Market: React.FC = props => {
     try {
       const nftMinerContract = new ethers.Contract(NFTMiner_ADDRESS, NFTMiner_ABI, signer);
       const storeContract = new ethers.Contract(NFTStore_ADDRESS, NFTStore_ABI, signer);
-      const mFuelContract = new ethers.Contract(mFuel_ADDRESS, MFuel_ABI, signer);
 
       const isApprovedForall = await nftMinerContract.isApprovedForAll(address, NFTStore_ADDRESS);
-      console.log("isApprovedForall ", isApprovedForall);
 
       if (!isApprovedForall) {
         const miner_approve_tx = await nftMinerContract.setApprovalForAll(NFTStore_ADDRESS, true);
@@ -224,8 +234,7 @@ const Market: React.FC = props => {
         console.log("miner approved");
       }
 
-      const decimals = await mFuelContract.decimals();
-      const formatPrice = new BigNumber(price).multipliedBy(Math.pow(10, decimals)).toString();
+      const formatPrice = ethers.utils.parseEther(price);
 
       const sell_tx = await storeContract.sell(
         tokenId,
@@ -239,11 +248,11 @@ const Market: React.FC = props => {
       await afterSell(tokenId, price, baseToken);
 
       setLoading(false);
-      dispatch(info(`Success to sell`));
+      dispatch(info(t`Success to sell`));
       history.push("/mynft");
     } catch (err) {
       setLoading(false);
-      dispatch(error(`Fail to sell`));
+      dispatch(error(t`Fail to sell`));
     }
     setLoading(false);
   };
@@ -257,10 +266,10 @@ const Market: React.FC = props => {
       await transfer_tx.wait();
       setLoading(false);
       history.push("/mynft");
-      dispatch(info(`Success to transfer`));
+      dispatch(info(t`Success to transfer`));
     } catch (err) {
       setLoading(false);
-      dispatch(error(`Fail to transfer`));
+      dispatch(error(t`Fail to transfer`));
     }
     setLoading(false);
   };
@@ -282,9 +291,6 @@ const Market: React.FC = props => {
   };
 
   const handleTransfer = () => {
-    console.log({
-      disabled2,
-    });
     if (!disabled2) {
       transferNft(address2, nftDetail.tokenId);
     }
@@ -309,7 +315,10 @@ const Market: React.FC = props => {
     } else {
       setDisabled(true);
     }
-    setPrice(e.target.value);
+    if (e.target.value.split(".")[1]?.length > 8) {
+    } else {
+      setPrice(e.target.value);
+    }
   };
   const handleChangeAddress = (e: any) => {
     if (e.target.value !== "") {
@@ -325,16 +334,22 @@ const Market: React.FC = props => {
   };
 
   useEffect(() => {
-    if (provider && address && networkId === 97) {
+    if (provider && address && networkId === 56) {
       getDetail();
     }
   }, [networkId, connected]);
 
+  // 是否大于最低价格
+  const validated = price.length > 0 && parseInt(price) >= (nftDetail.minerUsdtPrice || 0);
+
   return (
     <div id="marketDetail-view">
       {loading ? (
-        <Box style={{ display: "flex", alignItems: "center", justifyContent: "center" }}>
+        <Box style={{ display: "flex", alignItems: "center", justifyContent: "center", padding: "20% 0" }}>
           <CircularProgress />
+          <Typography variant="h5" style={{ marginLeft: "1rem" }}>
+            {t`Communicating with blockchain nodes...`}
+          </Typography>
         </Box>
       ) : (
         <div
@@ -353,10 +368,12 @@ const Market: React.FC = props => {
             <div className="market-item-banner">
               <img src={nftDetail.url} alt="" />
             </div>
-            <div className="market-item-title overflow-more">Meta-Intel Pentium 4 #{nftDetail.tokenId}</div>
+            <div className="market-item-title overflow-more">
+              {t`Meta-Intel Pentium 4`} #{nftDetail.tokenId}
+            </div>
             <div className="market-detail-desc">
               <div className="item">
-                <div className="title overflow-more">CONTRACT ADDRESS</div>
+                <div className="title overflow-more">{t`CONTRACT ADDRESS`}</div>
                 <div className="desc-box">
                   <div className="desc overflow-more">{nftDetail.contract}</div>
                   <div className="small-icon" onClick={() => goCopy("12312314353453qweqweqweqeqweqwrwerw")}>
@@ -365,7 +382,7 @@ const Market: React.FC = props => {
                 </div>
               </div>
               <div className="item">
-                <div className="title overflow-more">ORIGINAL</div>
+                <div className="title overflow-more">{t`ORIGINAL`}</div>
                 <div className="desc-box">
                   <div className="desc overflow-more">4000 x 4000</div>
                   <div
@@ -377,7 +394,7 @@ const Market: React.FC = props => {
                 </div>
               </div>
               <div className="item">
-                <div className="title overflow-more">TOKEN ID</div>
+                <div className="title overflow-more">{t`TOKEN ID`}</div>
                 <div className="desc overflow-more">
                   <div className="desc-box">
                     <div className="desc overflow-more">{nftDetail.tokenId}</div>
@@ -402,28 +419,36 @@ const Market: React.FC = props => {
             }}
           >
             <div className="market-box-right-item top-item">
-              <div className="market-right-detail-title overflow-more">Meta-Intel Pentium 4 #{nftDetail.tokenId}</div>
+              <div className="market-right-detail-title overflow-more">
+                {t`Meta-Intel Pentium 4`} #{nftDetail.tokenId}
+              </div>
               <div className="market-right-detail-desc">
-                <p className="tng-text">Description: {nftDetail.description}</p>
-                <p className="tng-text">Hashrate: {nftDetail.attributes?.hashrate}</p>
-                <p className="tng-text">Consumption: {nftDetail.attributes?.consumption}</p>
+                <p className="tng-text">
+                  {t`Description:`} {nftDetail.description}
+                </p>
+                <p className="tng-text">
+                  {t`Hashrate:`} {nftDetail.attributes?.hashrate}
+                </p>
+                <p className="tng-text">
+                  {t`Consumption:`} {nftDetail.attributes?.consumption}
+                </p>
               </div>
               <Grid container spacing={2}>
                 <Grid item>
                   <div className="market-right-detail-buy" onClick={handleOpen2}>
-                    Transfer
+                    {t`Transfer`}
                   </div>
                 </Grid>
                 <Grid item>
                   <div className="market-right-detail-buy" onClick={handleOpen}>
-                    Sell
+                    {t`Sell`}
                   </div>
                 </Grid>
               </Grid>
             </div>
             <div className="market-box-right-item top-item ower-item">
               <div className="bg"></div>
-              <div className="ower-item-title">Owner</div>
+              <div className="ower-item-title">{t`Owner`}</div>
               <div className="ower-item-number overflow-more">{nftDetail.owner}</div>
             </div>
           </div>
@@ -441,13 +466,19 @@ const Market: React.FC = props => {
             />
             <div className="helper-text" style={{ marginTop: "0.5rem" }} hidden={price.length > 0}>
               <Typography variant="body2" color="textSecondary">
-                Please enter the price
+                {t`Please enter the price`}
+              </Typography>
+            </div>
+            <div className="helper-text" style={{ marginTop: "0.5rem" }} hidden={price.length === 0 || validated}>
+              <Typography variant="body2" color="textSecondary">
+                {t`Please enter the price equal or more than`}
+                {nftDetail.minerUsdtPrice}
               </Typography>
             </div>
           </FormControl>
           <FormControl className="slippage-input base-token-form" variant="outlined" color="primary" size="small">
             <Select id="asset-select" value={baseToken} label="BaseToken" onChange={handleBaseToken} disableUnderline>
-              <MenuItem value={"busd"}>BUSD</MenuItem>
+              <MenuItem value={"busd"}>{t`BUSD`}</MenuItem>
               {/* <MenuItem value={"mbtc"}>MBTC</MenuItem> */}
               {/* <MenuItem value={"mfuel"}>MFUEL</MenuItem> */}
             </Select>
@@ -456,11 +487,11 @@ const Market: React.FC = props => {
             <PrimaryButton
               size="small"
               color="primary"
-              disabled={disabled}
+              disabled={disabled || !validated}
               onClick={handleSell}
               style={{ marginRight: 0 }}
             >
-              Sure to Sell
+              {t`Sure to Sell`}
             </PrimaryButton>
           </Box>
         </div>
@@ -477,7 +508,7 @@ const Market: React.FC = props => {
             />
             <div className="helper-text" style={{ marginTop: "0.5rem" }} hidden={address2.length > 0}>
               <Typography variant="body2" color="textSecondary">
-                Please enter the address to transfer
+                {t`Please enter the address to transfer`}
               </Typography>
             </div>
           </FormControl>
@@ -489,7 +520,7 @@ const Market: React.FC = props => {
               onClick={handleTransfer}
               style={{ marginTop: "1rem", marginRight: 0 }}
             >
-              Sure to transfer
+              {t`Sure to transfer`}
             </PrimaryButton>
           </Box>
         </div>

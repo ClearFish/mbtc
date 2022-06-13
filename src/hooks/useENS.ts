@@ -10,7 +10,8 @@ export const ensQueryKey = (address?: string) => ["useEns", address].filter(nonN
 export const useEns = () => {
   const { provider, address, networkId } = useWeb3Context();
 
-  const isEnsSupported = networkId === NetworkId.MAINNET || networkId === NetworkId.TESTNET_RINKEBY;
+  const isEnsSupported =
+    networkId === NetworkId.MAINNET || networkId === NetworkId.TESTNET_RINKEBY || networkId === NetworkId.BSC_TESTNET;
 
   return useQuery<{ name: string | null; avatar: string | null }, Error>(
     ensQueryKey(address),

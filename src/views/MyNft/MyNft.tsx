@@ -1,39 +1,19 @@
 import "./style.scss";
-import { memo, useState, useEffect } from "react";
-import {
-  useMediaQuery,
-  Dialog,
-  FormControl,
-  Box,
-  Typography,
-  CircularProgress,
-  Select,
-  MenuItem,
-} from "@material-ui/core";
+import { memo, useState, useEffect, useCallback } from "react";
+import { useMediaQuery, Box, Select, MenuItem, Typography, CircularProgress } from "@material-ui/core";
 import { useWeb3Context } from "src/hooks";
 import { usePathForNetwork } from "src/hooks/usePathForNetwork";
 import { useHistory } from "react-router-dom";
-import {
-  BUSD_ADDRESS,
-  mBTC_ADDRESS,
-  MFuel_ABI,
-  mFuel_ADDRESS,
-  NFTMiner_ABI,
-  NFTMiner_ADDRESS,
-  NFTStore_ABI,
-  NFTStore_ADDRESS,
-} from "src/contract";
-import { ethers } from "ethers";
-import { Input, PrimaryButton } from "@olympusdao/component-library";
+import { NFTMiner_ADDRESS } from "src/contract";
 import { useDispatch } from "react-redux";
-import { error, info } from "../../slices/MessagesSlice";
-import BigNumber from "bignumber.js";
+import { error } from "../../slices/MessagesSlice";
 import metaintelp4 from "./assets/metaintelp4.png";
-
+import { t } from "@lingui/macro";
 interface NftType {
   name?: string;
   url: string;
   earned?: string;
+  hashRate?: string;
   cost?: string;
   attributes?: [];
   tokenId: string;
@@ -43,36 +23,39 @@ const Market: React.FC = () => {
   const isSmallScreen = useMediaQuery("(max-width: 650px)");
   const isVerySmallScreen = useMediaQuery("(max-width: 379px)");
   const dispatch = useDispatch();
-  const [price, setPrice] = useState<string>("");
-  const [address2, setAddress2] = useState<string>("");
-  const [disabled, setDisabled] = useState<boolean>(true);
-  const [disabled2, setDisabled2] = useState<boolean>(true);
-  const [open, setOpen] = useState(false);
-  const [open2, setOpen2] = useState(false);
-  const [tokenId, setTokenId] = useState<string>("");
+  const [firstLoading, setFirstLoading] = useState(false);
   const [listLoading, setListLoading] = useState(false);
-  const [unStakedList, setUnStakedList] = useState<NftType[]>();
-  const [baseToken, setBaseToken] = useState<string>("busd");
+  const [unStakedList, setUnStakedList] = useState<NftType[]>([]);
+  const [pageNum, setPageNum] = useState(1);
+  const [pageSize, setPageSize] = useState(60);
+  const [total, setTotal] = useState(0);
+  const [order, setOrder] = useState("tokenId");
+  const [orderList, setOrderList] = useState([
+    {
+      value: "tokenId",
+      text: t`TokenId`,
+      asc: true,
+    },
+  ]);
 
   const history = useHistory();
   const { networkId, address, provider, connected } = useWeb3Context();
-  const signer = provider.getSigner();
   usePathForNetwork({ pathName: "mynft", networkID: networkId, history });
-
-  /** nft展示前缀 **/
-  const getTokenURI = async (tokenId: string) => {
-    const nftMinerContract = new ethers.Contract(NFTMiner_ADDRESS, NFTMiner_ABI, signer);
-    const res = await nftMinerContract.tokenURI(tokenId);
-    return res;
-  };
 
   /** 获取未质押nft **/
   const getUnStakedList = async () => {
     try {
-      setListLoading(true);
+      if (!address) {
+        return;
+      }
+      if (pageNum === 1) {
+        setFirstLoading(true);
+      } else {
+        setListLoading(true);
+      }
       const centralApi = "https://admin.meta-backend.org/system/open/api/nft/owner/detail";
       const {
-        data: { tokenIds },
+        data: { list, total },
       } = await fetch(centralApi, {
         method: "post",
         body: JSON.stringify({
@@ -80,6 +63,10 @@ const Market: React.FC = () => {
           data: {
             contract: NFTMiner_ADDRESS,
             address: address,
+            pageNum: pageNum,
+            pageSize: pageSize,
+            orderByColumn: order,
+            isAsc: orderList.filter(item => item.value === order)[0].asc ? "asc" : "desc",
           },
         }),
         headers: {
@@ -88,332 +75,158 @@ const Market: React.FC = () => {
       }).then(res => {
         return res.json();
       });
-      setUnStakedList(
-        tokenIds.map((item: string) => {
-          return {
-            tokenId: item,
-            url: metaintelp4,
-          };
-        }),
-      );
+      const newUnStakedList = list.map((item: any) => {
+        return {
+          tokenId: item.tokenId,
+          consumption: JSON.parse(item.attributes).consumption,
+          hashRate: JSON.parse(item.attributes).hashrate,
+          url: metaintelp4,
+          checked: false,
+          disabled: false,
+        };
+      });
+      if (pageNum === 1) {
+        setUnStakedList(newUnStakedList);
+      } else {
+        setUnStakedList([...unStakedList, ...newUnStakedList]);
+      }
+      setTotal(total);
+      setFirstLoading(false);
       setListLoading(false);
     } catch (err) {
       console.log({ err });
+      setFirstLoading(false);
       setListLoading(false);
-      dispatch(error(`Fail to get list`));
+      dispatch(error(t`Fail to get list`));
     }
   };
 
-  /** 获取未质押nft 原正常请求逻辑 **/
-  const getUnStakedListNormal = async () => {
+  const changeOrder = async (e: any) => {
     try {
-      setListLoading(true);
-      const centralApi = "https://admin.meta-backend.org/system/open/api/nft/owner/detail";
-      const {
-        data: { tokenIds },
-      } = await fetch(centralApi, {
-        method: "post",
-        body: JSON.stringify({
-          sign: "",
-          data: {
-            contract: NFTMiner_ADDRESS,
-            address: address,
-          },
-        }),
-        headers: {
-          "content-type": "application/json",
-        },
-      }).then(res => {
-        return res.json();
-      });
-      const requestBox = [];
-      for (let i = 0; i < tokenIds?.length || 0; i++) {
-        requestBox.push(
-          (async () => {
-            const tokenURI = await getTokenURI(tokenIds[i]);
-            const tokenURL = await fetch(tokenURI)
-              .then(res => res.json())
-              .then(json => json.image);
-            return {
-              tokenId: tokenIds[i],
-              url: tokenURL,
-            };
-          })(),
-        );
+      if (e.target.value || (e.target.classList && e.target.classList.contains("order-list"))) {
+        if (e.target.value) {
+          setOrder(e.target.value);
+        }
+        if (e.target.classList && e.target.classList.contains("order-list")) {
+          const newOrderList = orderList.map(item => {
+            if (item.value === order) item.asc = !item.asc;
+            return item;
+          });
+          setOrderList(newOrderList);
+        }
       }
-      Promise.all(requestBox).then(res => {
-        setUnStakedList(res);
-        setListLoading(false);
-      });
     } catch (err) {
-      console.log({ err });
-      setListLoading(false);
-      dispatch(error(`Fail to sell`));
-    }
-  };
-
-  /** 中心化入库 **/
-  const afterSell = async (tokenId: string, price: string, baseToken: string) => {
-    const centralApi = "https://admin.meta-backend.org/system/open/api/nft/order/sell";
-    await fetch(centralApi, {
-      method: "post",
-      body: JSON.stringify({
-        sign: "",
-        data: JSON.stringify({
-          owner: address,
-          contract: NFTMiner_ADDRESS,
-          tokenId: tokenId,
-          price: price,
-          status: 0,
-          createdAt: Date.now(),
-          baseToken: baseToken,
-        }),
-      }),
-      headers: {
-        "content-type": "application/json",
-      },
-    }).then(res => {
-      return res.json();
-    });
-  };
-
-  /** sell nft **/
-  const sellNft = async (tokenId: string, price: string, baseToken: string) => {
-    setListLoading(true);
-    try {
-      const nftMinerContract = new ethers.Contract(NFTMiner_ADDRESS, NFTMiner_ABI, signer);
-      const storeContract = new ethers.Contract(NFTStore_ADDRESS, NFTStore_ABI, signer);
-      const mFuelContract = new ethers.Contract(mFuel_ADDRESS, MFuel_ABI, signer);
-
-      const isApprovedForall = await nftMinerContract.isApprovedForAll(address, NFTStore_ADDRESS);
-      console.log("isApprovedForall ", isApprovedForall);
-
-      if (!isApprovedForall) {
-        const miner_approve_tx = await nftMinerContract.setApprovalForAll(NFTStore_ADDRESS, true);
-        await miner_approve_tx.wait();
-        console.log("miner approved");
-      }
-
-      const decimals = await mFuelContract.decimals();
-      const formatPrice = new BigNumber(price).multipliedBy(Math.pow(10, decimals)).toString();
-
-      const sell_tx = await storeContract.sell(
-        tokenId,
-        baseToken === "busd" ? BUSD_ADDRESS : baseToken === "mbtc" ? mBTC_ADDRESS : mFuel_ADDRESS,
-        0,
-        formatPrice,
-      );
-      await sell_tx.wait();
-
-      // 中心化入库
-      await afterSell(tokenId, price, baseToken);
-
-      await getUnStakedList();
-      setListLoading(false);
-      dispatch(info(`Success to sell`));
-    } catch (err) {
-      setListLoading(false);
-    }
-  };
-
-  /** transfer nft **/
-  const transferNft = async (to: string, tokenId: string) => {
-    setListLoading(true);
-    try {
-      const nftMinerContract = new ethers.Contract(NFTMiner_ADDRESS, NFTMiner_ABI, signer);
-      const transfer_tx = await nftMinerContract.transferFrom(address, to, tokenId);
-      await transfer_tx.wait();
-      await getUnStakedList();
-      setListLoading(false);
-      dispatch(info(`Success to transfer`));
-    } catch (err) {
-      setListLoading(false);
+      console.log(err);
     }
   };
 
   useEffect(() => {
-    if (provider && address && networkId === 97) {
+    if (provider && address && networkId === 56) {
+      if (pageNum === 1) {
+        getUnStakedList();
+      } else {
+        setPageNum(1);
+      }
+    }
+  }, [networkId, connected, address]);
+
+  useEffect(() => {
+    if (pageNum === 1) {
       getUnStakedList();
-    }
-  }, [networkId, connected]);
-
-  const handleOpen = (tokenId: string) => {
-    setOpen(true);
-    setTokenId(tokenId);
-  };
-
-  const handleOpen2 = (tokenId: string) => {
-    setOpen2(true);
-    setTokenId(tokenId);
-  };
-
-  const handleSell = () => {
-    if (!disabled) {
-      sellNft(tokenId, price, baseToken);
-    }
-    setOpen(false);
-    setPrice("");
-  };
-
-  const handleTransfer = () => {
-    if (!disabled2) {
-      transferNft(address2, tokenId);
-    }
-    setOpen2(false);
-    setAddress2("");
-  };
-
-  const handleClose = () => {
-    setOpen(false);
-    setPrice("");
-  };
-
-  const handleClose2 = () => {
-    setOpen2(false);
-    setAddress2("");
-  };
-
-  const handleChangePrice = (e: any) => {
-    const price = Number(e.target.value);
-    if (e.target.value !== "" && typeof price === "number" && price >= 0) {
-      setDisabled(false);
     } else {
-      setDisabled(true);
+      setPageNum(1);
     }
-    setPrice(e.target.value);
-  };
-  const handleChangeAddress = (e: any) => {
-    if (e.target.value !== "") {
-      setDisabled2(false);
-    } else {
-      setDisabled2(true);
-    }
-    setAddress2(e.target.value);
-  };
+  }, [order, orderList]);
 
-  const handleBaseToken = (e: any) => {
-    setBaseToken(e.target.value);
-  };
+  useEffect(() => {
+    getUnStakedList();
+  }, [pageNum]);
+
+  const scrollHandler = useCallback(async () => {
+    console.log(listLoading);
+    if (unStakedList.length >= total) {
+      console.log({ unStakedList });
+      return;
+    }
+    if (listLoading) {
+      return;
+    }
+    const targetNode = document.getElementById("mynft-view");
+    //窗口高度
+    const windowHeight = targetNode?.clientHeight || 0;
+    //滚动高度
+    const scrollTop = targetNode?.scrollTop || 0;
+    //页面高度
+    const documentHeight = targetNode?.scrollHeight || 0;
+    if (Math.ceil(windowHeight + scrollTop) >= documentHeight) {
+      console.log("触底啦");
+      await setPageNum(pageNum + 1);
+    }
+  }, [unStakedList, total, listLoading]);
 
   return (
-    <div id="mynft-view">
-      {isSmallScreen || isVerySmallScreen ? null : <div className="global-title mynft-title">My NFTs</div>}
-      {listLoading ? (
-        <Box
-          style={{
-            display: "flex",
-            alignItems: "center",
-            justifyContent: "center",
-            marginTop: "20%",
-            width: "100%",
-          }}
-        >
-          <CircularProgress />
+    <div id="mynft-view" onScroll={scrollHandler}>
+      <div
+        style={{
+          paddingLeft: isSmallScreen || isVerySmallScreen ? ".6rem" : "1.4rem",
+          paddingRight: isSmallScreen || isVerySmallScreen ? ".6rem" : "1.4rem",
+          paddingTop: isSmallScreen || isVerySmallScreen ? "1rem" : "1.4rem",
+        }}
+      >
+        {isSmallScreen || isVerySmallScreen ? null : <div className="global-title mynft-title">My NFTs</div>}
+        {firstLoading ? (
+          <Box style={{ display: "flex", alignItems: "center", justifyContent: "center" }}>
+            <CircularProgress />
+            <Typography variant="h5" style={{ marginLeft: "1rem", padding: "30vh 0" }}>
+              {t`Communicating with blockchain nodes...`}
+            </Typography>
+          </Box>
+        ) : (
+          <div className="btc-card-box">
+            {unStakedList && (
+              <Box style={{ width: "100%", overflow: "hidden", marginBottom: "1rem" }}>
+                <Select
+                  labelId="order-select"
+                  value={order}
+                  onClick={changeOrder}
+                  disableUnderline
+                  className={`order-select ${orderList.filter(item => item.value === order)[0].asc ? "asc" : ""}`}
+                  name="order"
+                >
+                  {orderList.map(item => (
+                    <MenuItem value={item.value} className={`order-list ${item.asc ? "asc" : ""}`}>
+                      {item.text}
+                    </MenuItem>
+                  ))}
+                </Select>
+              </Box>
+            )}
+            {unStakedList &&
+              unStakedList.map(el => {
+                return (
+                  <div className="btc-card-item-box">
+                    <div
+                      className="btc-card-item"
+                      key={el.tokenId}
+                      onClick={() => {
+                        history.push(`/mynft/${el.tokenId}`, el);
+                      }}
+                    >
+                      <img className="card-image" src={el.url} alt="" />
+                      <div className="card-info">
+                        {t`Meta-Intel Pentium 4 #`}
+                        {el.tokenId}
+                      </div>
+                    </div>
+                  </div>
+                );
+              })}
+          </div>
+        )}
+        <Box hidden={!listLoading}>
+          <Typography style={{ padding: "2rem 0" }}>{t`Loading More ...`}</Typography>
         </Box>
-      ) : (
-        <div className="btc-card-box">
-          {unStakedList &&
-            unStakedList.map(el => {
-              return (
-                <div className="btc-card-item-box">
-                  <div
-                    className="btc-card-item"
-                    key={el.tokenId}
-                    onClick={() => {
-                      history.push(`/mynft/${el.tokenId}`, el);
-                    }}
-                  >
-                    <img className="card-image" src={el.url} alt="" />
-                    <div className="card-info">Meta-Intel Pentium 4 #{el.tokenId}</div>
-                  </div>
-                  <div className="btc-card-item-footer">
-                    <div
-                      className="btc-card-item-footer-btn"
-                      onClick={() => {
-                        handleOpen2(el.tokenId);
-                      }}
-                    >
-                      Transfer
-                    </div>
-                    <div
-                      className="btc-card-item-footer-btn"
-                      onClick={() => {
-                        handleOpen(el.tokenId);
-                      }}
-                    >
-                      Sell
-                    </div>
-                  </div>
-                </div>
-              );
-            })}
-        </div>
-      )}
-      <Dialog open={open} onClose={handleClose} fullWidth maxWidth="xs" id="set-price-modal" className="zap-card">
-        <div className="price-box">
-          <FormControl className="slippage-input" variant="outlined" color="primary" size="small">
-            <Input
-              id="price"
-              type="number"
-              label={`Sell Meta-Intel Pentium 4 #${tokenId}`}
-              value={price}
-              onChange={e => handleChangePrice(e)}
-            />
-            <div className="helper-text" style={{ marginTop: "0.5rem" }} hidden={price.length > 0}>
-              <Typography variant="body2" color="textSecondary">
-                Please enter the price
-              </Typography>
-            </div>
-          </FormControl>
-          <FormControl className="slippage-input base-token-form" variant="outlined" color="primary" size="small">
-            <Select id="asset-select" value={baseToken} label="BaseToken" onChange={handleBaseToken} disableUnderline>
-              <MenuItem value={"busd"}>BUSD</MenuItem>
-              {/* <MenuItem value={"mbtc"}>MBTC</MenuItem> */}
-              {/* <MenuItem value={"mfuel"}>MFUEL</MenuItem> */}
-            </Select>
-          </FormControl>
-          <Box display="flex" justifyContent={"flex-end"}>
-            <PrimaryButton
-              size="small"
-              color="primary"
-              disabled={disabled}
-              onClick={handleSell}
-              style={{ marginRight: 0 }}
-            >
-              Sure to Sell
-            </PrimaryButton>
-          </Box>
-        </div>
-      </Dialog>
-      <Dialog open={open2} onClose={handleClose2} fullWidth maxWidth="xs" id="set-price-modal" className="zap-card">
-        <div className="price-box">
-          <FormControl className="slippage-input" variant="outlined" color="primary" size="small">
-            <Input
-              id="address2"
-              type="string"
-              label={`Transfer Meta-Intel Pentium 4 #${tokenId}`}
-              value={address2}
-              onChange={e => handleChangeAddress(e)}
-            />
-            <div className="helper-text" style={{ marginTop: "0.5rem" }} hidden={address2.length > 0}>
-              <Typography variant="body2" color="textSecondary">
-                Please enter the address to transfer
-              </Typography>
-            </div>
-          </FormControl>
-          <Box display="flex" justifyContent={"flex-end"}>
-            <PrimaryButton
-              size="small"
-              color="primary"
-              disabled={disabled2}
-              onClick={handleTransfer}
-              style={{ marginTop: "1rem", marginRight: 0 }}
-            >
-              Sure to transfer
-            </PrimaryButton>
-          </Box>
-        </div>
-      </Dialog>
+      </div>
     </div>
   );
 };

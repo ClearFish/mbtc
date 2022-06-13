@@ -1,6 +1,6 @@
 import "./styles.scss";
 import { useEffect } from "react";
-
+import { t, Trans } from "@lingui/macro";
 import MetaBitcon from "../../assets/images/meta-bitcoin.png";
 import { Container, useMediaQuery, Typography, Grid } from "@material-ui/core";
 import CardMBTC from "../../assets/images/card-mbtc2.png";
@@ -56,7 +56,7 @@ export function Economy() {
           <div className="block-left">
             <img src={MetaBitcon} alt="" className="meta-img" />
             <Typography variant="body1" align="left" className="tng-text">
-              An innovative peer-to-peer financial system in the metaverse
+              <Trans>An innovative peer-to-peer financial system in the metaverse</Trans>
             </Typography>
           </div>
         </Container>
@@ -78,10 +78,10 @@ export function Economy() {
               </Grid>
               <Grid xs={12}>
                 <Typography variant="body1" align="left" className="card-text">
-                  MBTC
+                  {t`MBTC`}
                 </Typography>
                 <Typography variant="body2" align="left" className="card-info">
-                  Meta Bitcoin provides a decentralized way to store, account, and exchange values in the metaverse
+                  {t`Meta Bitcoin provides a decentralized way to store, account, and exchange values in the metaverse`}
                 </Typography>
               </Grid>
               <Grid xs={12} id="mfuel">
@@ -89,10 +89,10 @@ export function Economy() {
               </Grid>
               <Grid xs={12}>
                 <Typography variant="body1" align="left" className="card-text">
-                  MFuel
+                  {t`MFuel`}
                 </Typography>
                 <Typography variant="body2" align="left" className="card-info">
-                  Meta Fuel is the energy resource for mining in the metaverse
+                  {t`Meta Fuel is the energy resource for mining in the metaverse`}
                 </Typography>
               </Grid>
               <Grid xs={12} id="miner">
@@ -100,12 +100,12 @@ export function Economy() {
               </Grid>
               <Grid xs={12}>
                 <Typography variant="body1" align="left" className="card-text">
-                  NFT Miner
+                  {t`NFT Miner`}
                 </Typography>
                 <Typography variant="body2" align="left" className="card-info">
-                  NFT Miner mines MBTC by providing hash power
+                  {t`NFT Miner mines MBTC by providing hash power`}
                   {isSmallScreen ? " " : <br />}
-                  using proof-of-NFT
+                  {t`using proof-of-NFT`}
                 </Typography>
               </Grid>
               <Grid xs={12} id="pool">
@@ -113,10 +113,10 @@ export function Economy() {
               </Grid>
               <Grid xs={12}>
                 <Typography variant="body1" align="left" className="card-text">
-                  NFT Pool
+                  {t`NFT Pool`}
                 </Typography>
                 <Typography variant="body2" align="left" className="card-info">
-                  NFT Pool empowers miners by receiving and burning MFuels
+                  {t`NFT Pool empowers miners by receiving and burning MFuels`}
                 </Typography>
               </Grid>
             </Grid>
@@ -124,11 +124,11 @@ export function Economy() {
             <Grid container alignItems="center" spacing={6}>
               <Grid item xs={5}>
                 <Typography variant="body1" align="right" className="card-text">
-                  MBTC
+                  {t`MBTC`}
                 </Typography>
                 <Typography variant="body2" align="right" className="card-info">
-                  Meta Bitcoin provides a decentralized way to store,
-                  <br /> account, and exchange values in the metaverse
+                  {t`Meta Bitcoin provides a decentralized way to store,`}
+                  <br /> {t`account, and exchange values in the metaverse`}
                 </Typography>
               </Grid>
               <Grid item xs={7}>
@@ -139,20 +139,20 @@ export function Economy() {
               </Grid>
               <Grid item xs={5}>
                 <Typography variant="body1" align="left" className="card-text">
-                  MFuel
+                  {t`MFuel`}
                 </Typography>
                 <Typography variant="body2" align="left" className="card-info">
-                  Meta Fuel is the energy resource for mining in the metaverse
+                  {t`Meta Fuel is the energy resource for mining in the metaverse`}
                 </Typography>
               </Grid>
               <Grid item xs={5}>
                 <Typography variant="body1" align="right" className="card-text">
-                  NFT Miner
+                  {t`NFT Miner`}
                 </Typography>
                 <Typography variant="body2" align="right" className="card-info">
-                  NFT Miner mines MBTC by providing hash power
+                  {t`NFT Miner mines MBTC by providing hash power`}
                   <br />
-                  using proof-of-NFT
+                  {t`using proof-of-NFT`}
                 </Typography>
               </Grid>
               <Grid item xs={7} id="miner">
@@ -163,10 +163,10 @@ export function Economy() {
               </Grid>
               <Grid item xs={5}>
                 <Typography variant="body1" align="left" className="card-text">
-                  NFT Pool
+                  {t`NFT Pool`}
                 </Typography>
                 <Typography variant="body2" align="left" className="card-info">
-                  NFT Pool empowers miners by receiving and burning MFuels
+                  {t`NFT Pool empowers miners by receiving and burning MFuels`}
                 </Typography>
               </Grid>
             </Grid>

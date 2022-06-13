@@ -1,5 +1,5 @@
 import "./TreasuryDashboard.scss";
-
+import { t } from "@lingui/macro";
 import { Box, Container, Grid, useMediaQuery, Zoom, Button, Typography } from "@material-ui/core";
 import { Metric, MetricCollection, Paper } from "@olympusdao/component-library";
 import { memo } from "react";
@@ -7,9 +7,9 @@ import { memo } from "react";
 import { MarketValueGraph, TotalValueDepositedGraph } from "./components/Graph/Graph";
 import {
   CirculatingSupply,
-  CircSupply,
-  NextHavlingCountdown,
-  Volume24,
+  TotalValueLocked,
+  NextHalvingCountdown,
+  CirculatingMarketCap,
   MarketCap,
   MBTCReward,
   MinedMBTC,
@@ -41,20 +41,25 @@ const TreasuryDashboard = memo(() => {
   const MFuelpriceData = useMFuelprice().data || 0;
 
   return (
-    <div id="treasury-dashboard-view" className={`${isSmallScreen && "smaller"} ${isVerySmallScreen && "very-small"}`}>
-      {isSmallScreen || isVerySmallScreen ? null : <div className="dashboard-title">Dashboard</div>}
+    <div
+      id="treasury-dashboard-view"
+      className={`${isSmallScreen && "smaller"} ${isVerySmallScreen && "very-small"}`}
+      key={history?.location?.key}
+    >
+      {isSmallScreen || isVerySmallScreen ? null : <div className="dashboard-title">{t`Dashboard`}</div>}
       <Container>
         <Grid container spacing={2} className="data-grid">
           <Grid item lg={8} md={12} sm={12} xs={12}>
             <Box className="hero-metrics">
               <Paper className="ohm-card">
                 <MetricCollection>
-                  <MarketCap {...sharedMetricProps} />
+                  <TotalValueLocked {...sharedMetricProps} />
+                  <CirculatingMarketCap {...sharedMetricProps} />
                   <MBTCPrice {...sharedMetricProps} />
-                  <CircSupply {...sharedMetricProps} />
                   <CirculatingSupply {...sharedMetricProps} />
-                  <NextHavlingCountdown {...sharedMetricProps} />
-                  <Volume24 {...sharedMetricProps} className="wsoprice" />
+                  <NextHalvingCountdown {...sharedMetricProps} />
+                  <MarketCap {...sharedMetricProps} />
+                  {/* <Volume24 {...sharedMetricProps} className="wsoprice" /> */}
                 </MetricCollection>
               </Paper>
             </Box>
@@ -67,42 +72,42 @@ const TreasuryDashboard = memo(() => {
                     <img className="card-pannel-logo" src={MBTC_LOGO} alt="" />
                     <div className="transfer-pannel">
                       <div className="transfer-title">
-                        <Typography variant="h6"> MBTC</Typography>
+                        <Typography variant="h6"> {t`MBTC`}</Typography>
                         <img className="transfer-logo" src={TRANSFER}></img>
-                        <Typography variant="h6"> USD</Typography>
+                        <Typography variant="h6"> {t`USD`}</Typography>
                       </div>
                       <Typography variant="h5" className="transfer-content">
-                        {MBTCPriceData}
+                        ${MBTCPriceData || 0}
                       </Typography>
                     </div>
                     <Button
                       className="card-pannel-btn"
                       variant="contained"
-                      href="https://pancake.kiemtienonline360.com/#/swap?outputCurrency=0xD98a7396eC1E53039ED4293559320CE16D792c3d"
+                      href="https://pancakeswap.finance/swap?outputCurrency=0xcEdaA366475051A0816Cbb85Ae196E629830C30a"
                       target="_blank"
                     >
-                      Buy
+                      {t`Buy`}
                     </Button>
                   </Grid>
                   <Grid item className="card-pannel">
                     <img className="card-pannel-logo" src={MFUEL_LOGO} alt="" />
                     <div className="transfer-pannel">
                       <div className="transfer-title">
-                        <Typography variant="h6"> MFUEL</Typography>
+                        <Typography variant="h6"> {t`MFUEL`}</Typography>
                         <img className="transfer-logo" src={TRANSFER}></img>
-                        <Typography variant="h6"> USD</Typography>
+                        <Typography variant="h6"> {t`USD`}</Typography>
                       </div>
                       <Typography variant="h5" className="transfer-content">
-                        {MFuelpriceData}
+                        ${MFuelpriceData || 0}
                       </Typography>
                     </div>
                     <Button
                       className="card-pannel-btn"
                       variant="contained"
-                      href="https://pancake.kiemtienonline360.com/#/swap?outputCurrency=0x0b523c1F1118d3082d6A22BC6FB26AA59a4D60fC"
+                      href="https://pancakeswap.finance/swap?outputCurrency=0x42E0D4267F9a457e17d3C571c7E5BA7F57F76d2F"
                       target="_blank"
                     >
-                      Buy
+                      {t`Buy`}
                     </Button>
                   </Grid>
                 </Grid>
@@ -118,9 +123,9 @@ const TreasuryDashboard = memo(() => {
                 <MetricCollection>
                   <MinedMBTC {...sharedMetricProps} />
                   <MinedMBTCNetWorth {...sharedMetricProps} />
-                  <TotalMiningHashRate {...sharedMetricProps} />
-                  <MyMiningHashRate {...sharedMetricProps} />
                   <MBTCReward {...sharedMetricProps} />
+                  <MyMiningHashRate {...sharedMetricProps} />
+                  <TotalMiningHashRate {...sharedMetricProps} />
                   <MyNFTMiners {...sharedMetricProps} />
                 </MetricCollection>
               </Paper>

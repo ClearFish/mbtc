@@ -7,7 +7,7 @@ import { useWeb3Context } from "src/hooks";
 import { useDynamicTokenContract } from "src/hooks/useContract";
 import { contractAllowanceQueryKey } from "src/hooks/useContractAllowance";
 import { error as createErrorToast, info as createInfoToast } from "src/slices/MessagesSlice";
-
+import { t } from "@lingui/macro";
 export const useApproveToken = (tokenMap: AddressMap, contractMap: AddressMap) => {
   const dispatch = useDispatch();
   const client = useQueryClient();
@@ -18,8 +18,8 @@ export const useApproveToken = (tokenMap: AddressMap, contractMap: AddressMap) =
     async () => {
       const contractAddress = contractMap[networkId as keyof typeof contractMap];
 
-      if (!token) throw new Error("Token doesn't exist on current network. Please switch networks.");
-      if (!contractAddress) throw new Error("Contract doesn't exist on current network. Please switch networks.");
+      if (!token) throw new Error(t`Token doesn't exist on current network. Please switch networks.`);
+      if (!contractAddress) throw new Error(t`Contract doesn't exist on current network. Please switch networks.`);
 
       const transaction = await token.approve(contractAddress, MaxUint256);
 
@@ -28,7 +28,7 @@ export const useApproveToken = (tokenMap: AddressMap, contractMap: AddressMap) =
     {
       onError: error => void dispatch(createErrorToast(error.message)),
       onSuccess: async () => {
-        dispatch(createInfoToast("Successfully approved"));
+        dispatch(createInfoToast(t`Successfully approved`));
         await client.refetchQueries(contractAllowanceQueryKey(address, networkId, tokenMap, contractMap));
       },
     },

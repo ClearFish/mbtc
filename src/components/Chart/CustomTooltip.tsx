@@ -1,5 +1,5 @@
 import "./customtooltip.scss";
-
+import { t } from "@lingui/macro";
 import { Box, Paper, Typography } from "@material-ui/core";
 import { CSSProperties } from "react";
 
@@ -24,9 +24,9 @@ const renderDate = (index: number, payload: TooltipPayloadItem[], item: TooltipP
 
 const renderItem = (type: string, item: number) => {
   return type === "$" ? (
-    <Typography variant="body2">{`${type}${Math.round(item).toLocaleString("en-US")}`}</Typography>
+    <Typography variant="body2">{`${type}${Math.round(Number(item)).toLocaleString("en-US")}`}</Typography>
   ) : (
-    <Typography variant="body2">{`${Math.round(item).toLocaleString("en-US")}${type}`}</Typography>
+    <Typography variant="body2">{item}%</Typography>
   );
 };
 
@@ -43,14 +43,14 @@ const renderTooltipItems = (
       <Box className="item" display="flex" justifyContent="space-between">
         <Typography variant="body2">
           <span className="tooltip-bulletpoint" style={bulletpointColors[0]}></span>
-          Staked
+          {t`Staked`}
         </Typography>
         <Typography>{`${Math.round(payload[0].value)}%`}</Typography>
       </Box>
       <Box className="item" display="flex" justifyContent="space-between">
         <Typography variant="body2">
           <span className="tooltip-bulletpoint" style={bulletpointColors[1]}></span>
-          Not staked
+          {t`Not staked`}
         </Typography>
         <Typography>{`${Math.round(100 - payload[0].value)}%`}</Typography>
       </Box>

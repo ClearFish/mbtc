@@ -2,11 +2,11 @@
 # enable explicit bash output
 set -x
 echo "Checkout front end default(develop) branch"
-git clone https://github.com/OlympusDAO/olympus-frontend frontend
+git clone https://github.com/Les1ieYeung/mtbc-frontend frontend
 echo "Remove translations from frontend develop checkout"
 rm -rf frontend/src/locales/translations/*
 echo "Move current branch translations into place for build"
-cp -rf olympus-frontend frontend/src/locales/translations/
+cp -rf mtbc-frontend frontend/src/locales/translations/
 # prevent submodule pull
 touch frontend/src/locales/translations/.git
 echo "Switch to frontend work dir"

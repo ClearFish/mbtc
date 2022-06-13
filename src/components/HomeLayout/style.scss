@@ -53,20 +53,7 @@
     }
 
 }
-.social-link {
-    .social-row {
-        padding: 0;
-        justify-content: flex-start;
-    }
-    .MuiTypography-root {
-        color: #FCFCFC;
-        margin-left: 3rem;
-        transition: .2s ease-in-out;
-        &:hover {
-            color: #F4D092;
-        }
-    }
-}
+
 .bottom {
     background: #040407 url("../../assets/images/eclipse.png") no-repeat;
     background-size: 160% auto;
@@ -97,6 +84,29 @@
             color: #ccd2d4;
         }
     }
+    .social-link {
+        .social-row-icon {
+            margin-right: 3rem;
+            .MuiTypography-root {
+                color: #FCFCFC;
+                transition: .2s ease-in-out;
+                &:hover {
+                    color: #F4D092;
+                }
+                .MuiSvgIcon-root {
+                    font-size: 2rem !important;
+                }
+            }
+            &:last-child {
+                margin-right: 0 !important;
+            }
+        }
+        .social-row {
+            padding: 0;
+            justify-content: flex-start;
+        }
+        
+    }
 }
 .isMobile {
     .bottom {
@@ -113,6 +123,20 @@
             font-family: 'PingFang SC';
             line-height: 2.1rem;
         }
+        .social-link {
+            .social-row {
+                padding: 0;
+                justify-content: flex-start;
+            }
+
+            .MuiTypography-root {
+                color: #FCFCFC;
+                transition: .2s ease-in-out;
+                &:hover {
+                    color: #F4D092;
+                }
+            }
+        }
     }
     .headroom {
         will-change: transform;
@@ -127,4 +151,146 @@
 }
 .is-hide {
 	transform: translateY(-100%);
+}
+[aria-describedby="locales-popper"] {
+    z-index: 10000000000000000;
+    box-sizing: border-box;
+    width: 40px !important;
+    padding: 3px !important;
+    min-width: 40px !important;
+    background: #3E0F79A6 !important;
+    border-radius: 13px !important;
+    &.MuiButton-containedSecondary:hover {
+      background: #290053 !important;
+    }
+    .MuiButton-label {
+      overflow: hidden;
+      width: 32px;
+      height: 32px;
+      max-width: 100%;
+      max-height: 100%;
+      border-radius: 50%;
+      &>.MuiSvgIcon-root {
+        width: 43px;
+        height: 43px;
+      }
+    }
+    &[title="ja"] {
+        span.MuiButton-label svg {
+            background: url('../../assets/icons/Flag_of_Japan.svg') no-repeat;
+            background-size: 48px 32px;
+            background-position: center center;
+        }
+    }
+    &[title="th"] {
+        span.MuiButton-label svg {
+            background: url('../../assets/icons/Flag_of_Thailand.svg') no-repeat;
+            background-size: 48px 32px;
+            background-position: center center;
+        }
+    }
+    // flag to word
+   
+
+    &[title=en] {
+        &>.MuiButton-label {
+            position: relative;
+            &:after {
+                content: "EN";
+                display: inline;
+                position: absolute;
+                left: 0;
+                right: 0;
+                color: #FCFCFC;
+                font-family: Square;
+                font-weight: 500;
+            }
+            &>svg {
+                display: none;
+            }
+        }
+    }
+
+    &[title=ko] {
+        &>.MuiButton-label {
+            position: relative;
+            &:after {
+                content: "KR";
+                display: inline;
+                position: absolute;
+                left: 0;
+                right: 0;
+                color: #FCFCFC;
+                font-family: Square;
+                font-weight: 500;
+            }
+            &>svg {
+                display: none;
+            }
+        }
+    }
+}
+#locales-popper {
+    z-index: 100000000000000000;
+    span.MuiButton-label {
+        padding-top: 2px;
+    }
+    button.MuiButtonBase-root:nth-child(3) {
+        .MuiButton-label {
+            svg {
+                background: url('../../assets/icons/Flag_of_Japan.svg') no-repeat;
+                background-size: 20px 15px;
+                background-position: center center;
+            }
+        }
+    }
+    button.MuiButtonBase-root:nth-child(4) {
+        .MuiButton-label {
+            svg {
+                background: url('../../assets/icons/Flag_of_Thailand.svg') no-repeat;
+                background-size: 20px 15px;
+                background-position: center center;
+            }
+        }
+    }
+    button.MuiButtonBase-root {
+        &>span.MuiButton-label {
+            position: relative;
+            height: 20px;
+            &:before {
+                content: "EN";
+                display: block;
+                height: 20px;
+                line-height: 20px;
+                top: 0;
+                right: 0;
+                position: absolute;
+                left: 0;
+                right: 0;
+                color: #FFFFFF;
+                font-family: Square;
+                font-weight: 500;
+            }
+            &>svg {
+                display: none;
+            }
+        }
+        &:hover {
+            &>span.MuiButton-label {
+                &:before {
+                    color: #3D3D3D;
+                }
+            }
+        }
+        &:nth-child(2) {
+            &>span.MuiButton-label {
+                &:before {
+                    content: "KR";
+                }
+            }
+        }
+    }
+    &>.MuiPaper-root {
+        background: rgba(225,225,225,0.15);
+    }
 }

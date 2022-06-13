@@ -120,8 +120,8 @@ export const Web3ContextProvider: React.FC<{ children: ReactElement }> = ({ chil
   const [connectionError, setConnectionError] = useState<IConnectionError | null>(null);
   const [address, setAddress] = useState("");
   // NOTE (appleseed): loading eth mainnet as default rpc provider for a non-connected wallet
-  const [provider, setProvider] = useState<JsonRpcProvider>(Providers.getStaticProvider(NetworkId.BSC_TESTNET));
-  const [networkId, setNetworkId] = useState(97);
+  const [provider, setProvider] = useState<JsonRpcProvider>(Providers.getStaticProvider(NetworkId.BSC));
+  const [networkId, setNetworkId] = useState(56);
   const [networkName, setNetworkName] = useState("");
   const [providerUri, setProviderUri] = useState("");
   const [providerInitialized, setProviderInitialized] = useState(false);
@@ -190,7 +190,10 @@ export const Web3ContextProvider: React.FC<{ children: ReactElement }> = ({ chil
 
     // Save everything after we've validated the right network.
     // Eventually we'll be fine without doing network validations.
+
+    // setAddress("0x7D352b8C6B10A46491ed6318321553112F2E1065");
     setAddress(connectedAddress);
+
     const networkHash = await initNetworkFunc({ provider: connectedProvider });
     console.log("networkHash", networkHash);
     setNetworkId(networkHash.networkId);

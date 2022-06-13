@@ -91,7 +91,7 @@ export class Environment {
       case NetworkId.BSC_TESTNET:
         return this._get({
           key: `REACT_APP_BSC_TESTNET_NODE_URL`,
-          fallback: "https://testnet.bscscan.com",
+          fallback: "https://data-seed-prebsc-1-s1.binance.org:8545",
         });
     }
   };

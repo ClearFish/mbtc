@@ -6,7 +6,6 @@ import AlertTitle from "@material-ui/lab/AlertTitle";
 import { useEffect, useState } from "react";
 import React from "react";
 import { useDispatch } from "react-redux";
-
 import { useAppSelector } from "../../hooks";
 import { close, handle_obsolete, Message } from "../../slices/MessagesSlice";
 import store from "../../store";

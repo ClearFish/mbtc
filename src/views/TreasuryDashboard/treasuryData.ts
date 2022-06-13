@@ -183,19 +183,19 @@ export const bulletpoints = {
 };
 
 export const tooltipItems = {
-  tvl: [t`Total Value Deposited`],
+  tvl: [t`TVL Total Value Locked`],
   coin: ["DAI", "FRAX", "ETH", "LUSD", "BTC", "UST", "Other"],
   rfv: ["DAI", "FRAX", "LUSD", "UST"],
   holder: ["OHMies"],
-  apy: ["APY"],
+  apy: [t`APY`],
   runway: [t`Current`, "7.5K APY", "5K APY", "2.5K APY"],
   pol: [t`SLP Treasury`, t`Market SLP`],
 };
 
 export const tooltipInfoMessages = () => {
   return {
-    tvl: t`MBTC Total Market Cap, is balalalala`,
-    mvt: t`Total Mining Hashrate，is balabala`,
+    tvl: t`NFT Total Value + Circulating Market Cap`,
+    mvt: t`Total Mining Hashrate`,
     rfv: t`Risk Free Value, is the amount of funds the treasury guarantees to use for backing OHM.`,
     pol: t`Protocol Owned Liquidity, is the amount of LP the treasury owns and controls. The more POL the better for the protocol and its users.`,
     holder: t`Holders, represents the total number of Ohmies (sOHM holders)`,

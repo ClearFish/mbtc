@@ -1,5 +1,7 @@
 @media (max-width:750px) {
     #mynft-view {
+        height: 100%;
+        overflow: auto;
         .overflow-more {
             overflow: hidden;
             text-overflow: ellipsis;
@@ -15,13 +17,12 @@
             text-indent: 30px;
         }
         .btc-card-box {
-            display: grid;
-            justify-content: space-between;
-            grid-template-columns: repeat(auto-fill, 15rem);
             padding: 0 25px;
             .btc-card-item-box {
                 margin-bottom: 30px;
                 cursor: pointer;
+                display: flex;
+                justify-content: center;
             }
             .btc-card-item {
                 background: rgba(255, 255, 255, 0.07);
@@ -32,6 +33,9 @@
                 width: 15rem;
                 img {
                     width: 100%;
+                }
+                .card-info {
+                    padding: 5px 0px;
                 }
                 .btc-card-item-title {
                     font-weight: 400;
@@ -71,24 +75,21 @@
 
 @media (min-width: 750px) {
     #mynft-view {
-        display: flex;        
-        align-items: center;
-        justify-content: center;
+        height: 100%;
+        overflow: auto;
         .btc-card-box {
-            width: 89.2%;
+            width: 100%;
             display: flex;        
             align-items: center;
-            justify-content: space-between;
+            justify-content: space-evenly;
             flex-wrap: wrap;
         }
         .btc-card-item-box {
             min-width: 330px;
-            min-height: 402px;
+            min-height: 390px;
             display: block;
-            margin-bottom: 100px;
-            padding-left: 15px;
-            padding-right: 15px;
-            padding-top: 24px;
+            margin-bottom: 2rem;
+            padding: 0.7rem;
             box-sizing: border-box;
             border-radius: 9px 9px 9px 9px;
             opacity: 1;
@@ -168,5 +169,29 @@
     margin-top: 1rem ;
     legend {
         visibility: visible;
+    }
+}
+
+// select popover 样式
+.MuiPaper-root.MuiMenu-paper.MuiPopover-paper.MuiPaper-elevation8.MuiPaper-rounded {
+    // margin-top: 50px;
+    // margin-left: -28px;
+    backdrop-filter: blur(20px);
+    border-radius: 20px;
+    background: rgba(198, 198, 198, 0.08) url(../Mine/assets/images/main.png);
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+    padding: 5px;
+    .MuiList-padding {
+        padding-top: 0;
+        padding-bottom: 0;
+        li {
+            border-radius: 20px;
+            margin: 6px 0;
+        }
+
+        [aria-selected="true"] {
+            background: #3E0F79;
+        }
     }
 }

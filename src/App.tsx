@@ -12,17 +12,16 @@ import { shouldTriggerSafetyCheck } from "./helpers";
 
 import { calcBondDetails } from "./slices/BondSlice";
 import { loadAppDetails } from "./slices/AppSlice";
-import { loadAccountDetails, calculateUserBondDetails } from "./slices/AccountSlice";
-import { getZapTokenBalances } from "./slices/ZapSlice";
+import { loadAccountDetails } from "./slices/AccountSlice";
 import { error, info } from "./slices/MessagesSlice";
 
-import { TreasuryDashboard, Zap, Wrap, Mine, Pool, Market, MarketDetail, MyNft, MyNftDetail } from "./views";
+import { TreasuryDashboard, Wrap, Mine, Pool, Mint, Market, MarketDetail, MyNft, MyNftDetail } from "./views";
 import NotFound from "./views/404/NotFound";
 import { dark as darkTheme } from "./themes/dark.js";
 import { dark as lightTheme } from "./themes/dark.js";
 import { girth as gTheme } from "./themes/girth.js";
 import { useGoogleAnalytics } from "./hooks/useGoogleAnalytics";
-import { getAllBonds, getUserNotes } from "./slices/BondSliceV2";
+import { getAllBonds } from "./slices/BondSliceV2";
 import { NetworkId } from "./constants";
 import { trackGAEvent } from "./helpers/analytics";
 import { getAllInverseBonds } from "./slices/InverseBondSlice";
@@ -124,7 +123,11 @@ function App() {
   const loadApp = useCallback(
     loadProvider => {
       dispatch(loadAppDetails({ networkID: networkId, provider: loadProvider }));
-      if (networkId === NetworkId.MAINNET || networkId === NetworkId.TESTNET_RINKEBY) {
+      if (
+        networkId === NetworkId.MAINNET ||
+        networkId === NetworkId.TESTNET_RINKEBY ||
+        networkId === NetworkId.BSC_TESTNET
+      ) {
         bonds.map(bond => {
           // NOTE (appleseed): getBondability & getLOLability control which bonds are active in the view for Bonds V1
           // ... getClaimability is the analogue for claiming bonds
@@ -144,20 +147,6 @@ function App() {
       if (!providerInitialized) {
         return;
       }
-      dispatch(getUserNotes({ networkID: networkId, address, provider: loadProvider }));
-      dispatch(loadAccountDetails({ networkID: networkId, address, provider: loadProvider }));
-      bonds.map(bond => {
-        // NOTE: get any Claimable bonds, they may not be bondable
-        if (bond.getClaimability(networkId)) {
-          dispatch(calculateUserBondDetails({ address, bond, provider: loadProvider, networkID: networkId }));
-        }
-      });
-      dispatch(getZapTokenBalances({ address, networkID: networkId, provider: loadProvider }));
-      expiredBonds.map(bond => {
-        if (bond.getClaimability(networkId)) {
-          dispatch(calculateUserBondDetails({ address, bond, provider: loadProvider, networkID: networkId }));
-        }
-      });
     },
     [networkId, address, providerInitialized],
   );
@@ -259,6 +248,10 @@ function App() {
               <Mine />
             </Route>
 
+            <Route exact path="/mint">
+              <Mint />
+            </Route>
+
             <Route exact path="/pool">
               <Pool />
             </Route>
@@ -280,10 +273,6 @@ function App() {
 
             <Route exact path="/mynft/:id">
               <MyNftDetail />
-            </Route>
-
-            <Route path="/zap">
-              <Zap />
             </Route>
 
             <Route component={NotFound} />

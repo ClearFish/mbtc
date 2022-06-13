@@ -174,24 +174,21 @@
   }
 }
 
-@media (min-width: 750px) {
-  #treasury-dashboard-view {
-    .ohm-card .card-pannel .card-pannel-btn {
-      width: 97px;
-      height: 37px;
-      background:url(../../assets/icons/buy.svg) no-repeat 3px center rgba(114, 63, 216, 0.73);
-      background-size: 31px 31px;
-      border-radius: 50px 50px 50px 50px;
-      opacity: 1;
-      font-size: 20px;
-      font-family: Manrope-SemiBold, Manrope;
-      font-weight: 600;
-      color: #FFFFFF;
-      line-height: 37px;
-      padding-left: 51px;
-      box-sizing: border-box;
-      text-align: left;
-    }
+#treasury-dashboard-view {
+  .ohm-card .card-pannel .card-pannel-btn {
+    width: 97px;
+    height: 37px;
+    background:url(../../assets/icons/buy.svg) no-repeat 3px center rgba(114, 63, 216, 0.73);
+    background-size: 31px 31px;
+    border-radius: 50px 50px 50px 50px;
+    opacity: 1;
+    font-size: 20px;
+    font-family: Manrope-SemiBold, Manrope;
+    font-weight: 600;
+    color: #FFFFFF;
+    line-height: 37px;
+    padding-left: 51px;
+    box-sizing: border-box;
+    text-align: left;
   }
-  
 }

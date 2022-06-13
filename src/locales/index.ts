@@ -1,6 +1,7 @@
 import { i18n } from "@lingui/core";
 import { OHMLocaleSwitcherProps } from "@olympusdao/component-library";
-import { ar, de, en, es, fr, ko, tr, vi, zh } from "make-plural/plurals";
+import { en, ko } from "make-plural/plurals";
+// import { en, ko, ja, th } from "make-plural/plurals";
 
 // Declare locales
 interface ILocale {
@@ -13,14 +14,9 @@ interface ILocales {
 }
 export const locales: ILocales = {
   en: { flag: "gb", plurals: en, direction: "inherit" },
-  fr: { flag: "fr", plurals: fr, direction: "inherit" },
   ko: { flag: "kr", plurals: ko, direction: "inherit" },
-  tr: { flag: "tr", plurals: tr, direction: "inherit" },
-  zh: { flag: "cn", plurals: zh, direction: "inherit" },
-  ar: { flag: "ae", plurals: ar, direction: "rtl" },
-  es: { flag: "es", plurals: es, direction: "inherit" },
-  vi: { flag: "vn", plurals: vi, direction: "inherit" },
-  de: { flag: "de", plurals: de, direction: "inherit" },
+  // ja: { flag: "ja", plurals: ja, direction: "inherit" },
+  // th: { flag: "th", plurals: th, direction: "inherit" },
 };
 // Create translations style element
 const translations_style_dom = document.createElement("style");
@@ -34,7 +30,7 @@ for (const [key, locale] of Object.entries(locales)) {
 
 export async function fetchLocale(locale = "en") {
   const { messages } = await import(
-    /* webpackChunkName: "[request]" */ `../locales/translations/olympus-frontend/${locale}/messages`
+    /* webpackChunkName: "[request]" */ `../locales/translations/mbtc-frontend/${locale}/messages`
   );
   i18n.load(locale, messages);
   i18n.activate(locale);

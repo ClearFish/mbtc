@@ -66,7 +66,7 @@ const renderAreaChart = (
       tickCount={isExpanded ? expandedTickCount : tickCount}
       axisLine={false}
       tickLine={false}
-      width={dataFormat === "percent" ? 33 : 55}
+      width={dataFormat === "percent" ? 65 : 55}
       tickFormatter={number =>
         number !== 0
           ? dataFormat !== "percent"

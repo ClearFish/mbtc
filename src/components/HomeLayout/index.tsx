@@ -2,7 +2,7 @@
 import "./style.scss";
 import { useLocation } from "react-router-dom";
 import { useEffect } from "react";
-
+import { t } from "@lingui/macro";
 import Logo from "../../assets/images/logo-4.png";
 import LogoCoin from "../../assets/images/logo-3.png";
 import MenuClose from "../../assets/icons/nav-close.svg";
@@ -24,6 +24,9 @@ import {
 import React, { useState } from "react";
 import { Menu as MenuIcon } from "@material-ui/icons";
 import Headroom from "headroom.js";
+import { LocaleSwitcher } from "@olympusdao/component-library";
+import { i18n } from "@lingui/core";
+import { locales, selectLocale } from "src/locales";
 
 export default function HomeLayout({ children }: { children: React.ReactNode }) {
   const isSmallScreen = useMediaQuery("(max-width: 650px)");
@@ -51,15 +54,15 @@ export default function HomeLayout({ children }: { children: React.ReactNode }) 
 
   const links = [
     {
-      name: "MBTC",
+      name: t`MBTC`,
       href: "#/home",
     },
     {
-      name: "Economy",
+      name: t`Economy`,
       href: "#/economy",
     },
     {
-      name: "Foundation",
+      name: t`Foundation`,
       href: "#/foundation",
     },
   ];
@@ -94,9 +97,20 @@ export default function HomeLayout({ children }: { children: React.ReactNode }) 
               )}
             </Box>
             <Box sx={{ flexGrow: 1, justifyContent: "flex-end", display: { xs: "none", md: "flex" } }}>
-              <Link href="#/" underline="none">
+              <LocaleSwitcher
+                initialLocale={i18n.locale}
+                locales={locales}
+                onLocaleChange={selectLocale}
+                label={i18n.locale}
+              />
+              <Link
+                href="https://app.meta-btc.org/#/dashboard"
+                underline="none"
+                target="_blank"
+                style={{ marginLeft: "1rem" }}
+              >
                 <Button variant="contained" className="header-btn">
-                  Enter App
+                  {t`Enter App`}
                 </Button>
               </Link>
             </Box>
@@ -113,9 +127,9 @@ export default function HomeLayout({ children }: { children: React.ReactNode }) 
                 ))}
               </Box>
               <Box className="modile-enter-app-box">
-                <Link href={window.location.origin + ""} underline="none">
+                <Link href="https://app.meta-btc.org/#/dashboard" underline="none" target="_blank">
                   <Button variant="contained" className="header-btn">
-                    Enter App
+                    {t`Enter App`}
                   </Button>
                 </Link>
               </Box>
@@ -126,9 +140,9 @@ export default function HomeLayout({ children }: { children: React.ReactNode }) 
       {children}
       <div className="bottom">
         <Typography variant="h4" align="center" className="bottom-title">
-          Get more out of
+          {t`Get more out of`}
           <br />
-          MetaBitcoin
+          {t`MetaBitcoin`}
         </Typography>
         <Container
           style={{
@@ -144,13 +158,13 @@ export default function HomeLayout({ children }: { children: React.ReactNode }) 
           <div className="header-left">
             <img src={isFoundation ? LogoCoin : Logo} alt="MBTC" className="header-logo" />
             <Link href="#/home" underline="none">
-              <Typography variant="h6">MBTC</Typography>
+              <Typography variant="h6">{t`MBTC`}</Typography>
             </Link>
             <Link href="#/economy" underline="none">
-              <Typography variant="h6">Economy</Typography>
+              <Typography variant="h6">{t`Economy`}</Typography>
             </Link>
             <Link href="#/foundation" underline="none">
-              <Typography variant="h6">Foundation</Typography>
+              <Typography variant="h6">{t`Foundation`}</Typography>
             </Link>
           </div>
           <Box className="social-link" display="flex" justifyContent="flex-start" flexDirection="column">

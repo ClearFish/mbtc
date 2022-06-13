@@ -2,49 +2,51 @@ import { t } from "@lingui/macro";
 import { useTheme } from "@material-ui/core/styles";
 import Chart from "src/components/Chart/Chart";
 import { formatCurrency, trim } from "src/helpers";
-import { useProtocolMetrics } from "src/hooks/useProtocolMetrics";
-import fake from "./fake.json";
+import { useProtocolMetrics, useApyReport, useTotalMarketCapReport } from "src/hooks/useProtocolMetrics";
 import { bulletpoints, itemType, tooltipInfoMessages, tooltipItems } from "../../treasuryData";
 
 export const Graph = ({ children }) => <>{children}</>;
 
 export const TotalValueDepositedGraph = () => {
   const theme = useTheme();
-  const { data } = useProtocolMetrics();
-
+  const { data } = useTotalMarketCapReport();
+  const itemName = t`TVL Total Value Locked`;
   return (
     <Chart
       type="area"
       data={data}
       itemType={itemType.dollar}
-      itemNames={tooltipItems.tvl}
-      dataKey={["totalValueLocked"]}
+      itemNames={[itemName]}
+      dataKey={["tvl"]}
       dataFormat="percentage"
-      headerText={t`MBTC Total Market Cap`}
+      headerText={t`TVL Total Value Locked`}
       stopColor={[["#768299", "#98B3E9"]]}
       bulletpointColors={bulletpoints.tvl}
       infoTooltipMessage={tooltipInfoMessages().tvl}
       expandedGraphStrokeColor={theme.palette.graphStrokeColor}
-      headerSubText={`${data && formatCurrency(data[0].totalValueLocked)}`}
+      headerSubText={`${data && formatCurrency(data[0]?.tvl)}`}
     />
   );
 };
 
 export const MarketValueGraph = () => {
   const theme = useTheme();
+  const { data } = useApyReport();
+  const itemName = t`APY`;
   return (
     <Chart
       type="area"
-      data={fake}
+      data={data}
       itemType={itemType.percentage}
-      itemNames={tooltipItems.tvl}
-      dataKey={["totalValueLocked"]}
-      headerText={t`Total Mining Hashrate`}
+      dataFormat="percent"
+      itemNames={[itemName]}
+      dataKey={["apy"]}
+      headerText={t`APY`}
       stopColor={[["#768299", "#98B3E9"]]}
       bulletpointColors={bulletpoints.tvl}
-      infoTooltipMessage={tooltipInfoMessages().tvl}
+      infoTooltipMessage={t`The annual percentage yield (APY)`}
       expandedGraphStrokeColor={theme.palette.graphStrokeColor}
-      headerSubText={`${fake && formatCurrency(fake[0].totalValueLocked)}`}
+      headerSubText={`${data && data[0].apy + "%"}`}
     />
   );
   // const theme = useTheme();

@@ -1,6 +1,6 @@
 import "./styles.scss";
-
-import Lord from "../../assets/images/person/Lord.jpg";
+import { t } from "@lingui/macro";
+// import Lord from "../../assets/images/person/Lord.jpg";
 import Jojo from "../../assets/images/person/Jojo.jpg";
 import Sam from "../../assets/images/person/Sam.jpg";
 import Adrian from "../../assets/images/person/Adrian.jpg";
@@ -28,74 +28,74 @@ export function Foundation() {
   const isLargeScreen = useMediaQuery("(min-width: 1280px)");
 
   const personList = [
-    {
-      name: "Meta Alchemist",
-      info: "Community Veteran, Philosopher & Reality Shaper",
-      src: Lord,
-    },
+    // {
+    //   name: "Meta Alchemist",
+    //   info: "Community Veteran, Philosopher & Reality Shaper",
+    //   src: Lord,
+    // },
     {
       name: "Meta JOJO",
-      info: "Community Veteran, Public Relations",
+      info: t`Community Veteran, Public Relations`,
       src: Jojo,
     },
     {
       name: "Meta Sam",
-      info: "Community Veteran, Legal & Public Media",
+      info: t`Community Veteran, Legal & Public Media`,
       src: Sam,
     },
     {
       name: "Adrian Aurelius",
-      info: "Community Veteran, Marketing Partner",
+      info: t`Community Veteran, Marketing Partner`,
       src: Adrian,
     },
     {
       name: "Malik Atif",
-      info: "Growth Partner",
+      info: t`Growth Partner`,
       src: Malik,
     },
     {
       name: "Syed Haider",
-      info: "Growth Partner",
+      info: t`Growth Partner`,
       src: Haider,
     },
     {
       name: "Andy Z",
-      info: "Reality Reinforcer",
+      info: t`Reality Reinforcer`,
       src: Andy,
     },
     {
       name: "Meta Kay",
-      info: "Marketing and business analyst",
+      info: t`Marketing and business analyst`,
       src: Alekwe,
     },
     {
       name: "JZ",
-      info: "Meta Agent & Philosopher",
+      info: t`Meta Agent & Philosopher`,
       src: JZ,
     },
     {
       name: "Kitty",
-      info: "The director",
+      info: t`The director`,
       src: Kitty,
     },
     {
       name: "Sherry D",
-      info: "TheCuteDictator",
+      info: t`TheCuteDictator`,
       src: SherryD,
     },
     {
       name: "Karn Dwi",
-      info: "TheLibertyWalk",
+      info: t`TheLibertyWalk`,
       src: Karn,
     },
     {
       name: "Hanna Berji",
-      info: "Peacemaker",
+      info: t`Peacemaker`,
       src: HannaBerji,
     },
     {
       name: "Hankook Kim",
-      info: "Community Veteran, Public K Media & marketing",
+      info: t`Community Veteran, Public K Media & marketing`,
       src: Kim,
     },
   ];
@@ -116,27 +116,27 @@ export function Foundation() {
           <img src={FoundationTxt} className="foundation-img"></img>
           <img src={GoldenBitcoin} className="golden-img"></img>
           <Typography variant="h4" align="left" className="gradient-text">
-            ABOUT THE FOUNDATION
+            {t`ABOUT THE FOUNDATION`}
           </Typography>
           <Typography variant="body1" align="left" className="normal-text">
-            The MBTC Foundation is a TDAO established to provide:
+            {t`The MBTC Foundation is a TDAO established to provide:`}
             <br />
-            1. Support for the Meta Bitcoin through ecosystem development and community advocacy.
+            {t`1. Support for the Meta Bitcoin through ecosystem development and community advocacy.`}
             <br />
-            2. One MBTC/NFT one vote to decide the development and releasing of NFTs.
+            {t`2. One MBTC/NFT one vote to decide the development and releasing of NFTs.`}
             <br />
-            3. Creating a full and comprehensive roadmap which will guide the future of Meta Bitcoin.
+            {t`3. Creating a full and comprehensive roadmap which will guide the future of Meta Bitcoin.`}
           </Typography>
           <Typography variant="h4" align="left" className="gradient-text">
-            Vision
+            {t`Vision`}
           </Typography>
           <Typography variant="body1" align="left" className="normal-text">
-            By providing the next generation decentralized financial system,
+            {t`By providing the next generation decentralized financial system,`}
             <br />
-            our vision is to build the Meta Bitcoin standard in the metaverse.
+            {t`our vision is to build the Meta Bitcoin standard in the metaverse.`}
           </Typography>
           <Typography variant="h4" align="left" className="gradient-text">
-            BOARD
+            {t`BOARD`}
           </Typography>
           <Grid container className="board-list" justifyContent="flex-start" alignItems="stretch" spacing={1}>
             {personList.map((item, index) => (

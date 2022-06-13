@@ -1,12 +1,13 @@
 import "./style.scss";
 import { memo, useEffect, useState } from "react";
 import { useHistory } from "react-router-dom";
-import { Box, CircularProgress, useMediaQuery } from "@material-ui/core";
+import { t } from "@lingui/macro";
+import { Box, CircularProgress, Typography, useMediaQuery } from "@material-ui/core";
 // import ArrowBackIosRoundedIcon from "@material-ui/icons/ArrowBackIosRounded";
 import { ethers } from "ethers";
 import { useWeb3Context } from "src/hooks";
 import { useDispatch } from "react-redux";
-import { NFTStore_ABI, NFTStore_ADDRESS, MFuel_ABI, NFTMiner_ADDRESS, mFuel_ADDRESS } from "src/contract";
+import { NFTStore_ABI, NFTStore_ADDRESS, NFTMiner_ADDRESS, IERC20_ABI, BUSD_ADDRESS } from "src/contract";
 import { error, info } from "../../slices/MessagesSlice";
 import CopyIcon from "./assets/images/Copy.png";
 import Vector from "./assets/images/Vector.png";
@@ -57,9 +58,9 @@ const Market: React.FC = props => {
 
   const goCopy = (text: string) => {
     if (copy(text)) {
-      dispatch(info("Copied!"));
+      dispatch(info(t`Copied!`));
     } else {
-      dispatch(error("Failed, please click to Copy!"));
+      dispatch(error(t`Failed, please click to Copy!`));
     }
   };
   const downloadCurrentImage = (url?: string, name?: string) => {
@@ -132,7 +133,7 @@ const Market: React.FC = props => {
           newNftDetail = filtered[0];
           owner = filtered[0].owner;
         } else {
-          dispatch(error("Nonexistent tokenId"));
+          dispatch(error(t`Nonexistent tokenId`));
           history.push("/market");
           return {};
         }
@@ -236,7 +237,7 @@ const Market: React.FC = props => {
   };
 
   useEffect(() => {
-    if (provider && address && networkId === 97) {
+    if (provider && address && networkId === 56) {
       getDetail();
     }
   }, [networkId, connected]);
@@ -245,30 +246,31 @@ const Market: React.FC = props => {
   const buyNft = async () => {
     setLoading(true);
     try {
-      const mfuelContract = new ethers.Contract(mFuel_ADDRESS, MFuel_ABI, signer);
+      const IERC20Contract = new ethers.Contract(BUSD_ADDRESS, IERC20_ABI, signer);
       const storeContract = new ethers.Contract(NFTStore_ADDRESS, NFTStore_ABI, signer);
 
-      const allowance = await mfuelContract.allowance(address, NFTStore_ADDRESS);
+      const allowance = await IERC20Contract.allowance(address, NFTStore_ADDRESS);
+
       if (allowance.toString() === "0") {
-        const approve_tx = await mfuelContract.approve(NFTStore_ADDRESS, ethers.constants.MaxUint256);
+        const approve_tx = await IERC20Contract.approve(NFTStore_ADDRESS, ethers.constants.MaxUint256);
         await approve_tx.wait();
       }
       const buy_tx = await storeContract.buy(Number(nftDetail.tokenId), 0);
-      await afterBuy(nftDetail.tokenId, nftDetail.owner);
+      await afterBuy(nftDetail.tokenId, nftDetail.owner, address);
       await buy_tx.wait();
       setLoading(false);
 
       history.push("/mynft");
-      dispatch(info(`Success to buy`));
+      dispatch(info(t`Success to buy`));
     } catch (err) {
       console.log({ err });
       setLoading(false);
-      dispatch(error(`Fail to buy`));
+      dispatch(error(t`Fail to buy`));
     }
   };
 
   /** 购买入库 **/
-  const afterBuy = async (tokenId: number, owner: string) => {
+  const afterBuy = async (tokenId: number, owner: string, myaddress: string) => {
     try {
       const centralApi = "https://admin.meta-backend.org/system/open/api/nft/order/normal";
       return fetch(centralApi, {
@@ -276,6 +278,58 @@ const Market: React.FC = props => {
         body: JSON.stringify({
           sign: "",
           data: {
+            contract: NFTMiner_ADDRESS,
+            owner: owner,
+            tokenId: tokenId,
+            ownerBuy: myaddress,
+          },
+        }),
+        headers: {
+          "content-type": "application/json",
+        },
+      })
+        .then(res => {
+          return res.json();
+        })
+        .then(res => {
+          return res.data;
+        });
+    } catch (error) {
+      console.log(error);
+      return {};
+    }
+  };
+
+  /** 撤销NFT **/
+  const unlistNft = async () => {
+    setLoading(true);
+    try {
+      const storeContract = new ethers.Contract(NFTStore_ADDRESS, NFTStore_ABI, signer);
+
+      const tx = await storeContract.unlock(Number(nftDetail.tokenId));
+      await afterUnlist(nftDetail.tokenId, nftDetail.owner);
+      await tx.wait();
+      setLoading(false);
+
+      history.push("/mynft");
+      dispatch(info(t`Success to unlist`));
+    } catch (err) {
+      console.log({ err });
+      setLoading(false);
+      dispatch(error(t`Fail to unlist`));
+    }
+  };
+
+  /** 撤销入库 **/
+  const afterUnlist = async (tokenId: number, owner: string) => {
+    try {
+      const centralApi = "https://admin.meta-backend.org/system/open/api/nft/order/revoke";
+      return fetch(centralApi, {
+        method: "post",
+        body: JSON.stringify({
+          sign: "",
+          data: {
+            contract: NFTMiner_ADDRESS,
             owner: owner,
             tokenId: tokenId,
           },
@@ -299,8 +353,11 @@ const Market: React.FC = props => {
   return (
     <div id="marketDetail-view">
       {loading ? (
-        <Box style={{ display: "flex", alignItems: "center", justifyContent: "center" }}>
+        <Box style={{ display: "flex", alignItems: "center", justifyContent: "center", marginTop: "20%" }}>
           <CircularProgress />
+          <Typography variant="h5" style={{ marginLeft: "1rem" }}>
+            {t`Communicating with blockchain nodes...`}
+          </Typography>
         </Box>
       ) : (
         <div
@@ -319,19 +376,21 @@ const Market: React.FC = props => {
             <div className="market-item-banner">
               <img src={nftDetail.url} alt="" />
             </div>
-            <div className="market-item-title overflow-more">Meta-Intel Pentium 4 #{nftDetail.tokenId}</div>
+            <div className="market-item-title overflow-more">
+              {t`Meta-Intel Pentium 4`} #{nftDetail.tokenId}
+            </div>
             <div className="market-detail-desc">
               <div className="item">
-                <div className="title overflow-more">CONTRACT ADDRESS</div>
+                <div className="title overflow-more">{t`CONTRACT ADDRESS`}</div>
                 <div className="desc-box">
                   <div className="desc overflow-more">{nftDetail.contract}</div>
-                  <div className="small-icon" onClick={() => goCopy("12312314353453qweqweqweqeqweqwrwerw")}>
+                  <div className="small-icon" onClick={() => goCopy(nftDetail.contract)}>
                     <img src={CopyIcon} alt="" />
                   </div>
                 </div>
               </div>
               <div className="item">
-                <div className="title overflow-more">ORIGINAL</div>
+                <div className="title overflow-more">{t`ORIGINAL`}</div>
                 <div className="desc-box">
                   <div className="desc overflow-more">4000 x 4000</div>
                   <div
@@ -343,7 +402,7 @@ const Market: React.FC = props => {
                 </div>
               </div>
               <div className="item">
-                <div className="title overflow-more">TOKEN ID</div>
+                <div className="title overflow-more">{t`TOKEN ID`}</div>
                 <div className="desc overflow-more">
                   <div className="desc-box">
                     <div className="desc overflow-more">{nftDetail.tokenId}</div>
@@ -368,26 +427,41 @@ const Market: React.FC = props => {
             }}
           >
             <div className="market-box-right-item top-item">
-              <div className="market-right-detail-title overflow-more">Meta-Intel Pentium 4 #{nftDetail.tokenId}</div>
+              <div className="market-right-detail-title overflow-more">
+                {t`Meta-Intel Pentium 4`} #{nftDetail.tokenId}
+              </div>
               <div className="market-right-detail-desc">
-                <p className="tng-text">Description: {nftDetail.description}</p>
-                <p className="tng-text">Hashrate: {nftDetail.attributes?.hashrate}</p>
-                <p className="tng-text">Consumption: {nftDetail.attributes?.consumption}</p>
+                <p className="tng-text">
+                  {t`Description:`} {nftDetail.description}
+                </p>
+                <p className="tng-text">
+                  {t`Hashrate: `}
+                  {nftDetail.attributes?.hashrate}
+                </p>
+                <p className="tng-text">
+                  {t`Consumption: `} {nftDetail.attributes?.consumption}
+                </p>
               </div>
               <div className="market-right-detail-price">
-                <div className="market-right-detail-price-title">Price</div>
+                <div className="market-right-detail-price-title">{t`Price`}</div>
                 <div className="market-right-detail-price-desc">
                   {nftDetail.price}
                   <span>{` ( ～ ${nftDetail.price} BUSD ) `}</span>
                 </div>
               </div>
-              <div className="market-right-detail-buy" onClick={buyNft}>
-                BUY
-              </div>
+              {nftDetail?.owner === address ? (
+                <div className="market-right-detail-buy" onClick={unlistNft}>
+                  {t`Unlist`}
+                </div>
+              ) : (
+                <div className="market-right-detail-buy" onClick={buyNft}>
+                  {t`BUY`}
+                </div>
+              )}
             </div>
             <div className="market-box-right-item top-item ower-item">
               <div className="bg"></div>
-              <div className="ower-item-title">Owner</div>
+              <div className="ower-item-title">{t`Owner`}</div>
               <div className="ower-item-number overflow-more">{nftDetail.owner}</div>
             </div>
           </div>

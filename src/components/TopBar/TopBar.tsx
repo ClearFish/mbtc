@@ -1,16 +1,14 @@
 import "./TopBar.scss";
 
-// import { i18n } from "@lingui/core";
-// import { t } from "@lingui/macro";
+import { i18n } from "@lingui/core";
 import { AppBar, Box, SvgIcon, Toolbar, useMediaQuery } from "@material-ui/core";
 import { makeStyles } from "@material-ui/core/styles";
-// import { LocaleSwitcher } from "@olympusdao/component-library";
-
+import { LocaleSwitcher } from "@olympusdao/component-library";
 import { ReactComponent as MenuIcon } from "../../assets/icons/menu.svg";
 // import { ReactComponent as NftMine } from "../../assets/icons/NftMine.svg";
 // import { ReactComponent as NftMarket } from "../../assets/icons/NftMarket.svg";
 import ArrowBackIosRoundedIcon from "@material-ui/icons/ArrowBackIosRounded";
-// import { locales, selectLocale } from "../../locales";
+import { locales, selectLocale } from "../../locales";
 import { useLocation, useHistory } from "react-router-dom";
 import MyNft from "./MyNft";
 // import ThemeSwitcher from "./ThemeSwitch";
@@ -85,12 +83,12 @@ function TopBar({ theme, toggleTheme, handleDrawerToggle }: TopBarProps) {
           <MyNft />
           <Wallet />
           {/* <ThemeSwitcher theme={theme} toggleTheme={toggleTheme} /> */}
-          {/* <LocaleSwitcher
+          <LocaleSwitcher
             initialLocale={i18n.locale}
             locales={locales}
             onLocaleChange={selectLocale}
-            label={t`Change locale`}
-          /> */}
+            label={i18n.locale}
+          />
         </Box>
       </Toolbar>
     </AppBar>

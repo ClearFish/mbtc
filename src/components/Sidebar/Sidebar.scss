@@ -34,31 +34,40 @@
     background-size: calc(100% - 4px) calc(100% - 4px);
   }
 
+  .dapp-menu-social {
+    padding: 1rem;
+    .social-row {
+      padding: 0;
+      display: flex;
+      justify-content: space-around;
+      .social-row-icon {
+        .MuiTypography-root {
+          .MuiSvgIcon-root {
+            font-size: 1.5rem;
+          }
+        }
+      }
+      
+    }
+  }
 
-  // .dapp-menu-social {
-  //   width: 34px;
-  //   height: 274px;
-  //   margin:0 auto;
-  //   display: block;
-  //   transform: translateY(-69px);
-  //   .social-row {
-  //     width: 100%;
-  //     height: 100%;
-  //     padding: 0;
-  //     display: block;
-  //     >a {
-  //       display: block;
-  //       width: 34px;
-  //       height: 34px;
-  //       margin-bottom: 45px;
-  //       font-size: 34px;
-  //       >.MuiSvgIcon-fontSizeSmall {
-  //         font-size: 34px;
-  //       }
-  //     }
-  //   }
-  // }
+}
 
+.dapp-menu-social {
+  padding: 1rem;
+  .social-row {
+    padding: 0;
+    display: flex;
+    justify-content: space-around;
+    .social-row-icon {
+      .MuiTypography-root {
+        .MuiSvgIcon-root {
+          font-size: 1.5rem;
+        }
+      }
+    }
+    
+  }
 }
 
 .menu-divider {
@@ -82,7 +91,7 @@
   width: 100%;
   align-items: center;
   text-decoration: none;
-  margin: 30px 0 10px 0;
+  margin: 50px 0 10px 0;
 
   .branding-header-icon {
     width: 50px;
@@ -229,18 +238,38 @@
 
 .social-row {
   display: flex;
-  flex-flow: row;
-  justify-content: space-evenly;
-  padding: 1.3rem;
+  justify-content: space-around;
+  .social-row-icon {
+    .MuiTypography-root {
+      .MuiSvgIcon-root {
+        font-size: 2rem;
+      }
+    }
+  }
 
   a {
     &:hover {
-      transform: scale(1.1);
+      .MuiSvgIcon-root {
+        transform: scale(1.1);
+      }
     }
 
     img {
       height: 20px;
       width: 20px;
+    }
+  }
+}
+
+.block1 {
+  .social-row {
+    .social-row-icon {
+      .MuiTypography-root {
+        margin-right: 4rem;
+        .MuiSvgIcon-root {
+          font-size: 3rem;
+        }
+      }
     }
   }
 }
@@ -260,58 +289,131 @@
       }
     }
   }
+
+  // .social-row {
+  //   display: flex;
+  //   justify-content: space-around;
+  //   .social-row-icon {
+  //     .MuiTypography-root {
+  //     }
+  //   }
+  // }
 }
 
 @media (min-width: 750px) {
   .dapp-nav {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    margin-top: 2rem;
     .menu-divider {
       display: none;
     }
     .nav-item-container {
-      margin-left: 38px;
-      height: 24px;
+      width: 8rem;
+      height: 6rem;
+      margin-left: 0;
+      margin-right: 0;
       line-height: 24px;
-      margin-bottom: 40px;
+      margin-bottom: 20px;
       box-sizing: border-box;
       vertical-align: middle;
       position: relative;
-      svg {
-        opacity: 0;
-      }
-      &::after {
-        content: '';
-        width: 24px;
-        height: 24px;
-        line-height: 24px;
-        font-size: 24px;
-        vertical-align: middle;
-        margin-right: 24px;
+      display: flex;
+      flex-direction: row;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      padding: 0;
+      .button-dapp-menu {
+        position: relative;
         display: block;
-        position: absolute;
-        left: 0;
-        top: 13px;
-        background: no-repeat center;
-        background-size: 24px 24px;
+        width: 100%;
+        height: 100%;
+        box-sizing: border-box;
+        transition: background .1s ease-in-out;
+        .MuiTypography-h6 {
+          margin-top: 3.2rem;
+          text-align: center;
+          &>.MuiBox-root>div {
+            width: 100%;
+          }
+        }
+        &::after {
+          content: '';
+          width: 24px;
+          height: 24px;
+          line-height: 24px;
+          font-size: 24px;
+          vertical-align: middle;
+          margin-right: 24px;
+          display: block;
+          position: absolute;
+          left: 0;
+          right: 0;
+          top: 1.2rem;
+          margin: auto;
+          background: no-repeat center;
+
+          background-size: 24px 24px;
+        }
+      }
+      .MuiLink-root.active {
+        text-decoration: none;
+        color: #F4D092;
+        background: linear-gradient(189.98deg, rgba(36, 6, 73, 0.8) 18.7%, rgba(90, 29, 191, 0.584) 87.28%);
+        box-shadow: inset 0px 1px 3px rgba(219, 174, 255, 0.65);
+        border-radius: 20px;
+      }
+      svg {
+        display: none !important;
+      }
+      
+
+      &:nth-child(1) .button-dapp-menu {
+        &:after {
+          background-image: url(../../assets/icons/dashboard.svg);
+          
+        }
+        &:hover:after, &.active:after {
+          background-image: url(../../assets/icons/dashboard_active.svg);
+        }
       }
 
-      &:nth-child(1)::after {
-        background-image: url(../../assets/icons/dashboard.svg);
+      &:nth-child(2) .button-dapp-menu {
+        &:after {
+          background-image: url(../../assets/icons/mine.svg);
+        }
+        &:hover:after, &.active:after {
+          background-image: url(../../assets/icons/mine_active.svg);
+        }
       }
 
-      &:nth-child(2)::after {
-        background-image: url(../../assets/icons/mine.svg);
+      &:nth-child(3) .button-dapp-menu {
+        &:after {
+          background-image: url(../../assets/icons/pool.svg);
+        }
+        &:hover:after, &.active:after {
+          background-image: url(../../assets/icons/pool_active.svg);
+        }
       }
 
-      &:nth-child(3)::after {
-        background-image: url(../../assets/icons/pool.svg);
+      &:nth-child(4) .button-dapp-menu {
+        &:after {
+          background-image: url(../../assets/icons/mint.svg);
+        }
+        &:hover:after, &.active:after {
+          background-image: url(../../assets/icons/mint_active.svg);
+        }
       }
 
-      &:nth-child(4)::after {
-        background-image: url(../../assets/icons/market.svg);
-      }
-
-      &:nth-child(5)::after {
-        background-image: url(../../assets/icons/dashboard.svg);
+      &:nth-child(5) .button-dapp-menu {
+        &:after {
+          background-image: url(../../assets/icons/market.svg);
+        }
+        &:hover:after, &.active:after {
+          background-image: url(../../assets/icons/market_active.svg);
+        }
       }
 
       &.makeStyles-root-18 svg {
@@ -375,11 +477,11 @@
       }
 
       &:nth-child(4)::after {
-        background-image: url(../../assets/icons/market.svg);
+        background-image: url(../../assets/icons/mint.svg);
       }
 
       &:nth-child(5)::after {
-        background-image: url(../../assets/icons/dashboard.svg);
+        background-image: url(../../assets/icons/market.svg);
       }
 
       &.makeStyles-root-18 svg {

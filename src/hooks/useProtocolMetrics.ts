@@ -1,6 +1,8 @@
 import { useQuery } from "react-query";
 import apollo from "src/lib/apolloClient";
 import { useWeb3Context } from "./web3Context";
+import { useHistory } from "react-router-dom";
+// import { useAddNetwork } from './useAddNetwork';
 
 const query = `
   query ProtcolMetrics {
@@ -110,7 +112,7 @@ export const useTreasuryMarketValue = () => useProtocolMetrics(metrics => metric
 export const useTreasuryTotalBacking = () => useProtocolMetrics(metrics => metrics[0].treasuryTotalBacking);
 export const useOhmCirculatingSupply = () => useProtocolMetrics(metrics => metrics[0].ohmCirculatingSupply);
 
-const TotalMiningHashRate = "https://admin.meta-backend.org/system/open/api/totalHashRate";
+const TotalMiningHashRate = "https://admin.meta-backend.org/system/open/api/apy";
 const MyNFTMiners = "https://admin.meta-backend.org/system/open/api/myNftMiners"; // hasOwner
 const MyNFTPools = "https://admin.meta-backend.org/system/open/api/myNftPools"; // hasOwner
 const MBTCPrice = "https://admin.meta-backend.org/system/open/api/price/mbtc";
@@ -120,13 +122,20 @@ const MFuelcost = "https://admin.meta-backend.org/system/open/api/mFuel/cost"; /
 const Volume24 = "https://admin.meta-backend.org/system/open/api/volume";
 const MFuelprice = "https://admin.meta-backend.org/system/open/api/price/mFuel";
 const MBTCConstant = "https://admin.meta-backend.org/system/open/api/constant";
+const TotalValueLocked = "https://admin.meta-backend.org/system/open/api/totalValueLocked";
+const totalMarketCapReport = "https://admin.meta-backend.org/system/open/api/tvlReport";
 
 export const useMbtcMetrics = (requestUrl: string, hasOwner?: boolean) => {
   const { address } = useWeb3Context();
+  const history = useHistory();
+  const KEY = history?.location?.key || "";
   if (hasOwner) {
     requestUrl = requestUrl + "/" + address;
   }
-  return useQuery(`KEY-${requestUrl}`, async () => {
+  return useQuery(`${KEY}-${requestUrl}`, async () => {
+    if (hasOwner && !address) {
+      return 0;
+    }
     const response = await fetch(requestUrl, {
       method: "post",
       body: JSON.stringify({}),
@@ -142,7 +151,6 @@ export const useMbtcMetrics = (requestUrl: string, hasOwner?: boolean) => {
     return response.data || 0;
   });
 };
-
 export const useTotalMiningHashRate = () => useMbtcMetrics(TotalMiningHashRate);
 export const useMyNFTMiners = () => useMbtcMetrics(MyNFTMiners, true);
 export const useMyNFTPools = () => useMbtcMetrics(MyNFTPools, true);
@@ -153,3 +161,6 @@ export const useMFuelcost = () => useMbtcMetrics(MFuelcost, true);
 export const useVolume24 = () => useMbtcMetrics(Volume24);
 export const useMFuelprice = () => useMbtcMetrics(MFuelprice);
 export const useMBTCConstant = () => useMbtcMetrics(MBTCConstant);
+export const useTotalValueLocked = () => useMbtcMetrics(TotalValueLocked);
+export const useApyReport = () => useMbtcMetrics("https://admin.meta-backend.org/system/open/api/apyReport");
+export const useTotalMarketCapReport = () => useMbtcMetrics(totalMarketCapReport);

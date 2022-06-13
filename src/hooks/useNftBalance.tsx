@@ -1,11 +1,14 @@
 import { useQuery } from "react-query";
 import { NFTMiner_ADDRESS } from "src/contract";
 import { useWeb3Context } from "./web3Context";
+import { useHistory } from "react-router-dom";
 
 export const useNftBalance = () => {
-  const { address } = useWeb3Context();
+  const { address, networkId } = useWeb3Context();
+  const history = useHistory();
+  const KEY = history?.location?.key || "";
   const requestUrl = "https://admin.meta-backend.org/system/open/api/nft/owner/detail";
-  const { data } = useQuery(`${address}-${requestUrl}`, async () => {
+  const { data } = useQuery(`${KEY}-${address}`, async () => {
     try {
       const response = await fetch(requestUrl, {
         method: "post",
@@ -29,6 +32,9 @@ export const useNftBalance = () => {
     }
     return 0;
   });
-
-  return [data];
+  if (networkId === 56) {
+    return [data];
+  } else {
+    return [0];
+  }
 };
