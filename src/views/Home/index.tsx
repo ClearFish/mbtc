@@ -15,18 +15,18 @@ import NftMiner from "../../assets/images/miner1.png";
 import NftPool from "../../assets/images/Daco.png";
 import ExplorBg from "../../assets/images/Rectangle.png";
 
-import PartnerBitcoin from "../../assets/images/partner-bitcoin.png";
-import PartnerBitmain from "../../assets/images/partner-bitmain.png";
-import PartnerUniswap from "../../assets/images/partner-uniswap.png";
-import PartnerCoinGecko from "../../assets/images/partner-coingecko.png";
-import PartnerLbank from "../../assets/images/partner-lbank.png";
-import PartnerBinance from "../../assets/images/partner-binance.png";
-import PartnerCoinMarketCap from "../../assets/images/partner-coinmarketcap.png";
-import PartnerAlawad from "../../assets/images/partner-alawad.png";
-import Partner1inch from "../../assets/images/partner-1inch.png";
-import PartnerCertik from "../../assets/images/partner-certik.png";
-import PartnerShark from "../../assets/images/partner-shark.png";
-import PartnerPancake from "../../assets/images/partner-pancake.png";
+import PartnerBitcoin from "../../assets/images/bitmain-logo.png";
+import PartnerBitmain from "../../assets/images/new-binance-chain-logo.png";
+import PartnerUniswap from "../../assets/images/pancakeswaplogo-freelogovectors.png";
+import PartnerCoinGecko from "../../assets/images/bitcoin-logo-png.png";
+import PartnerLbank from "../../assets/images/lbank-logo-freelogovectors.png";
+import PartnerBinance from "../../assets/images/Binance-Logo.png";
+import PartnerCoinMarketCap from "../../assets/images/CMC-02.png";
+import PartnerAlawad from "../../assets/images/coingecko-logo-white.png";
+import Partner1inch from "../../assets/images/linch_logo.png";
+import PartnerCertik from "../../assets/images/certik.png";
+import PartnerShark from "../../assets/images/sharkteam.png";
+// import PartnerPancake from "../../assets/images/partner-pancake.png";
 
 import Social from "../../components/Sidebar/Social";
 
@@ -49,9 +49,9 @@ export function Home() {
   };
 
   const partners = [
+    "",
     PartnerBitcoin,
     PartnerBitmain,
-    PartnerPancake,
     PartnerUniswap,
     PartnerCoinGecko,
     PartnerLbank,
@@ -304,7 +304,7 @@ export function Home() {
               <Button className="download-btn" onClick={paperHandler}>
                 <Typography>{t`Meta White Paper`}</Typography>
               </Button>
-              <div className="opt-list">
+              {/* <div className="opt-list">
                 <Link href="https://www.certik.com/projects/meta-bitcoin" target="_blank" className="opt-audit">
                   <img src={PartnerCertik} />
                 </Link>
@@ -315,7 +315,7 @@ export function Home() {
                 >
                   <img src={PartnerShark} />
                 </Link>
-              </div>
+              </div> */}
             </Box>
           </div>
         </Container>
@@ -332,7 +332,7 @@ export function Home() {
           <Grid container spacing={isSmallScreen ? 3 : 8}>
             <Grid item xs={12} sm={12} md={6}>
               <Link
-                className="block-card"
+                className="block-card block-card-first-line"
                 href="#/economy#mbtc"
                 underline="none"
                 style={{
@@ -346,7 +346,7 @@ export function Home() {
             </Grid>
             <Grid item xs={12} sm={12} md={6}>
               <Link
-                className="block-card"
+                className="block-card block-card-first-line"
                 href="#/economy#mfuel"
                 underline="none"
                 style={{
@@ -386,23 +386,46 @@ export function Home() {
                 <Typography className="card-title">{t`NFT Pool`}</Typography>
               </Link>
             </Grid>
-            <Typography variant="h4" align="center" className="block-title explore">
-              {t`Explore for more.`}
+            <div className="explore_box">
+              <Typography variant="h4" align="center" className="block-title explore">
+                {t`Explore for more.`}
+              </Typography>
+            </div>
+            <div className="bottom_bg"></div>
+          </Grid>
+        </Container>
+      </div>
+      <div className="block3 other_box">
+        <Container
+          style={{
+            paddingLeft: isSmallScreen || isVerySmallScreen ? "1rem" : "3rem",
+            paddingRight: isSmallScreen || isVerySmallScreen ? "1rem" : "3rem",
+            paddingTop: isSmallScreen || isVerySmallScreen ? "0rem" : "4rem",
+          }}
+        >
+          <div className="partner_box">
+            <Typography variant="h4" align="center" className="block-title">
+              {t`Partners`}
             </Typography>
-          </Grid>
-          <Typography variant="h4" align="center" className="block-title">
-            {t`Partners`}
-          </Typography>
-          <Grid container={true} alignItems="center" spacing={isSmallScreen ? 2 : 3}>
-            {partners.map((item, index) => (
-              <Grid item xs={4} sm={4} md={3} key={index}>
-                <div className="block-partner">
-                  <img className="partner-logo" src={item}></img>
-                </div>
-              </Grid>
-            ))}
-          </Grid>
-          <Typography variant="h4" align="center" className="block-title">
+            <Grid container={true} alignItems="center" spacing={isSmallScreen ? 2 : 3}>
+              {partners.map((item, index) => (
+                <Grid item xs={4} sm={4} md={3} key={index}>
+                  <div className="block-partner">
+                    {item ? <img className="partner-logo" src={item}></img> : <div className="empty"></div>}
+                  </div>
+                </Grid>
+              ))}
+            </Grid>
+          </div>
+        </Container>
+        <Container
+          style={{
+            paddingLeft: isSmallScreen || isVerySmallScreen ? "1rem" : "3rem",
+            paddingRight: isSmallScreen || isVerySmallScreen ? "1rem" : "3rem",
+            paddingTop: isSmallScreen || isVerySmallScreen ? "0rem" : "4rem",
+          }}
+        >
+          <Typography variant="h4" align="center" className="block-title new_block_title">
             {t`Roadmap`}
           </Typography>
           <Grid container className={isSmallScreen ? "transfored" : "roadmap"}>

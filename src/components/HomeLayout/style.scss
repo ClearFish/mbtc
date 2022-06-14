@@ -66,9 +66,15 @@
 }
 
 .bottom {
-    background: #040407 url("../../assets/images/eclipse.png") no-repeat;
-    background-size: 160% auto;
+    background: #040407 url("../../assets/images/bottom.gif") no-repeat;
+    background-size: contain;
     background-position: top;
+    min-height:80vh;
+    padding-top: -100px;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
     .bottom-title {
         font-family: 'Manrope';
         font-style: normal;
@@ -86,6 +92,9 @@
         flex-grow: 1;
         display: flex;
         align-items: center;
+        .header-company_logo {
+            margin-left: 3rem;
+        }
     }
     a>.MuiTypography-h6 {
         color: #FFFFFF;
@@ -95,6 +104,7 @@
             color: #ccd2d4;
         }
     }
+
     .social-link {
         .social-row-icon {
             margin-right: 3rem;
@@ -117,6 +127,12 @@
             justify-content: flex-start;
         }
         
+    }
+    .logo_img {
+        width: 188px;
+        height: 238px;
+        // margin-top: 200px;
+        margin-bottom: 3rem;
     }
 }
 .isMobile {

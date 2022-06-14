@@ -8,7 +8,7 @@ import LogoCoin from "../../assets/images/logo-3.png";
 import companyLogo from "../../assets/images/Frame.png";
 import MenuClose from "../../assets/icons/nav-close.svg";
 import Social from "../../components/Sidebar/Social";
-
+import logoUrl from "../../assets/images/bottom_logo.png";
 import {
   AppBar,
   Container,
@@ -143,26 +143,29 @@ export default function HomeLayout({ children }: { children: React.ReactNode }) 
       </AppBar>
       {children}
       <div className="bottom">
-        <Typography variant="h4" align="center" className="bottom-title">
+        {/* <Typography variant="h4" align="center" className="bottom-title">
           {t`Get more out of`}
           <br />
           {t`MetaBitcoin`}
-        </Typography>
+        </Typography> */}
+        <img src={logoUrl} alt="" className="logo_img" />
         <Container
           style={{
-            paddingLeft: isSmallScreen || isVerySmallScreen ? "1rem" : "3rem",
-            paddingRight: isSmallScreen || isVerySmallScreen ? "1rem" : "3rem",
+            // paddingLeft: isSmallScreen || isVerySmallScreen ? "1rem" : "3rem",
+            // paddingRight: isSmallScreen || isVerySmallScreen ? "1rem" : "3rem",
             paddingTop: isSmallScreen || isVerySmallScreen ? "2rem" : "4rem",
             paddingBottom: isSmallScreen || isVerySmallScreen ? "2rem" : "4rem",
             display: isSmallScreen ? "block" : "flex",
             justifyContent: "space-between",
             alignItems: "center",
+            borderTop: "1px solid #fff",
           }}
         >
           <div className="header-left">
             <img src={isFoundation ? LogoCoin : Logo} alt="MBTC" className="header-logo" />
             <Link href="#/home" underline="none">
-              <Typography variant="h6">{t`MBTC`}</Typography>
+              {/* <Typography variant="h6">{t`MBTC`}</Typography> */}
+              <img src={companyLogo} className="header-company_logo" />
             </Link>
             <Link href="#/economy" underline="none">
               <Typography variant="h6">{t`Economy`}</Typography>
