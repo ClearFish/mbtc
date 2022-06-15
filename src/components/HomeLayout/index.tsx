@@ -148,13 +148,14 @@ export default function HomeLayout({ children }: { children: React.ReactNode }) 
           <br />
           {t`MetaBitcoin`}
         </Typography> */}
+        <div className="bg_box"></div>
         <img src={logoUrl} alt="" className="logo_img" />
         <Container
           style={{
             // paddingLeft: isSmallScreen || isVerySmallScreen ? "1rem" : "3rem",
             // paddingRight: isSmallScreen || isVerySmallScreen ? "1rem" : "3rem",
-            paddingTop: isSmallScreen || isVerySmallScreen ? "2rem" : "4rem",
-            paddingBottom: isSmallScreen || isVerySmallScreen ? "2rem" : "4rem",
+            paddingTop: isSmallScreen || isVerySmallScreen ? "2rem" : "1rem",
+            paddingBottom: isSmallScreen || isVerySmallScreen ? "2rem" : "0rem",
             display: isSmallScreen ? "block" : "flex",
             justifyContent: "space-between",
             alignItems: "center",
