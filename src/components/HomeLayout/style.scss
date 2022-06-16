@@ -83,7 +83,7 @@
         left: 0;
         // transform: translate(-50%,-50%);
         z-index: -1;
-        height: 700px;
+        height: 150%;
         background: #040407 url("../../assets/images/bottom.gif") no-repeat;
         background-size: contain;
         background-position-x: center;
@@ -148,7 +148,7 @@
         width: 188px;
         height: 238px;
         // margin-top: 200px;
-        margin-bottom: 20px;
+        margin-bottom: 4vh;
     }
 }
 .isMobile {
