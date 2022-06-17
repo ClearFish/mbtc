@@ -1,5 +1,5 @@
 .sidebar {
-  min-width: 257px;
+  min-width: 193px;
   z-index: 2;
   border-radius: 0 !important;
   background: pink;
@@ -16,22 +16,23 @@
 }
 
 .makeStyles-drawerPaper-385.makeStyles-drawerPaper-385 {
-  width: 257px;
+  width: 193px;
 }
 
 .sidebar {
   .MuiDrawer-root {
-    width: 257px;
+    width: 193px;
   }
 
   .dapp-sidebar {
-    width: 257px;
+    width: 193px;
     height: 100%;
     overflow: hidden;
     backdrop-filter: blur(10px);
     -webkit-backdrop-filter: blur(10px);
-    background: url(../../assets/images/side-bg.png) no-repeat center;
-    background-size: calc(100% - 4px) calc(100% - 4px);
+    // background: url(../../assets/images/side-bg.png) no-repeat center;
+    // background-size: calc(100% - 4px) calc(100% - 4px);
+    background: #393939;
   }
 
   .dapp-menu-social {

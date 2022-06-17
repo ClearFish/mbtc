@@ -169,7 +169,7 @@ const commonSettings = {
     },
     MuiDrawer: {
       root: {
-        width: "257px",
+        width: "193px",
         flexShrink: 0,
       },
       paper: {

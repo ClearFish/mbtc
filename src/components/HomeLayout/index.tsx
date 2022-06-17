@@ -108,7 +108,7 @@ export default function HomeLayout({ children }: { children: React.ReactNode }) 
                 label={i18n.locale}
               />
               <Link
-                href="https://app.meta-btc.org/#/dashboard"
+                href="http://localhost:3000/#/dashboard"
                 underline="none"
                 target="_blank"
                 style={{ marginLeft: "1rem" }}
