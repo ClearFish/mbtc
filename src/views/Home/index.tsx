@@ -231,7 +231,7 @@ export function Home() {
   return (
     <div className={isSmallScreen ? "isMobile" : ""}>
       <div className="block1">
-        <Container
+        {/* <Container
           style={{
             paddingLeft: isSmallScreen || isVerySmallScreen ? "0rem" : "3rem",
             paddingRight: isSmallScreen || isVerySmallScreen ? "0rem" : "3rem",
@@ -239,7 +239,7 @@ export function Home() {
             position: "relative",
           }}
         >
-          {/* <video
+          <video
             src={window.location.origin + (isSmallScreen ? "/coin-mobile.mp4" : "/coin.mp4")}
             muted
             autoPlay
@@ -247,14 +247,14 @@ export function Home() {
             playsInline={true}
             controls={false}
             className="coin-vedio"
-          ></video> */}
+          ></video>
           <Container
             style={{
               paddingLeft: isSmallScreen || isVerySmallScreen ? "1rem" : "0",
               paddingRight: isSmallScreen || isVerySmallScreen ? "1rem" : "0",
             }}
           >
-            {/* <div className="block-left">
+            <div className="block-left">
               <img src={isSmallScreen ? MetaBitconMobile : MetaBitcon} alt="" className="meta-img" />
               <Typography variant="body1" align="left" className="tng-text">
                 <Trans>The Next Generation Crypto Providing a Cross-chain Trust Standard in the Metaverse</Trans>
@@ -262,13 +262,15 @@ export function Home() {
               <Box className="social-link" display="flex" justifyContent="flex-start" flexDirection="column">
                 <Social />
               </Box>
-            </div> */}
+            </div>
           </Container>
-        </Container>
-        <Typography className="mbtc-txt">
-          <Trans>The Next Generation Crypto Providing a Cross-chain Trust Standard in the Metaverse</Trans>
-        </Typography>
+        </Container> */}
         <Box className="social-link top_socia_link" display="flex" justifyContent="flex-start" flexDirection="column">
+          <div className="txt_container">
+            <Typography className="mbtc-txt">
+              <Trans>The Next Generation Crypto Providing a Cross-chain Trust Standard in the Metaverse</Trans>
+            </Typography>
+          </div>
           <Social />
         </Box>
       </div>

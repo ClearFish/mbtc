@@ -49,8 +49,8 @@
         position: absolute;
         bottom: 10px;
         left: 50%;
-        width: 410px;
-        margin-left: -205px;
+        width: 750px;
+        margin-left: -375px;
         .social-row {
             justify-content: center;
             .social-row-icon {
@@ -67,22 +67,22 @@
         width: 560px;
         object-fit: contain;
     }
-    .mbtc-txt {
-        position: absolute;
-        bottom: 50px;
-        left: 50%;
-        // background: linear-gradient(180deg, #4ED1C2 0%, #6A2595 124.69%);
-        font-family: 'PingFang SC';
-        font-style: normal;
-        font-weight: 800;
-        font-size: 1.2rem;
-        letter-spacing: -0.04em;
-        color: #25EDBC;
-        text-align: center;
-        height: 70px;
-        width: 410px;
-        margin-left: -205px;
-        // line-height: 70px;
+
+    .txt_container {
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        .mbtc-txt {
+            font-family: 'PingFang SC';
+            font-style: normal;
+            font-weight: 800;
+            font-size:2rem;
+            letter-spacing: -0.04em;
+            color: #25EDBC;
+            text-align: center;
+            height: 150px;
+        }   
     }
     .block-left {
         position: relative;
