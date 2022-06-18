@@ -389,6 +389,23 @@
         align-items: center;
         padding-right: 0.5rem;
       }
+      .MuiLink-root.active::before {
+       content: "";
+       display: block;
+       width: 0px;
+       height: 0px;
+      //  border: 15px solid #393939;
+       border-bottom: 15px solid #393939;
+       border-left: 15px solid transparent;
+      //  border-top: 15px solid #393939;
+      //  border-right: 15px solid transparent;
+        width: 15px;
+        height: 15px;
+       position: absolute;
+       border-radius: 0 0 15px 0;
+       top: 0;
+       left: 9rem;
+      }
       svg {
         display: none !important;
       }
