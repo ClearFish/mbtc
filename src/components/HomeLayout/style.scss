@@ -2,10 +2,10 @@
     background: #040407;
 }
 .fixed-header {
-    // background-color: rgba(255, 255, 255, 0) !important;
-    background: transparent !important;
-    box-shadow: none !important;
-    // backdrop-filter: blur(6px);
+    background-color: rgba(255, 255, 255, 0) !important;
+    // background: transparent !important;
+    // box-shadow: none !important;
+    backdrop-filter: blur(6px);
     z-index: 999999;
     padding: 20px 0;
     .modile-enter-app-box {
@@ -44,9 +44,13 @@
     }
     .menu-icon {
         font-size: 2rem;
+        margin-left: 2rem;
+        color: #25EDBC;
     }
     .menu-icon-close {
         width: 2em;
+        color: #25EDBC;
+        margin-left: 2rem;
     }
 }
 .header-logo {
@@ -153,6 +157,7 @@
 }
 .isMobile {
     .bottom {
+        padding-top: 7vh;
         .header-left {
             display: block;
             margin-bottom: 1.5rem;
@@ -190,6 +195,12 @@
     }
     .headroom--unpinned {
         transform: translateY(-100%);
+    }
+    .logo_img {
+        width: 96px;
+        height: 121px;
+        // margin-top: 200px;
+        margin-bottom: 0vh;
     }
 }
 .is-hide {

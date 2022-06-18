@@ -3,7 +3,7 @@ import { ReactComponent as Telegram } from "../../assets/icons/telegram.svg";
 import { ReactComponent as Github } from "../../assets/icons/github.svg";
 import { ReactComponent as Medium } from "../../assets/icons/medium.svg";
 import { ReactComponent as Twitter } from "../../assets/icons/twitter.svg";
-import { ReactComponent as MBTCTalk } from "../../assets/icons/bitcoin.svg";
+// import { ReactComponent as MBTCTalk } from "../../assets/icons/bitcoin.svg";
 
 import React from "react";
 import { useLocation } from "react-router-dom";
@@ -16,11 +16,11 @@ const Social: React.FC = () => {
 
   return (
     <div className="social-row">
-      <div className="social-row-icon">
+      {/* <div className="social-row-icon">
         <Link href="https://metabitcointalk.com/" target="_blank" className="social-row-icon">
           <SvgIcon component={MBTCTalk} />
         </Link>
-      </div>
+      </div> */}
       <div className="social-row-icon">
         <Link href="https://twitter.com/MetaMBTC" target="_blank" className="social-row-icon">
           <SvgIcon component={Twitter} />

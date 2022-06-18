@@ -49,8 +49,8 @@
         position: absolute;
         bottom: 10px;
         left: 50%;
-        width: 750px;
-        margin-left: -375px;
+        width: 720px;
+        margin-left: -365px;
         .social-row {
             justify-content: center;
             .social-row-icon {
@@ -106,9 +106,12 @@
     font-family: 'PingFang SC';
     position: relative;
     overflow: hidden;
+    .block-left {
+        width: 44%;
+    }
     .diamond-img {
-        width: 647px;
-        height: 629px;
+        width: 100%;
+        height: auto;
         object-fit: cover;
         // max-height: 100vh;
         position: relative;
@@ -118,6 +121,7 @@
     .block-right {
         width: 55%;
         z-index: 10;
+        margin-left: 10px;
     }
     .wimb-text {
         width: 35rem;
@@ -257,7 +261,7 @@
     .explore_box {
         width: 100%;
         display: flex;
-        justify-content: flex-end;
+        justify-content: center;
         padding: 32px;
         margin-top: 30px;
         
@@ -274,7 +278,7 @@
         background-size: 100% 100%;
     }
     .block-title {
-        font-size: 3rem;
+        font-size: 2rem;
         font-family: PingFang SC;
         font-weight: 800;
         color: #FFFFFF;
@@ -903,6 +907,116 @@
         display: none;
     }
 }
+.other_box {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    // align-items: center;
+    padding-bottom: 0;
+    .partner_box {
+        width: 1170px;
+        height: 380px;
+        background: url("../../assets/images/parter_bg.png") no-repeat center;
+        background-size: cover;
+        padding: 10px;
+        border: 1px solid #25EDBC;
+        border-radius: 18px;
+        position: relative;
+        .block-title {
+            position: absolute;
+            left: 0px;
+            top: -10px;
+            line-height: initial;
+            color: #25EDBC;
+            padding: 5px 10px;
+            font-size: 78px;
+            // border:1px solid #25EDBC;
+        }
+        .MuiGrid-container {
+            padding-top: 70px;
+            .MuiGrid-item {
+                .block-partner {
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    img {
+                        width: 170px;
+                    }
+                }
+            }
+        }
+    }
+    .new_block_title {
+        line-height: inherit;
+        color: #fff;
+        font-size: 54px;;
+        margin-bottom: 40px;
+    }
+    .content_tainer {
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        .system_content {
+            text-align: center;
+            width: 733px;
+            color: #25EDBC;
+            font-size: 20px;
+        }
+    }
+    .system_nav {
+        width: 100%;
+        display: flex;
+        justify-content: space-around;
+        padding: 0 ;
+        margin: 0;
+        margin-top: 80px;
+        li {
+            list-style: none;
+            width: 372px;
+            height: 416px;
+            background: url("../../assets/images/Group_2843.png") no-repeat center;
+            background-size: 100% 100%;
+            .top {
+                display:flex;
+                justify-content: space-between;
+                align-items: center;
+                padding: 1px;
+                
+                .left {
+                    color: #fff;
+                    font-size: 24px;
+                    flex: 1;
+                    display: flex;
+                    justify-content: center;
+                    padding-top: 30px;
+                    align-items: center;
+                }
+                .right {
+                    width: 84px;
+                    height: 84px;
+                    background: url("../../assets/images/right1.png") no-repeat center;
+                    background-size: cover;
+                }
+                .right2 {
+                    background: url("../../assets/images/right2.png") no-repeat center;
+                    background-size: cover;
+                }
+                .right3 {
+                    background: url("../../assets/images/right3.png") no-repeat center;
+                    background-size: cover;
+                }
+            }
+            .bottom_content {
+                padding: 0;
+                margin: 0;
+                padding:0 20px;
+                color: #25EDBC;
+                margin-top: 5px;
+            }
+        }
+    }
+}
 .isMobile {
     .block1 {
         .meta-img {
@@ -947,8 +1061,11 @@
             overflow: hidden;
         }
         .diamond-img {
-            width: 150%;
-            margin-left: -50%;
+            // width: 150%;
+            // margin-left: -50%;
+            width: 100%;
+            height: auto;
+            margin-bottom: 70px;
         }
         .block-right {
             width: 100%;
@@ -961,10 +1078,10 @@
             width: 100%;
             font-size: 3.3rem;
             line-height: 3.3rem;
-            text-align: right !important;
+            text-align: center !important;
             margin-bottom: 2.6rem;
             &:after {
-                bottom: -0.6rem;
+                // bottom: -0.6rem;
             }
         }
         .bitcoin-list {
@@ -990,12 +1107,16 @@
     }
     .block3 {
         position: relative;
-        margin-top: -2rem;
+        margin-top: 2rem;
         .explore {
-            display: none;
+            // display: none;
         }
         .block-title {
             line-height: 10rem;
+            font-size: 30px;
+            &.explore  {
+                width: 300px;
+            }
         }
         .block-card {
             height: 260px;
@@ -1134,6 +1255,30 @@
                 }
             }
         }
+        .block-card {
+            height: 100px;
+            border-radius: 0;
+            .btcz-img {
+                width: 204px;
+                height: 177px;
+            }
+            .Fuel-img {
+                width: 272px;
+                height: 187px;
+            }
+            .NftMiner-img {
+                width: 211px;
+                height: 211px;
+            }
+            .NftMiner-img {
+                width: 230px;
+                height: 182px;
+            }
+            .card-title {
+                text-align: right;
+                // padding: 0;
+            }
+        }
     }
     .block4 {
         .card-img {
@@ -1185,50 +1330,18 @@
             }
         }
     }
-}
-.other_box {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    // align-items: center;
-    padding-bottom: 0;
-    .partner_box {
-        width: 1170px;
-        height: 380px;
-        background: url("../../assets/images/parter_bg.png") no-repeat center;
-        background-size: cover;
-        padding: 10px;
-        border: 1px solid #25EDBC;
-        border-radius: 18px;
-        position: relative;
+    .other_box {
+        margin-top: 3rem;
+        .system_nav {
+            flex-direction: column;
+            justify-content: center;
+             li {
+                margin-bottom: 10px;
+             }
+        }
         .block-title {
-            position: absolute;
-            left: 0px;
-            top: -10px;
-            line-height: initial;
-            color: #25EDBC;
-            padding: 5px 10px;
-            font-size: 78px;
-            // border:1px solid #25EDBC;
+            line-height: inherit;
+            font-size: 40px;
         }
-        .MuiGrid-container {
-            padding-top: 70px;
-            .MuiGrid-item {
-                .block-partner {
-                    display: flex;
-                    justify-content: center;
-                    align-items: center;
-                    img {
-                        width: 170px;
-                    }
-                }
-            }
-        }
-    }
-    .new_block_title {
-        line-height: inherit;
-        color: #25EDBC;
-        font-size: 78px;
-        margin-bottom: 40px;
     }
 }

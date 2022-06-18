@@ -91,7 +91,7 @@ export default function HomeLayout({ children }: { children: React.ReactNode }) 
                 </Link>
               ))}
             </Box>
-            <Box sx={{ flexGrow: 1, justifyContent: "flex-end", display: { xs: "flex", md: "none" } }}>
+            <Box sx={{ flexGrow: 1, justifyContent: "space-between", display: { xs: "flex", md: "none" } }}>
               {anchorElNav ? (
                 <Box onClick={handleCloseNavMenu}>
                   <img src={MenuClose} alt="MBTC" className="menu-icon-close" />
@@ -99,14 +99,6 @@ export default function HomeLayout({ children }: { children: React.ReactNode }) 
               ) : (
                 <MenuIcon aria-haspopup="true" onClick={handleOpenNavMenu} className="menu-icon"></MenuIcon>
               )}
-            </Box>
-            <Box sx={{ flexGrow: 1, justifyContent: "flex-end", display: { xs: "none", md: "flex" } }}>
-              <LocaleSwitcher
-                initialLocale={i18n.locale}
-                locales={locales}
-                onLocaleChange={selectLocale}
-                label={i18n.locale}
-              />
               <Link
                 href="http://localhost:3000/#/dashboard"
                 underline="none"
@@ -116,6 +108,27 @@ export default function HomeLayout({ children }: { children: React.ReactNode }) 
                 <Button variant="contained" className="header-btn">
                   {t`Enter App`}
                 </Button>
+              </Link>
+            </Box>
+            <Box sx={{ flexGrow: 1, justifyContent: "flex-end", display: { xs: "none", md: "flex" } }}>
+              <LocaleSwitcher
+                initialLocale={i18n.locale}
+                locales={locales}
+                onLocaleChange={selectLocale}
+                label={i18n.locale}
+              />
+              {/* "https://app.meta-btc.org/#/dashboard */}
+              <Link
+                href="http://localhost:3000/#/dashboard"
+                underline="none"
+                target="_blank"
+                style={{ marginLeft: "1rem" }}
+              >
+                <Link href="http://localhost:3000/#/dashboard" underline="none" target="_blank">
+                  <Button variant="contained" className="header-btn">
+                    {t`Enter App`}
+                  </Button>
+                </Link>
               </Link>
             </Box>
           </Toolbar>
@@ -130,13 +143,13 @@ export default function HomeLayout({ children }: { children: React.ReactNode }) 
                   </Box>
                 ))}
               </Box>
-              <Box className="modile-enter-app-box">
+              {/* <Box className="modile-enter-app-box">
                 <Link href="https://app.meta-btc.org/#/dashboard" underline="none" target="_blank">
                   <Button variant="contained" className="header-btn">
                     {t`Enter App`}
                   </Button>
                 </Link>
-              </Box>
+              </Box> */}
             </Collapse>
           </Box>
         </Container>
@@ -159,14 +172,18 @@ export default function HomeLayout({ children }: { children: React.ReactNode }) 
             display: isSmallScreen ? "block" : "flex",
             justifyContent: "space-between",
             alignItems: "center",
-            borderTop: "1px solid #fff",
+            borderTop: isSmallScreen || isVerySmallScreen ? "none" : "1px solid #fff",
           }}
         >
           <div className="header-left">
-            <img src={isFoundation ? LogoCoin : Logo} alt="MBTC" className="header-logo" />
+            {!isSmallScreen ? <img src={isFoundation ? LogoCoin : Logo} alt="MBTC" className="header-logo" /> : null}
             <Link href="#/home" underline="none">
               {/* <Typography variant="h6">{t`MBTC`}</Typography> */}
-              <img src={companyLogo} className="header-company_logo" />
+              <img
+                src={companyLogo}
+                className="header-company_logo"
+                style={{ marginLeft: isSmallScreen ? "0" : "3rem", marginBottom: isSmallScreen ? "1rem" : "0rem" }}
+              />
             </Link>
             <Link href="#/economy" underline="none">
               <Typography variant="h6">{t`Economy`}</Typography>

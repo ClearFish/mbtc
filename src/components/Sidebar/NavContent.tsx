@@ -6,7 +6,7 @@ import { Box, Divider, Link, Paper, SvgIcon } from "@material-ui/core";
 import { NavItem } from "@olympusdao/component-library";
 import React from "react";
 
-import { ReactComponent as MBTCIcon } from "../../assets/icons/mbtc-logo-gold.svg";
+import { ReactComponent as MBTCIcon } from "../../assets/icons/Vector.svg";
 import Social from "./Social";
 
 type NavContentProps = {
@@ -24,7 +24,7 @@ const NavContent: React.FC<NavContentProps> = ({ handleDrawerToggle }) => {
                 color="primary"
                 component={MBTCIcon}
                 viewBox="0 0 85 61"
-                style={{ minWidth: "63px", minHeight: "46px", width: "63px" }}
+                style={{ minWidth: "77px", minHeight: "66px", width: "77px" }}
               />
             </Link>
             {/* <WalletAddressEns /> */}

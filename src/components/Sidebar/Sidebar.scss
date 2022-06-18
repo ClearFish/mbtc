@@ -33,6 +33,11 @@
     // background: url(../../assets/images/side-bg.png) no-repeat center;
     // background-size: calc(100% - 4px) calc(100% - 4px);
     background: #393939;
+    background: linear-gradient(116.29deg, #393939 -29.94%, rgba(255, 255, 255, 0.26) -29.93%, rgba(255, 255, 255, 0.15) 101.76%);
+    backdrop-filter: blur(100px);
+    /* Note: backdrop-filter has minimal browser support */
+
+    border-radius: 10px;
   }
 
   .dapp-menu-social {
@@ -92,7 +97,7 @@
   width: 100%;
   align-items: center;
   text-decoration: none;
-  margin: 50px 0 10px 0;
+  margin: 30px 0 10px 0;
 
   .branding-header-icon {
     width: 50px;
@@ -130,6 +135,7 @@
   .dapp-nav {
     display: flex;
     flex-flow: column;
+    
   }
 }
 
@@ -305,14 +311,14 @@
   .dapp-nav {
     display: flex;
     flex-direction: row;
-    align-items: center;
+    align-items: flex-end;
     margin-top: 2rem;
     .menu-divider {
       display: none;
     }
     .nav-item-container {
-      width: 8rem;
-      height: 6rem;
+      width: 10rem;
+      height: 3rem;
       margin-left: 0;
       margin-right: 0;
       line-height: 24px;
@@ -333,8 +339,14 @@
         height: 100%;
         box-sizing: border-box;
         transition: background .1s ease-in-out;
+        display: flex;
+        // justify-content: flex-end;
+        align-items: center;
+        padding-right: 0.5rem;
+        
         .MuiTypography-h6 {
-          margin-top: 3.2rem;
+          // margin-top: 3.2rem;
+          margin-left: 2.5rem;
           text-align: center;
           &>.MuiBox-root>div {
             width: 100%;
@@ -350,21 +362,32 @@
           margin-right: 24px;
           display: block;
           position: absolute;
-          left: 0;
-          right: 0;
-          top: 1.2rem;
+          left: 0.5rem;
+          // right: 0;
+          // top: 1.2rem;
           margin: auto;
           background: no-repeat center;
 
           background-size: 24px 24px;
         }
       }
+      .MuiLink-roo{
+        display: flex;
+        justify-content: flex-end;
+        align-items: center;
+        padding-right: 0.5rem;
+      }
       .MuiLink-root.active {
         text-decoration: none;
         color: #F4D092;
-        background: linear-gradient(189.98deg, rgba(36, 6, 73, 0.8) 18.7%, rgba(90, 29, 191, 0.584) 87.28%);
-        box-shadow: inset 0px 1px 3px rgba(219, 174, 255, 0.65);
-        border-radius: 20px;
+        // background: linear-gradient(189.98deg, rgba(36, 6, 73, 0.8) 18.7%, rgba(90, 29, 191, 0.584) 87.28%);
+        // box-shadow: inset 0px 1px 3px rgba(219, 174, 255, 0.65);
+        background: #000;
+        border-radius: 15px 0 0 15px;
+        display: flex;
+        // justify-content: flex-end;
+        align-items: center;
+        padding-right: 0.5rem;
       }
       svg {
         display: none !important;

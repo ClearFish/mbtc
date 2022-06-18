@@ -268,7 +268,7 @@ export function Home() {
         <Box className="social-link top_socia_link" display="flex" justifyContent="flex-start" flexDirection="column">
           <div className="txt_container">
             <Typography className="mbtc-txt">
-              <Trans>The Next Generation Crypto Providing a Cross-chain Trust Standard in the Metaverse</Trans>
+              <Trans>Bitcoin zero is an innovative payment network and a new kind of money.</Trans>
             </Typography>
           </div>
           <Social />
@@ -281,7 +281,7 @@ export function Home() {
             paddingRight: isSmallScreen || isVerySmallScreen ? "1rem" : "3rem",
             paddingTop: isSmallScreen || isVerySmallScreen ? "2rem" : "6rem",
             display: isSmallScreen ? "block" : "flex",
-            justifyContent: "flex-end",
+            justifyContent: "space-between",
             alignItems: "center",
           }}
         >
@@ -326,8 +326,8 @@ export function Home() {
       <div className="block3">
         <Container
           style={{
-            paddingLeft: isSmallScreen || isVerySmallScreen ? "1rem" : "3rem",
-            paddingRight: isSmallScreen || isVerySmallScreen ? "1rem" : "3rem",
+            paddingLeft: isSmallScreen || isVerySmallScreen ? "0rem" : "3rem",
+            paddingRight: isSmallScreen || isVerySmallScreen ? "0rem" : "3rem",
             paddingTop: isSmallScreen || isVerySmallScreen ? "0rem" : "4rem",
           }}
         >
@@ -398,7 +398,7 @@ export function Home() {
         </Container>
       </div>
       <div className="block3 other_box">
-        <Container
+        {/* <Container
           style={{
             paddingLeft: isSmallScreen || isVerySmallScreen ? "1rem" : "3rem",
             paddingRight: isSmallScreen || isVerySmallScreen ? "1rem" : "3rem",
@@ -419,7 +419,7 @@ export function Home() {
               ))}
             </Grid>
           </div>
-        </Container>
+        </Container> */}
         <Container
           style={{
             paddingLeft: isSmallScreen || isVerySmallScreen ? "1rem" : "3rem",
@@ -428,9 +428,58 @@ export function Home() {
           }}
         >
           <Typography variant="h4" align="center" className="block-title new_block_title">
-            {t`Roadmap`}
+            {t`Innovation in Payment Systems`}
           </Typography>
-          <Grid container className={isSmallScreen ? "transfored" : "roadmap"}>
+          <div className="content_tainer">
+            <p className="system_content">
+              BTCZ isn't just about sending money. It has many features and opens many possibilities that the community
+              is still exploring. Here are some of the technologies currently being researched, and in some cases, being
+              turned into real products and services. The most interesting uses of Bitcoin zero are probably still to be
+              discovered.
+            </p>
+          </div>
+          <ul className="system_nav">
+            <li>
+              <div className="top">
+                <div className="left">Control against fraud</div>
+                <div className="right"></div>
+              </div>
+              <p className="bottom_content">
+                An unprecedented level of security is possible with Bitcoin zero. The network provides users with
+                protection against most prevalent types of fraud like chargebacks or unwanted charges, and bitcoins are
+                impossible to counterfeit. Users can backup or encrypt their wallets. Hardware wallets make it very
+                difficult to steal or lose money. Bitcoin is designed to allow its users to have complete control over
+                their money.
+              </p>
+            </li>
+            <li>
+              <div className="top">
+                <div className="left">Global accessibility</div>
+                <div className="right right2"></div>
+              </div>
+              <p className="bottom_content">
+                With Bitcoin zero, all payments in the world can be fully interoperable. Bitcoin allows any bank,
+                business or individual to securely send and receive payments anywhere at any time, with or without a
+                bank account. Bitcoin is available in a large number of countries that still remain out of reach for
+                most payment systems due to their own limitations. Bitcoin increases global access to commerce and it
+                can help international trades to flourish.
+              </p>
+            </li>
+            <li>
+              <div className="top">
+                <div className="left">Cost efficiency</div>
+                <div className="right right3"></div>
+              </div>
+              <p className="bottom_content">
+                With the use of cryptography, secure payments are possible without slow and costly middlemen. A Bitcoin
+                transaction can be much cheaper than its alternatives and be completed in a short time. This means
+                Bitcoin holds some potential to become a common way to transfer any currency in the future. BTCZ could
+                also play a role in reducing poverty in many countries by cutting high transaction fees on workers'
+                salary.
+              </p>
+            </li>
+          </ul>
+          {/* <Grid container className={isSmallScreen ? "transfored" : "roadmap"}>
             {(isSmallScreen ? roadMap : transforedRoadMap).map(item => {
               return (
                 <Grid item xs={isSmallScreen ? 12 : item.grid}>
@@ -447,7 +496,7 @@ export function Home() {
                 </Grid>
               );
             })}
-          </Grid>
+          </Grid> */}
         </Container>
       </div>
     </div>
