@@ -1,6 +1,6 @@
 // eslint-disable-next-line simple-import-sort/imports
 import "./style.scss";
-import { useLocation } from "react-router-dom";
+import { useLocation, useHistory } from "react-router-dom";
 import { useEffect } from "react";
 import { t } from "@lingui/macro";
 import Logo from "../../assets/images/Vector.png";
@@ -34,7 +34,7 @@ export default function HomeLayout({ children }: { children: React.ReactNode }) 
   const isVerySmallScreen = useMediaQuery("(max-width: 379px)");
   const location = useLocation();
   const isFoundation = location.pathname === "/foundation";
-
+  const history = useHistory();
   const [zoomed, setZoomed] = useState(false);
 
   const [anchorElNav, setAnchorElNav] = useState(false);
@@ -52,7 +52,9 @@ export default function HomeLayout({ children }: { children: React.ReactNode }) 
   const handleCloseNavMenu = () => {
     setAnchorElNav(false);
   };
-
+  const goHome = () => {
+    history.push("/home");
+  };
   const links = [
     // {
     //   name: t`MBTC`,
@@ -79,7 +81,7 @@ export default function HomeLayout({ children }: { children: React.ReactNode }) 
         >
           <Toolbar disableGutters>
             <Typography variant="h6" noWrap style={{ lineHeight: 1 }}>
-              <img src={isFoundation ? LogoCoin : Logo} alt="MBTC" className="header-logo" />
+              <img src={isFoundation ? LogoCoin : Logo} alt="MBTC" className="header-logo" onClick={goHome} />
             </Typography>
             <Box sx={{ flexGrow: 1, display: { xs: "none", md: "flex" } }}>
               <Link href="#/home" underline="none" onClick={handleCloseNavMenu}>
@@ -100,7 +102,7 @@ export default function HomeLayout({ children }: { children: React.ReactNode }) 
                 <MenuIcon aria-haspopup="true" onClick={handleOpenNavMenu} className="menu-icon"></MenuIcon>
               )}
               <Link
-                href="http://localhost:3000/#/dashboard"
+                href="https://app.meta-btc.org/#/dashboard"
                 underline="none"
                 target="_blank"
                 style={{ marginLeft: "1rem" }}
@@ -119,12 +121,12 @@ export default function HomeLayout({ children }: { children: React.ReactNode }) 
               />
               {/* "https://app.meta-btc.org/#/dashboard */}
               <Link
-                href="http://localhost:3000/#/dashboard"
+                href="https://app.meta-btc.org/#/dashboard"
                 underline="none"
                 target="_blank"
                 style={{ marginLeft: "1rem" }}
               >
-                <Link href="http://localhost:3000/#/dashboard" underline="none" target="_blank">
+                <Link href="https://app.meta-btc.org/#/dashboard" underline="none" target="_blank">
                   <Button variant="contained" className="header-btn">
                     {t`Enter App`}
                   </Button>

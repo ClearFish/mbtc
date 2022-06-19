@@ -247,8 +247,10 @@
             font-family: PingFang SC;
             font-weight: bold;
             color: #FFFFFF;
-            line-height: 45px;
-            padding: 1rem 1.6rem;
+            line-height: 28px;
+            width: 140px;
+            text-align: right;
+            // padding: 1rem 1.6rem;
         }
         &:hover {
             transform: scale(1.05);
@@ -1019,6 +1021,11 @@
 }
 .isMobile {
     .block1 {
+        background: url("../../assets/images/home_phone.gif") center no-repeat;
+        background-size: cover;
+        .top_socia_link {
+            bottom: 50px;
+        }
         .meta-img {
             margin: auto;
             margin-top: 2rem;
@@ -1032,7 +1039,18 @@
             margin-bottom: 3rem;
         }
         .social-link {
-            display: none;
+            display: block;
+            width: 100%;
+            // padding: 0 0.5rem;
+            left: 0;
+            margin-left: 0;
+            .txt_container {
+                padding: 0 2.2rem;
+                box-sizing: border-box;
+            }
+            .MuiTypography-root {
+                margin-right: 0;
+            }
         }
         .coin-vedio {
             position: inherit;
@@ -1042,8 +1060,8 @@
             display: flex;
             align-items: center;
             text-align: center;
-            font-size: 1.3rem;
-            line-height: 1.5rem;
+            font-size: 1.5rem;
+            line-height: 1.7rem;
             position: static;
         }
         &.economy {
@@ -1059,6 +1077,7 @@
             right: 0;
             top: 0;
             overflow: hidden;
+            margin: 0 auto;
         }
         .diamond-img {
             // width: 150%;
@@ -1076,7 +1095,7 @@
         .wimb-text {
             height: auto;
             width: 100%;
-            font-size: 3.3rem;
+            font-size: 3rem;
             line-height: 3.3rem;
             text-align: center !important;
             margin-bottom: 2.6rem;
@@ -1335,6 +1354,7 @@
         .system_nav {
             flex-direction: column;
             justify-content: center;
+            align-items: center;
              li {
                 margin-bottom: 10px;
              }

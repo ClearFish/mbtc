@@ -28,6 +28,7 @@ tests/e2e/videos
 
 # production
 build
+btc-z
 
 # misc
 .DS_Store

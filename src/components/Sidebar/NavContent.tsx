@@ -35,7 +35,7 @@ const NavContent: React.FC<NavContentProps> = ({ handleDrawerToggle }) => {
               <NavItem to="/dashboard" icon="dashboard" label={t`Dashboard`} underline="none" />
               <NavItem to="/mine" icon="dashboard" label={t`Mine`} underline="none" />
               <NavItem to="/pool" icon="dashboard" label={t`Pool`} underline="none" />
-              <NavItem to="/mint" icon="dashboard" label={t`Mint`} underline="none" />
+              {/* <NavItem to="/mint" icon="dashboard" label={t`Mint`} underline="none" /> */}
               <NavItem to="/market" icon="dashboard" label={t`NFT Market`} underline="none" />
               <Box className="menu-divider">
                 <Divider />

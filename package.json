@@ -146,7 +146,8 @@
     "typechain": "^6.0.2"
   },
   "scripts": {
-    "build": "GENERATE_SOURCEMAP=false react-scripts build",
+    "build": "react-scripts build",
+    "buildnomap":"set GENERATE_SOURCEMAP=false&& yarn build",
     "eject": "react-scripts eject",
     "start": "react-scripts start",
     "test": "react-scripts test",

@@ -351,6 +351,10 @@
           &>.MuiBox-root>div {
             width: 100%;
           }
+          &:hover {
+            color: #25EDBC;
+            ;
+          }
         }
         &::after {
           content: '';
@@ -371,41 +375,25 @@
           background-size: 24px 24px;
         }
       }
-      .MuiLink-roo{
-        display: flex;
-        justify-content: flex-end;
-        align-items: center;
-        padding-right: 0.5rem;
-      }
+      // .MuiLink-root{
+      //   display: flex;
+      //   justify-content: flex-end;
+      //   align-items: center;
+      //   padding-right: 0.5rem;
+      // }
       .MuiLink-root.active {
         text-decoration: none;
-        color: #F4D092;
+        color: #fff;
         // background: linear-gradient(189.98deg, rgba(36, 6, 73, 0.8) 18.7%, rgba(90, 29, 191, 0.584) 87.28%);
         // box-shadow: inset 0px 1px 3px rgba(219, 174, 255, 0.65);
         background: #000;
-        border-radius: 15px 0 0 15px;
+        border-radius: 10px 0 0 10px;
         display: flex;
         // justify-content: flex-end;
         align-items: center;
         padding-right: 0.5rem;
       }
-      .MuiLink-root.active::before {
-       content: "";
-       display: block;
-       width: 0px;
-       height: 0px;
-      //  border: 15px solid #393939;
-       border-bottom: 15px solid #393939;
-       border-left: 15px solid transparent;
-      //  border-top: 15px solid #393939;
-      //  border-right: 15px solid transparent;
-        width: 15px;
-        height: 15px;
-       position: absolute;
-       border-radius: 0 0 15px 0;
-       top: 0;
-       left: 9rem;
-      }
+
       svg {
         display: none !important;
       }
@@ -414,10 +402,9 @@
       &:nth-child(1) .button-dapp-menu {
         &:after {
           background-image: url(../../assets/icons/dashboard.svg);
-          
         }
         &:hover:after, &.active:after {
-          background-image: url(../../assets/icons/dashboard_active.svg);
+          background-image: url(../../assets/icons/analysis.svg);
         }
       }
 
@@ -435,25 +422,25 @@
           background-image: url(../../assets/icons/pool.svg);
         }
         &:hover:after, &.active:after {
-          background-image: url(../../assets/icons/pool_active.svg);
+          background-image: url(../../assets/icons/Polygon_new.svg);
         }
       }
+
+      // &:nth-child(4) .button-dapp-menu {
+      //   &:after {
+      //     background-image: url(../../assets/icons/mint.svg);
+      //   }
+      //   &:hover:after, &.active:after {
+      //     background-image: url(../../assets/icons/analysis.svg);
+      //   }
+      // }
 
       &:nth-child(4) .button-dapp-menu {
-        &:after {
-          background-image: url(../../assets/icons/mint.svg);
-        }
-        &:hover:after, &.active:after {
-          background-image: url(../../assets/icons/mint_active.svg);
-        }
-      }
-
-      &:nth-child(5) .button-dapp-menu {
         &:after {
           background-image: url(../../assets/icons/market.svg);
         }
         &:hover:after, &.active:after {
-          background-image: url(../../assets/icons/market_active.svg);
+          background-image: url(../../assets/icons/Lock.svg);
         }
       }
 
@@ -470,6 +457,36 @@
         font-size: 20px;
         line-height: 24px;
       }
+      .MuiLink-root.active>.MuiTypography-h6::before {
+        content: "";
+        display: block;
+        width: 0px;
+        height: 0px;
+        border-bottom: 5px solid #000;
+        border-left: -1px solid transparent;
+         width: 15px;
+         height: 15px;
+        position: absolute;
+        border-radius: 0 0 15px 0;
+        top: -9px;
+        left: 9.23rem;
+        z-index: 10;
+       }
+       .MuiLink-root.active>.MuiTypography-h6::after {
+        content: "";
+        display: block;
+        width: 0px;
+        height: 0px;
+        border-top: 5px solid #000;
+        border-right: -1px solid transparent;
+         width: 15px;
+         height: 15px;
+        position: absolute;
+        border-radius: 0 15px 0 0;
+        bottom: -10px;
+        left: 9.25rem;
+        z-index: 10;
+       }
     }
   }
 }
